@@ -5,6 +5,7 @@ import Footer from "../components/Footer.astro";
 
 import { formatDate } from "../utils";
 import { SITE_LANG} from "../consts";
+import 'gitalk/dist/gitalk.css';
 const { frontmatter } = Astro.props;
 const type = frontmatter.tags[0];
 const { pubDate, title, description, featured } = frontmatter;
@@ -14,11 +15,99 @@ const dateFormated = formatDate(pubDate);
 <html lang={SITE_LANG} dir="ltr" class="js no-touch progressive-image no-reduced-motion progressive">
   <head>
     <BaseHead frontmatter={frontmatter}/>
+    <script>
+      window.onload = function() {
+        var images = document.getElementsByTagName("img");
+        var body = document.body;
+        
+        for (var i = 0; i < images.length; i++) {
+          var image = images[i];
+          // 判断图片是否包含 "cover" 和 "image" 类名
+          if (image.classList.contains("cover") && image.classList.contains("image")) {
+            continue; // 跳过该图片，不执行弹出窗口的代码
+          }
+          image.addEventListener("click", function() {
+            var div = document.createElement("div");
+            div.style.position = "fixed";
+            div.style.top = "0";
+            div.style.left = "0";
+            div.style.width = "100%";
+            div.style.height = "100%";
+            div.style.backgroundColor = "rgba(255, 255, 255, 0.65)";
+            div.style.zIndex = "9999";
+            
+            var img = document.createElement("img");
+            img.style.position = "absolute";
+            img.style.top = "50%";
+            img.style.left = "50%";
+            img.style.transform = "translate(-50%, -50%)";
+            img.style.maxWidth = "90%";
+            img.style.maxHeight = "90%";
+            img.style.borderRadius = "10px";
+            img.src = this.src;
+            
+            div.appendChild(img);
+            body.appendChild(div);
+            
+            div.addEventListener("click", function(event) {
+              if (event.target === div) {
+                body.removeChild(div);
+              }
+            });
+          });
+        }
+      };
+    </script>
   </head>
   <body class:list={["page-article", { "theme-dark": frontmatter.theme === "dark" }]}>
     <Header />
     <main id="main" class="main">
+      <dialog id="phoneSuggestion">
+        <div class="dialog-content">
+          <p
+            style="font-size: 30px; 
+                font-weight: Bolder;
+                color: #000000;
+                border-radius: 15px;
+                padding: 20px;
+                background-color: #ffffff51;
+                box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);"
+          >
+            July.cc Blogs
+          </p>
+          <p></p>
+          <p style="font-size: 20px;">本篇文章</p>
+          <p style="font-size: 18px; text-align: center;">
+            手机用户建议<br />PC模式 或 横屏<br />阅读
+          </p>
+          <p></p>
+          <button class="dialog-button">确认</button>
+        </div>
+      </dialog>
+      <script>
+        window.onload = function () {
+          // 获取要检查的元素
+          var elem = document.getElementById("pcMode");
+    
+          // 检查元素是否存在且是否被隐藏
+          if (elem) {
+            // 在 dialog 中显示提示信息
+            var pcModeDialog = document.getElementById("phoneSuggestion");
+            pcModeDialog.showModal();
+    
+            // 监听确认按钮点击事件
+            pcModeDialog
+              .querySelector(".dialog-button")
+              .addEventListener("click", function () {
+                // 关闭弹窗
+                pcModeDialog.close();
+              });
+          }
+        };
+      </script>
+      
       <section>
+        
         <article class="article">
           <div class:list={[{ "featured-header": featured, "article-header": !featured }]}>
             <div class="category component">
@@ -64,6 +153,22 @@ const dateFormated = formatDate(pubDate);
             </div>
           </div>
         </article>
+        <div id="gitalk-container"></div>
+        <script>
+          import Gitalk from 'gitalk';
+      
+          const gitalk = new Gitalk({
+              clientID: '0c4d13aa9a4a6440b432',
+              clientSecret: 'c72866174280de49fb3a2e20eb4f4dcbcd804050',
+              repo: 'gitalk_blog',      // The repository of store comments,
+              owner: 'DxytJuly3',
+              admin: ['DxytJuly3'],
+              id: location.pathname,      // Ensure uniqueness and length less than 50
+              distractionFreeMode: false  // Facebook-like distraction free mode
+          })
+      
+          gitalk.render('gitalk-container')
+        </script>
       </section>
     </main>
     <Footer />
