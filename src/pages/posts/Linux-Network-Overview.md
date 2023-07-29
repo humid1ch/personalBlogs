@@ -232,7 +232,7 @@ OSI 七层模型是一种 **框架性的设计方法**，其最主要的功能�
 
 它的最大优点是将服务、接口和协议这三个概念明确地区分开来，概念清楚，理论也比较完整. 通过七个层次化的结构模型使不同的系统不同的网络之间实现可靠的通讯;
 
-![ |big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/2023-06-08_22-48.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/2023-06-08_22-48.png)
 
 OSI 七层模型在框架上 逻辑设计上 是十分的优秀的. 
 
@@ -268,7 +268,7 @@ TCP/IP 通讯协议采用了 5层的层级结构，每一层都呼叫它的下�
 
 即使TCP/IP网络协议栈是 5层的, 但是也可以对应 OSI七层模型:
 
-![|big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230515224404521.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230515224404521.png)
 
 而一般网络开发的情况下, 物理层考虑的比较少. 因此很多时候也可以称为 **`TCP/IP四层模型`**
 
@@ -289,7 +289,7 @@ TCP/IP 通讯协议采用了 5层的层级结构，每一层都呼叫它的下�
 
 首先可以从一张图来表述: 
 
-![|big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230516223515037.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230516223515037.png)
 
 这张图 表述的内容 其实是 **`网络中不同层级的协议 其实是操作系统整个体系中各个部分中的一个模块`**.
 
