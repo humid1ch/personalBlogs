@@ -7239,12 +7239,13 @@ li .code pre {
 
 .article-copyright {
   background-color: #f5f5f7;
-  border-radius: 10px;
-  display: flex;
+  border-radius: 15px;
+  display: inline-flex;
   flex-direction: column;
-  margin: 0;
+  margin: auto;
   padding: 10px 0px;
-  font-size: 14px;
+  font-size: 12px;
+  text-align: center;
 }
 
 .theme-dark .article-copyright {

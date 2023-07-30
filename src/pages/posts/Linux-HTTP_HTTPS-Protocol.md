@@ -188,7 +188,7 @@ featured: false
 
 2. 第二部分由多行组成:
 
-    **请求报头**, 内容是请求的各种属性. 每行结构为:`key: value`. `:`后必须有一个空格
+    **请求报头**, 内容是请求的各种属性. 每行结构为:`key: value`. 
 
     ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307291017682.png)
 
@@ -224,7 +224,7 @@ featured: false
 
 2. 第二部分同样由多行组成:
 
-    **响应报头**, 内容是响应正文的各种属性. 每行结构为:`key: value`. `:`后必须有一个空格
+    **响应报头**, 内容是响应正文的各种属性. 每行结构为:`key: value`.
 
     ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307291038451.png)
 
@@ -503,3 +503,327 @@ featured: false
     ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307291754534.png)
 
 ## 给服务器添加`http`响应
+
+上面我们已经可以使用`http`协议向服务器发送请求了.
+
+但是, 因为服务器没有任何的响应, 所以网页是打不开的 没有任何的数据.
+
+但是`http`协议的响应格式已经介绍过了, 我们可以按照格式向连接到服务器的客户端进行`http`协议响应
+
+首先可以简单地扩展一下 `tcpServer.hpp`中`handlerHttpRequest()`函数的内容:
+
+```cpp
+void handlerHttpRequest(int sock) {
+    char buffer[1024];
+    ssize_t s = read(sock, buffer, sizeof buffer - 1);
+    if (s > 0) {
+        std::cout << buffer << std::endl;
+    }
+
+    std::string response;
+    // 响应行
+    response += "HTTP/1.1 200 OK\r\n";
+    // 不添加其他报头
+    response += "\r\n";
+
+    response += "Hello World!";
+
+    send(sock, response.c_str(), response.size(), 0);
+}
+```
+
+然后重新编译启动服务器, 在访问服务器:
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307300958632.gif)
+
+此时就可以看到客户端已经可以接收到服务器相应的资源了.
+
+除了一个简单的字符串, 还可以响应`html`格式的文本, 让浏览器以`html`的渲染显示内容; 还可以直接响应一个文件, 让浏览器渲染展示文件内容.
+
+### 响应`html`文本
+
+还是只扩展`handlerHttpRequest()`函数
+
+```cpp
+void handlerHttpRequest(int sock) {
+    char buffer[1024];
+    ssize_t s = read(sock, buffer, sizeof buffer - 1);
+    if (s > 0) {
+        std::cout << buffer << std::endl;
+    }
+
+    std::string response;
+    // 响应行
+    response += "HTTP/1.1 200 OK\r\n";
+    // 不添加其他报头
+    response += "\r\n";
+
+    response += "<html><head><meta charset="utf-8"><title>HELLO</title></head><body><h1>标题 HELLO WORLD</h1><p>段落 hello world</p></body></html>";
+
+    send(sock, response.c_str(), response.size(), 0);
+}
+```
+
+这里使用`html`语法, 设置了: 
+
+1. 网页编码: `utf-8`
+2. 网页`title`: `HELLO`
+3. 内容1级标题: `标题 HELLO WORLD`
+4. 段落: `段落 hello world`
+
+此时, 编译服务器并打开服务器, 再访问服务器:
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307301035210.gif)
+
+可以看到, 浏览器已经可以按照`html`内容渲染网页.
+
+不过, 因为我们没有指定发送的有效载荷的内容是什么类型的, 所以有些浏览器可能不知道有效载荷内容的类型, 没有办法把`html`渲染出来.
+
+所以, 我们还可以在报头部分, 添加内容类型为`text/html`: `Centent-Type: text/html\r\n`
+
+```cpp
+void handlerHttpRequest(int sock) {
+    char buffer[1024];
+    ssize_t s = read(sock, buffer, sizeof buffer - 1);
+    if (s > 0) {
+        std::cout << buffer << std::endl;
+    }
+
+    std::string response;
+    // 响应行
+    response += "HTTP/1.1 200 OK\r\n";
+    // 添加内容类型
+    response += "Centent-Type: text/html\r\n";
+    response += "\r\n";
+
+    response += "<html><head><meta charset="utf-8"><title>HELLO</title></head><body><h1>标题 HELLO WORLD</h1><p>段落 hello world</p></body></html>";
+
+    send(sock, response.c_str(), response.size(), 0);
+}
+```
+
+然后, 可以先使用GET方法获取一下响应内容, 然后再用浏览器访问:
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307301601737.gif)
+
+这里就指定了发送的有效载荷的内容是什么类型的了. 
+
+> 现在的浏览器都会自动识别一些常用的格式类型
+
+除了正文内容的类型, 为保证获取正文内容完整 还需要再报头中添加一个属性: `Content-Length`, 来指明正文内容的长度.
+
+所以, 这里的函数还需要改为:
+
+```cpp
+void handlerHttpRequest(int sock) {
+    char buffer[1024];
+    ssize_t s = read(sock, buffer, sizeof buffer - 1);
+    if (s > 0) {
+        std::cout << buffer << std::endl;
+    }
+
+    std::string response;
+    std::string html = "<html><head><meta charset=\"utf-8\"><title>HELLO</title></head><body><h1>标题 HELLO WORLD</h1><p>段落 hello world</p></body></html>";
+    // 响应行
+    response += "HTTP/1.1 200 OK\r\n";
+    // 正文内容类型
+    response += "Content-Type: text/html\r\n";
+    // 正文长度
+    response += ("Content-Length: " + std::to_string(html.size()) + "\r\n");
+    response += "\r\n";
+
+    response += html;
+
+    send(sock, response.c_str(), response.size(), 0);
+}
+```
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307301112321.gif)
+
+### 响应文件内容
+
+上面相应的正文内容, 都是直接在`response`字符串中添加的.
+
+但是实际的开发中, 正文内容肯定不是直接添加的 正文内容几乎都是从文件中读取的.
+
+因为, 服务器开发都是后端的事情, 如果要显示一个`html`网页 那是前端要做的内容. 如果用户要打开网页, 服务器要做的就是根据用户的请求找到相应的文件并打开. 然后再响应回用户
+
+所以, 要响应文件内容的步骤就是:
+
+1. 服务器接收到 文件资源的请求
+2. 服务器从请求中获取文件路径
+3. 服务器打开文件
+4. 服务器读取文件内容
+5. 服务器把文件内容添加在响应中
+6. 服务器响应客户端
+
+那么, 问题就来了: 
+
+1. 如何获取文件路径?
+
+    这个简单, `http`协议的请求中, 第一行的第二个字段一般就表示需要请求的文件资源的路径
+
+2. 如何读取文件的内容?
+
+    这个也很简单, 无论是C语言还是C++ 都提供有文件的相关操作. 只需要按照一定的格式打开并读取就可以了
+
+`http`协议请求的第一行的第二个字段表示需要请求的资源的路径. 一般是`/dir/index.html`的形式, 第一个`/`表示`web根目录`而不是系统的根目录
+
+我们可以创建一个`wwwRoot`目录, 然后再获取请求中 文件资源的路径时, 将此路径添加到文件资源路径之前, 就获取了`web根目录`下的某个资源
+
+响应文件, 获取资源路径和读取文件的操作, 可以分开写两个函数:
+
+```cpp
+#define CRLF "\r\n"
+#define SPACE " "
+#define SPACE_LEN strlen(SPACE)
+#define HOME_PAGE "index.html"
+#define ROOT_PATH "wwwRoot"
+
+std::string getPath(std::string httpRequest) {
+    // 要从请求的第一行获取资源路径
+    // 所以要先找到请求的第一个`\r\n`
+    std::size_t pos = httpRequest.find(CRLF);
+    if (pos == std::string::npos) {
+        return "";
+    }
+    // 找到第一行结尾之后, 就可以获取第一行的内容了
+    std::string requestFirstLine = httpRequest.substr(0, pos);
+    // 获取第一行的内容之后, 取两个空格, 空格之间的内容即为路径
+    std::size_t firstSpacePos = requestFirstLine.find_first_of(SPACE);
+    if (firstSpacePos == std::string::npos) {
+        return "";
+    }
+    std::size_t secondSpacePos = requestFirstLine.find_last_of(SPACE);
+    if (secondSpacePos == std::string::npos) {
+        return "";
+    }
+
+    std::string path = requestFirstLine.substr(firstSpacePos + SPACE_LEN, secondSpacePos - (firstSpacePos + SPACE_LEN));
+
+    // 如果请求的只有一个 / 那也肯定不能把 web根目录下的所有文件都响应回去
+    // 当请求的文件路径是 / 时, 就将主页响应回去 一般为 index.html
+    if (path.size() == 1 && path[0] == '/') {
+        path += HOME_PAGE;
+    }
+
+    return path;
+}
+
+std::string readFile(const std::string& recource) {
+    std::ifstream in(recource, std::ifstream::binary);
+    if (!in.is_open())
+        return "404";
+	// 以二进制方式打开文件, 就需要按字节读取存储
+    std::vector<char> buffer(std::istreambuf_iterator<char>(in), {});
+    in.close();
+
+    std::string fileContent(buffer.begin(), buffer.end());
+
+    return fileContent;
+}
+```
+
+然后, 修改一些`handlerHttpRequest()`函数:
+
+```cpp
+void handlerHttpRequest(int sock) {
+    char buffer[1024];
+    ssize_t s = read(sock, buffer, sizeof buffer - 1);
+    if (s > 0) {
+        std::cout << buffer << std::endl;
+    }
+
+    // 获取文件路径
+    std::string path = getPath(buffer);
+    std::string recource;
+    recource += ROOT_PATH;
+    recource += path;
+    std::cout << recource << std::endl;
+
+    // 获取文件内容
+    std::string fileContent = readFile(recource);
+
+    std::string response;
+    // 响应行
+    response += "HTTP/1.1 200 OK\r\n";
+    // 可以根据文件文件的后缀来判断正文内容的类型是什么
+
+    response += "Content-Type: text/html\r\n";
+    response += ("Content-Length: " + std::to_string(fileContent.size()) + "\r\n");
+    response += "\r\n";
+
+    response += fileContent;
+
+    send(sock, response.c_str(), response.size(), 0);
+}
+```
+
+这一系列的代码编写完之后, 再运行服务器. 访问服务器时, 默认获取到的资源就是`wwwRoot/index.html`文件
+
+我们可以简单的编写一下`wwwRoot/index.html`文件:
+
+```cpp
+<!doctype html>
+<html>
+  <meta charset="utf-8" />
+  <head>
+    <style>
+      body {
+        line-height: 3em;
+        text-align: center;
+      }
+
+      p,
+      h1,
+      h2 {
+        margin: 0 auto;
+        width: 80%;
+      }
+    </style>
+    <title>July.cc 导航</title>
+  </head>
+
+  <body>
+    <h1>! 欢迎来到我的网页 !</h1>
+    <p>~欢迎来访~</p>
+
+    <img border="2px" src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307302017964.png" alt="img-test" width="500px" height="500px"> </img>
+
+    <h2>链接</h2>
+    <p>个人博客链接: <a href="http://www.julysblog.cn">July.cc Blogs</a></p>
+  </body>
+</html>
+```
+
+整个服务器的树形结构是这样的:
+
+```shell
+tree
+.
+├── logMessage.hpp
+├── makefile
+├── tcpServer
+├── tcpServer.cc
+├── tcpServer.hpp
+└── wwwRoot
+    └── index.html
+```
+
+此时, 启动服务器:
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307302029787.gif)
+
+> 这里的图片, 使用的是图床中的图片.
+>
+> 如果要使用本地图片, 需要对图片的二进制内容进行`base64`编码, 然后再进行传输
+>
+> 还需要对不同类型的文件进行不同的报文添加. 
+>
+> 如果是`html`, `Content-Type: text/html`
+>
+> 如果是`jpg`图片, `Content-Type: image/jpeg`
+>
+> 如果是`png`图片, `Content-Type: image/png`
+>
+> 具体的文件对应的`Content-Type`, 可以在网上搜一下 有非常的多.
