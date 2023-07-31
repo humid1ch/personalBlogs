@@ -1,23 +1,19 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
-title: '[Linux] HTTP/HTTPS协议'
+title: '[Linux] HTTP协议'
 pubDate: 2023-07-27
 description: ''
 author: '七月.cc'
 cover:
-    url: ''
-    square: ''
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307311030910.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307311030910.png'
     alt: 'cover'
 tags: ["Linux", "网络", "协议", "应用层", "HTTP"]
 theme: 'light'
 featured: false
 ---
 
-
-
----
-
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307270935807.png)
+![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307311030910.png)
 
 ---
 
@@ -763,7 +759,7 @@ void handlerHttpRequest(int sock) {
 
 我们可以简单的编写一下`wwwRoot/index.html`文件:
 
-```cpp
+```html
 <!doctype html>
 <html>
   <meta charset="utf-8" />
@@ -827,3 +823,252 @@ tree
 > 如果是`png`图片, `Content-Type: image/png`
 >
 > 具体的文件对应的`Content-Type`, 可以在网上搜一下 有非常的多.
+
+## `GET`与`POST`方法
+
+在日常使用网络时, 最常见的网络行为无非就两种:
+
+1. 需要把远端服务器的资源 获取到本地
+
+    此行为, 就是上面我们使用`GET`获取服务器文件等内容的行为, 涉及到`GET`方法
+
+2. 需要把输入的属性字段, 提交到远端服务器
+
+    就比如在某些网页需要登录账号时, 就需要把输入的内容字段, 提交到远端的服务器中.
+
+    而此行为, 可以通过两个方法实现:`GET`和`POST`
+
+> `GET`与`POST`方法, 可以将输入的属性字段提交到远端服务器
+>
+> 一般情况下就是输入账号密码等内容.
+>
+> 这就要提到 **表单**. 表单 是`html`的一个元素, 也是一种 允许用户在页面输入数据并将数据提交到服务器进行处理 的一种机制
+>
+> 基本的语法是:
+>
+> ```html
+> <form action="submit_url" method="post">
+> </form>
+> ```
+>
+> `form`即为一个表单, 属性可以设置: 
+>
+> 1. `action`: 需要提交到的服务器资源的`url`
+> 2. `method`: 需要使用的提交方法
+>
+> 内容则是一些表单元素, 用来供用户输入信息, 并提交
+
+### `GET`方法
+
+我们可以在`wwwRoot/index.html`中添加一个最简单的使用`GET`方法的表单, 用来输入账号和密码:
+
+```html
+<!doctype html>
+<html>
+  <meta charset="utf-8" />
+  <head>
+    <style>
+      body {
+        line-height: 3em;
+        text-align: center;
+      }
+
+      p,
+      h1,
+      h2 {
+        margin: 0 auto;
+        width: 80%;
+      }
+    </style>
+    <title>July.cc 导航</title>
+  </head>
+
+  <body>
+    <h1>! 欢迎来到我的网页 !</h1>
+    <p>~欢迎来访~</p>
+
+    <img border="2px" border-radius="10px" src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307302017964.png" alt="img-test" width="500px" height="500px"> </img>
+
+    <form action="form/formTest.html" method="GET">
+        账号: <input type="text" name="usernm"><br>
+        密码: <input type="password" name="passwd"><br>
+        <input type="submit" value="提交">
+    </form>
+
+    <h2>链接</h2>
+    <p>个人博客链接: <a href="http://www.julysblog.cn">July.cc Blogs</a></p>
+  </body>
+</html>
+```
+
+`form`相关内容, 即为一个表单. 分别有两个输入框和一个`submit`按钮
+
+在`index.html`中指定了 `form`使用`GET`方法获取`form/formTest.html`资源, 并提交输入信息. 并且, 还在`form`内添加了名为`usernm`和`passwd`的两个文本输入框.
+
+然后运行并访问服务器:
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307311543401.gif)
+
+页面多了几个元素. 并且, 在输入内容并点击提交之后.
+
+可以从地址框中看到, 尝试获取`form/formTest.html`文件资源, 并在其后添加有`?usernm=123123123&passwd=asdasdasd`, 这部分 是两个文本框的`key=value`值. 
+
+**`HTTP`中, `GET`方法会以明文的形式将对应的参数信息 拼接在`url`中**
+
+可以举一个实际的例子:
+
+使用百度网盘加密分享文件时, 一般都需要输入密码:
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307311524391.png)
+
+在知道密码的情况下, 可以直接以`pwd=xxxx`的形式将密码拼接在`url`之后, 然后就可以自动填写密码, 直接访问到加密分享的资源:
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307311530522.png)
+
+> 所以可以在使用百度网盘加密分享资源时, 直接在`url`后拼接上密码进行分享
+>
+> 但, 这并不意味着在这个场景中就是使用的`GET`方法, 只是兼容了`GET`方法
+
+### `POST`方法
+
+`POST`方法与`GET`方法, 只有些许的不同. 只需要观察现象就可以分别出来
+
+使用也很简单, 只需要将`form`的`method`属性改为`POST`就可以了:
+
+```html
+<!doctype html>
+<html>
+  <meta charset="utf-8" />
+  <head>
+    <style>
+      body {
+        line-height: 3em;
+        text-align: center;
+      }
+
+      p,
+      h1,
+      h2 {
+        margin: 0 auto;
+        width: 80%;
+      }
+    </style>
+    <title>July.cc 导航</title>
+  </head>
+
+  <body>
+    <h1>! 欢迎来到我的网页 !</h1>
+    <p>~欢迎来访~</p>
+
+    <img border="2px" border-radius="10px" src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307302017964.png" alt="img-test" width="500px" height="500px"> </img>
+
+    <form action="form/formTest.html" method="POST">
+        账号: <input type="text" name="usernm"><br>
+        密码: <input type="password" name="passwd"><br>
+        <input type="submit" value="提交">
+    </form>
+
+    <h2>链接</h2>
+    <p>个人博客链接: <a href="http://www.julysblog.cn">July.cc Blogs</a></p>
+  </body>
+</html>
+```
+
+再次访问服务器, 显示上与`GET`方法是没有区别的.
+
+但是在填写数据并提交之后, 有所不同:
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307311546437.gif)
+
+使用`POST`方法提交字段, 字段被添加到了请求正文中 而不是`url`中.
+
+即, **`HTTP`中, `POST`方法会以明文的形式将对应的参数信息 添加在 请求正文 中**
+
+---
+
+### `GET`与`POST`对比
+
+`GET`与`POST`方法最明显的区别, 除了名字不同之外, 就是提交时 参数信息存放的位置不同.
+
+1. `GET`方法, 通过`url`传参
+2. `POST`方法, 通过正文传参
+3. `GET`方法, 传参不私密
+4. `POST`方法, 传参相对更私密
+5. `HTTP`中, 这两个方法都是明文传参, 都不安全
+6. 因为`POST`通过正文传参, 所以较大较多的内容都用`POST`方法传参
+
+### 其他`http`协议方法
+
+`http`协议的方法有很多, 功能各不同, 支持的协议版本也有不同.
+
+除了上面的`GET`和`POST`方法之外, 还有其他的方法:
+
+| 方法          | 功能说明                 | 支持协议版本 |
+| ------------- | ------------------------ | ------------ |
+| **`PUT`**     | 向服务器传输文件         | 1.0、1.1     |
+| **`HEAD`**    | 获得报文首部             | 1.0、1.1     |
+| **`DELETE`**  | 删除服务器文件           | 1.0、1.1     |
+| **`OPTIONS`** | 查询服务器支持的方法     | 1.1          |
+| **`TRACE`**   | 追踪路径                 | 1.1          |
+| **`CONNECT`** | 要求使用隧道协议连接代理 | 1.1          |
+| **`LINK`**    | 建立与资源之间的联系     | 1.0          |
+| **`UNLINK`**  | 断开连接关系             | 1.0          |
+
+这上面的`8`中方法, 一个服务器基本都不会允许用户使用. 最多也是允许 **`OPTIONS`** 
+
+首先是, **`PUT`** 和 **`DELETE`**. 这两个都可以对服务器上的文件进行覆盖或删除, 可能会对服务器文件造成损坏或丢失等问题.
+
+**`TRACE`**, 使用此方法 服务器会将原始的请求报文返回给客户端. 一般来说, 原始请求报文中可能会携带有隐私信息等内容. 使用 **`TRACE`** 方法会带来安全隐患. 还有其他的一些安全原因.
+
+其他方法, 则会因为一些占用服务器的资源、影响服务器正常开销等情况, 同样被禁止掉.
+
+## `http`协议 状态码
+
+`http`协议的响应中, 报文首行会携带此次请求处理的状态码, 以及状态码描述.
+
+常见的状态码一般有:
+
+|           | 类别                             | 原因                       |
+| --------- | -------------------------------- | -------------------------- |
+| **`1xx`** | `Informational(信息性状态码)`    | 接受的请求正在处理         |
+| **`2xx`** | `Success(成功状态码)`            | 请求 正常处理完毕          |
+| **`3xx`** | `Redirection(重定向状态码)`      | 需要进行附加操作以完成请求 |
+| **`4xx`** | `Client Error(客户端错误状态码)` | 服务器无法处理请求         |
+| **`5xx`** | `Server Error(服务器错误状态码)` | 服务器处理请求时发生错误   |
+
+1. **`1xx`**
+
+    一般在请求处理较慢时响应. 告诉客户端请求依然正在处理, 并没有出错, 只是较慢 还没有处理完成
+
+2. **`2xx`**
+
+    就是成功了, 比如`200`, 状态码描述是`OK`
+
+3. **`3xx`**
+
+    重定向相关状态码, 具体情况下面介绍
+
+4. **`4xx`**
+
+    出现`4xx`一般是客户端的请求存在错误. 比如`404(NOT FOUND)`, 找不到请求的资源, 并不是服务器处理的问题, 而是因为请求出错, 请求的资源根本就没有. 不能赖服务器.
+
+5. **`5xx`**
+
+    这个才是服务器处理请求出错时响应的状态码. 比如, 正确接收到了请求, 在打开文件时出错了? 或者处理时出错了? 或者传输时出错了? 这些问题, 响应的状态码都是`5xx`. 比如: `504(Bad Gateway)`, 网关超时 一看就是服务器在处理时出现了问题.
+
+> 市面上的浏览器, 由于各种内核各种版本. 很可能对协议的支持都不同, 浏览器针对各种页面的渲染效果也可能不同.
+>
+> 而对状态码的解释识别也有可能不同, 所以 服务器的状态码很多没有按照标准设置. 所以还有可能出现 超过`5xx`的状态码 都不稀奇
+
+## `http`常见报头属性
+
+`http`中常见的报头属性 上面内容中已经介绍了两个:
+
+1. `Content-Type: value`, 用来设置本次请求或响应资源的类型
+2. `Content-Length: value`, `http`协议是字符串协议. 这个报头属性用来设置, 报文的正文长度
+
+除此之外, 还有:
+
+1. `Host: value`, 用于客户端, 告知服务器, 所请求的资源是在哪个主机的哪个端口上
+
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307312120415.png)

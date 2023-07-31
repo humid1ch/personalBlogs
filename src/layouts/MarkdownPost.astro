@@ -6,7 +6,6 @@ import Footer from "../components/Footer.astro";
 import { formatDate } from "../utils";
 import { SITE_LANG} from "../consts";
 import 'gitalk/dist/gitalk.css';
-// import 'tocbot/src/scss/tocbot.scss';
 const { frontmatter } = Astro.props;
 const type = frontmatter.tags[0];
 const { pubDate, title, description, featured } = frontmatter;
@@ -143,6 +142,7 @@ const dateFormated = formatDate(pubDate);
             </div>
           </div>
           <slot />
+
           <div class="component">
             <div class="component-content">
               <div class="article-copyright">
