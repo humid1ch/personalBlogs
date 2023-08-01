@@ -1089,7 +1089,7 @@ tree
 
     什么意思呢?
 
-    ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308010056816.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308010056816.png)
 
 ### `Location: value` 重定向
 
