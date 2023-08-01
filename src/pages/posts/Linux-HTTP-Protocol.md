@@ -1,8 +1,8 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
-title: '[Linux] HTTP协议'
+title: '[Linux] HTTP协议分析: 什么是url、http协议的请求和响应格式、如何响应文本或文件、http协议的GET和POST以及其他方法、状态码、重定向、什么是Cookie...'
 pubDate: 2023-07-27
-description: ''
+description: '应用层协议实际是规定应用层在传输数据时需要遵循的一系列规则和标准. 如果都需要每个程序员都自己制定自己的协议 是非常麻烦的. 所以其他程序猿所写的非常好用的协议, 就会形成一个应用层特定的协议的标准, 本文的内容就是介绍一个非常重要的应用层协议HTTP协议'
 author: '七月.cc'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307311030910.png'
@@ -1072,3 +1072,277 @@ tree
 1. `Host: value`, 用于客户端, 告知服务器, 所请求的资源是在哪个主机的哪个端口上
 
     ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307312120415.png)
+
+2. `User-Agent: value`, 声明用户的操作系统和浏览器版本信息等
+
+    这个属性有什么用呢?
+
+    使用不同的设备, 访问同一个网页时:
+
+    ![PC访问 QQ音乐下载页 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308010038320.png)
+
+    ![Android访问 QQ音乐下载页 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308010042663.png)
+
+    某些网页, 会根据设备的不同展示不同的内容. 而设备信息, 就是通过`User-Agent`获取的. 
+
+3. `referer: value`, 用来说明 当前页面是从哪个页面跳转过来的
+
+    什么意思呢?
+
+    ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308010056816.png)
+
+### `Location: value` 重定向
+
+`http`状态码中, `3xx`是重定向状态码. 
+
+而响应报头中, `Location: value`则是需要与重定向状态码一起使用的一个属性字段
+
+上面对`3xx`状态码的说明是: **需要进行附加操作以完成请求**. 这里的附加操作其实就是`Location`的作用, 此字段的作用是, 告诉客户端接下来要去哪里访问.
+
+重定向状态码常见的有: `301`永久重定向, `302`临时重定向, `307`临时重定向, `308`永久重定向
+
+这里结合`301`和`302`介绍一下`Location`以及重定向
+
+`Location`是响应报头中的属性字段, 是用来告诉客户端接下来要去哪里访问的. 并且使用时, 状态码需要设置为重定向
+
+简单的修改一下`handlerHttpRequest()`函数:
+
+```cpp
+void handlerHttpRequest(int sock) {
+    char buffer[1024];
+    ssize_t s = read(sock, buffer, sizeof buffer - 1);
+    if (s > 0) {
+        std::cout << buffer << std::endl;
+    }
+
+    // 获取文件路径
+    std::string path = getPath(buffer);
+    std::string recource;
+    recource += ROOT_PATH;
+    recource += path;
+
+    // 获取文件内容
+    std::string fileContent = readFile(recource);
+
+    std::string response;
+    // 响应行
+    //  response += "HTTP/1.1 200 OK\r\n";
+    response += "HTTP/1.1 302 Moved Temporarily\r\n";
+    response += "Location: www.baidu.com\r\n";
+    response += ("Content-Length: " + std::to_string(fileContent.size()) + "\r\n");
+    response += "\r\n";
+
+    response += fileContent;
+
+    send(sock, response.c_str(), response.size(), 0);
+}
+```
+
+设置响应状态码为`302`表示临时重定向, 并添加`Location: www.baidu.com\r\n`, 让客户端接下来访问`www.baidu.com`资源.
+
+运行服务器之后, 再访问服务器:
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308010947744.gif)
+
+可以看到, 访问服务器时 会自动去跳转到`url/www.baidu.com`, 这是因为我们设置了重定向状态码和`Location: www.baidu.com\r\n`.
+
+不过因为没有资源, 并且是从根目录就开始重定向的, 所以会一直尝试获取资源, 就会发生错误.
+
+不过, 当我们把`Location`设置成一个携带协议的`url`: `Location: https://www.baidu.com\r\n`
+
+再次访问服务器会出现什么呢?
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308010953651.gif)
+
+直接跳转到了`https://www.baidu.com`
+
+这就是重定向的作用. 重定向究竟是什么呢?
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308011015487.png)
+
+结合上图不难得出结论: 重定向是 **将一个URL地址重定向到另一个URL地址的过程**. 
+
+当浏览器请求一个URL时，服务器可以将请求重定向到另一个URL，浏览器会自动跳转到新的URL. 接收重定向信息 和 跳转的动作, 一般都是浏览器自动完成的.
+
+> 如果`Location`不是一个完整的携带协议的`url`, `Location`就会被看做是一个路径, 此时重定向 是获取原服务器的本地资源.
+
+那么, 不同的重定向状态码又有什么区别呢?
+
+从用户体验到的效果来看, 没有明显的区别: 都是将一个`url`自动设置成了另外一个`url`并访问获取资源.
+
+但, 对客户端是不同的. 
+
+重定向的状态码, 可分为**临时重定向** 和 **永久重定向**两类, 这两类客户端是会做区分的:
+
+1. **临时重定向**
+
+    表示请求的资源已经暂时移动到了另一个`url`. 
+
+    这时, 浏览器会跳转到新的`url`. 但是, 并不代表旧的`url`以后就无法使用了. 浏览器会继续为原始`url`进行排名，同时将重定向的`url`视为一个临时的副本. 浏览器会自动跳转到新的`url`，但会保留原始`url`.
+
+    一般用于, 原服务器维护 需要使用另外的临时服务器的情况
+
+2. **永久重定向**
+
+    表示请求的资源已经永久移动到了另一个`url`
+
+    这时, 浏览器同样会跳转到新的`url`. 不过, 此时浏览器会将重定向的`url`视为原始`url`的替代品，并将其用于排名目的. 浏览器会自动跳转到新的`url`，并且不会保留原始`url`
+
+**临时重定向** 和 **永久重定向**两类中, 又有细分的状态码. 不同的状态码, 给浏览器传递的信息也有细微的差别. 不再一一列举. 有兴趣可以搜索一下.
+
+### `Cookie` **
+
+`http`协议的特点之一是: **无状态** (同样也是`https`的特点)
+
+什么是无状态呢? 简单点来说就是, 使用`http`协议的客户端和服务器, 服务器是 **不会维护每个客户端的会话信息** 的. 每个`http`请求都是独立的, 服务器无法根据前面的请求状态来进行后续处理. 服务器只会简单地根据请求发送的信息 响应请求, 而不会跟踪用户的上下文或状态
+
+按这样的特点, 使用`http`或`https`协议会出现一个非常明显且影响体验的情况: **每次访问需要登录的网页都需要重新登录**
+
+因为, 每个`http`请求都是独立的, 服务器无法根据前面的请求状态来进行后续处理. 即, 网页的登录状态是不会被客户端和服务器维护的.
+
+但是, 在日常的使用中 并没有出现 **每次访问需要登录的网页都需要重新登录** 的情况. 而是, 大多数网页都"记录"了登录状态.
+
+这是因为, 现在已经有很多保持会话状态的策略, 一旦登陆的网页, 就会使用一些策略来实现对会话状态的保持. 这里要介绍的就是 **`Cookie`策略**
+
+虽然, `http`和`https`协议原本每次的请求都是独立的. 但是, 我们可以 **将当前网页的各种状态存储起来**, 等下一次发送请求时, **将状态信息一起发送给服务器**, 让 **服务器直接获取到网页状态并进行验证和响应**, 不就可以实现"记录"登录状态了吗?
+
+这就是 **`Cookie`, 它是 浏览器维护的存储信息的小文件, 通常用于在服务器和客户端之间传递数据**
+
+在网页中 登陆用户时 此次的请求需要携带用户的账号密码发送给服务器, 让服务器可以验证用户信息. 服务器响应时, 会将用户信息设置在`Cookie`中, 如果浏览器允许网页存储`Cookie`信息, 浏览器就会将服务器发送过来的`Cookie`存储下来. 在之后的客户端请求中, 都会携带已经记录的`Cookie`内容一同发送给服务器. 
+
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308011114650.png)
+
+我们也可以尝试在服务器的响应中, 使用`Set-Cookie: value`报头字段设置`Cookie`:
+
+```cpp
+void handlerHttpRequest(int sock) {
+    char buffer[1024];
+    ssize_t s = read(sock, buffer, sizeof buffer - 1);
+    if (s > 0) {
+        std::cout << buffer << std::endl;
+    }
+
+    // 获取文件路径
+    std::string path = getPath(buffer);
+    std::string recource;
+    recource += ROOT_PATH;
+    recource += path;
+
+    // 获取文件内容
+    std::string fileContent = readFile(recource);
+
+    std::string response;
+    // 响应行
+    response += "HTTP/1.1 200 OK\r\n";
+    // 设置Cookie
+    response += "Set-Cookie: This is a cookie\r\n";
+    response += ("Content-Length: " + std::to_string(fileContent.size()) + "\r\n");
+    response += "\r\n";
+
+    response += fileContent;
+
+    send(sock, response.c_str(), response.size(), 0);
+}
+```
+
+然后, 运行并访问服务器:
+
+首先是没有设置`Cookie`的时候:
+
+![No Cookie](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308011121103.png)
+
+这是服务器设置了`Cookie`的之后:
+
+![Cookie](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308011123366.png)
+
+可以看到, 浏览器已经获取并记录了本网站的`Cookie`.
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308011125710.png)
+
+> 现在`Chrome115之后`好像没有办法查看`Cookie`的具体内容了.
+>
+> 只能在请求中看到
+
+#### `Cookie + Session`
+
+`Cookie`可以用来保持会话的状态, 但是它不安全.
+
+`Cookie`一般 以文本文件的形式存储在浏览器的内存中 或 系统的磁盘上的. 磁盘上的文本文件是非常容易就被盗取的. 并且 `Cookie`因为在请求中以报头字段的形式携带, 也非常容易被截获而获取到`Cookie`内容.
+
+> 磁盘上的`Cookie`可以长时间的保存, 浏览器内存中的`Cookie`会在浏览器关闭时被释放而清除
+
+这都是`Cookie`不安全的原因. 
+
+所以, 现在的浏览器 都是使用`Cookie + Session`的策略来维护网页的会话状态的.
+
+`Cookie`了解是什么了. `Session`又是什么呢?
+
+`Session`是服务器存储状态信息的一种机制. 当用户第一次登录页面时, 请求发送到服务器 服务器验证之后 会创建一个`Session`来维护用户在此页面的状态信息. `Session`是加密的文件.
+
+每一个`Session`的文件名是`Session ID`, 这个`Session ID`在服务器中是唯一的, 是`Session`的唯一标识符.
+
+服务器创建了`Session`之后, 会将`Session ID`设置为`Cookie`响应回客户端. 
+
+客户端收到响应之后, 将存储着`Session ID`的`Cookie`存储起来. 在之后的请求中, 携带`Cookie`以便于让服务器正确处理网页状态.
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308011357892.png)
+
+使用加密的`Session`来维护页面的会话状态 就安全了吗?
+
+如果只是使用加密的`Session`还是不安全的. 因为还是可以通过`Cookie`获取`Session ID`. 只要知道了`Session ID`就可以向服务器发送请求 然后盗用状态信息了.
+
+所以, `Session`内还会设置一些安全性的参数, 比如过期时间等.
+
+还有就是 服务器不是吃素的, 服务器一般都有防盗系统. 如果信息被频繁的异常访问 或 账号在频繁的异常向服务器提交信息. 那么用户的账号可能就会被限制或直接冻结. 就像 QQ号被盗了之后, 很可能就会被冻结.
+
+**数据在传输时 安全的问题非常重要, 但是 服务器自身的防盗系统也是非常的重要的.**
+
+## `http`特性 - 无连接
+
+`http`协议有无状态的特性, 所以要维护会话状态需要使用一些策略
+
+而`http`协议另外的特性之一是, **无连接**.
+
+本文的所有实验代码都是基于`TCP`协议的, 而 **`TCP`协议是面向连接的**. 为什么说`http`协议是无连接的?
+
+**`http`协议只是借用了`TCP`的连接渠道, `http`协议本身是不建立连接的.**
+
+一个`TCP`连接中, 可能会存在许多的`http`请求. 它们都是使用了`TCP`的连接, 而不是建立了连接. 如果每个请求都会与服务器建立连接, 那该多浪费资源.
+
+---
+
+而提到了 一个`TCP`连接中, 可能会存在许多的`http`请求. 就要提`http`协议的 **长连接**
+
+`http`协议的长连接并不是指`http`协议会建立连接, 而是指 `TCP`连接.
+
+`http`协议主流采用的是`TCP`协议. 
+
+在我们访问某些网站时, 比如像这样的资讯网站:
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308011423752.png)
+
+一个页面是存在非常多的资源的. 各种文字、视频、图片等. 这些资源都是需要 使用`http`向服务器请求的.
+
+如果一个页面每个资源的申请都需要重新建立一次`TCP`连接 需要三次握手四次挥手, 这是非常消耗资源的. `http1.0`版本就是这样的, 每次发送请求和响应都会先创建一个新的`TCP`连接 并关闭连接. 这样的操作被称为`http`短连接.
+
+而`http1.1`之后, 则支持长连接了. 长连接允许在一次`TCP`连接内, 多次发送请求并响应, 避免了多次创建连接的消耗.
+
+> 长连接时, 服务器一般按照发送到请求的顺序进行处理并响应
+
+`http1.1`之前时没有长连接的, 但是`http1.1`又要兼容之前的版本的功能. `http`协议如何区分此次是否支持长连接呢?
+
+答案就是: `Connection: keep-alive`报头字段
+
+如果客户端和服务器双方使用的 **都是`http1.1`版本协议**, 并且 请求和响应的 **报头中都存在`Connection: keep-alive`** 字段, 就说明此次连接 **支持长连接**.
+
+而如果有一方为 **`http1.0`版本协议**, 或有一方的 **报头中存在`Connection: closed`**, 那就说明此次连接 **不支持长连接**
+
+> 一次`TCP`连接可以发送多个 请求和响应. 就会存在接收到的报文是否完整的问题. 
+>
+> 这时候就需要根据`Content-Length: value`字段, 来判断此次接收到的报文是否完整了
+
+---
+
+有关`http`协议的介绍到这里就结束了
+
+感谢阅读~
