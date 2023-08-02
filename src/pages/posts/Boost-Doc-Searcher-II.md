@@ -1,6 +1,6 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
-title: '[C++项目] Boost文档 站内搜索引擎(2): ...'
+title: '[C++项目] Boost文档 站内搜索引擎(2): 文档文本解析模块parser的实现、如何对文档文件去标签、如何获取文档标题...'
 pubDate: 2023-08-02
 description: '从本篇文章开始, Boost文档 站内搜索引擎项目, 就正式开始编写代码了. 本篇文章所写的内容是 parser 文档文本解析器模块'
 author: '七月.cc'
