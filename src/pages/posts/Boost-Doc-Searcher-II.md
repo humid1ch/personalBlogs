@@ -21,6 +21,8 @@ featured: false
 
 在上一篇文章中, 已经从`Boost`官网获取了`Boost`库的源码.
 
+> [🫦[C++项目] Boost文档 站内搜索引擎(1): 项目背景介绍、相关技术栈、相关概念介绍...](https://www.julysblog.cn/posts/Boost-Doc-Searcher-I)
+
 接下来就要编写代码了. 不过还需要做一些准备工作.
 
 1. 创建项目目录
@@ -676,6 +678,8 @@ bool parseUrl(const std::string& filePath, std::string* url) {
 并在每个文档内容字段的结尾使用`'\n'`, 以分割不同的文档: `title1\3content1\3url1\n title2\3content2\3url2\n...`
 
 ```cpp
+#define SEP '\3'
+
 bool saveDocInfo(const std::vector<docInfo_t>& docResults, const std::string& output) {
     // 最后就是将 已经结构化的所有的文档数据, 以一定的格式存储在指定的文件中.
     // 以什么格式存储呢? 每个文档都是结构化的数据: _title _content _url.
