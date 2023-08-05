@@ -1,7 +1,7 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
 title: '[C++项目] Boost文档 站内搜索引擎(3): 建立文档及其关键字的正排 倒排索引、jieba库的安装与使用...'
-pubDate: 2023-08-03
+pubDate: 2023-08-04
 description: '上一篇文章实现了parser模块 对文档html文件清理. 本篇文章编写根据清理完成的内容 建立索引的相关接口.'
 author: '七月.cc'
 cover:
