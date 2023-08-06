@@ -275,8 +275,6 @@ void search(const std::string& query, std::string* jsonString) {
     std::vector<std::string> keywords;
     ns_util::jiebaUtil::cutString(query, &keywords);
 
-    std::vector<invertedElemOut_t> allInvertedElemOut;
-
     // 统计文档用, 因为可能存在不同的分词 在倒排索引中指向同一个文档的情况
     // 如果不去重, 会重复展示
     std::unordered_map<std::size_t, invertedElemOut_t> invertedElemOutMap;
@@ -304,6 +302,9 @@ void search(const std::string& query, std::string* jsonString) {
             // 此时就将当前invertedElem 去重到了 invertedElemMap 中
         }
     }
+    
+    // vector 存储 文档id相关信息, 方便排序
+    std::vector<invertedElemOut_t> allInvertedElemOut;
     // 出循环之后, 就将搜索到的 文档的 id、权重和相关关键词 存储到了 invertedElemMap
     // 然后将文档的相关信息 invertedElemOut 都存储到 vector 中
     for (const auto& elemOut : invertedElemOutMap) {
@@ -403,4 +404,20 @@ void search(const std::string& query, std::string* jsonString) {
 
 因为, 获取每到一个文档内容就需要将文档内容输出了, 输出之后 就要做处理响应回客户端进行显示了. 这也意味着 在正排索引中的查找顺序 实际就是搜索结果的显示顺序, 所以在查找之前, 需要先排序:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308052342538.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308060002659.png)
+
+这里的实现, 先使用`vector`存储`invertedElemOut`元素. 为了方便排序
+
+然后通过`std::sort()`+`lambda`进行降序排序
+
+这里需要注意一个细节:
+
+1. 在向`vector`插入元素时, 对`invertedElemOutMap`中存储的元素执行`std::move()`
+
+    也就是 使用移动语义, 防止发生拷贝构造. 
+
+    可以使用移动语义的原因就是, 构建完`vector`之后, `invertedElemOutMap`就没用了, 不需要存储元素.
+
+执行完这一部分代码. 此次搜索到的所有的文档id相关信息就按照显示权重的降序被存储到了 `std::vector<invertedElemOut_t> allInvertedElemOut`中.
+
+接下来, 就是根据文档id相关信息 在正排索引中 查找文档内容信息了
