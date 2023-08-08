@@ -855,7 +855,7 @@ svr.set_base_dir(rootPath.c_str());
     }
     ```
 
-    ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308081705536.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308081705536.png)
 
 ## 添加日志 并 部署服务器
 
