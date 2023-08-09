@@ -8,7 +8,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/cover.jpg'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/cover.jpg'
     alt: 'cover'
-tags: ["C", "函数", "原理", "程序员的自我修养"]
+tags: ["程序员的自我修养", "内存"]
 theme: 'light'
 featured: false
 ---
@@ -66,7 +66,7 @@ featured: false
 
 # 栈帧是如何创建的?
 > 	以下均在Windows平台，VS2013编译环境下演示
->									
+>											
 > 	不同平台，不同编译环境下的栈帧操作可能会有差异，但是逻辑相通。
 
 创建一个最简单的可以观察函数栈帧的程序

@@ -8,7 +8,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251801269.png'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251801269.png'
     alt: 'cover'
-tags: ["Linux", "进程", "系统", "通信"]
+tags: ["Linux系统", "进程", "通信"]
 theme: 'light'
 featured: false
 ---

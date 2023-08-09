@@ -8,7 +8,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/DS_Cover_Com.jpg'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/DS_Cover_Com.jpg'
     alt: 'cover'
-tags: ["数据结构", "算法", "复杂度"]
+tags: ["算法", "复杂度"]
 theme: 'light'
 featured: false
 ---

@@ -8,7 +8,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251814025.png'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251814025.png'
     alt: 'cover'
-tags: ["C++", "语法", "STL", "类"]
+tags: ["STL", "容器"]
 theme: 'light'
 featured: false
 ---

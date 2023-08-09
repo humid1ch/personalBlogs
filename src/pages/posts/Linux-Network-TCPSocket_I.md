@@ -11,7 +11,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061551105.png'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061551105.png'
     alt: 'cover'
-tags: ["Linux", "网络", "TCP"]
+tags: ["Linux网络", "套接字", "TCP"]
 theme: 'light'
 featured: false
 ---

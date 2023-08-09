@@ -8,7 +8,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251803222.png'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251803222.png'
     alt: 'cover'
-tags: ["Linux", "命令", "makefile"]
+tags: ["Linux使用问题"]
 theme: 'light'
 featured: false
 ---

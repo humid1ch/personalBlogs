@@ -1,6 +1,6 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
-title: '[C++] C++智能指针原理分析 介绍: RAII思想、智能指针原理、unique_ptr、shared_ptr、weak_ptr分析及模拟、与boost库中智能指针的关系...'
+title: '[C++11] C++智能指针原理分析 介绍: RAII思想、智能指针原理、unique_ptr、shared_ptr、weak_ptr分析及模拟、与boost库中智能指针的关系...'
 pubDate: 2023-07-09
 description: 'C++引入了异常处理的概念之后, 内存泄露的问题就变得更加防不胜防了. 而 智能指针的出现 大大缓解了内存泄漏出现的频率...'
 author: '七月.cc'
@@ -8,7 +8,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307090019836.png'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307090019836.png'
     alt: 'cover'
-tags: ["C++", "指针", "语法", "C++11", "智能指针"]
+tags: ["C++", "C++11"]
 theme: 'light'
 featured: false
 ---

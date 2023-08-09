@@ -8,7 +8,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251809273.png'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251809273.png'
     alt: 'cover'
-tags: ["C++", "多态", "语法"]
+tags: ["C++", "面向对象特性", "多态"]
 theme: 'light'
 featured: false
 ---

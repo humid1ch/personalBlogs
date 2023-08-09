@@ -9,7 +9,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251802921.png'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251802921.png'
     alt: 'cover'
-tags: ["Linux", "线程", "系统"]
+tags: ["Linux系统", "多线程", "POSIX信号量", "生产者消费者模型"]
 theme: 'light'
 featured: false
 ---

@@ -8,7 +8,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251815879.png'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251815879.png'
     alt: 'cover'
-tags: ["C++", "STL", "语法", "哈希", "数据结构"]
+tags: ["STL", "哈希表"]
 theme: 'light'
 featured: false
 ---

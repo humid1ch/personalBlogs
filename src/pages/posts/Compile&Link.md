@@ -9,7 +9,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230414151451674.png'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230414151451674.png'
     alt: 'cover'
-tags: ["编译", "C", "程序员的自我修养"]
+tags: ["程序员的自我修养", "编译原理"]
 theme: 'light'
 featured: true
 ---

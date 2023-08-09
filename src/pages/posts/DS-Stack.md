@@ -2,13 +2,13 @@
 layout: '../../layouts/MarkdownPost.astro'
 title: '[数据结构] 栈 详解'
 pubDate: 2022-05-07
-description: '本篇文章来介绍一下 `栈` 这种数据结构'
+description: '本篇文章来介绍一下 栈 这种数据结构'
 author: '七月.cc'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Stack_Cover.jpg'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Stack_Cover.jpg'
     alt: 'cover'
-tags: ["C", "数据结构", "栈"]
+tags: ["数据结构", "栈"]
 theme: 'light'
 featured: false
 ---

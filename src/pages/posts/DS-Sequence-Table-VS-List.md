@@ -8,7 +8,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/cache_cover.jpg'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/cache_cover.jpg'
     alt: 'cover'
-tags: ["C", "数据结构", "顺序表", "链表"]
+tags: ["数据结构", "顺序表", "链表"]
 theme: 'light'
 featured: false
 ---

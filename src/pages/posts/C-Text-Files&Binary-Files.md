@@ -9,7 +9,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251813684.png'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251813684.png'
     alt: 'cover'
-tags: ["C", "文件"]
+tags: ["C语言", "文件"]
 theme: 'light'
 featured: false
 ---

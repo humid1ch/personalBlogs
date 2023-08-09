@@ -9,7 +9,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251802036.png'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251802036.png'
     alt: 'cover'
-tags: ["Linux", "线程", "系统"]
+tags: ["Linux系统", "多线程", "锁"]
 theme: 'light'
 featured: false
 ---

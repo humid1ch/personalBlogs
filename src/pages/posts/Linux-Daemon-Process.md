@@ -10,7 +10,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307172256122.png'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307172256122.png'
     alt: 'cover'
-tags: ["Linux", "网络", "进程", "服务器"]
+tags: ["Linux网络", "服务器"]
 theme: 'light'
 featured: false
 ---
