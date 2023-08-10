@@ -33,7 +33,7 @@ const dateFormated = formatDate(pubDate);
             div.style.left = "0";
             div.style.width = "100%";
             div.style.height = "100%";
-            div.style.backgroundColor = "rgba(255, 255, 255, 0.65)";
+            div.style.backgroundColor = "rgba(0,0,0, 0.8)";
             div.style.zIndex = "9999";
             
             var img = document.createElement("img");
@@ -41,16 +41,16 @@ const dateFormated = formatDate(pubDate);
             img.style.top = "50%";
             img.style.left = "50%";
             img.style.transform = "translate(-50%, -50%)";
-            img.style.maxWidth = "90%";
-            img.style.maxHeight = "90%";
-            img.style.borderRadius = "10px";
+            img.style.maxWidth = "98%";
+            img.style.maxHeight = "98%";
+            img.style.borderRadius = "5px";
             img.src = this.src;
             
             div.appendChild(img);
             body.appendChild(div);
             
             div.addEventListener("click", function(event) {
-              if (event.target === div) {
+              if (event.target === div || event.target === img) {
                 body.removeChild(div);
               }
             });
