@@ -14,10 +14,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061525124.png)
-
----
-
 我们已经了解了Linux操作系统进程部分相关知识：
 
 > 博主有关Linux进程相关介绍的文章：

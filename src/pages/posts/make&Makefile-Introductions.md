@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061527690.png)
-
----
-
 在Windows平台上编写C/C++代码, 一般使用的都是配置完成的集成的开发环境, 比如Dev-C++、VS或VS Code等。
 
 一般是不需要指令编译运行等操作的, 只需要点一点。

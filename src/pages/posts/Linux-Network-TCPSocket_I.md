@@ -16,10 +16,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061551105.png)
-
----
-
 网络的上一篇文章, 我们介绍了网络变成的一些重要的概念, 以及 UDP套接字的编程演示. 还实现了一个简单更简陋的UDP公共聊天室.
 
 > [[Linux] 网络编程 - 初见UDP套接字编程: 网络编程部分相关概念、TCP、UDP协议基本特点、网络字节序、socket接口使用、简单的UDP网络及聊天室实现...](https://www.julysblog.cn/posts/Linux-Network-UDPSocket_I)

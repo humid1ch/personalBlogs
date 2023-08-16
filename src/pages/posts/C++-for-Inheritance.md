@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061530788.png)
-
----
-
 在首次接触，类与对象的时候就已经介绍过
 
 C++ 是一种面向对象的编程语言，而面向对象有三大特性：封装、继承、多态(三大特性 而不是 只有三个特性)

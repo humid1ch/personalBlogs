@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307311030910.png)
-
----
-
 应用层协议实际是规定应用层在传输数据时需要遵循的一系列规则和标准.
 
 并且, 协议都是程序员制定的的.

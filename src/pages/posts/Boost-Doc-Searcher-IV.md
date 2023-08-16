@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308050919612.png)
-
----
-
 有关`Boost`文档搜索引擎的项目的前三篇文章, 已经分别介绍分析了:
 
 1. 项目背景: [🫦[C++项目] Boost文档 站内搜索引擎(1): 项目背景介绍、相关技术栈、相关概念介绍...](https://www.julysblog.cn/posts/Boost-Doc-Searcher-I)

@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409155622571.png)
-
----
-
 # 结构体
 
 ## 1. 结构体概念

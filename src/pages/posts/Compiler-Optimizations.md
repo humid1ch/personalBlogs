@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061533788.png)
-
----
-
 # C++编译器关于构造函数的优化
 
 在本篇文章开始之前，先来思考一道问题：

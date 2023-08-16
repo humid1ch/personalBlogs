@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061525347.png)
-
----
-
 System V 是一种操作系统进程间通信的标准. 
 
 System V 给进程间通信指定的标准有三种：

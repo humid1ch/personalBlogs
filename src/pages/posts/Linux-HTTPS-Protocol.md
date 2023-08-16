@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308091419976.png)
-
----
-
 之前的文章中, 已经分析介绍过了`HTTP`协议. `HTTP`协议在网络中是以明文的形式传输的. 无论是`GET`还是`POST`方法都是不安全的. 
 
 为什么不安全呢? 因为: 

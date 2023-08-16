@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061534586.png)
-
----
-
 # 字符串函数
 
 ## 1. `strlen`

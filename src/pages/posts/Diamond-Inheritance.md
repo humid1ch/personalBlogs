@@ -13,8 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061530156.png)
-
 上一篇文章差不多就是C++继承基础用法的所有内容了
 
 但是C++继承的使用，还有**需要特别**注意的地方

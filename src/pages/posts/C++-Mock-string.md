@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061537983.png)
-
----
-
 # string类 模拟实现
 
 上篇文章中介绍了 C++的 string类 及 string类的接口

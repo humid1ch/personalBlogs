@@ -14,10 +14,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061535846.png)
-
----
-
 # 文本文件、二进制文件及其存储
 
 上一篇介绍过，文件按照功能分类，可以分为 `程序文件`、`数据文件` 两类。

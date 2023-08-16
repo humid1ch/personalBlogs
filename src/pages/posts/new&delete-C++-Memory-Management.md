@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061528644.png)
-
----
-
 # 一、C/C++ 内存分布
 
 在介绍详细 C++ 内存管理的方法之前，先简单做个铺垫，先介绍一下：`C/C++程序 内存区域的划分`

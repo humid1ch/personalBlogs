@@ -13,11 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/DS_Cover_Com.jpg)
-
----
-
-
 # 复杂度 引言
 
 本篇文章是 数据结构与算法 正式内容的第一篇文章。

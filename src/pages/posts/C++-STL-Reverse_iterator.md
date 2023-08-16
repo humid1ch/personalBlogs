@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061536904.png)
-
----
-
 在 string 类介绍的时候，就已经开始接触迭代器了
 
 在 string 和 vector 种，迭代器其实就是指针，但是在 list、stack、queue 中 迭代器就不能简单地看作是指针了，并且在之后 接触地STL容器 之中，基本不会再遇到内置指针作为迭代器地情况

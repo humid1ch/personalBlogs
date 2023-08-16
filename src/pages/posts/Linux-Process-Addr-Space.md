@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061523051.png)
-
----
-
 # Linux下的进程地址空间
 
 <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221025221348296.png" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />

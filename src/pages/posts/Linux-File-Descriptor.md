@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061521281.png)
-
----
-
 在Linux操作系统中, `文件描述符`是一个至关重要的概念.
 
 理解了文件描述符, 其实就可以相当于理解了`Linux系统的关于内存文件系统的整个大致框架和逻辑`

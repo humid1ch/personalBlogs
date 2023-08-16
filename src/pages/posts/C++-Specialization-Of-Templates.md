@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061532890.png)
-
----
-
 本篇文章是 C++ 模板的第二篇文章，第一篇文章简单介绍了模板的函数模板、类模板的相关定义及调用等
 
 然而 从初始模板到这篇文章之间，已经介绍了C++中有关 string、vector、stack、queue、priority_queue、iterator的功能、实现等内容，相信 对模板已经有了一定的认识

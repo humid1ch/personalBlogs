@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307090019836.png)
-
----
-
 一直以来, C++一直最令人诟病的问题之一是什么?
 
 没错, 就是 **`内存泄漏`**

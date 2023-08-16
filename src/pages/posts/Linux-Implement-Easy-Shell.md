@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061522100.png)
-
----
-
 # 简易Shell实现
 
 我们在Linux中使用的shell, 一般有两个 bash 和 zsh.

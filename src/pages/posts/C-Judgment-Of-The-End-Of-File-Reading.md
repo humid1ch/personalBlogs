@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061535341.png)
-
----
-
 # 文件读取结束的判定
 
 当我们对一个文件的数据进行读取，输入到内存中的时候，无论是读取文件数据正常结束，还是读取文件数据失败了，函数都会返回一个值。

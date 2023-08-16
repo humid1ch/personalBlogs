@@ -14,10 +14,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307021623107.png)
-
----
-
 上一篇文章中, 我们简单的介绍了网络的最基础的部分内容, 没有涉及到编程相关的内容.
 
 从本篇文章开始, 就真正开始涉及到网络编程了.

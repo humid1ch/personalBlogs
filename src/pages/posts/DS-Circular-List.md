@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220501153114604.png)
-
----
-
 # 引言
 
 上一篇 `【神秘海域】数据结构与算法` 内容是 **`单链表及其接口`** 

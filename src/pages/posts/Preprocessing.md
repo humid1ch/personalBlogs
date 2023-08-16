@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061533256.png)
-
----
-
 # 预处理详解
 
 在C语言的代码编写中，经常会见到的 `#include ` `#define` `#pragma` 等写在整个代码文件开头的位置，这些 拥有 `#` 且一般写在 代码开头的语句，就是代码的 `预处理指令`。

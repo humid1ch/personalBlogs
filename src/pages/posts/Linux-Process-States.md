@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061524619.png)
-
----
-
 # 进程状态的概念
 
 当程序运行时, 操作系统会生成相应的PCB与程序的代码、数据一起加载到内存中 生成进程. 

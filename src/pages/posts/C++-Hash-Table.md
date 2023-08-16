@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061539531.png)
-
----
-
 在分析实现了 set 和 map 之后, STL 之中还有两个名字与之非常相似的容器, unordered_set 和 unordered_map
 
 set 和 map 的底层是由红黑树实现的, 而 unordered_set 和 unordered_map 的底层是由 `哈希表`实现的

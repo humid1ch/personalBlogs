@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307101801517.png)
-
----
-
 # C语言中的类型转换
 
 在C语言中, 有一些情况需要发生类型转化:

@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061537684.png)
-
----
-
 # set 和 map 模板参数
 
 STL容器中, set 和 map 虽然底层都是红黑树, 但是这两个容器的模板参数是不一样的, 在只考虑数据类型的情况下：

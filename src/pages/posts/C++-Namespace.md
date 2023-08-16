@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061531981.png)
-
----
-
 # 引言
 
 本篇文章是 `C++系列` 的第一篇文章，也就意味着 `C++系列` 开张了！~~我将其称之为 `大航海时代的开始！(bushi`~~

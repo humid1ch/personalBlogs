@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/cover.jpg)
-
----
-
 在阅读这篇文章之前，请思考一下对于下面的这些问题，你有一个准确清晰的认知吗？
 
 1. 什么是函数栈帧？
@@ -66,7 +62,7 @@ featured: false
 
 # 栈帧是如何创建的?
 > 	以下均在Windows平台，VS2013编译环境下演示
->											
+>												
 > 	不同平台，不同编译环境下的栈帧操作可能会有差异，但是逻辑相通。
 
 创建一个最简单的可以观察函数栈帧的程序

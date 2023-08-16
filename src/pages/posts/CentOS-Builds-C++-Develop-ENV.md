@@ -8,14 +8,9 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251817103.png'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251817103.png'
     alt: 'cover'
-tags: ["Linux使用"]
+tags: ["Linux使用问题"]
 theme: 'light'
 featured: false
----
-
-
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061540313.png)
-
 ---
 
 前几天, 在云服务器里删了一些东西, 导致丢失了一些文件和软件的相关配置.

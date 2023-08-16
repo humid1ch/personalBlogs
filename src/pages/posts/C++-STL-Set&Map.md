@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061538219.png)
-
----
-
 `set` 和 `map` 是C++ - STL 中非常重要的两个容器，上一篇文章介绍了 二叉搜索树。 
 
 而 `set` 和 `map` 的底层就是由一种二叉搜索树来实现的——红黑树 

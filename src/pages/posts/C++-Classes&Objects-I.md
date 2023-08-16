@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061528897.png)
-
----
-
 # 一、类
 
 C++ 中的类其实与 C语言 中的结构体类似。不过，C++ 将 C语言 中的 `struct` 进行了升级，在C++中 `struct` 可以用来定义类

@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061523288.png)
-
----
-
 进程地址空间的设计使进程拥有一块独立的空间, 为进程增添了独立性 和 安全性.
 
 但是, 各种进程在操作系统中运行时, 总逃不了可能某些进程之间需要进行交流. 而此时, 进程地址空间的存在又好像成为了进程之间通信的一层阻隔.

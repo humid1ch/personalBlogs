@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307111050710.png)
-
----
-
 # 特殊类
 
 ## 1. 不能被拷贝的类

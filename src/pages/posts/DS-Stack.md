@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Stack_Cover.jpg)
-
----
-
 # 引言
 
 数据结构中有 `四大基础结构` ，即 `四大线性表`：顺序表、链表、**`栈`**、队列

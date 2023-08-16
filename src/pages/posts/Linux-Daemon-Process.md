@@ -15,10 +15,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307172256122.png)
-
----
-
 # 守护进程
 
 我们使用的系统中, 一般以服务器的方式工作 对外提供服务的服务器, 都是以守护进程的方式在系统中工作的.

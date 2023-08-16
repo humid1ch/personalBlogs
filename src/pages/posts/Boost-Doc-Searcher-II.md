@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308021640006.png)
-
----
-
 # 项目开始的准备工作
 
 在上一篇文章中, 已经从`Boost`官网获取了`Boost`库的源码.

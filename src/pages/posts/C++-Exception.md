@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307071821830.png)
-
----
-
 # C语言 错误处理方式
 
 在C语言中, 代码发生错误一般会有两种处理方式:

@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061534660.png)
-
----
-
 # 内存函数
 
 ## 1.`memcpy`

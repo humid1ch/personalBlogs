@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061528369.png)
-
----
-
 # 一、类的默认成员函数
 
 任何一个类，即使一个成员都不写，其实也会自动生成6个默认成员函数：

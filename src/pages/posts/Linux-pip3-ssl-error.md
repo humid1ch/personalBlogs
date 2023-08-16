@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307210054736.png)
-
----
-
 > 由于解决问题之后, 才写的博客, 所以没有图片记录.
 >
 > 尽量描述清楚一些

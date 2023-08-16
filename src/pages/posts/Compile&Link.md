@@ -14,10 +14,6 @@ theme: 'light'
 featured: true
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230414151451674.png)
-
----
-
 #  程序的编译及链接
 
 在学习C语言的过程中，每一个 .c 文件都会经过编译链接等 预处理 操作才能成为一个 .exe 的可执行文件的

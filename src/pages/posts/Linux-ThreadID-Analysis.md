@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061527352.png)
-
----
-
 前面的几篇文章, 介绍了线程的概念与控制的一些基本的内容.
 
 虽然已经介绍了很多了, 但是 一直都没有详细的介绍一个重要的东西：`线程ID`

@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/cache_cover.jpg)
-
----
-
 # 引言
 
 数据结构中有`四大线性表`结构：**`顺序表(数组)`** 、**`链表 `**、`栈` 、`队列`

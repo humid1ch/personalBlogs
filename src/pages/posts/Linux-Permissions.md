@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061523032.png)
-
----
-
 # Linux 权限的概念
 
 ## Linux 用户

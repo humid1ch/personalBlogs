@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061930908.png)
-
----
-
 # C++11
 
 上一篇介绍C++11常用的新特性只介绍了一部分. 本篇文章继续分析介绍.

@@ -13,10 +13,6 @@ theme: 'light'
 featured: true
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061524729.png)
-
----
-
 # 进程信号
 
 进程信号, 在Linux系统的学习中, 是一个非常重要的概念.

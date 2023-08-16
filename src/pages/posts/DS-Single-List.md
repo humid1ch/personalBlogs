@@ -13,11 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/List_cover.png)
-
----
-
-
 # 单链表引言🐙
 
 ❤️‍🔥

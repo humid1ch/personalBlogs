@@ -13,8 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061529171.png)
-
 上一篇文章 详细介绍了什么是多态 和 多态的使用等方面的问题。但是却留下了一个最大的疑问
 
 ***编译器是怎么实现多态调用的？***

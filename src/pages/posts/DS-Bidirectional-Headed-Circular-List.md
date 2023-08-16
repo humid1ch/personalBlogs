@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Blog_SXDTXHLB_cover.png)
-
----
-
 # 引言
 
 在 `数据结构与算法：单链表篇` 的时候，已经介绍了 `链表` 的多种结构 `(具体内容可以去单链表的那篇去看一下，这里不再赘述)`

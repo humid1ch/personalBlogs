@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061524141.png)
-
----
-
 # 再识fork()
 
 博主的文章中第一次使用fork(), 是在介绍进程状态和Linux系统中进程具体状态的时候.

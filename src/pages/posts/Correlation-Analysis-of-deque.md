@@ -13,8 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061539295.png)
-
 STL源码实现 `Stack` 和 `Queue` 都使用了 `deque` 作为适配器
 
 deque 是什么？它的结构是什么？为什么 Stack和 Queue要用它来作为适配器实现？

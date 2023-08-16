@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061532237.png)
-
----
-
 # 什么是 string
 
 C语言中，字符串是以`'\0'`结尾的一些字符的集合，并且C标准库中也提供了一些`str`系列的库函数，但是这些库函数与字符串是分离开的，不太符合 `面向对象编程(OOP)` 的思想，而且底层空间需要用户自己管理，稍不留神可能还会越界访问。

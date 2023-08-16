@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061529288.png)
-
-----
-
 # 一、运算符重载
 
 C语言中，运算符(操作符) 是只能对 `内置类型数据或表达式` 进行操作的

@@ -10,6 +10,7 @@ const { frontmatter } = Astro.props;
 const type = frontmatter.tags[0];
 const { pubDate, title, description, featured } = frontmatter;
 const dateFormated = formatDate(pubDate);
+const coverurl = frontmatter.cover.url;
 ---
 
 <html lang={SITE_LANG} dir="ltr" class="js no-touch progressive-image no-reduced-motion progressive">
@@ -107,8 +108,15 @@ const dateFormated = formatDate(pubDate);
       </script>
       
       <section>
-        
         <article class="article">
+          <figure class="image component image-fullbleed body-copy-wide image-cover">
+            <div class="component-content">
+              <div class="image-sharesheet">
+                <img style="position: relative; top: 50%; left: 50%; transform: translate(-50%) scale(1.01);" data-src={coverurl} alt="" class="picture-image" src={coverurl}>
+              </div>
+            </div>
+          </figure>
+            <hr style="margin: auto; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(95, 89, 89, 0.85), rgba(0, 0, 0, 0)); unicode-bidi: isolate; margin-block-start: 0.5em; margin-block-end: 0.5em; margin-inline-start: auto; margin-inline-end: auto; overflow: hidden;  border-width: 0px;">
           <div class:list={[{ "featured-header": featured, "article-header": !featured }]}>
             <div class="category component">
               <div class="component-content">

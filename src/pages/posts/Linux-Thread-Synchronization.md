@@ -14,10 +14,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061526167.png)
-
----
-
 上一篇文章我们分析了什么是线程互斥, 以及线程互斥的特点和使用.
 
 说白了, 线程互斥就是多线程在争抢使用临界资源, 谁抢到了谁就用, 抢不到的就等.

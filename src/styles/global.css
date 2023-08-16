@@ -34,7 +34,7 @@
   box-sizing: inherit;
   font-family: 'Fira Code Regular', 'Harmony SC Medium';
   box-sizing: inherit;
-  font-size: 17px;
+  font-size: 16px;
 }
 
 * {
@@ -148,25 +148,26 @@ button:disabled {
 
 html {
   font-family: 'Fira Code Regular', 'Harmony SC Medium';
-  font-size: 106.25%;
+  font-size: 100%;
   quotes: "“" "”"
 }
 
 body {
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.47059;
   font-weight: 400;
   letter-spacing: -.022em;
   font-family: 'Fira Code Regular', 'Harmony SC Medium';
   background-color: #fff;
-  color: #1d1d1f;
+  color: #000000;
   font-style: normal
 }
 
 .content-body {
+  width: auto;
   font-family: 'Fira Code Regular', 'Harmony SC Medium';
   margin: 0 auto;
-  max-width: 980px;
+  max-width: 840px;
   padding: 0 22px;
 }
 
@@ -177,7 +178,7 @@ h4,
 h5,
 h6 {
   position: relative;
-  color: #5f5959;
+  color: #000000;
   margin-top: 2rem;
   margin-bottom: 1rem;
   font-weight: bold;
@@ -226,7 +227,7 @@ h4 {
 }
 
 h5 {
-  font-size: 17px;
+  font-size: 16px;
   margin-bottom: 0.5em;
 }
 
@@ -345,24 +346,24 @@ ol+* {
 }
 
 li {
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.1;
   font-family: 'Fira Code Regular', 'Harmony SC Medium';
   color: #000000;
-  max-width: 770px;
+  max-width: 740px;
 }
 
 ol {
   font-family: 'Fira Code Regular', 'Harmony SC Medium';
   margin-left: 1.17647em;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 500;
   display: table;
   border-radius: 3px;
   padding: 0rem 2rem;
   box-shadow: 0 0 3px hsla(178, 44%, 14%, 0.4);
   margin-bottom: 20px;
-  max-width: 770px;
+  max-width: 740px;
 }
 
 ul {
@@ -370,7 +371,7 @@ ul {
   font-family: 'Fira Code Regular', 'Harmony SC Medium';
   margin-left: 2em;
   margin-right: 1em;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 450;
 }
 
@@ -393,7 +394,7 @@ ul strong {
 }
 
 ul li {
-  max-width: 980px;
+  max-width: 840px;
 }
 
 ul ul,
@@ -601,7 +602,7 @@ header{
 
 .nav-content-wrapper {
   margin: 0 auto;
-  max-width: 980px;
+  max-width: 840px;
   padding: 0 22px;
   position: relative;
   z-index: 2;
@@ -964,14 +965,14 @@ html.js .tile.large-loaded .image {
 .section-content {
   margin-left: auto;
   margin-right: auto;
-  width: 980px;
+  width: 840px;
 }
 
 @media only screen and (min-width: 1441px) {
   .section-content {
     margin-left: auto;
     margin-right: auto;
-    width: 980px;
+    width: 840px;
   }
 }
 
@@ -1019,7 +1020,7 @@ html.js .tile.large-loaded .image {
 .more-from-newsroom {
   padding-top: 10px;
   padding-bottom: 80px;
-  background-color: #fff;
+  background-color: #f5f5f7;
   overflow: hidden
 }
 
@@ -1054,7 +1055,7 @@ html.js .tile.large-loaded .image {
 }
 
 .more-from-newsroom .section-tiles {
-  margin-right: -64px;
+  margin-right: 0px;
   margin-top: 0;
   justify-content: flex-start
 }
@@ -1107,7 +1108,7 @@ html.js .tile.large-loaded .image {
   content: '';
   flex: 0 0 auto;
   height: 1px;
-  display: block;
+  display: inline-block;
   background-color: #d0d0d0;
   margin-top: 32px
 }
@@ -1728,7 +1729,7 @@ html.js .tile.large-loaded .image {
 
 .tile.tile-2up {
   flex-direction: column;
-  width: 472px
+  width: 410px
 }
 
 .tile.tile-2up .tile__headline {
@@ -1781,7 +1782,7 @@ html.js .tile.large-loaded .image {
 
 @media only screen and (max-width: 1068px) {
   .tile.tile-2up .tile__headline {
-    font-size: 17px;
+    font-size: 16px;
     line-height: 1.21053;
     font-weight: 700;
     letter-spacing: .012em;
@@ -1826,7 +1827,7 @@ html.js .tile.large-loaded .image {
 }
 
 .tile.tile-2up .tile__description {
-  padding: 32px;
+  padding: 22px;
   justify-content: space-between;
   flex-basis: auto
 }
@@ -1842,7 +1843,7 @@ html.js .tile.large-loaded .image {
 .tile.tile-2up .tile__media,
 .tile.tile-2up .tile__image-container {
   width: 100%;
-  height: 266px;
+  height: 233px;
   min-height: auto;
   flex-basis: auto;
   flex-shrink: 1
@@ -2271,7 +2272,7 @@ html.js .tile.large-loaded .image {
 
 @media only screen and (max-width: 1068px) {
   .tile.tile-2up-tertiary .tile__headline {
-    font-size: 17px;
+    font-size: 16px;
     line-height: 1.19048;
     font-weight: 700;
     letter-spacing: .011em;
@@ -2539,7 +2540,7 @@ html.js .tile.large-loaded .image {
 
 @media only screen and (max-width: 1068px) {
   .tile.tile-2up-feature .tile__headline {
-    font-size: 17px;
+    font-size: 16px;
     line-height: 1.21053;
     font-weight: 700;
     letter-spacing: .012em;
@@ -2664,7 +2665,7 @@ html.js .tile.large-loaded .image {
 }
 
 .tile.tile-2up-feature .tile__media {
-  width: 980px;
+  width: 840px;
   height: 551px
 }
 
@@ -2853,11 +2854,11 @@ html.js .tile.large-loaded .image {
 
 .tile.tile-3up {
   flex-direction: column;
-  width: 303px
+  width: 270px
 }
 
 .tile.tile-3up .tile__headline {
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.21053;
   font-weight: 700;
   letter-spacing: .012em;
@@ -3031,7 +3032,7 @@ html.js .tile.large-loaded .image {
 }
 
 .tile.tile-3up-secondary .tile__headline {
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.21053;
   font-weight: 700;
   letter-spacing: .012em;
@@ -3080,7 +3081,7 @@ html.js .tile.large-loaded .image {
 
 @media only screen and (max-width: 734px) {
   .tile.tile-3up-secondary .tile__headline {
-    font-size: 17px;
+    font-size: 16px;
     line-height: 1.23536;
     font-weight: 700;
     letter-spacing: -.022em;
@@ -3350,7 +3351,7 @@ html.js .tile.large-loaded .image {
 
 @media only screen and (max-width: 734px) {
   .tile.tile-hero .tile__headline {
-    font-size: 17px;
+    font-size: 16px;
     line-height: 1.21053;
     font-weight: 700;
     letter-spacing: .012em;
@@ -3636,7 +3637,7 @@ html.js .tile.large-loaded .image {
 
 @media only screen and (max-width: 734px) {
   .tile.tile-hero-reversed .tile__headline {
-    font-size: 17px;
+    font-size: 16px;
     line-height: 1.21053;
     font-weight: 700;
     letter-spacing: .012em;
@@ -4107,7 +4108,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
 }
 
 .tile.tile-hero-highlight .tile__media {
-  width: 980px;
+  width: 840px;
   height: 551px
 }
 
@@ -4251,7 +4252,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   }
 
   .tile.tile-hero-highlight-secondary .tile__media {
-    width: 980px;
+    width: 840px;
     height: 551px
   }
 }
@@ -4393,7 +4394,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
 
 @media only screen and (max-width: 1068px) and (max-width: 1068px) {
   .tile.tile-hero-highlight-secondary .tile__headline {
-    font-size: 17px;
+    font-size: 16px;
     line-height: 1.21053;
     font-weight: 700;
     letter-spacing: .012em;
@@ -4552,7 +4553,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   }
 
   .tile.tile-hero-highlight-secondary .tile__media {
-    width: 980px;
+    width: 840px;
     height: 551px
   }
 }
@@ -4831,7 +4832,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
 }
 
 .tile.tile-hero-highlight-feature .tile__media {
-  width: 980px;
+  width: 840px;
   height: 551px
 }
 
@@ -4939,7 +4940,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
 
 @media only screen and (max-width: 1068px) {
   .tile.tile-hero-secondary .tile__headline {
-    font-size: 17px;
+    font-size: 16px;
     line-height: 1.21053;
     font-weight: 700;
     letter-spacing: .012em;
@@ -5148,7 +5149,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
 
 .view-archive-wrapper {
   margin-top: 32px;
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.23536;
   font-weight: 500;
   letter-spacing: -.022em;
@@ -5173,7 +5174,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   border-radius: 30px;
   display: inline-block;
   transition: background-color 300ms cubic-bezier(0.4, 0, 0.25, 1) 0ms, border-color 300ms cubic-bezier(0.4, 0, 0.25, 1) 0ms, color 300ms cubic-bezier(0.4, 0, 0.25, 1) 0ms;
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.23536;
   font-weight: 600;
   letter-spacing: -.022em;
@@ -5203,11 +5204,11 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   position: revert;
   background-color: transparent;
   flex-direction: row;
-  width: 457px
+  width: 830px
 }
 
 .tile.tile-list .tile__headline {
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.23536;
   font-weight: 700;
   letter-spacing: -.022em;
@@ -5283,8 +5284,8 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
 
 .tile.tile-list .tile__media,
 .tile.tile-list .tile__image-container {
-  width: 132px;
-  height: 132px;
+  width: 288px;
+  height: 155px;
   min-height: auto;
   flex-basis: auto;
   flex-shrink: 1
@@ -5567,11 +5568,11 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
 .component {
   margin-left: auto;
   margin-right: auto;
-  width: 980px
+  width: 840px
 }
 
 li .component {
-  width: 863px;
+  width: 740px;
 }
 
 .component::before,
@@ -5588,7 +5589,7 @@ li .component {
   .component {
     margin-left: auto;
     margin-right: auto;
-    width: 980px
+    width: 840px
   }
 }
 
@@ -5639,7 +5640,7 @@ li .component {
 
 
 .pagebody {
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.4211;
   font-weight: 400;
   letter-spacing: .012em;
@@ -5684,7 +5685,7 @@ li .component {
 
 @media only screen and (max-width: 1068px) {
   .pagebody {
-    font-size: 17px;
+    font-size: 16px;
     line-height: 1.47059;
     font-weight: 400;
     letter-spacing: -.022em;
@@ -5850,7 +5851,7 @@ li .component {
 .component-content {
   margin-left: auto;
   margin-right: auto;
-  width: 880px
+  width: 840px
 }
 
 @media only screen and (max-width: 1068px) {
@@ -5866,12 +5867,12 @@ li .component {
 }
 .image.image-big {
   width: auto;
-  max-width: 1068px;
+  max-width: 920px;
   border-radius: 5px
 }
 
 .image-big .component-content {
-  width: 1068px;
+  width: 920px;
   margin: 0 auto;
 }
 
@@ -5890,7 +5891,7 @@ li .component {
 .image-inline .component-content {
   margin: 0 auto;
   width: auto;
-  max-width: 880px;
+  max-width: 800px;
 }
 
 @media only screen and (max-width: 1068px) {
@@ -6032,7 +6033,7 @@ li .component {
 }
 
 .image-description .icon {
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.4211;
   font-weight: 400;
   letter-spacing: .012em;
@@ -6077,7 +6078,7 @@ li .component {
 
 @media only screen and (max-width: 1068px) {
   .image-description .icon {
-    font-size: 17px;
+    font-size: 16px;
     line-height: 1.47059;
     font-weight: 400;
     letter-spacing: -.022em;
@@ -6406,7 +6407,7 @@ blockquote .image.image-wide .component-content {
 
 @media only screen and (max-width: 1068px) {
   .datelocation-copy {
-    font-size: 17px;
+    font-size: 16px;
     line-height: 1.47059;
     font-weight: 400;
     letter-spacing: -.022em;
@@ -7304,7 +7305,7 @@ section.archive {
 a.tag_post-content {
   color: #1d1d1f;
   letter-spacing: 0.011em;
-  font-size: 17px;
+  font-size: 16px;
 }
 
 
@@ -7361,12 +7362,13 @@ code {
 blockquote {
   font-family: 'Fira Code Regular', 'Harmony SC Medium';
   background: #ffffff;
-  border: 2px solid #897d7d;
-  border-left: 0.5em solid #897d7d;
+  /* border: 1px solid #897d7d; */
+  border-left: 0.3em solid #897d7d;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
   padding: 0.5em 0.5em;
   border-radius: 5px;
   margin-bottom: 1.4211em;
-  color: #3a3a3a;
+  color: #000000;
   font-size: 14px;
 }
 blockquote strong {
@@ -7445,7 +7447,7 @@ dialog .dialog-content .dialog-button {
   background-color: #ffffff6a;
   color: #5f5959;
   border: none;
-  padding: 8px 17px;
+  padding: 8px 16px;
   border-radius: 8px;
   cursor: pointer;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
@@ -7497,8 +7499,7 @@ img {
 }
 
 #INDEXBLOGS {
-  width: 100%;
-  
+  width: 75%;
   pointer-events: none;
 }
 
@@ -7508,7 +7509,7 @@ img {
 
 .image.image-cover .component-content {
   width: 100%;
-  max-width: 2560px;
+  max-width: 1880px;
 }
 
 .image.image-cover .image-asset {
@@ -7519,14 +7520,14 @@ img {
 .image.image-cover .image-sharesheet,
 .image.image-cover .pullquote-cover {
   width: 100%;
-  border-radius: 0
+  border-radius: 10px
 }
 
 @media only screen and (min-width: 1441px) {
 
   .image.image-cover .image-sharesheet,
   .image.image-cover .pullquote-cover {
-    max-width: 1920px;
+    max-width: 1480px;
     margin: 0 auto
   }
 }

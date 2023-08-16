@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307261508349.png)
-
----
-
 # 写在应用层之前
 
 有关Linux网络, 之前的文章已经简单演示介绍了`UDP`、`TCP`套接字编程

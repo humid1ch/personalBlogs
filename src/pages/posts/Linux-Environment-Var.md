@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061521772.png)
-
----
-
 # 环境变量
 
 ## 环境变量的概念

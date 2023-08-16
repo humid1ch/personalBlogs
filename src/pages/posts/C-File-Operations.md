@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061534880.png)
-
----
-
 # 文件操作
 
 ## 一. 文件的分类

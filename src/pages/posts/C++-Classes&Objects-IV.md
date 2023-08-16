@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061529701.png)
-
----
-
 # 一、构造函数补充
 
 ## 1.1 初始化列表

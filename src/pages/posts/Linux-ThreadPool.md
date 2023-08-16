@@ -13,10 +13,6 @@ theme: 'light'
 featured: false
 ---
 
-![|cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307121404386.png)
-
----
-
 > 本篇文章主要用到线程相关内容, 下面是博主关于线程相关内容的文章:
 >
 > [[Linux] 线程同步分析：什么是条件变量？生产者消费者模型是什么？POSIX信号量怎么用？阻塞队列和环形队列模拟生产者消费者模型](https://www.julysblog.cn/posts/Linux-Thread-Synchronization)
