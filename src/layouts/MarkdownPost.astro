@@ -6,6 +6,7 @@ import Footer from "../components/Footer.astro";
 import { formatDate } from "../utils";
 import { SITE_LANG} from "../consts";
 import 'gitalk/dist/gitalk.css';
+import 'tocbot/src/scss/tocbot.scss';
 const { frontmatter } = Astro.props;
 const type = frontmatter.tags[0];
 const { pubDate, title, description, featured } = frontmatter;
@@ -108,7 +109,8 @@ const coverurl = frontmatter.cover.url;
       </script>
       
       <section>
-        <article class="article">
+        <article class="article  js-toc-content">
+          <div class="divUp"></div>
           <figure class="image component image-fullbleed body-copy-wide image-cover">
             <div class="component-content">
               <div class="image-sharesheet">
@@ -127,7 +129,7 @@ const coverurl = frontmatter.cover.url;
               </div>
             </div>
             <div class="pagetitle component">
-              <div class="component-content">
+              <div class="component-content js-toc-content">
                 <h1 class="hero-headline">{title}</h1>
               </div>
             </div>
@@ -146,11 +148,16 @@ const coverurl = frontmatter.cover.url;
                     );
                   })
                 }
+                <hr style="margin: auto; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(95, 89, 89, 0.85), rgba(0, 0, 0, 0)); unicode-bidi: isolate; margin-block-start: 0.5em; margin-block-end: 0.5em; margin-inline-start: auto; margin-inline-end: auto; overflow: hidden;  border-width: 0px;">
               </div>
             </div>
           </div>
-          <slot />
-
+          <div class="divUpSidebar"></div>
+          <nav id="tocc" style="overflow: hidden;" class="toc">
+            <ul class="js-toc"></ul> 
+          </nav>
+        </div>
+          <slot/>
           <div class="component">
             <div class="component-content">
               <div class="article-copyright">
@@ -174,8 +181,42 @@ const coverurl = frontmatter.cover.url;
               id: location.pathname,      // Ensure uniqueness and length less than 50
               distractionFreeMode: false  // Facebook-like distraction free mode
           })
-      
+
           gitalk.render('gitalk-container')
+
+          import tocbot from 'tocbot';
+          tocbot.init({
+            // Where to render the table of contents.
+            tocSelector: '.js-toc',
+            // Where to grab the headings to build the table of contents.
+            contentSelector: '.article',
+            // Which headings to grab inside of the contentSelector element.
+            headingSelector: 'h1, h2, h3, h4, h5, h6',
+            // For headings inside relative or absolute positioned containers within content.
+            collapseDepth: 0,
+            orderedList: false,
+            collapsedClass: 'is-collapsed',
+            positionFixedClass: 'is-position-fixed',
+            scrollSmoothOffset: -200,
+          });
+
+          let toc = document.getElementById('tocc');
+          // 调用计算函数
+          const divUpRect = document.querySelector('.divUp').getBoundingClientRect();
+          const divSidebarRect = document.querySelector('.divUpSidebar').getBoundingClientRect();
+
+          const distance = divSidebarRect.top - divUpRect.bottom;
+
+          window.addEventListener('scroll', handleScroll);
+
+          function handleScroll() {
+            if(window.scrollY > distance - 100) {
+              toc.classList.add('fixed');
+            }
+            else if (window.scrollY < distance - 100) {
+              toc.classList.remove('fixed');
+            }
+          }
         </script>
       </section>
     </main>
