@@ -7594,7 +7594,7 @@ p {
   backdrop-filter: blur(8px);
   border-radius: 10px;
   margin-left: 10px;
-  padding-right: 50px;
+  padding-right: 1em;
   width: 225px;
   position: sticky;
   top: 100px;
@@ -7608,7 +7608,8 @@ p {
 }
 
 .toc li {
-  line-height: 1;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 /* 折叠元素的样式 */
 .is-collapsed {
@@ -7620,6 +7621,7 @@ p {
 }
 
 .toc-link {
+  font-size: 0.9em;
   margin-left: 15px;
 }
 .toc-link::before {
@@ -7639,6 +7641,7 @@ p {
   background-color: #026fdcaa !important;
 }
 
+
 .toggle-button {
   text-align: right;
   /* padding: 2px; */
@@ -7646,6 +7649,7 @@ p {
 }
 
 .toc.collapsed {
+  padding-right: 50px;
   height: 1.5em;
   width: 0em; /* 收起时的宽度 */
   background-color: #889df844;
@@ -7664,4 +7668,10 @@ p {
 
 .toggle-button.collapsed .collapse {
   display: none;
+}
+
+@media only screen and (max-width: 767px) {
+  .toc {
+    padding-right: 0;
+  }
 }
