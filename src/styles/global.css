@@ -7613,4 +7613,18 @@ p {
   position: fixed;
 }
 
-/* 展开后的样式 */  
+.toc-link::before {
+  background-color: #EEE;
+  content: ' ';
+  display: inline-block;
+  height: 1em !important;
+  left: 0;
+  margin-top: -1px;
+  position: absolute;
+  width: 4px !important;
+  border-radius: 2px !important;
+}
+
+.is-active-link::before {
+  background-color: #026fdcaa !important;
+}
