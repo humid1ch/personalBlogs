@@ -7590,7 +7590,7 @@ p {
 }
 
 .toc {
-  /* box-shadow: 0 0 2px hsla(178, 44%, 14%, 0.4); */
+  box-shadow: 0 0 15px hsla(178, 44%, 14%, 0.25);
   backdrop-filter: blur(8px);
   border-radius: 10px;
   margin-left: 10px;
@@ -7644,7 +7644,7 @@ p {
 
 .toggle-button {
   text-align: right;
-  /* padding: 2px; */
+  padding-top: 2px;
   padding-left: 10px;
 }
 

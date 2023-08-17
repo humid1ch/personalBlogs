@@ -155,7 +155,7 @@ const coverurl = frontmatter.cover.url;
           <div class="divUpSidebar"></div>
           <nav id="tocc" style="overflow: hidden;" class="toc">
             <div class="toggle-button">
-              <button id="toggleButton" class="expand">TOC</button>
+              <button style="font-weight:600" id="toggleButton" class="expand">TOC</button>
             </div>
             <ul class="js-toc"></ul> 
           </nav>
@@ -216,10 +216,10 @@ const coverurl = frontmatter.cover.url;
           window.addEventListener('scroll', handleScroll);
 
           function handleScroll() {
-            if(window.scrollY > distance - 25) {
+            if(window.scrollY > distance) {
               toc.classList.add('fixed');
             }
-            else if (window.scrollY < distance - 25) {
+            else if (window.scrollY < distance) {
               toc.classList.remove('fixed');
             }
           }
