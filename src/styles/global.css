@@ -7591,14 +7591,20 @@ p {
 
 .toc {
   /* box-shadow: 0 0 2px hsla(178, 44%, 14%, 0.4); */
-  margin-right: 100px;
-  width: 280px;
+  backdrop-filter: blur(8px);
+  border-radius: 10px;
+  margin-left: 10px;
+  padding-right: 50px;
+  width: 225px;
   position: sticky;
   top: 100px;
   z-index: 999;
   float: right;
   right: 0;
+  background-color: #ffffff44;
   transform: translateX(0);
+  /* right: calc((100% - 88em)/2); */
+  transition: width 0.3s ease;
 }
 
 .toc li {
@@ -7613,7 +7619,11 @@ p {
   position: fixed;
 }
 
+.toc-link {
+  margin-left: 15px;
+}
 .toc-link::before {
+  margin-left: 10px;
   background-color: #EEE;
   content: ' ';
   display: inline-block;
@@ -7627,4 +7637,31 @@ p {
 
 .is-active-link::before {
   background-color: #026fdcaa !important;
+}
+
+.toggle-button {
+  text-align: right;
+  /* padding: 2px; */
+  padding-left: 10px;
+}
+
+.toc.collapsed {
+  height: 1.5em;
+  width: 0em; /* 收起时的宽度 */
+  background-color: #889df844;
+  backdrop-filter: blur(7px);
+}
+
+.toc.collapsed .toc-link {
+  width: 1px;
+  transition: width 0.3s ease;
+  /* display: hidden; */
+}
+
+.toggle-button.collapsed .expand {
+  display: block;
+}
+
+.toggle-button.collapsed .collapse {
+  display: none;
 }
