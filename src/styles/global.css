@@ -7644,6 +7644,7 @@ p {
 
 .toggle-button {
   text-align: right;
+  padding-right: 5px;
   padding-top: 2px;
   padding-left: 10px;
 }
