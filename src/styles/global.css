@@ -7590,8 +7590,8 @@ p {
 }
 
 .toc {
-  box-shadow: 0 0 15px hsla(178, 44%, 14%, 0.3);
-  backdrop-filter: blur(13px);
+  box-shadow: 0 0 17px hsla(178, 44%, 14%, 0.3);
+  backdrop-filter: blur(15px);
   border-radius: 10px;
   margin-left: 10px;
   padding-right: 1em;
@@ -7643,8 +7643,7 @@ p {
 
 
 .toggle-button {
-  text-align: right;
-  padding-right: 5px;
+  text-align: center;
   padding-top: 2px;
   padding-left: 10px;
 }
@@ -7654,7 +7653,7 @@ p {
   height: 1.5em;
   width: 0em; /* 收起时的宽度 */
   background-color: #889df844;
-  backdrop-filter: blur(13px);
+  backdrop-filter: blur(15px);
 }
 
 .toc.collapsed .toc-link {
