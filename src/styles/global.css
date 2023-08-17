@@ -7590,8 +7590,8 @@ p {
 }
 
 .toc {
-  box-shadow: 0 0 15px hsla(178, 44%, 14%, 0.25);
-  backdrop-filter: blur(8px);
+  box-shadow: 0 0 15px hsla(178, 44%, 14%, 0.3);
+  backdrop-filter: blur(13px);
   border-radius: 10px;
   margin-left: 10px;
   padding-right: 1em;
@@ -7654,7 +7654,7 @@ p {
   height: 1.5em;
   width: 0em; /* 收起时的宽度 */
   background-color: #889df844;
-  backdrop-filter: blur(7px);
+  backdrop-filter: blur(13px);
 }
 
 .toc.collapsed .toc-link {
