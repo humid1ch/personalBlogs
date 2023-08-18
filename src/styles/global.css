@@ -1,11 +1,11 @@
 :root {
   --black: #1d1d1f;
-  --bg-primary: #f5f5f7;
+  --bg-primary: #4870ac;
   --gray-primary: #f2f2f2;
   --gray-text: #515154;
   --primary: #8129d9;
   --blue: #0071e3;
-  --footer-background: #f5f5f7;
+  --footer-background: #fff;
   --footer-border-color: #d2d2d7;
   --footer-text-color: #6e6e73;
   --footer-link-color: #424245;
@@ -21,9 +21,24 @@
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
-  font-family: 'Harmony SC Medium';
-  src: url('/fonts/HarmonyOS_Sans_SC_Medium.woff') format('truetype');
+  font-family: 'HarmonyOS SC Medium';
+  src: url('/fonts/HarmonyOS_Sans_SC_Medium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HarmonyOS SC Regular';
+  src: url('/fonts/HarmonyOS_Sans_SC_Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HarmonyOS SC Bold';
+  src: url('/fonts/HarmonyOS_Sans_SC_Bold.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -32,19 +47,18 @@
 ::before,
 ::after {
   box-sizing: inherit;
-  font-family: 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: 'Fira Code Regular', 'HarmonyOS SC Medium';
   box-sizing: inherit;
   font-size: 17px;
 }
 
 html {
-  font-family: 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: 'Fira Code Regular', 'HarmonyOS SC Medium';
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%
 }
 
 body {
-  font-family: 'Fira Code Regular', 'Harmony SC Medium';
   margin: 0;
   padding: 0
 }
@@ -82,7 +96,7 @@ caption,
 th,
 figcaption {
   font-size: 1em;
-  font-family: 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: 'Fira Code Regular', 'HarmonyOS SC Medium';
   font-weight: normal;
   font-style: normal
 }
@@ -98,7 +112,7 @@ th {
 }
 
 table {
-  font-family: 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: 'Fira Code Regular', 'HarmonyOS SC Medium';
   border-collapse: collapse;
   border-spacing: 0
 }
@@ -106,7 +120,7 @@ table {
 main,
 summary,
 details {
-  font-family: 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: 'Fira Code Regular', 'HarmonyOS SC Medium';
   display: block
 }
 
@@ -144,7 +158,7 @@ button:disabled {
 }
 
 html {
-  font-family: 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: 'Fira Code Regular', 'HarmonyOS SC Medium';
   font-size: 100%;
   quotes: "“" "”"
 }
@@ -154,7 +168,7 @@ body {
   line-height: 1.47059;
   font-weight: 400;
   letter-spacing: -.022em;
-  font-family: 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: 'Fira Code Regular', 'HarmonyOS SC Medium';
   background-color: #fff;
   color: #000000;
   font-style: normal
@@ -162,7 +176,7 @@ body {
 
 .content-body {
   width: auto;
-  font-family: 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: 'Fira Code Regular', 'HarmonyOS SC Medium';
   margin: 0 auto;
   max-width: 840px;
   padding: 0 22px;
@@ -175,12 +189,12 @@ h4,
 h5,
 h6 {
   position: relative;
-  color: #000000;
+  color: #4870ac;
   margin-top: 2rem;
   margin-bottom: 1rem;
   font-weight: bold;
   line-height: 1.2;
-  font-family: 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: 'Fira Code Regular', 'HarmonyOS SC Bold';
 }
 
 h1 {
@@ -249,7 +263,7 @@ h4 strong,
 h5 strong, 
 h6 strong {
   font-size: 1em;
-  font-weight: bold;
+  font-family: 'Fira Code Regular', 'HarmonyOS SC Bold';
 }
 
 h1 img,
@@ -335,37 +349,43 @@ ol+h6 {
   margin-top: 0
 }
 
+::marker {
+  font-family: 'Fira Code Regular', 'HarmonyOS SC Bold';
+  font-weight: 1000;
+  color: #4870ac;
+}
+
 p+*,
 ul+*,
 ol+* {
-  font-family: 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: 'Fira Code Regular', 'HarmonyOS SC Medium';
   margin-top: .8em
 }
 
 li {
   font-size: 17px;
   line-height: 1.1;
-  font-family: 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: 'Fira Code Regular', 'HarmonyOS SC Medium';
   color: #000000;
   max-width: 740px;
 }
 
 ol {
-  font-family: 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: 'Fira Code Regular', 'HarmonyOS SC Bold';
   margin-left: 1.17647em;
-  font-size: 17px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 450;
   display: table;
-  border-radius: 3px;
+  border-radius: 5px;
   padding: 0rem 2rem;
-  box-shadow: 0 0 3px hsla(178, 44%, 14%, 0.4);
+  box-shadow: 0 0 12px #89b8ff55;
   margin-bottom: 20px;
   max-width: 740px;
 }
 
 ul {
   display: table;
-  font-family: 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: 'Fira Code Regular', 'HarmonyOS SC Bold';
   margin-left: 2em;
   margin-right: 1em;
   font-size: 17px;
@@ -379,18 +399,8 @@ ul {
   }
 }
 
-ol strong,
-ul strong {
-  font-family: 'Fira Code Regular', 'Harmony SC Medium';
-  color: #000000;
-  font-weight: bold;
-  border-radius: 2px;
-  padding: 2px 6px;
-  position: relative;
-  border-left: none;
-}
-
 ul li {
+  font-family: 'Fira Code Regular', 'HarmonyOS SC Medium';
   max-width: 840px;
 }
 
@@ -398,21 +408,21 @@ ul ul,
 ul ol,
 ol ul,
 ol ol {
-  font-family: 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: 'Fira Code Regular', 'HarmonyOS SC Medium';
   margin-top: 0;
   margin-bottom: 0
 }
 
 nav ul,
 nav ol {
-  font-family: 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: 'Fira Code Regular', 'HarmonyOS SC Medium';
   margin: 0;
   list-style: none
 }
 
 
 li li {
-  font-family: 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: 'Fira Code Regular', 'HarmonyOS SC Medium';
   font-size: 1em
 }
 
@@ -459,8 +469,7 @@ li li {
 
 ol strong,
 ul strong {
-  font-family: 'Fira Code Regular', 'Harmony SC Medium';
-  color: #000000;
+  font-family: 'Fira Code Regular', 'HarmonyOS SC Bold';
   font-weight: bold;
   border-radius: 2px;
   padding: 2px 6px;
@@ -470,7 +479,7 @@ ul strong {
 
 a,
 .link {
-  color: #5f5959;
+  color: #88a6d3;
   letter-spacing: inherit
 }
 
@@ -483,8 +492,9 @@ a:visited,
 
 a:hover,
 .link:hover {
-  color: #000000;
-  font-weight: 500;
+  font-family: 'Fira Code Regular', 'HarmonyOS SC Bold';
+  color: #4f8be5;
+  font-weight: bold;
   text-decoration: none
 }
 
@@ -505,8 +515,8 @@ a:disabled,
 }
 
 header{
-  font-weight: bolder;
-  font-family: 'Fira Code Regular', 'Harmony SC Medium';
+  font-weight: bold;
+  font-family: 'Fira Code Regular', 'HarmonyOS SC Bold';
   position: sticky;
   top: 0;
   z-index: 2;
@@ -538,10 +548,11 @@ header{
 }
 
 .nav-title {
-  color: #1d1d1f;
+  font-family: 'Fira Code Regular', 'HarmonyOS SC Bold';
+  color: #4870ac;
   font-size: 21px;
   line-height: 1.14286;
-  font-weight: 600;
+  font-weight: bold;
   letter-spacing: 0.011em;
   cursor: default;
   display: block;
@@ -554,10 +565,11 @@ header{
 
 
 .nav-item-content {
+  font-family: 'Fira Code Regular', 'HarmonyOS SC Bold';
   font-size: 14px;
-  font-weight: 500;
+  font-weight: bold;
   text-decoration: none !important;
-  color: #676b5f;
+  color: #3a5a8a;
 }
 
 @media only screen and (max-width: 734px) {
@@ -630,9 +642,8 @@ a.nav-title:hover {
   border-radius: 10px;
 }
 
-
 .nav-item-wrapper a:hover {
-  color: #2997ff;
+  color: #4f8be5;
 }
 
 .main {
@@ -727,9 +738,9 @@ html.no-touch.no-reduced-motion .tile[data-focus-method=key] .media--video {
 .tile__category {
   font-size: 12px;
   line-height: 1.33337;
-  font-weight: 700;
+  font-weight: bold;
   letter-spacing: -.01em;
-  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+  font-family: "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Bold';
 }
 
 .tile__category:lang(ar) {
@@ -781,7 +792,7 @@ html.no-touch.no-reduced-motion .tile[data-focus-method=key] .media--video {
   line-height: 1.28577;
   font-weight: 600;
   letter-spacing: -.016em;
-  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: 'Fira Code Regular', 'HarmonyOS SC Bold', "SF Pro Icons";
   display: flex;
   justify-content: flex-start;
   align-items: center
@@ -930,7 +941,7 @@ html.js .tile.large-loaded .image {
 .everydayfeed {
   padding-bottom: 80px;
   overflow: hidden;
-  background-color: #f5f5f7;
+  background-color: #edf4ffaa;
   margin-top: 0
 }
 
@@ -996,9 +1007,10 @@ html.js .tile.large-loaded .image {
 }
 
 .section-head {
+  font-family: 'Fira Code Regular', 'HarmonyOS SC Bold';
   font-size: 32px;
   line-height: 1.125;
-  font-weight: 700;
+  font-weight: bold;
   letter-spacing: 0.004em;
   margin-top: 24px;
   margin-bottom: 24px;
@@ -1008,7 +1020,7 @@ html.js .tile.large-loaded .image {
   .section-head {
     font-size: 28px;
     line-height: 1.14286;
-    font-weight: 700;
+    font-weight: bold;
     letter-spacing: 0.007em;
     margin-bottom: 17px;
   }
@@ -1017,7 +1029,7 @@ html.js .tile.large-loaded .image {
 .more-from-newsroom {
   padding-top: 10px;
   padding-bottom: 80px;
-  background-color: #f5f5f7;
+  background-color: #edf4ffaa;
   overflow: hidden
 }
 
@@ -1279,9 +1291,9 @@ html.js .tile.large-loaded .image {
 .featured-header .pagetitle .hero-headline {
   font-size: 32px;
   line-height: 1.07143;
-  font-weight: 700;
+  font-weight: bold;
   letter-spacing: -.005em;
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Bold';
   text-align: center
 }
 
@@ -1313,7 +1325,7 @@ html.js .tile.large-loaded .image {
 }
 
 .featured-header .pagetitle .hero-headline:lang(zh-CN) {
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium'
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium'
 }
 
 .featured-header .pagetitle .hero-headline:lang(zh-HK) {
@@ -1332,7 +1344,7 @@ html.js .tile.large-loaded .image {
   .featured-header .pagetitle .hero-headline {
     font-size: 30px;
     line-height: 1.08349;
-    font-weight: 700;
+    font-weight: bold;
     letter-spacing: -.003em;
     font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif
   }
@@ -1365,7 +1377,7 @@ html.js .tile.large-loaded .image {
   }
 
   .featured-header .pagetitle .hero-headline:lang(zh-CN) {
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium'
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium'
   }
 
   .featured-header .pagetitle .hero-headline:lang(zh-HK) {
@@ -1385,7 +1397,7 @@ html.js .tile.large-loaded .image {
   .featured-header .pagetitle .hero-headline {
     font-size: 28px;
     line-height: 1.125;
-    font-weight: 700;
+    font-weight: bold;
     letter-spacing: .004em;
     font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif
   }
@@ -1411,7 +1423,7 @@ html.js .tile.large-loaded .image {
   }
 
   .featured-header .pagetitle .hero-headline:lang(zh-CN) {
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium'
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium'
   }
 
   .featured-header .pagetitle .hero-headline:lang(zh-HK) {
@@ -1459,7 +1471,7 @@ html.js .tile.large-loaded .image {
 }
 
 .featured-header .featured-subhead:lang(zh-CN) {
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium'
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium'
 }
 
 .featured-header .featured-subhead:lang(zh-HK) {
@@ -1504,7 +1516,7 @@ html.js .tile.large-loaded .image {
   }
 
   .featured-header .featured-subhead:lang(zh-CN) {
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium'
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium'
   }
 
   .featured-header .featured-subhead:lang(zh-HK) {
@@ -1732,9 +1744,9 @@ html.js .tile.large-loaded .image {
 .tile.tile-2up .tile__headline {
   font-size: 22px;
   line-height: 1.16667;
-  font-weight: 700;
+  font-weight: bold;
   letter-spacing: .009em;
-  font-family: 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: 'Fira Code Regular', 'HarmonyOS SC Bold';
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
   display: -webkit-box;
@@ -1762,7 +1774,7 @@ html.js .tile.large-loaded .image {
 }
 
 .tile.tile-2up .tile__headline:lang(zh-CN) {
-  font-family: 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: 'Fira Code Regular', 'HarmonyOS SC Medium';
 }
 
 .tile.tile-2up .tile__headline:lang(zh-HK) {
@@ -1781,9 +1793,9 @@ html.js .tile.large-loaded .image {
   .tile.tile-2up .tile__headline {
     font-size: 17px;
     line-height: 1.21053;
-    font-weight: 700;
+    font-weight: bold;
     letter-spacing: .012em;
-    font-family: 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: 'Fira Code Regular', 'HarmonyOS SC Bold';
   }
 
   .tile.tile-2up .tile__headline:lang(ar) {
@@ -1807,7 +1819,7 @@ html.js .tile.large-loaded .image {
   }
 
   .tile.tile-2up .tile__headline:lang(zh-CN) {
-    font-family: 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: 'Fira Code Regular', 'HarmonyOS SC Medium';
   }
 
   .tile.tile-2up .tile__headline:lang(zh-HK) {
@@ -1952,9 +1964,9 @@ html.js .tile.large-loaded .image {
 .tile.tile-2up-secondary .tile__headline {
   font-size: 22px;
   line-height: 1.16667;
-  font-weight: 700;
+  font-weight: bold;
   letter-spacing: .009em;
-  font-family: 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: 'Fira Code Regular', 'HarmonyOS SC Bold';
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
   display: -webkit-box;
@@ -1982,7 +1994,7 @@ html.js .tile.large-loaded .image {
 }
 
 .tile.tile-2up-secondary .tile__headline:lang(zh-CN) {
-  font-family: 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: 'Fira Code Regular', 'HarmonyOS SC Medium';
 }
 
 .tile.tile-2up-secondary .tile__headline:lang(zh-HK) {
@@ -2001,9 +2013,9 @@ html.js .tile.large-loaded .image {
   .tile.tile-2up-secondary .tile__headline {
     font-size: 12px;
     line-height: 1.21053;
-    font-weight: 700;
+    font-weight: bold;
     letter-spacing: .012em;
-    font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Bold';
   }
 
   .tile.tile-2up-secondary .tile__headline:lang(ar) {
@@ -2027,7 +2039,7 @@ html.js .tile.large-loaded .image {
   }
 
   .tile.tile-2up-secondary .tile__headline:lang(zh-CN) {
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium'
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium'
   }
 
   .tile.tile-2up-secondary .tile__headline:lang(zh-HK) {
@@ -2047,9 +2059,9 @@ html.js .tile.large-loaded .image {
   .tile.tile-2up-secondary .tile__headline {
     font-size: 12px;
     line-height: 1.23536;
-    font-weight: 700;
+    font-weight: bold;
     letter-spacing: -.022em;
-    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+    font-family: "SF Pro Text", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Bold';
   }
 
   .tile.tile-2up-secondary .tile__headline:lang(ar) {
@@ -2222,9 +2234,9 @@ html.js .tile.large-loaded .image {
 .tile.tile-2up-tertiary .tile__headline {
   font-size: 22px;
   line-height: 1.16667;
-  font-weight: 700;
+  font-weight: bold;
   letter-spacing: .009em;
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Bold';;
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
   display: -webkit-box;
@@ -2252,7 +2264,7 @@ html.js .tile.large-loaded .image {
 }
 
 .tile.tile-2up-tertiary .tile__headline:lang(zh-CN) {
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
 }
 
 .tile.tile-2up-tertiary .tile__headline:lang(zh-HK) {
@@ -2271,9 +2283,9 @@ html.js .tile.large-loaded .image {
   .tile.tile-2up-tertiary .tile__headline {
     font-size: 17px;
     line-height: 1.19048;
-    font-weight: 700;
+    font-weight: bold;
     letter-spacing: .011em;
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Bold';;
   }
 
   .tile.tile-2up-tertiary .tile__headline:lang(ja) {
@@ -2297,7 +2309,7 @@ html.js .tile.large-loaded .image {
   }
 
   .tile.tile-2up-tertiary .tile__headline:lang(zh-CN) {
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
   }
 
   .tile.tile-2up-tertiary .tile__headline:lang(zh-HK) {
@@ -2317,9 +2329,9 @@ html.js .tile.large-loaded .image {
   .tile.tile-2up-tertiary .tile__headline {
     font-size: 19px;
     line-height: 1.21053;
-    font-weight: 700;
+    font-weight: bold;
     letter-spacing: .012em;
-    font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Bold';
   }
 
   .tile.tile-2up-tertiary .tile__headline:lang(ar) {
@@ -2343,7 +2355,7 @@ html.js .tile.large-loaded .image {
   }
 
   .tile.tile-2up-tertiary .tile__headline:lang(zh-CN) {
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium'
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium'
   }
 
   .tile.tile-2up-tertiary .tile__headline:lang(zh-HK) {
@@ -2490,9 +2502,9 @@ html.js .tile.large-loaded .image {
 .tile.tile-2up-feature .tile__headline {
   font-size: 22px;
   line-height: 1.16667;
-  font-weight: 700;
+  font-weight: bold;
   letter-spacing: .009em;
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Bold';
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
   display: -webkit-box;
@@ -2520,7 +2532,7 @@ html.js .tile.large-loaded .image {
 }
 
 .tile.tile-2up-feature .tile__headline:lang(zh-CN) {
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
 }
 
 .tile.tile-2up-feature .tile__headline:lang(zh-HK) {
@@ -2539,9 +2551,9 @@ html.js .tile.large-loaded .image {
   .tile.tile-2up-feature .tile__headline {
     font-size: 17px;
     line-height: 1.21053;
-    font-weight: 700;
+    font-weight: bold;
     letter-spacing: .012em;
-    font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Bold';
   }
 
   .tile.tile-2up-feature .tile__headline:lang(ar) {
@@ -2565,7 +2577,7 @@ html.js .tile.large-loaded .image {
   }
 
   .tile.tile-2up-feature .tile__headline:lang(zh-CN) {
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium'
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium'
   }
 
   .tile.tile-2up-feature .tile__headline:lang(zh-HK) {
@@ -2857,9 +2869,9 @@ html.js .tile.large-loaded .image {
 .tile.tile-3up .tile__headline {
   font-size: 17px;
   line-height: 1.21053;
-  font-weight: 700;
+  font-weight: bold;
   letter-spacing: .012em;
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Bold';;
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
   display: -webkit-box;
@@ -2887,7 +2899,7 @@ html.js .tile.large-loaded .image {
 }
 
 .tile.tile-3up .tile__headline:lang(zh-CN) {
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
 }
 
 .tile.tile-3up .tile__headline:lang(zh-HK) {
@@ -3031,9 +3043,9 @@ html.js .tile.large-loaded .image {
 .tile.tile-3up-secondary .tile__headline {
   font-size: 17px;
   line-height: 1.21053;
-  font-weight: 700;
+  font-weight: bold;
   letter-spacing: .012em;
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Bold';;
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
   display: -webkit-box;
@@ -3061,7 +3073,7 @@ html.js .tile.large-loaded .image {
 }
 
 .tile.tile-3up-secondary .tile__headline:lang(zh-CN) {
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
 }
 
 .tile.tile-3up-secondary .tile__headline:lang(zh-HK) {
@@ -3080,9 +3092,9 @@ html.js .tile.large-loaded .image {
   .tile.tile-3up-secondary .tile__headline {
     font-size: 17px;
     line-height: 1.23536;
-    font-weight: 700;
+    font-weight: bold;
     letter-spacing: -.022em;
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Bold';;
   }
 
   .tile.tile-3up-secondary .tile__headline:lang(ar) {
@@ -3112,7 +3124,7 @@ html.js .tile.large-loaded .image {
   }
 
   .tile.tile-3up-secondary .tile__headline:lang(zh-CN) {
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
   }
 
   .tile.tile-3up-secondary .tile__headline:lang(zh-HK) {
@@ -3255,9 +3267,9 @@ html.js .tile.large-loaded .image {
 .tile.tile-hero .tile__headline {
   font-size: 32px;
   line-height: 1.125;
-  font-weight: 700;
+  font-weight: bold;
   letter-spacing: .004em;
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Bold';
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
   display: -webkit-box;
@@ -3285,7 +3297,7 @@ html.js .tile.large-loaded .image {
 }
 
 .tile.tile-hero .tile__headline:lang(zh-CN) {
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
 }
 
 .tile.tile-hero .tile__headline:lang(zh-HK) {
@@ -3304,9 +3316,9 @@ html.js .tile.large-loaded .image {
   .tile.tile-hero .tile__headline {
     font-size: 19px;
     line-height: 1.19048;
-    font-weight: 700;
+    font-weight: bold;
     letter-spacing: .011em;
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Bold';
   }
 
   .tile.tile-hero .tile__headline:lang(ja) {
@@ -3330,7 +3342,7 @@ html.js .tile.large-loaded .image {
   }
 
   .tile.tile-hero .tile__headline:lang(zh-CN) {
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
   }
 
   .tile.tile-hero .tile__headline:lang(zh-HK) {
@@ -3350,9 +3362,9 @@ html.js .tile.large-loaded .image {
   .tile.tile-hero .tile__headline {
     font-size: 17px;
     line-height: 1.21053;
-    font-weight: 700;
+    font-weight: bold;
     letter-spacing: .012em;
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Bold';
   }
 
   .tile.tile-hero .tile__headline:lang(ar) {
@@ -3376,7 +3388,7 @@ html.js .tile.large-loaded .image {
   }
 
   .tile.tile-hero .tile__headline:lang(zh-CN) {
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
   }
 
   .tile.tile-hero .tile__headline:lang(zh-HK) {
@@ -3541,9 +3553,9 @@ html.js .tile.large-loaded .image {
 .tile.tile-hero-reversed .tile__headline {
   font-size: 30px;
   line-height: 1.125;
-  font-weight: 700;
+  font-weight: bold;
   letter-spacing: .004em;
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Bold';
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
   display: -webkit-box;
@@ -3571,7 +3583,7 @@ html.js .tile.large-loaded .image {
 }
 
 .tile.tile-hero-reversed .tile__headline:lang(zh-CN) {
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
 }
 
 .tile.tile-hero-reversed .tile__headline:lang(zh-HK) {
@@ -3590,9 +3602,9 @@ html.js .tile.large-loaded .image {
   .tile.tile-hero-reversed .tile__headline {
     font-size: 19px;
     line-height: 1.19048;
-    font-weight: 700;
+    font-weight: bold;
     letter-spacing: .011em;
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Bold';
   }
 
   .tile.tile-hero-reversed .tile__headline:lang(ja) {
@@ -3616,7 +3628,7 @@ html.js .tile.large-loaded .image {
   }
 
   .tile.tile-hero-reversed .tile__headline:lang(zh-CN) {
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
   }
 
   .tile.tile-hero-reversed .tile__headline:lang(zh-HK) {
@@ -3636,9 +3648,9 @@ html.js .tile.large-loaded .image {
   .tile.tile-hero-reversed .tile__headline {
     font-size: 17px;
     line-height: 1.21053;
-    font-weight: 700;
+    font-weight: bold;
     letter-spacing: .012em;
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Bold';
   }
 
   .tile.tile-hero-reversed .tile__headline:lang(ar) {
@@ -3662,7 +3674,7 @@ html.js .tile.large-loaded .image {
   }
 
   .tile.tile-hero-reversed .tile__headline:lang(zh-CN) {
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
   }
 
   .tile.tile-hero-reversed .tile__headline:lang(zh-HK) {
@@ -3807,9 +3819,9 @@ html.js .tile.large-loaded .image {
 .tile.tile-hero-highlight-secondary .tile__headline {
   font-size: 40px;
   line-height: 1.1;
-  font-weight: 700;
+  font-weight: bold;
   letter-spacing: 0em;
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Bold';
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   display: -webkit-box;
@@ -3842,7 +3854,7 @@ html.js .tile.large-loaded .image {
 
 .tile.tile-hero-highlight .tile__headline:lang(zh-CN),
 .tile.tile-hero-highlight-secondary .tile__headline:lang(zh-CN) {
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
 }
 
 .tile.tile-hero-highlight .tile__headline:lang(zh-HK),
@@ -3866,9 +3878,9 @@ html.js .tile.large-loaded .image {
   .tile.tile-hero-highlight-secondary .tile__headline {
     font-size: 28px;
     line-height: 1.14286;
-    font-weight: 700;
+    font-weight: bold;
     letter-spacing: .007em;
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Bold';
   }
 
   .tile.tile-hero-highlight .tile__headline:lang(ko),
@@ -3895,7 +3907,7 @@ html.js .tile.large-loaded .image {
 
   .tile.tile-hero-highlight .tile__headline:lang(zh-CN),
   .tile.tile-hero-highlight-secondary .tile__headline:lang(zh-CN) {
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
   }
 
   .tile.tile-hero-highlight .tile__headline:lang(zh-HK),
@@ -3920,9 +3932,9 @@ html.js .tile.large-loaded .image {
   .tile.tile-hero-highlight-secondary .tile__headline {
     font-size: 22px;
     line-height: 1.16667;
-    font-weight: 700;
+    font-weight: bold;
     letter-spacing: .009em;
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Bold';
   }
 
   .tile.tile-hero-highlight .tile__headline:lang(ar),
@@ -3951,7 +3963,7 @@ html.js .tile.large-loaded .image {
 
   .tile.tile-hero-highlight .tile__headline:lang(zh-CN),
   .tile.tile-hero-highlight-secondary .tile__headline:lang(zh-CN) {
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
   }
 
   .tile.tile-hero-highlight .tile__headline:lang(zh-HK),
@@ -4343,9 +4355,9 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   .tile.tile-hero-highlight-secondary .tile__headline {
     font-size: 22px;
     line-height: 1.16667;
-    font-weight: 700;
+    font-weight: bold;
     letter-spacing: .009em;
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Bold';
     -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
     display: -webkit-box;
@@ -4373,7 +4385,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   }
 
   .tile.tile-hero-highlight-secondary .tile__headline:lang(zh-CN) {
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
   }
 
   .tile.tile-hero-highlight-secondary .tile__headline:lang(zh-HK) {
@@ -4393,9 +4405,9 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   .tile.tile-hero-highlight-secondary .tile__headline {
     font-size: 17px;
     line-height: 1.21053;
-    font-weight: 700;
+    font-weight: bold;
     letter-spacing: .012em;
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Bold';
   }
 
   .tile.tile-hero-highlight-secondary .tile__headline:lang(ar) {
@@ -4419,7 +4431,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   }
 
   .tile.tile-hero-highlight-secondary .tile__headline:lang(zh-CN) {
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
   }
 
   .tile.tile-hero-highlight-secondary .tile__headline:lang(zh-HK) {
@@ -4613,9 +4625,9 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
 .tile.tile-hero-highlight-feature .tile__headline {
   font-size: 38px;
   line-height: 1.1;
-  font-weight: 700;
+  font-weight: bold;
   letter-spacing: 0em;
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Bold';
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   display: -webkit-box;
@@ -4643,7 +4655,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
 }
 
 .tile.tile-hero-highlight-feature .tile__headline:lang(zh-CN) {
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
 }
 
 .tile.tile-hero-highlight-feature .tile__headline:lang(zh-HK) {
@@ -4662,9 +4674,9 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   .tile.tile-hero-highlight-feature .tile__headline {
     font-size: 26px;
     line-height: 1.14286;
-    font-weight: 700;
+    font-weight: bold;
     letter-spacing: .007em;
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Bold';
   }
 
   .tile.tile-hero-highlight-feature .tile__headline:lang(ko) {
@@ -4686,7 +4698,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   }
 
   .tile.tile-hero-highlight-feature .tile__headline:lang(zh-CN) {
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
   }
 
   .tile.tile-hero-highlight-feature .tile__headline:lang(zh-HK) {
@@ -4706,9 +4718,9 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   .tile.tile-hero-highlight-feature .tile__headline {
     font-size: 22px;
     line-height: 1.16667;
-    font-weight: 700;
+    font-weight: bold;
     letter-spacing: .009em;
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Bold';
   }
 
   .tile.tile-hero-highlight-feature .tile__headline:lang(ar) {
@@ -4732,7 +4744,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   }
 
   .tile.tile-hero-highlight-feature .tile__headline:lang(zh-CN) {
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
   }
 
   .tile.tile-hero-highlight-feature .tile__headline:lang(zh-HK) {
@@ -4890,9 +4902,9 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
 .tile.tile-hero-secondary .tile__headline {
   font-size: 30px;
   line-height: 1.125;
-  font-weight: 700;
+  font-weight: bold;
   letter-spacing: .004em;
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Bold';
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
   display: -webkit-box;
@@ -4920,7 +4932,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
 }
 
 .tile.tile-hero-secondary .tile__headline:lang(zh-CN) {
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
 }
 
 .tile.tile-hero-secondary .tile__headline:lang(zh-HK) {
@@ -4939,9 +4951,9 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   .tile.tile-hero-secondary .tile__headline {
     font-size: 17px;
     line-height: 1.21053;
-    font-weight: 700;
+    font-weight: bold;
     letter-spacing: .012em;
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Bold';
   }
 
   .tile.tile-hero-secondary .tile__headline:lang(ar) {
@@ -4965,7 +4977,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   }
 
   .tile.tile-hero-secondary .tile__headline:lang(zh-CN) {
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
   }
 
   .tile.tile-hero-secondary .tile__headline:lang(zh-HK) {
@@ -5150,7 +5162,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   line-height: 1.23536;
   font-weight: 500;
   letter-spacing: -.022em;
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
   text-align: center;
 }
 
@@ -5175,7 +5187,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   line-height: 1.23536;
   font-weight: 600;
   letter-spacing: -.022em;
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
   border: 2px solid;
   padding: 10px 24px 9px;
   border-color: #1d1d1f;
@@ -5207,9 +5219,9 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
 .tile.tile-list .tile__headline {
   font-size: 17px;
   line-height: 1.23536;
-  font-weight: 700;
+  font-weight: bold;
   letter-spacing: -.022em;
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Bold';
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
   display: -webkit-box;
@@ -5243,7 +5255,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
 }
 
 .tile.tile-list .tile__headline:lang(zh-CN) {
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
 }
 
 .tile.tile-list .tile__headline:lang(zh-HK) {
@@ -5415,9 +5427,9 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   font-size: 30px;
   display: block;
   line-height: 1.08349;
-  font-weight: 700;
+  font-weight: bold;
   letter-spacing: -.003em;
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Bold';
 }
 
 .pagetitle .hero-headline:lang(ar) {
@@ -5448,7 +5460,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
 }
 
 .pagetitle .hero-headline:lang(zh-CN) {
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
 }
 
 .pagetitle .hero-headline:lang(zh-HK) {
@@ -5467,9 +5479,9 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   .pagetitle .hero-headline {
     font-size: 40px;
     line-height: 1.1;
-    font-weight: 700;
+    font-weight: bold;
     letter-spacing: 0em;
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Bold';
   }
 
   .pagetitle .hero-headline:lang(ar) {
@@ -5493,7 +5505,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   }
 
   .pagetitle .hero-headline:lang(zh-CN) {
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
   }
 
   .pagetitle .hero-headline:lang(zh-HK) {
@@ -5513,9 +5525,9 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   .pagetitle .hero-headline {
     font-size: 30px;
     line-height: 1.125;
-    font-weight: 700;
+    font-weight: bold;
     letter-spacing: .004em;
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Bold';
   }
 
   .pagetitle .hero-headline:lang(ar) {
@@ -5539,7 +5551,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   }
 
   .pagetitle .hero-headline:lang(zh-CN) {
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
   }
 
   .pagetitle .hero-headline:lang(zh-HK) {
@@ -5641,7 +5653,7 @@ li .component {
   line-height: 1.4211;
   font-weight: 400;
   letter-spacing: .012em;
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
 }
 
 .pagebody:lang(ar) {
@@ -5665,7 +5677,7 @@ li .component {
 }
 
 .pagebody:lang(zh-CN) {
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
 }
 
 .pagebody:lang(zh-HK) {
@@ -5686,7 +5698,7 @@ li .component {
     line-height: 1.47059;
     font-weight: 400;
     letter-spacing: -.022em;
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
   }
 
   .pagebody:lang(ar) {
@@ -5717,7 +5729,7 @@ li .component {
   }
 
   .pagebody:lang(zh-CN) {
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
   }
 
   .pagebody:lang(zh-HK) {
@@ -5917,14 +5929,13 @@ li .component {
   }
 }
 
-
-
 .image-sharesheet {
   display: table;
   border-radius: 10px;
   overflow: hidden;
   z-index: 0;
-  position: relative
+  position: relative;
+  box-shadow: 0 0 12px #89b8ff55;
 }
 
 @media only screen and (max-width: 734px) {
@@ -5968,7 +5979,7 @@ li .component {
   line-height: 1.33337;
   font-weight: 600;
   letter-spacing: -.01em;
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
 }
 
 .theme-dark .image-description {
@@ -6004,7 +6015,7 @@ li .component {
 }
 
 .image-description:lang(zh-CN) {
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
 }
 
 .image-description:lang(zh-HK) {
@@ -6034,7 +6045,7 @@ li .component {
   line-height: 1.4211;
   font-weight: 400;
   letter-spacing: .012em;
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
 }
 
 .image-description .icon:lang(ar) {
@@ -6058,7 +6069,7 @@ li .component {
 }
 
 .image-description .icon:lang(zh-CN) {
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
 }
 
 .image-description .icon:lang(zh-HK) {
@@ -6079,7 +6090,7 @@ li .component {
     line-height: 1.47059;
     font-weight: 400;
     letter-spacing: -.022em;
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
   }
 
   .image-description .icon:lang(ar) {
@@ -6110,7 +6121,7 @@ li .component {
   }
 
   .image-description .icon:lang(zh-CN) {
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
   }
 
   .image-description .icon:lang(zh-HK) {
@@ -6362,7 +6373,7 @@ blockquote .image.image-wide .component-content {
   line-height: 1.4211;
   font-weight: 400;
   letter-spacing: .012em;
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
   margin: 0
 }
 
@@ -6387,7 +6398,7 @@ blockquote .image.image-wide .component-content {
 }
 
 .datelocation-copy:lang(zh-CN) {
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
 }
 
 .datelocation-copy:lang(zh-HK) {
@@ -6408,7 +6419,7 @@ blockquote .image.image-wide .component-content {
     line-height: 1.47059;
     font-weight: 400;
     letter-spacing: -.022em;
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
   }
 
   .datelocation-copy:lang(ar) {
@@ -6439,7 +6450,7 @@ blockquote .image.image-wide .component-content {
   }
 
   .datelocation-copy:lang(zh-CN) {
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
   }
 
   .datelocation-copy:lang(zh-HK) {
@@ -6673,9 +6684,9 @@ blockquote .image.image-wide .component-content {
 .category-eyebrow {
   font-size: 12px;
   line-height: 1.33337;
-  font-weight: 700;
+  font-weight: bold;
   letter-spacing: -.01em;
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Bold';
 }
 
 .category-eyebrow:lang(ar) {
@@ -6707,7 +6718,7 @@ blockquote .image.image-wide .component-content {
 }
 
 .category-eyebrow:lang(zh-CN) {
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
 }
 
 .category-eyebrow:lang(zh-HK) {
@@ -6752,7 +6763,7 @@ blockquote .image.image-wide .component-content {
 
 .category-eyebrow__category {
   text-transform: uppercase;
-  color: #6e6e73;
+  color: #5181ca;
   border-color: #6e6e73
 }
 
@@ -6767,7 +6778,7 @@ blockquote .image.image-wide .component-content {
     line-height: 1.33337;
     font-weight: 400;
     letter-spacing: -.01em;
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
     border-radius: 12px;
     padding-left: 11px;
     padding-right: 11px;
@@ -6799,7 +6810,7 @@ blockquote .image.image-wide .component-content {
   }
 
   .landingtile-featured .category-eyebrow__category:lang(zh-CN) {
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
   }
 
   .landingtile-featured .category-eyebrow__category:lang(zh-HK) {
@@ -6820,7 +6831,7 @@ blockquote .image.image-wide .component-content {
   line-height: 1.28577;
   font-weight: 600;
   letter-spacing: -.016em;
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
 }
 
 .category-eyebrow__date:lang(ar) {
@@ -6851,7 +6862,7 @@ blockquote .image.image-wide .component-content {
 }
 
 .category-eyebrow__date:lang(zh-CN) {
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
 }
 
 .category-eyebrow__date:lang(zh-HK) {
@@ -6881,7 +6892,7 @@ blockquote .image.image-wide .component-content {
   line-height: 1.16667;
   font-weight: 500;
   letter-spacing: .009em;
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
   margin-top: 20px;
   margin-bottom: 0
 }
@@ -6907,7 +6918,7 @@ blockquote .image.image-wide .component-content {
 }
 
 .article-subhead:lang(zh-CN) {
-  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
 }
 
 .article-subhead:lang(zh-HK) {
@@ -6928,7 +6939,7 @@ blockquote .image.image-wide .component-content {
     line-height: 1.19048;
     font-weight: 500;
     letter-spacing: .011em;
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
   }
 
   .article-subhead:lang(ja) {
@@ -6952,7 +6963,7 @@ blockquote .image.image-wide .component-content {
   }
 
   .article-subhead:lang(zh-CN) {
-    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'Harmony SC Medium';
+    font-family: "SF Pro Display", "SF Pro Icons", 'Fira Code Regular', 'HarmonyOS SC Medium';
   }
 
   .article-subhead:lang(zh-HK) {
@@ -7167,26 +7178,14 @@ blockquote .image.image-wide .component-content {
   background: #f8f9fa;
 }
 
-pre {
-  background-color: #ffffff;
-  border-radius: 5px;
-  max-width: auto;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
-}
-
 blockquote pre {
-  overflow-x: auto;
   border-radius: 3px;
   margin-bottom: 14px;
 }
 
 li pre {
-  max-width: 863px;
-}
-
-li .code pre {
-  max-width: 863px;
-  overflow-x: auto;
+  max-width: 740px;
+  box-shadow: 0 0 12px #89b8ff55;
   border-radius: 3px;
 }
 
@@ -7196,8 +7195,8 @@ li ol li pre {
 
 
 .code pre {
-  overflow-x: auto;
-  border-radius: 3px;
+  border-radius: 15px;
+  box-shadow: 0 0 12px #89b8ff55;
 }
 
 
@@ -7229,7 +7228,7 @@ li ol li pre {
   padding-top: 4px;
   padding-bottom: 4px;
   border-radius: 12px;
-  background: #0071e3;
+  background: #4f8be5;
   color: #fff;
   margin-right: 12px;
 }
@@ -7276,7 +7275,7 @@ li ol li pre {
 
 section.archive {
   min-height: 78vh;
-  background-color: #f2f2f2;
+  background-color: #edf4ffaa;
   margin-top: 0;
 }
 
@@ -7287,8 +7286,9 @@ section.archive {
 .tag-header {
   font-size: 24px;
   line-height: 1.16667;
-  font-weight: 700;
+  font-weight: bold;
   letter-spacing: .009em;
+  font-family: 'Fira Code Regular', 'HarmonyOS SC Bold';
   ;
 }
 
@@ -7347,9 +7347,9 @@ ol>li {
 code {
   tab-size: 4;
   font-style: normal;
-  font-family: 'Fira Code Regular', 'Harmony SC Medium';
-  color: #5f5959;
-  background-color: #f79e2a10;
+  font-family: 'Fira Code Regular', 'HarmonyOS SC Medium';
+  color: #4870ac;
+  background-color: #0077ed10;
   border-radius: 0.3rem;
   padding: 0.1rem 0.3rem;
   margin: 0.1rem 0.1rem;
@@ -7357,19 +7357,16 @@ code {
 }
 
 blockquote {
-  font-family: 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: 'Fira Code Regular', 'HarmonyOS SC Medium';
   background: #ffffff;
   /* border: 1px solid #897d7d; */
-  border-left: 0.3em solid #897d7d;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+  border-left: 0.3em solid #4870ac;
+  box-shadow: 0 0 12px #89b8ff55;
   padding: 0.5em 0.5em;
   border-radius: 5px;
   margin-bottom: 1.4211em;
   color: #000000;
   font-size: 14px;
-}
-blockquote strong {
-  color: #3a3a3a;
 }
 
 .theme-dark blockquote {
@@ -7389,8 +7386,8 @@ blockquote p {
 }
 
 strong {
-  font-family: 'Fira Code Regular', 'Harmony SC Medium';
-  color: #000000;
+  font-family: 'Fira Code Regular', 'HarmonyOS SC Bold';
+  color: #4870ac;
   font-weight: bold;
   border-radius: 2px;
   padding: 2px 6px;
@@ -7425,28 +7422,28 @@ dialog {
 }
 
 dialog .dialog-content {
-  font-family: 'Fira Code Regular', 'Harmony SC Medium';
+  font-family: 'Fira Code Regular', 'HarmonyOS SC Bold';
   font-weight: bold;
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #5f5959;
-  background-color: #fdf8f2c1;
-  backdrop-filter: blur(9px); 
+  color: #4870ac;
+  background-color: #f2f3fdc1;
+  backdrop-filter: blur(10px); 
   padding: 20px;
   border-radius: 15px;
   justify-content: center;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 12px #89b8ff55;
 }
 
 dialog .dialog-content .dialog-button {
   background-color: #ffffff6a;
-  color: #5f5959;
+  color: #4870ac;
   border: none;
   padding: 8px 17px;
   border-radius: 8px;
   cursor: pointer;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 12px #89b8ff55;
 }
 
 img {
@@ -7495,7 +7492,7 @@ img {
 }
 
 #INDEXBLOGS {
-  width: 75%;
+  width: 83%;
   pointer-events: none;
 }
 
@@ -7551,7 +7548,7 @@ img {
 hr {
   margin: auto;
   height: 1px;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(95, 89, 89, 0.85), rgba(0, 0, 0, 0));
+  background-image: linear-gradient(to right, #0744ac, rgb(0, 0, 0, 0), #0744ac);;
   unicode-bidi: isolate;
   margin-block-start: 0.5em;
   margin-block-end: 0.5em;
@@ -7590,8 +7587,8 @@ p {
 }
 
 .toc {
-  box-shadow: 0 0 17px hsla(178, 44%, 14%, 0.3);
-  backdrop-filter: blur(15px);
+  box-shadow: 0 0 12px #89b8ff55;
+  backdrop-filter: blur(32px);
   border-radius: 10px;
   margin-left: 10px;
   padding-right: 1em;
@@ -7601,9 +7598,8 @@ p {
   z-index: 999;
   float: right;
   right: 0;
-  background-color: #ffffff44;
+  background-color: #026fdc10;
   transform: translateX(0);
-  /* right: calc((100% - 88em)/2); */
   transition: width 0.3s ease;
 }
 
@@ -7652,7 +7648,7 @@ p {
   padding-right: 50px;
   height: 1.5em;
   width: 0em; /* 收起时的宽度 */
-  background-color: #889df844;
+  background-color: #89b8ff55;
   backdrop-filter: blur(15px);
 }
 

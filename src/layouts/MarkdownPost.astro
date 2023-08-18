@@ -67,13 +67,13 @@ const coverurl = frontmatter.cover.url;
       <dialog id="phoneSuggestion">
         <div class="dialog-content">
           <p
-            style="font-size: 30px; 
-                font-weight: Bolder;
-                color: #000000;
+            style="font-size: 26px; 
+                font-weight: Bold;
+                color: #4870ac;
                 border-radius: 15px;
-                padding: 20px;
+              padding: 10px;
                 background-color: #ffffff51;
-                box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);"
+                box-shadow: 0 0 15px #89b8ff55;"
           >
             July.cc Blogs
           </p>
@@ -86,27 +86,6 @@ const coverurl = frontmatter.cover.url;
           <button class="dialog-button">确认</button>
         </div>
       </dialog>
-      <script>
-        window.onload = function () {
-          // 获取要检查的元素
-          var elem = document.getElementById("pcMode");
-    
-          // 检查元素是否存在且是否被隐藏
-          if (elem) {
-            // 在 dialog 中显示提示信息
-            var pcModeDialog = document.getElementById("phoneSuggestion");
-            pcModeDialog.showModal();
-    
-            // 监听确认按钮点击事件
-            pcModeDialog
-              .querySelector(".dialog-button")
-              .addEventListener("click", function () {
-                // 关闭弹窗
-                pcModeDialog.close();
-              });
-          }
-        };
-      </script>
       
       <section>
         <article class="article  js-toc-content">
@@ -118,7 +97,7 @@ const coverurl = frontmatter.cover.url;
               </div>
             </div>
           </figure>
-            <hr style="margin: auto; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(95, 89, 89, 0.85), rgba(0, 0, 0, 0)); unicode-bidi: isolate; margin-block-start: 0.5em; margin-block-end: 0.5em; margin-inline-start: auto; margin-inline-end: auto; overflow: hidden;  border-width: 0px;">
+            <hr style="margin: auto; height: 1px; background-image: linear-gradient(to right, #0744ac, rgb(0, 0, 0, 0), #0744ac); unicode-bidi: isolate; margin-block-start: 0.5em; margin-block-end: 0.5em; margin-inline-start: auto; margin-inline-end: auto; overflow: hidden;  border-width: 0px;">
           <div class:list={[{ "featured-header": featured, "article-header": !featured }]}>
             <div class="category component">
               <div class="component-content">
@@ -148,7 +127,7 @@ const coverurl = frontmatter.cover.url;
                     );
                   })
                 }
-                <hr style="margin: auto; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(95, 89, 89, 0.85), rgba(0, 0, 0, 0)); unicode-bidi: isolate; margin-block-start: 0.5em; margin-block-end: 0.5em; margin-inline-start: auto; margin-inline-end: auto; overflow: hidden;  border-width: 0px;">
+                <hr style="margin: auto; height: 1px; background-image: linear-gradient(to right, #0744ac, rgb(0, 0, 0, 0), #0744ac); unicode-bidi: isolate; margin-block-start: 0.5em; margin-block-end: 0.5em; margin-inline-start: auto; margin-inline-end: auto; overflow: hidden;  border-width: 0px;">
               </div>
             </div>
           </div>
@@ -174,6 +153,23 @@ const coverurl = frontmatter.cover.url;
           </div>
         </article>
         <script>
+            // 获取要检查的元素
+            var elem = document.getElementById("pcMode");
+    
+            // 检查元素是否存在且是否被隐藏
+            if (elem) {
+              // 在 dialog 中显示提示信息
+              var pcModeDialog = document.getElementById("phoneSuggestion");
+              pcModeDialog.showModal();
+    
+              // 监听确认按钮点击事件
+              pcModeDialog.querySelector(".dialog-button").addEventListener("click", function () {
+                // 关闭弹窗
+                pcModeDialog.close();
+              });
+            }
+        </script>
+        <script>
           import Gitalk from 'gitalk';
           const gitalk = new Gitalk({
               clientID: '0c4d13aa9a4a6440b432',
@@ -186,7 +182,8 @@ const coverurl = frontmatter.cover.url;
           })
 
           gitalk.render('gitalk-container')
-
+        </script>
+        <script>
           import tocbot from 'tocbot';
           tocbot.init({
             // Where to render the table of contents.
