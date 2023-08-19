@@ -35,7 +35,8 @@ const coverurl = frontmatter.cover.url;
             div.style.left = "0";
             div.style.width = "100%";
             div.style.height = "100%";
-            div.style.backgroundColor = "rgba(0,0,0, 0.8)";
+            div.style.backgroundColor = "rgba(255,255,255, 0.6)";
+            div.style.backdropFilter= "blur(8px)"; 
             div.style.zIndex = "9999";
             
             var img = document.createElement("img");
@@ -46,6 +47,7 @@ const coverurl = frontmatter.cover.url;
             img.style.maxWidth = "98%";
             img.style.maxHeight = "98%";
             img.style.borderRadius = "5px";
+            img.style.boxShadow = "0 0 20px #89b8ffaa";
             img.src = this.src;
             
             div.appendChild(img);

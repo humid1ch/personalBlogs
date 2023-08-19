@@ -190,7 +190,6 @@ h5,
 h6 {
   position: relative;
   color: #4870ac;
-  margin-top: 2rem;
   margin-bottom: 1rem;
   font-weight: bold;
   line-height: 1.2;
@@ -200,17 +199,18 @@ h6 {
 h1 {
   font-size: 27px;
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 4rem;
   display:block;
-  border-bottom: 1px solid #5f595920;
+  border-bottom: 2px solid #4870ac;
 }
 
 h2 {
   font-size: 23px;
+  margin-top: 2.7rem;
   display: inline-block;
-  border-bottom: 1px solid #5f5959;
+  border-bottom: 2px solid #4870ac;
   border-width: auto;
-  margin-bottom: 0.8em;
+  margin-bottom: 0.4em;
   /* border: 2px dashed #f79f2a;
     border-width: 0 0 2px 0; */
 }
@@ -228,23 +228,36 @@ h2 .md-plain:after {
 h3 {
   font-size: 21px;
   line-height: 1.43;
-  margin-bottom: 1em;
+  margin-top: 2.5rem;
+  /* margin-bottom: 1em; */
+  margin-bottom: 0.4em;
+  display: inline-block;
+  border-bottom: 1px solid #4870ac;
   /* margin: 20px 0 7px; */
 }
 
 h4 {
   font-size: 19px;
-  margin-bottom: 0.6em;
+  margin-top: 2.2rem;
+  margin-bottom: 0.4em;
+  display: inline-block;
+  border-bottom: 1px solid #4870ac;
 }
 
 h5 {
   font-size: 17px;
-  margin-bottom: 0.5em;
+  margin-top: 2.2rem;
+  margin-bottom: 0.4em;
+  display: inline-block;
+  border-bottom: 1px solid #4870ac;
 }
 
 h6 {
   font-size: 17px;
+  margin-top: 2.2rem;
   margin-bottom: 0.4em;
+  display: inline-block;
+  border-bottom: 1px solid #4870ac;
 }
 
 h1 code, 
@@ -282,7 +295,7 @@ h3+*,
 h4+*,
 h5+*,
 h6+* {
-  margin-top: .8em
+  margin-top: 1em
 }
 
 h1+h1,
@@ -321,28 +334,50 @@ h6+h3,
 h6+h4,
 h6+h5,
 h6+h6 {
-  margin-top: .4em
+  margin-top: 1em
+}
+
+li h4 {
+  margin-top: 0.8em
+}
+li p {
+  line-height: 1.4;
 }
 
 p+h1,
 ul+h1,
-ol+h1,
+ol+h1 {
+  margin-top: 4em
+}
+
 p+h2,
 ul+h2,
-ol+h2,
+ol+h2{
+  margin-top: 3em
+  
+}
 p+h3,
 ul+h3,
-ol+h3,
+ol+h3{
+  margin-top: 2.8em
+  
+}
 p+h4,
 ul+h4,
-ol+h4,
+ol+h4{
+  margin-top: 2.5em
+}
+
 p+h5,
 ul+h5,
-ol+h5,
+ol+h5{
+  margin-top: 2.5em
+}
+
 p+h6,
 ul+h6,
 ol+h6 {
-  margin-top: 1.6em
+  margin-top: 2.5em
 }
 
 .heading-collapsed+* {
@@ -5826,7 +5861,7 @@ li .component {
 }
 
 .pagebody-copy {
-  margin-bottom: 1.4211em
+  margin-bottom: 1em
 }
 
 .pagebody-copy:lang(ar) {
@@ -6665,12 +6700,13 @@ blockquote .image.image-wide .component-content {
 
 
 /* 图片上横线离图片的距离 */
-/* .tertiarynav {
-  margin: 36px auto 50px
-} */
+.tertiarynav {
+  margin-top: auto;
+  margin-bottom: 1rem;
+}
 
 .tertiarynav .component-content {
-  border-top: 1px solid #d2d2d7
+  border-top: 1px solid #89b8ff90
 }
 
 .theme-dark .tertiarynav .component-content {
