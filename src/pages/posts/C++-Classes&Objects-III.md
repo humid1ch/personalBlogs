@@ -8,7 +8,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251806029.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251806029.webp'
     alt: 'cover'
-tags: ["C++", "类和对象"]
+tags: ["C++", "类和对象", "约4366字 -- 阅读时间≈17分钟"]
 theme: 'light'
 featured: false
 ---

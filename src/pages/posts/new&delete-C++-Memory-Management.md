@@ -8,7 +8,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251805245.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251805245.webp'
     alt: 'cover'
-tags: ["C++", "内存管理"]
+tags: ["C++", "内存管理", "约3801字 -- 阅读时间≈16分钟"]
 theme: 'light'
 featured: false
 ---

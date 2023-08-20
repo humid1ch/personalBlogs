@@ -9,7 +9,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251801575.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251801575.webp'
     alt: 'cover'
-tags: ["Linux系统", "多线程"]
+tags: ["Linux系统", "多线程", "约4998字 -- 阅读时间≈25分钟"]
 theme: 'light'
 featured: false
 ---

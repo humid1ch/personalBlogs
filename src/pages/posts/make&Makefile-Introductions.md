@@ -8,7 +8,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251803222.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251803222.webp'
     alt: 'cover'
-tags: ["Linux使用问题"]
+tags: ["Linux使用问题", "约1737字 -- 阅读时间≈8分钟"]
 theme: 'light'
 featured: false
 ---

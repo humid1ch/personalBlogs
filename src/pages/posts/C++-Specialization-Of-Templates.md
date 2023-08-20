@@ -8,7 +8,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251810793.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251810793.webp'
     alt: 'cover'
-tags: ["C++", "泛型编程"]
+tags: ["C++", "泛型编程", "约1890字 -- 阅读时间≈8分钟"]
 theme: 'light'
 featured: false
 ---

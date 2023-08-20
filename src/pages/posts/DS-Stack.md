@@ -8,7 +8,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Cover.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Cover.webp'
     alt: 'cover'
-tags: ["数据结构", "栈"]
+tags: ["数据结构", "栈", "约1512字 -- 阅读时间≈7分钟"]
 theme: 'light'
 featured: false
 ---
@@ -272,4 +272,3 @@ void StackDestory(Stack *pst)
 OK~ 本篇文章到此结束~ 
 
 <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/005PeXV6gy1grtp9ji59cg306r07iaf0.gif" alt="给你点个赞" style="zoom:80%; display: block; margin: 0 auto;" />
-

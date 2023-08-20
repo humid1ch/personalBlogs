@@ -2,6 +2,7 @@
 import { SITE_TITLE, SITE_EMAIL } from "../consts";
 const { theme } = Astro.props;
 import { SITE_NAME } from "../consts";
+import { SITE_NUM } from "../consts";
 const date = new Date();
 const year = date.getFullYear();
 ---
@@ -14,6 +15,8 @@ const year = date.getFullYear();
           <div class="item">
             <div class="logo">{SITE_TITLE}</div>
             <div class="email">Email: {SITE_EMAIL}</div>
+            <div class="num">站内文章字数 ≈ {SITE_NUM}</div>
+
           </div>
 
           <div class="item products">

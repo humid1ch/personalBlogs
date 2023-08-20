@@ -9,7 +9,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307021623107.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307021623107.webp'
     alt: 'cover'
-tags: ["Linux网络", "套接字", "UDP"]
+tags: ["Linux网络", "套接字", "UDP", "约12345字 -- 阅读时间≈50分钟"]
 theme: 'light'
 featured: false
 ---

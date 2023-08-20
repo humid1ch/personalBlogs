@@ -8,7 +8,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308091419976.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308091419976.webp'
     alt: 'cover'
-tags: ["Linux网络", "应用层", "协议", "HTTPS"]
+tags: ["Linux网络", "应用层", "协议", "HTTPS", "约4443字 -- 阅读时间≈18分钟"]
 theme: 'light'
 featured: false
 ---
