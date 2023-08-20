@@ -5,8 +5,8 @@ pubDate: 2023-03-27
 description: '理解了文件描述符, 其实就可以相当于理解了 Linux系统的关于内存文件系统的整个大致框架和逻辑'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251757935.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251757935.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251757935.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251757935.webp'
     alt: 'cover'
 tags: ["Linux系统", "文件"]
 theme: 'light'
@@ -33,11 +33,11 @@ featured: false
 
 就像下面这个文件:
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230315171754060.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230315171754060.webp)
 
 即使此文件没有所谓的文件内容, 但还存在文件属性：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230315172458395.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230315172458395.webp)
 
 使用 stat 命令可以直接查看文件的部分属性, 既然文件在磁盘中存在属性, 那么其在磁盘中就不会不占用空间
 
@@ -129,13 +129,13 @@ int main() {
 
 当我们执行之后, 可以发现：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230315200421031.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230315200421031.webp)
 
 但是事实是这样的吗？
 
 我们把生成的文件删除, 进入其他路径下执行~/myBlog/FileDescrip/newFile 可执行文件(即上述代码编译生成的可执行程序)：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230315201218411.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230315201218411.webp)
 
 由此可见, 在`使用fopen()打开没有指定路径的文件时, 进程会在其运行的当前路径创建文件, 而不是在可执行程序文件的所在路径`
 
@@ -166,7 +166,7 @@ int main() {
 }
 ```
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230315201827732.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230315201827732.webp)
 
 第二次只写入一行数据：
 
@@ -186,7 +186,7 @@ int main() {
 
 执行第二次的程序之后, 可以发现, 第一次写入的 5 行数据没有了：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230315202014885.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230315202014885.webp)
 
 这说明, `使用w向文件中写入数据会先将文件中的原内容清除`
 
@@ -216,17 +216,17 @@ int main() {
 }
 ```
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230315202646301.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230315202646301.webp)
 
 可以看到, 在文件的原数据中, 又追加了指定数据.
 
 而提到追加数据, linux操作系统中存在一个命令行符号操作：`追加重定向 >>`, 是否与`a+` 有相同的作用？
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230315203333678.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230315203333678.webp)
 
 好像是相同的作用
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230315204242618.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230315204242618.webp)
 
 ### 模拟实现cat命令
 
@@ -255,7 +255,7 @@ int main(int argc, char *argv[]) {
 }
 ```
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230315205847970.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230315205847970.webp)
 
 ## 系统级文件接口有关问题
 
@@ -310,11 +310,11 @@ C语言中文件操作的函数都已`f`开头: `fopen()` `fclose()` `fread()` `
 
 `open`
 
-![Linux文件系统接口open()](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230316092323421.png)
+![Linux文件系统接口open()](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230316092323421.webp)
 
 `close`
 
-![Linux系统接口close()](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230316092524622.png)
+![Linux系统接口close()](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230316092524622.webp)
 
 ### open()
 
@@ -345,11 +345,11 @@ int open(const char* pathname, int flags, mode_t mode);
 
 关于open()的flags的参数, Linux系统提供了很多：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230316095016678.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230316095016678.webp)
 
 这只是截出了一部分而已, 而我们需要重点介绍的只有几个：`O_RDONLY(只读)  O_WRONLY(只写)  O_RDWR(读写)  O_CREAT(创建)` 这几个一眼就可以看出用法
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230316095406553.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230316095406553.webp)
 
 这4个选项提供了不同的功能. 但是有一个问题, C语言的文件操作可以通过传入不同的字符串实现不同的功能`w 只写并可创建文件` `r 只读` `w+ 读写并可创建文件` `r+ 读写不创建文件` `……`, 并且C语言的fopen()也是对Linux系统中的open()做了封装的
 
@@ -375,7 +375,7 @@ int open(const char* pathname, int flags, mode_t mode);
 
 不过在实际的使用过程中, 整数的二进制位中表示这4个选项的 `可能并不是最低的四位`：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230316132519502.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230316132519502.webp)
 
 此图是在Linux源码中截出来的, 在源码中 `这些选项其实就是2的次方倍的十进制数的宏定义`
 
@@ -403,7 +403,7 @@ int main() {
 
 执行之后, 就可以看到 用户执行程序时所在的路径下会生成一个newlog.txt文件, 但是`此文件的权限非常的混乱`：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230316153137899.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230316153137899.webp)
 
 我们此时使用的是只需要两个参数的open()接口, 打开的文件并不存在, 所以创建了一个新的文件
 
@@ -429,7 +429,7 @@ int main() {
 }
 ```
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230316153809839.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230316153809839.webp)
 
 但是, 此时发现**`另外一个问题`**：
 
@@ -441,7 +441,7 @@ int main() {
 
 此时我们查看 umask, 可以发现：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230316154129597.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230316154129597.webp" alt=" |inline" style="zoom:80%;" />
 
 我们传入的0666, 减去 002, 是 0664, 此数表示的文件权限也就是`-rw-rw-r--`
 
@@ -467,7 +467,7 @@ int main() {
 	return 0;
 }
 ```
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230316154536719.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230316154536719.webp)
 
 > 进程创建文件时, 是否有必要重新设置umask值？
 >
@@ -485,7 +485,7 @@ int close(int fd);
 
 C语言中, 关闭文件的接口叫做：`fclose()`, Linux系统提供的系统接口则叫做: `close()`
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230316160304610.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230316160304610.webp)
 
 `其用法与fclose()几乎一致, 只不过close()传入的是文件描述符, 即调用open()是接收的返回值`
 
@@ -495,7 +495,7 @@ C语言中, 关闭文件的接口叫做：`fclose()`, Linux系统提供的系统
 ssize_t write(int fd, const void* buf, size_t count);
 ```
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230316160822822.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230316160822822.webp)
 
 我们可以使用write()接口向文件中写入一些内容：
 
@@ -526,7 +526,7 @@ int main() {
 }
 ```
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230316162238611.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230316162238611.webp)
 
 ### read()
 
@@ -536,7 +536,7 @@ Linux系统提供的读取文件的系统接口叫：`read()`
 ssize_t read(int fd, void *buf, size_t count);
 ```
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230317005642954.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230317005642954.webp)
 
 read()接口的使用并不难：
 
@@ -568,7 +568,7 @@ int main() {
 
 执行上面这段代码的结果：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230317011650571.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230317011650571.webp)
 
 > `首先文件中要有内容`
 
@@ -580,7 +580,7 @@ open()打开文件时, 并不只有`创建(O_CREAT)`和`读写(O_RDONLY、O_WRON
 
 当前, 文件的内容是这样的
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230316163648077.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230316163648077.webp)
 
 当编译运行下面这段代码：
 
@@ -610,13 +610,13 @@ int main() {
 
 此时进程再次在文件中写入数据, 结果是从文件开头开始一一覆盖之前的内容
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230316163909761.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230316163909761.webp)
 
 而我们在使用 `fopen(), 并以w方式打开文件时, 会将文件原本的内容清空, 然后再在文件中写入数据`
 
 `open()只用O_WRONLY`, 实现不了先清空文件内容, 而是需要在使用另一个选项 `O_TRUNC`
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230316164536999.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230316164536999.webp)
 
 ```c
 #include <stdio.h>
@@ -642,7 +642,7 @@ int main() {
 }
 ```
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230316164908427.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230316164908427.webp)
 
 `O_TRUNC`的作用就是, `打开文件时, 先清空文件内容`.
 
@@ -676,7 +676,7 @@ int main() {
 }
 ```
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230316170049613.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230316170049613.webp)
 
 > 只传入 `O_APPEND` 选项, 不传入 `O_WRONLY 或 O_RDWR` 是无法追加写入的, 因为没有写入打开
 
@@ -732,7 +732,7 @@ int main() {
 
 多打开几个文件, 输出打开的文件的fd, 上述代码的执行结果是：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230317014057011.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230317014057011.webp)
 
 可以看到, 当进程打开文件时, `打开文件的fd按照顺序从3~7递增`
 
@@ -777,7 +777,7 @@ int main() {
 
 当你执行这段代码时, 此进程会从命令行接收输入的数据, 并输出两次：
 
-![fd012  |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/fd012.gif)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/fd012.gif" alt="fd012  |inline" style="zoom:80%;" />
 
 代码所编写的功能是：从fd=0的文件中读取数据, 并将读取到的数据写入到fd=1和fd=2的文件中
 
@@ -797,7 +797,7 @@ int main() {
 >
 > 而FILE在C语言中其实是一个结构体类型, 此结构体包含许多的成员, 其中`也包含着打开文件的fd`！
 >
-> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230317173724589.png)
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230317173724589.webp)
 >
 > 我们分别输出 stdin、stdout、stderr这三个FILE指针的_fileno：
 >
@@ -814,7 +814,7 @@ int main() {
 > }
 > ```
 >
-> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230317173921857.png)
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230317173921857.webp)
 >
 > 可以看到, `stdin、stdout、stderr这三个FILE指针的_fileno分别是0、1、2, 对应着系统的进程默认打开的标准输入、标准输出、标准错误三个fd`
 >
@@ -853,7 +853,7 @@ int main() {
 
 若操作系统将这些数据结构以链表的形式连接起来维护, 那么就会存在这样一个维护打开文件的数据结构：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230317100951611.png" alt="|inline" style="zoom:67%;" />
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230317100951611.webp" alt="|inline" style="zoom:67%;" />
 
 当然操作系统维护文件结构体的数据结构可能并不是链表, 但是`操作系统一定会为文件结构体维护一个数据结构`
 
@@ -873,13 +873,13 @@ fd_array[] 指针数组中的每一个空间都存储着一个 struct file* 结�
 
 图例说明：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230317104136819.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230317104136819.webp)
 
 **`即文件描述符fd本质上就是, fd_array[]数组中的下标, 此fd表示fd_array[fd]存储着打开文件的指针`**
 
 #### 文件描述符相关源码
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230317113225739.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230317113225739.webp)
 
 ## Linux下一切皆文件
 
@@ -927,13 +927,13 @@ Linux操作系统中, 不只磁盘中存储的传统意义上的文件被看作�
 
 各硬件之间的结构不同, 读写方式当然不可能完全相同：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230317120605960.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230317120605960.webp)
 
 每种硬件都有其自己的读写方式, 那么当操作系统需要向这些I/O设备写入数据或需要从这些I/O设备中读取数据时, 操作系统会怎么做呢？
 
 这些打开的I/O设备, 在操作系统中也会以struct file{} 结构体的形式维护着, 并且不同硬件的结构体中还会存在函数指针指向此硬件的各种方法：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230317122742943.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230317122742943.webp)
 
 所以, 其实`在Linux操作系统中, 不论是硬件还是程序或是普通的文本文件, 打开之后都会被操作系统以struct file{}结构体的形式 在某种数据结构中维护着`
 
@@ -947,7 +947,7 @@ Linux这种将一切设备和文件 都以一个统一的视角(file结构体) �
 
 ### file结构体相关内容源码
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230317121809344.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230317121809344.webp)
 
 
 

@@ -5,8 +5,8 @@ pubDate: 2023-03-19
 description: '一些编译器, 针对连续使用的构造函数 会存在一些优化的行为'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307051139974.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307051139974.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307051139974.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307051139974.webp'
     alt: 'cover'
 tags: ["C++"]
 theme: 'light'
@@ -16,7 +16,8 @@ featured: false
 # C++编译器关于构造函数的优化
 
 在本篇文章开始之前，先来思考一道问题：
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628094655348.png)
+
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220628094655348.webp)
 
 `Widget` 是一个类
 
@@ -43,7 +44,7 @@ featured: false
 
 但是，验证一下会发现，结果并不是这样：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628095851441.png" alt="image-20220628095851441" style="zoom:70%; display: block; margin: 0 auto;" />
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220628095851441.webp" alt="image-20220628095851441" style="zoom:70%; display: block; margin: 0 auto;" />
 
 为什么呢？
 
@@ -68,7 +69,7 @@ featured: false
 >
 > 所以一共是 `4` 次拷贝构造：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628102425305.png" alt="image-20220628102425305" style="zoom:67%; display: block; margin: 0 auto;" />
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220628102425305.webp" alt="image-20220628102425305" style="zoom:67%; display: block; margin: 0 auto;" />
 
 > 继续分析之前，先补充一个内容：`匿名对象`
 >
@@ -77,7 +78,7 @@ featured: false
 > >
 > > `匿名对象的生命周期，仅在其定义的一行之内` (被取别名当然会延长)：
 > >
-> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628103339161.png" alt="image-20220628103339161" style="zoom:67%; display: block; margin: 0 auto;" />
+> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220628103339161.webp" alt="image-20220628103339161" style="zoom:67%; display: block; margin: 0 auto;" />
 > >
 > > 如果使用 `匿名对象` 对 函数`f` 传参，拷贝构造函数会调用多少次呢？
 > >
@@ -92,7 +93,7 @@ featured: false
 > > >
 > > > 所以应该是 `4` 次
 > >
-> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628103706039.png" alt="image-20220628103706039" style="zoom:80%; display: block; margin: 0 auto;" />
+> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220628103706039.webp" alt="image-20220628103706039" style="zoom:80%; display: block; margin: 0 auto;" />
 > >
 > > 但是可以看到，答案是 `3` 次，这又是为什么呢？
 > >
@@ -116,7 +117,7 @@ featured: false
 > > >
 > > > 一共应该是 `5` 次
 > >
-> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628105647630.png" alt="image-20220628105647630" style="zoom:80%; display: block; margin: 0 auto;" />
+> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220628105647630.webp" alt="image-20220628105647630" style="zoom:80%; display: block; margin: 0 auto;" />
 > >
 > > 但是结果是 `4` 次
 > >
@@ -126,7 +127,7 @@ featured: false
 > >
 > > 如果是 ` w = f(x)` 还有一个赋值的过程，在 `Widget w = f(x)` 中被优化了
 > >
-> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628110047069.png" alt="image-20220628110047069" style="zoom:80%; display: block; margin: 0 auto;" />
+> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220628110047069.webp" alt="image-20220628110047069" style="zoom:80%; display: block; margin: 0 auto;" />
 >
 > 那么 `Widget w = f(f(x));` 应该怎么分析呢？
 >
@@ -146,4 +147,4 @@ featured: false
 >
 > 所以优化过后应该是调用 `7` 次拷贝构造：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628110612155.png" alt="image-20220628110612155" style="zoom:80%; display: block; margin: 0 auto;" />
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220628110612155.webp" alt="image-20220628110612155" style="zoom:80%; display: block; margin: 0 auto;" />

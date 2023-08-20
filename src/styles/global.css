@@ -171,10 +171,22 @@ h6 {
   position: relative;
   color: #4870ac;
   margin-bottom: 1rem;
+  width: auto;
   font-weight: bold;
   line-height: 1.2;
   font-family: 'Fira Code Regular', "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
+
+/* h1::after,
+h2::after,
+h3::after,
+h4::after,
+h5::after,
+h6::after {
+  content: "";
+  display: block;
+  margin-top: 10px;
+} */
 
 h1 {
   font-size: 27px;
@@ -187,9 +199,10 @@ h1 {
 h2 {
   font-size: 23px;
   margin-top: 2.7rem;
-  display: inline-block;
+  display: block;
   border-bottom: 2px solid #4870ac;
   border-width: auto;
+  width: fit-content;
   margin-bottom: 0.4em;
   /* border: 2px dashed #f79f2a;
     border-width: 0 0 2px 0; */
@@ -211,7 +224,8 @@ h3 {
   margin-top: 2.5rem;
   /* margin-bottom: 1em; */
   margin-bottom: 0.4em;
-  display: inline-block;
+  display: block;
+  width: fit-content;
   border-bottom: 1px solid #4870ac;
   /* margin: 20px 0 7px; */
 }
@@ -220,7 +234,8 @@ h4 {
   font-size: 19px;
   margin-top: 2.2rem;
   margin-bottom: 0.4em;
-  display: inline-block;
+  display: block;
+  width: fit-content;
   border-bottom: 1px solid #4870ac;
 }
 
@@ -228,7 +243,8 @@ h5 {
   font-size: 17px;
   margin-top: 2.2rem;
   margin-bottom: 0.4em;
-  display: inline-block;
+  display: block;
+  width: fit-content;
   border-bottom: 1px solid #4870ac;
 }
 
@@ -236,7 +252,8 @@ h6 {
   font-size: 17px;
   margin-top: 2.2rem;
   margin-bottom: 0.4em;
-  display: inline-block;
+  display: block;
+  width: fit-content;
   border-bottom: 1px solid #4870ac;
 }
 
@@ -6247,7 +6264,7 @@ blockquote .image.image-wide .component-content {
 .image.image-wide .image-sharesheet,
 .image.image-wide .pullquote-cover {
   width: 100%;
-  border-radius: 0
+  border-radius: 10px
 }
 
 @media only screen and (min-width: 1441px) {
@@ -7463,6 +7480,8 @@ dialog .dialog-content .dialog-button {
 }
 
 img {
+  box-shadow: 0 0 14px #89b8ff55;
+  border-radius: 10px;
   cursor: pointer; /* 设置鼠标样式为手型 */
 }
 
@@ -7686,4 +7705,7 @@ p {
   .toc {
     padding-right: 0;
   }
+}
+
+.pagebody-header {
 }

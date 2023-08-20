@@ -5,8 +5,8 @@ pubDate: 2022-05-19
 description: '本篇文章要涉及的内容，就是理解 C++ 中 using namespace std; 的含义'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251809044.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251809044.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251809044.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251809044.webp'
     alt: 'cover'
 tags: ["C++"]
 theme: 'light'
@@ -23,7 +23,7 @@ featured: false
 
 在 `C语言` 中， `同一个作用域中` 定义变量或初始化变量，变量名是不可以相同的，即 `不可以重定义变量 多次初始化变量`
 
-![C语言重定义、多次初始化 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220425235849976.png)
+![C语言重定义、多次初始化 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220425235849976.webp)
 
 这是 C语言 中的规定，但是这个规定 `过于死板` 
 
@@ -47,7 +47,7 @@ C语言因为这个规定，就会造成：如果存在命名相同，那就只�
 
 相信许多人在刚开始学习 `C++` 的时候，一定很纳闷这是个什么东西：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220513141346741.png" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220513141346741.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
 这句话究竟是什么意思：`using` 是什么意思？`namespace` 是什么意思？`std` 又是什么意思？
 
@@ -109,7 +109,7 @@ int main()
 }
 ```
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220513152334133.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220513152334133.webp)
 
 编译也是没有错误的。这就说明，`命名空间内的变量` 是不会与 `命名空间外` 的 `其他同名变量` 冲突的。
 
@@ -178,7 +178,7 @@ int main()
 }
 ```
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220514175509313.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220514175509313.webp)
 
 `命名空间` + `::` + `变量名`，就是 使用命名空间内变量的最简单的用法。
 使用嵌套的命名空间中的变量，是这样的：`命名空间` + `::` + `(命名空间::) + 变量名`
@@ -213,7 +213,7 @@ int main()
 }
 ```
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220514180837528.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220514180837528.webp)
 
 `using namespace July;` 之后，使用 `July` 内的变量就不需要再变量前 加`July::`
 

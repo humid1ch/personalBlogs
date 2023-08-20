@@ -5,8 +5,8 @@ pubDate: 2023-07-07
 description: 'C语言程序发生错误, 很可能会直接导致程序退出. 而C++引进了 异常的概念, 可以更灵活更快速的 排查处理错误...'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307071821830.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307071821830.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307071821830.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307071821830.webp'
     alt: 'cover'
 tags: ["C++", "异常"]
 theme: 'light'
@@ -68,7 +68,7 @@ int main() {
 
 那么 这段代码执行会出现什么现象呢?
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307081031865.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307081031865.webp)
 
 这段代码, 我们在`main()`的`try作用域`中调用了`Func()`, 在`Func()`中调用了`Division()`计算两数相除.
 
@@ -76,7 +76,7 @@ int main() {
 
 如果将`Func()`从`try`中移除, 又会是什么结果呢?
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307081030309.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307081030309.webp)
 
 此时 发生除零错误, 进程会直接被`abort`终止. 退出信息为`134`. 这是编译器帮忙强制终止了
 
@@ -121,7 +121,7 @@ int main() {
 
     在一些编译器中会报错, 最少也是一个警告:
 
-    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307081131411.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307081131411.webp)
 
     这就表示, 第二个`catch (const char* e)`捕获不到`const char*`类型的异常. 
 
@@ -195,13 +195,13 @@ int main() {
 
     这段代码, 如果发生除零错误, 会触发哪个`catch`捕获异常呢?
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307081153143.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307081153143.webp)
 
     很明显是`Divison()`内部的`catch (const char* errmsg)`会捕捉到. 因为 **捕捉异常类型与抛出异常类型匹配 且离抛出异常位置最近**
 
     如果 将`Division()`内部的`catch (const char* errmsg)`改为`catch (const int errI)`, 那么又会被哪个`catch`捕捉到呢?
 
-    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307081352678.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307081352678.webp)
 
     没错, 就是`Func()`内部的`catch (const char* errS)`
 
@@ -282,7 +282,7 @@ int main() {
     }
     ```
 
-    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307081418987.png)
+    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307081418987.webp)
 
     `const char*`、`const int`、`const char`这三种类型的异常, 我们分别在`main()`和`Func()`中指定捕捉了.
 
@@ -367,7 +367,7 @@ int main() {
 
     那么, 这段代码发生各种异常的结果是什么?
 
-    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307081439541.png)
+    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307081439541.webp)
 
     可以看到, 当`b`传入`负数`或`1`时, 都会执行`catch (const faClass& e)`内的处理动作.
 
@@ -434,7 +434,7 @@ int main() {
 
 那么,`throw`异常之后, 栈展开的过程大概为这样的:
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307081545386.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307081545386.webp)
 
 C++异常处理有一个 **`非常麻烦`** 的点.
 
@@ -442,7 +442,7 @@ C++异常处理有一个 **`非常麻烦`** 的点.
 
 执行上面的代码也可以证明这一点:
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307081552569.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307081552569.webp)
 
 `Func1()`、`Func2()`、`Func3()`中, 都有一句`cout`语句. 但是, 只执行了`main()`中的`cout`语句.
 
@@ -606,7 +606,7 @@ int main() {
 
 说明白一点, 就是 C++委员会 实现了许多的类 来对应C++可能发生的所有错误, 被称为 **异常类**. 这些异常类, 都来派生于一个基类 `std::exception`.
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307081714069.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307081714069.webp)
 
 文档中对此类的描述是:
 
@@ -616,7 +616,7 @@ int main() {
 
 #### **`what()`**
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307081724540.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307081724540.webp)
 
 `what()` 有什么用呢?
 
@@ -632,7 +632,7 @@ int main() {
 
 #### C++标准库中的异常类
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307081734176.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307081734176.webp)
 
 C++标准库中, 实现了许多的异常类.
 
@@ -652,7 +652,7 @@ C++标准库中, 实现了许多的异常类.
 
 这张图, 可以用来表示 C++标准库中的异常类体系:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307081759809.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307081759809.webp)
 
 ### **6. 自定义异常体系**
 

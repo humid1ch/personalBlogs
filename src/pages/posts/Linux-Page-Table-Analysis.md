@@ -5,8 +5,8 @@ pubDate: 2023-04-14
 description: '简单的说, 页表是进程地址空间和物理内存之间的相互映射'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251758696.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251758696.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251758696.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251758696.webp'
     alt: 'cover'
 tags: ["Linux系统", "进程"]
 theme: 'light'
@@ -25,13 +25,13 @@ featured: false
 
 只是简单说了 `页表是进程地址空间和物理内存之间的相互映射`. 而且, 画图也对页表做了简单化处理：
 
-![|big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230413190322897.png)
+![|big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230413190322897.webp)
 
 但是实际上, 页表并不是只有简单的两栏, 页表的实现是有些复杂的, 不是一张表可以描述的. 
 
 不过 整个结构抽象一下暂时还是可以以一级页表来表示：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230413191403715.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230413191403715.webp)
 
 页表可以看作, 除了有虚拟地址或物理地址两栏之外, 其实还有其他栏：名中、RWX权限、U/K权限
 
@@ -120,7 +120,7 @@ CPU会分别用这三部分查找到物理内存.
 
 32位环境下, 页表映射的实现使用的是二级页表, 情况如下：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230414120924586.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230414120924586.webp)
 
 首先使用虚拟地址的最高10位, 在`页目录`中找到一个相应的页表
 
@@ -138,7 +138,7 @@ CPU会分别用这三部分查找到物理内存.
 >
 > 即, 在操作系统中 物理内存被划分为了若干个4KB的单位, 被称为页框.
 >
-> ![物理内存被分为若干4KB大小的页框 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230414122136087.png)
+> ![物理内存被分为若干4KB大小的页框 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230414122136087.webp)
 >
 > > 除了物理内存之外, 磁盘中的程序在编译的时候, 也是按照4KB为单位划分好的. `程序中`的4KB单位被称为`页帧`
 > >
@@ -146,7 +146,7 @@ CPU会分别用这三部分查找到物理内存.
 >
 > page在Linux内核源代码中是以一个结构体维护的：
 >
-> ![page 结构体 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230414123109559.png)
+> ![page 结构体 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230414123109559.webp)
 >
 > 那么, 4GB的内存可以划分为多少page呢？
 >
@@ -178,7 +178,7 @@ CPU会分别用这三部分查找到物理内存.
 
 用一张图表示整个流程就是：
 
-![CPU通过页表用虚拟地址查找物理地址的过程 |big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230414141948110.png)
+![CPU通过页表用虚拟地址查找物理地址的过程 |big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230414141948110.webp)
 
 那么介绍到这里, 其实针对页表中是否名中这一栏目, 就可以有一个更加具体的理解了.
 

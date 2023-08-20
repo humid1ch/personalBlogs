@@ -5,8 +5,8 @@ pubDate: 2022-04-14
 description: '本篇文章是 数据结构与算法 正式内容的第一篇文章。要介绍的也是数据结构与算法中最重要的概念之一：复杂度'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/DS_Cover_Com.jpg'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/DS_Cover_Com.jpg'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/DS_Cover_Com.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/DS_Cover_Com.webp'
     alt: 'cover'
 tags: ["算法", "复杂度"]
 theme: 'light'

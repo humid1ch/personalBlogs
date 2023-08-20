@@ -5,8 +5,8 @@ pubDate: 2022-05-04
 description: '本篇文章的的具体内容是 带 头结点的双向循环链表 接口的实现'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Blog_SXDTXHLB_cover.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Blog_SXDTXHLB_cover.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Blog_SXDTXHLB_cover.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Blog_SXDTXHLB_cover.webp'
     alt: 'cover'
 tags: ["数据结构", "链表"]
 theme: 'light'
@@ -40,7 +40,7 @@ featured: false
 
 `带头双向循环链表的结构` 示意图是这样的：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220503180047664.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220503180047664.webp)
 
 ## 节点结构
 
@@ -106,7 +106,7 @@ void ListPushBack(ListNode *phead, ListDataType x);
 
 所以可以在此基础上 直接进行尾插：
 
-![List_Push_Back |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/List_Push_Back.gif)
+![List_Push_Back |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/List_Push_Back.gif)
 
 代码实现即为：
 
@@ -197,25 +197,25 @@ ListNode* ListInit()
 
 调试分析：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220503220100159.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220503220100159.webp)
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220503224018491.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220503224018491.webp)
 
 光标进入 `尾插接口`：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220503220602287.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220503220602287.webp)
 
 光标继续移动，将 `tail` 与 `newNode` 连接起来
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220503221543363.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220503221543363.webp)
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220503230829976.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220503230829976.webp)
 
 再将 `newNode` 与 `phead` 连接起来：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220503221910810.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220503221910810.webp)
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220503231509032.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220503231509032.webp)
 
 可以看到，即使是 只有头节点，尾插函数也可以成功发挥作用
 
@@ -290,7 +290,7 @@ void ListPrint(ListNode *phead)
 
 用打印函数，将上边的接口都验证一下：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220504094219559.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220504094219559.webp)
 
 都可以正常发挥作用
 
@@ -320,7 +320,7 @@ void ListPushFront(ListNode *phead, ListDataType x)
 }
 ```
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220504161039016.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220504161039016.webp)
 
 ### 链表尾删 `ListPopFront`
 
@@ -338,7 +338,7 @@ void ListPopFront(ListNode *phead)
 }
 ```
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220504161411773.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220504161411773.webp)
 
 ### 链表查找 `ListFind`
 
@@ -372,7 +372,7 @@ ListNode* ListFind(ListNode *phead, ListDataType x)
 }
 ```
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220504154331160.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220504154331160.webp)
 
 
 
@@ -404,7 +404,7 @@ void ListInsert(ListNode *pos, ListDataType x)
 
  验证：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220504155105531.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220504155105531.webp)
 
 
 
@@ -477,7 +477,7 @@ void ListErase(ListNode *pos)
 }
 ```
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220504155752938.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220504155752938.webp)
 
 `删除`实现之后，`尾删` 和 `头删` 也可以直接复用：
 
@@ -555,11 +555,11 @@ void ListDestroy(ListNode *phead)
 
 所以，一般需要在调用 `ListDestroy` 接口之后再将 `链表头节点置空
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220504162911544.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220504162911544.webp)
 
 执行之后：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220504163657580.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220504163657580.webp)
 
 然后再将 `pList` 置空
 
@@ -576,7 +576,5 @@ void ListDestroy(ListNode *phead)
 # 结语
 
 OK~ 本篇文章到此就结束啦，介绍了 **`带头双向循环链表`** 这个很复杂 很重要 很简单 的链表结构，希望大家多多支持！
-
-
 
 <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E7%BF%BB%E6%BB%9A%E5%B0%8F%E7%8C%AB.gif" alt="翻滚小猫" style="zoom:80%;" />

@@ -6,8 +6,8 @@ description: '线程可以说是实际区别于进程的一个概念, 但也可�
 而实际区别与否, 其实 **`与平台有关`**'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251801032.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251801032.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251801032.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251801032.webp'
     alt: 'cover'
 tags: ["Linux系统", "多线程"]
 theme: 'light'
@@ -18,13 +18,12 @@ featured: false
 
 > 博主有关Linux进程相关介绍的文章：
 >
-> - 💥[[Linux\] 系统进程相关概念、系统调用、Linux进程详析、进程查看、fork()初识](https://www.julysblog.cn/posts/Linux-Process-Concept&Processes)
->
-> - 💥[[Linux\] 进程状态相关概念、Linux实际进程状态、进程优先级](https://www.julysblog.cn/posts/Linux-Process-States&System-Process-Actual-States)
->
-> - 💥[[Linux\] 什么是进程地址空间？父子进程的代码时如何继承的？程序是怎么加载成进程的？为什么要有进程地址空间？](https://www.julysblog.cn/posts/Linux-Process-Addr-Space)
->
-> - 💥[[Linux\] 详析进程控制：fork子进程运行规则？怎么回收子进程？什么是进程替换？进程替换怎么操作？](https://www.julysblog.cn/posts/Linux-Process-Control)
+> 1. 💥[[Linux\] 系统进程相关概念、系统调用、Linux进程详析、进程查看、fork()初识](https://www.julysblog.cn/posts/Linux-Process-Concept&Processes)
+>2. 💥[[Linux\] 进程状态相关概念、Linux实际进程状态、进程优先级](https://www.julysblog.cn/posts/Linux-Process-States&System-Process-Actual-States)
+> 
+>3. 💥[[Linux\] 什么是进程地址空间？父子进程的代码时如何继承的？程序是怎么加载成进程的？为什么要有进程地址空间？](https://www.julysblog.cn/posts/Linux-Process-Addr-Space)
+> 
+>4. 💥[[Linux\] 详析进程控制：fork子进程运行规则？怎么回收子进程？什么是进程替换？进程替换怎么操作？](https://www.julysblog.cn/posts/Linux-Process-Control)
 
 通过阅读这几篇文章, 至少可以让我们对Linux系统中的进程 有一个最基本又相对全面的认识.
 
@@ -56,7 +55,7 @@ featured: false
 
 之间还要通过 进程地址空间和相应的页表, 不过CPU实际只是是通过访问PCB 来实现对进程的调度的：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230411175200325.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230411175200325.webp)
 
 `PCB(task_struct)中描述着进程地址空间, 进程地址空间与物理内存 通过两张页表来相互映射.` 
 
@@ -72,11 +71,11 @@ featured: false
 
 那么, 如果下次创建进程, 操作系统并不创建有关进程的所有结构, 而是`只创建 PCB`. 将新的PCB 指向已经存在的进程.
 
-![不同PCB指向同一个进程地址空间 - CPU与PCB之间的虚线表示, 此PCB也被CPU调度, 但当前可能没有被调度](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230411190606396.png)
+![不同PCB指向同一个进程地址空间 - CPU与PCB之间的虚线表示, 此PCB也被CPU调度, 但当前可能没有被调度](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230411190606396.webp)
 
 然后, 以子进程划分程序资源类似的手段, 将进程的代码划分为不同的区域, 并将不同的PCB设置为实际分别负责执行不同的区域的代码：
 
-![PCB与代码区之间连接的红色虚线表示, PCB实际负责执行的代码区域](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230411191733677.png)
+![PCB与代码区之间连接的红色虚线表示, PCB实际负责执行的代码区域](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230411191733677.webp)
 
 最终, 不同的PCB可以访问进程地址空间内代码区的不同区域, 并通过相应的页表来访问到实际的物理内存.
 
@@ -148,7 +147,7 @@ Linux复用PCB实现TCB, 那么从CPU的角度看待线程, 其实与进程没�
 
 而现在, 我们知道进程内部可以存在许多task_srtuct, 那么又可以怎样理解进程呢？
 
-![ j|big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230412093635919.png)
+![|big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230412093635919.webp)
 
 现在, 不能只认为 PCB + 代码和数据 就是一个进程. 而是 需要理解, 上图中的所有结构加起来才能叫一个进程.
 
@@ -188,7 +187,7 @@ Linux复用PCB实现TCB, 那么从CPU的角度看待线程, 其实与进程没�
 
 Linux操作系统为我们提供了创建线程的系统调用：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230412100123205.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230412100123205.webp)
 
 ```cpp
 int pthread_create(pthread_t *thread, const pthread_attr *attr, void *(*start_routine)(void *), void *arg);
@@ -198,7 +197,7 @@ int pthread_create(pthread_t *thread, const pthread_attr *attr, void *(*start_ro
 
 不过, 实际上也没有太复杂. `pthread_t` 就是一个无符号长整型：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230412101716321.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230412101716321.webp)
 
 第一个参数就是此类型的指针, 第一个参数是一个输出型参数, 用于获取线程id
 
@@ -210,7 +209,7 @@ int pthread_create(pthread_t *thread, const pthread_attr *attr, void *(*start_ro
 
 处理创建线程之外, 线程与子进程一样, 还需要等待：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230412110550933.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230412110550933.webp)
 
 ```cpp
 int pthread_join(pthread_t thread, void **retval);
@@ -269,7 +268,7 @@ int main() {
 
 不过, 我们编译时会发现有错误：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230412105448190.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230412105448190.webp)
 
 是连接错误, 为什么呢？
 
@@ -277,13 +276,13 @@ int main() {
 
 因为, pthread 是第三方库, 所以我们需要手动链接：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230412105716705.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230412105716705.webp)
 
 此时, 编译链接成功. 
 
 我们运行程序：
 
-![thread_show |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/thread_show.gif)
+![thread_show |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/thread_show.gif)
 
 可以看到线程在分别运行, 所输出的进程pid都是相同的. 
 
@@ -293,7 +292,7 @@ int main() {
 
 我们进程运行时查看系统的进程表：
 
-![系统中只有一个有关threadTest的进程 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/thread_onlyone_process.gif)
+![系统中只有一个有关threadTest的进程 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/thread_onlyone_process.gif)
 
 可以看到, 有关threadTest 的进程只有一个. 
 
@@ -303,7 +302,7 @@ int main() {
 
 我们可以在命令行使用 `ps -aL` 命令 来查看线程(a: all, -L: 轻量级进程)：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230412112247311.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230412112247311.webp)
 
 可以看到, 线程列表中 存在三个相同命令名的线程. 且这`三个线程同时属于一个PID 23412. 还拥有各自的 LWP 轻量级进程编号`. 
 
@@ -331,7 +330,7 @@ int main() {
 
 也就是说, 其实PCB(task_struct)内部其实是有用来表示线程的东西的：
 
-![task_struct内部, 线程专用的结构体](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230413170958038.png)
+![task_struct内部, 线程专用的结构体](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230413170958038.webp)
 
 `thread_struct{}`结构体内部存储的大部分都是寄存器相关信息. 与维护不同线程的上下文数据有关系
 
@@ -345,29 +344,29 @@ Linux操作系统中其实可以创建多进程来分配代码并执行, 就比�
 
 1. 创建一个新线程的成本比创建一个新进程的成本小的多
 
-  创建一个新进程, 操作系统需要分别创建PCB、进程地址空间、页表, 如果对数据做了修改还需要写时拷贝等
+    创建一个新进程, 操作系统需要分别创建PCB、进程地址空间、页表, 如果对数据做了修改还需要写时拷贝等
 
-  而创建一个新线程, 则只需要创建一个PCB就可以了, 进程地址空间、页表、数据等都直接使用原进程的就可以
+    而创建一个新线程, 则只需要创建一个PCB就可以了, 进程地址空间、页表、数据等都直接使用原进程的就可以
 
 2. 与进程之间的切换相比, 线程之间的切换需要操作系统做的工作也会少很多
 
-  如果CPU需要切换进程运行, 那么不仅需要切换PCB还需要切换页表等诸多的数据
+    如果CPU需要切换进程运行, 那么不仅需要切换PCB还需要切换页表等诸多的数据
 
-  而切换线程的话, 就只需要切换PCB就可以了
+    而切换线程的话, 就只需要切换PCB就可以了
 
 3. 线程占用资源比进程要少很多
 
-	还是那个原因, 多线程是公用一个进程地址空间和同一页表运行的, 而每个进程都拥有自己的进程地址空间和页表
+    还是那个原因, 多线程是公用一个进程地址空间和同一页表运行的, 而每个进程都拥有自己的进程地址空间和页表
 
 4. 对于计算密集型应用, 为了能在多处理器系统上运行, 会将计算分解到多线程去实现
 
-	比如文件加密应用, 可以用多线程将加密工作拆分, 加密完成之后再将文件合并, 就可以完成加密
+    比如文件加密应用, 可以用多线程将加密工作拆分, 加密完成之后再将文件合并, 就可以完成加密
 
 5. 对于I/O密集型应用, 为了提高性能, 将I/O操作重叠. 线程可以同时等待不同的I/O操作
 
-	比如一个程序运行时, 需要等待操作系统和网卡之间的I/O操作, 又要等待操作系统和磁盘之间的I/O操作.
-	
-	如果单线程的话, 这两个I/O操作只能一个一个等, 不过, 如果是多线程的话就可以同时等待不用排队.
+    比如一个程序运行时, 需要等待操作系统和网卡之间的I/O操作, 又要等待操作系统和磁盘之间的I/O操作.
+
+    如果单线程的话, 这两个I/O操作只能一个一个等, 不过, 如果是多线程的话就可以同时等待不用排队.
 
 不过, 线程并不是越多越好, 与平台有关, 更准确一点就是与 CPU有关
 
@@ -421,57 +420,57 @@ Linux操作系统中其实可以创建多进程来分配代码并执行, 就比�
 
 我们来对比一下, 进程和线程有什么是相同的, 什么是不同的.
 
-- 进程是系统资源分配的基本单位
+1. 进程是系统资源分配的基本单位
 
-- 线程是调度的基本单位
+2. 线程是调度的基本单位
 
-- 多线程共享进程数据, 不过不同线程也有自己的一部分数据：
+3. 多线程共享进程数据, 不过不同线程也有自己的一部分数据：
 
-	- **`线程ID`**
+    1. **`线程ID`**
 
-		就像每个进程都有自己的ID一样, 每个线程也都有自己的ID
+        就像每个进程都有自己的ID一样, 每个线程也都有自己的ID
 
-	- **`一组寄存器`**
+    2. **`一组寄存器`**
 
-		每个线程都有一组寄存器, 用来维护线程的上下文数据
+        每个线程都有一组寄存器, 用来维护线程的上下文数据
 
-	- **`线程栈`**
+    3. **`线程栈`**
 
-		进程在运行时, 都会有自己的栈结构, 来给函数的压栈、临时变量等数据提供空间
+        进程在运行时, 都会有自己的栈结构, 来给函数的压栈、临时变量等数据提供空间
 
-		其实每个线程也都会维护自己的栈区, 因为线程也可能会不停的函数调用等操作. 所以是需要维护自己的栈区的.
+        其实每个线程也都会维护自己的栈区, 因为线程也可能会不停的函数调用等操作. 所以是需要维护自己的栈区的.
 
-	- errno
+    4. errno
 
-	- **`信号屏蔽字`**
+    5. **`信号屏蔽字`**
 
-		上面介绍信号异常时提到, 线程异常 就是 进程异常. 线程异常操作系统会向线程发送信号.
+        上面介绍信号异常时提到, 线程异常 就是 进程异常. 线程异常操作系统会向线程发送信号.
 
-		不过线程是与进程共享信号处理方法的, 所以一般情况下线程异常 也就是进程异常
+        不过线程是与进程共享信号处理方法的, 所以一般情况下线程异常 也就是进程异常
 
-		不过, 虽然线程与进程共享信号处理方法, 但是线程是有自己的信号屏蔽字的.
+        不过, 虽然线程与进程共享信号处理方法, 但是线程是有自己的信号屏蔽字的.
 
-		也就是说, 操作系统向线程和进程发送同一信号, 可能进程会递达, 而线程却会阻塞. 
+        也就是说, 操作系统向线程和进程发送同一信号, 可能进程会递达, 而线程却会阻塞. 
 
-	- 调度优先级
+        调度优先级
 
-- 线程和进程会共享这些资源：
+4. 线程和进程会共享这些资源：
 
-	- 代码和数据
+    1. `代码和数据`
 
-		进程中定义的函数, 每个线程都可以调用. 进程中定义的全局变量, 每个线程也都可以访问
+        进程中定义的函数, 每个线程都可以调用. 进程中定义的全局变量, 每个线程也都可以访问
 
-	- **`文件描述符表`**
+    2. **`文件描述符表`**
 
-		虽然 文件描述符表并不是进程地址空间内的数据 而是内核数据(在PCB中维护)
+        虽然 文件描述符表并不是进程地址空间内的数据 而是内核数据(在PCB中维护)
 
-		但是 进程的文件描述符表 也是与线程共享的, 线程PCB会指向主线程PCB的文件描述符表
+        但是 进程的文件描述符表 也是与线程共享的, 线程PCB会指向主线程PCB的文件描述符表
 
-	- 信号的处理方法
+    3. 信号的处理方法
 
-	- 进程当前运行路径
+    4. 进程当前运行路径
 
-	- 用户ID和组ID
+    5. 用户ID和组ID
 
 ---
 

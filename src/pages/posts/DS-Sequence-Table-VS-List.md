@@ -5,8 +5,8 @@ pubDate: 2022-05-05
 description: '顺序表(数组) 和 链表 哪一种结构 更优秀 一点呢？都具有什么 优缺点 呢？'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/cache_cover.jpg'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/cache_cover.jpg'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/cache_cover.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/cache_cover.webp'
     alt: 'cover'
 tags: ["数据结构", "顺序表", "链表"]
 theme: 'light'
@@ -93,7 +93,7 @@ featured: false
 
 所以目前通用计算机的存储器结构 `大致` 的示意图如下：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220505084529584.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220505084529584.webp)
 
 `高速缓存` 的数据传输速度 一般比 `内存` 快 `5~10` 倍，是为了中和 `CPU` 读取速度 与 `内存` 传输速度差距过大而被添加的
 
@@ -122,11 +122,11 @@ featured: false
 
 `顺序表`：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220505124210498.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220505124210498.webp)
 
 `链表`：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220505124848281.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220505124848281.webp)
 
 假设，这两个结构的数据都 `没有被存入高速缓存` 中，当 `CPU`  需要读取数据的时候
 
@@ -138,7 +138,7 @@ featured: false
 
 如此，`顺序表` 的 `高速缓存命中率` 就 高。
 
-![cache_Seq |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/cache_Seq.gif)
+![cache_Seq |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/cache_Seq.gif)
 
 对于 `链表`：
 

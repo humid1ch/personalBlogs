@@ -5,8 +5,8 @@ pubDate: 2022-10-25
 description: 'STL容器中, set 和 map 虽然底层都是红黑树, 但是这两个容器的模板参数是不一样的, 这是一个非常需要解决的问题'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251814109.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251814109.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251814109.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251814109.webp'
     alt: 'cover'
 tags: ["STL", "树", "容器"]
 theme: 'light'
@@ -36,7 +36,7 @@ map 则是 `template<class Key, class Value>`
 
 >  STL关于 set的部分源码： 
 >
->  ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221023161225036.png)
+>  ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20221023161225036.webp)
 >
 >  可以看到, typedef红黑树的部分, 红黑树的模板参数传参是 `<key_type, value_type>`
 >
@@ -44,7 +44,7 @@ map 则是 `template<class Key, class Value>`
 
 >  STL关于 map的部分源码: 
 >
->  ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221023161511574.png)
+>  ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20221023161511574.webp)
 >
 >  map中 typedef红黑树的部分, 红黑树的模板参数传参 也是 `<key_type, value_type>`
 >
@@ -56,7 +56,7 @@ map 则是 `template<class Key, class Value>`
 
 >  STL关于 红黑树的部分源码：
 >
->  ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221023155204283.png)
+>  ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20221023155204283.webp)
 >
 >  图中, 左半部分 是关于红黑树节点的部分源码; 右半部分 是关于红黑树结构的部分源码
 >
@@ -142,7 +142,7 @@ private:
 
 ### pair类 数据大小的比较
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221025160609241.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20221025160609241.webp)
 
 图中 蓝紫色部分的代码 就是 pair类中重载的比较运算符, 其中 `==` 和 `<` 运算符的功能是：
 
@@ -161,7 +161,7 @@ pair对象的比较 与 pair对象的两个成员变量都有关系, 但是 `红
 
 其实可以效仿STL中的解决方法： **对不同的 容器 实现针对此容器的 取节点Key值的 `仿函数`**
 
-> ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410142903834.png)
+> ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230410142903834.webp)
 >
 > 这是 在STL源码 分析的部分关于 `取节点数据的Key值的仿函数` 的代码
 >
@@ -448,7 +448,7 @@ struct _RB_Tree_Iterator {
 
 > 以一棵 二叉搜索树 为例：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221026154152076.png" alt="|inline" style="zoom:60%; display: block; margin: 0 auto;" />
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20221026154152076.webp" alt="|inline" style="zoom:60%; display: block; margin: 0 auto;" />
 >
 > 此 红黑树的中序遍历是：17 22 31 34 41 53 54 56 58 67 70 77 78 82 94
 >
@@ -1185,8 +1185,8 @@ set 和 map 是以红黑树为底层封装起来的, 上面已经实现了 红�
 
 测试 set：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221026211512396.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20221026211512396.webp)
 
 测试 map：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410143003182.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230410143003182.webp)

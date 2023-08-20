@@ -5,8 +5,8 @@ pubDate: 2023-07-10
 description: 'C语言中 的类型转换可视性比较差, 所有的转换形式都是以一种相同形式书写, 难以跟踪错误的转换. C++则针对不同场景实现了4种不同的类型转换...'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307101801517.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307101801517.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307101801517.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307101801517.webp'
     alt: 'cover'
 tags: ["C++", "C++11"]
 theme: 'light'
@@ -50,7 +50,7 @@ C语言中总共有两种形式的类型转换：**隐式类型转换** 和 **�
 
     但是, 当程序执行之后:
 
-    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307102117182.gif)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307102117182.gif)
 
     很神奇, 明明 `i < 0` 了 但是循环还在继续.
 
@@ -82,11 +82,11 @@ C语言中总共有两种形式的类型转换：**隐式类型转换** 和 **�
 
     这段代码, `int* c = a;` 会报错. 因为不允许发生隐式类型转换.
 
-    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307102319439.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307102319439.webp)
 
     不过, 前面的可以编译通过:
 
-    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307102320096.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307102320096.webp)
 
 这是C语言的隐式类型转换
 
@@ -153,7 +153,7 @@ int main() {
 }
 ```
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307102347545.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307102347545.webp)
 
 ## `reinterpret_cast`
 
@@ -180,7 +180,7 @@ int main() {
 }
 ```
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307110002360.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307110002360.webp)
 
 ## `const_cast`
 
@@ -205,7 +205,7 @@ int main(){
 
 这段代码的执行结果是:
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307110927036.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307110927036.webp)
 
 通过 对`const int val`取地址 再 将其强制类型转换为`int*`, 然后通过`int*`修改变量的值.
 
@@ -230,7 +230,7 @@ int main(){
 }
 ```
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307110940794.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307110940794.webp)
 
 ## `dynamic_cast`
 
@@ -317,7 +317,7 @@ int main() {
 
 就像上面这样, 执行结果为:
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307111013138.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307111013138.webp)
 
 但是, 有了`dynamic_cast`之后, 就不需要这样了:
 
@@ -349,7 +349,7 @@ int main() {
 
 这段代码的执行结果是:
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307111014050.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307111014050.webp)
 
 前两个输出是传入父类对象指针时的输出, 后两个输出是传入子类对象指针时的输出.
 
@@ -393,7 +393,7 @@ int main() {
 }
 ```
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307111022230.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307111022230.webp)
 
 GCC会报错: 原类型不支持多态
 

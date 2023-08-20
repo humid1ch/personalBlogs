@@ -5,8 +5,8 @@ pubDate: 2023-03-29
 description: '本篇文章的主要内容就是介绍Linux的文件系统是怎么管理磁盘文件'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251755489.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251755489.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251755489.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251755489.webp'
     alt: 'cover'
 tags: ["Linux系统", "文件系统"]
 theme: 'light'
@@ -27,21 +27,21 @@ Linux的文件操作, 都是从内存文件进行操作, 即都是对打开的�
 
 ## 磁盘的物理结构
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230320145023027.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230320145023027.webp)
 
 这就是一个磁盘, 上面的圆盘叫做`磁盘盘片`, 悬在盘片上的像针一样的东西叫`磁头`, 磁盘中间的部分叫`主轴`, 磁头链接着`磁头臂`, 磁头臂被一个`传动轴`连接着：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230320150109444.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230320150109444.webp)
 
 其中, 主轴下方是轴承和马达, 可以带动`盘片旋转`, 传动轴则可以让`磁头臂左右摆动`, 即 磁盘内部的机械结构是类似这样运动的：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230320151903616.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230320151903616.webp)
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E7%A3%81%E7%9B%98%E6%9C%BA%E6%A2%B0%E8%BF%90%E5%8A%A8.gif" alt="磁盘机械运动 |inline" style="zoom:80%;" />
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/%E7%A3%81%E7%9B%98%E6%9C%BA%E6%A2%B0%E8%BF%90%E5%8A%A8.gif" alt="磁盘机械运动" style="zoom:80%; display: block; margin: 0 auto;"/>
 
 并且, 一个磁盘中可能有上下排列有许多的盘片, 并且每个盘片上下都有6一个磁头, 类似这样：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230320152927464.png" alt="image-20230320152927464" style="zoom:55%;" /> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230320153121768.png" alt="image-20230320153121768" style="zoom:54%;" />
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230320152927464.webp" alt="image-20230320152927464" style="zoom:50%;" /><img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230320153121768.webp" alt="image-20230320153121768" style="zoom:50%;" />
 
 ## 磁盘的存储结构
 
@@ -57,11 +57,11 @@ Linux的文件操作, 都是从内存文件进行操作, 即都是对打开的�
 
     其实光滑的`盘片上可以看作有无数个同心圆`, 图片表示就类似这样:
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230320163807230.png)
+    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230320163807230.webp" alt="|wide" style="zoom:68%;display: block; margin: 0 auto;" />
 
     不过这些`圆在盘片上被称为磁道`, 而`每个磁道又会被分为许多的的扇区`：
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230320171338786.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230320171338786.webp)
 
     > **==这只是抽象图, 并不确切表示盘片中磁道和扇区的数量==**
 
@@ -93,7 +93,7 @@ Linux的文件操作, 都是从内存文件进行操作, 即都是对打开的�
 	
 	**==磁盘中可能存在多个水平但上下放置的盘片, 那么这些盘片必定会存在相同半径的磁道同处于同一个圆柱面上, 这个圆柱面我们就称之为磁柱(Cylinder):==**
 	
-	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230320183616381.png)
+	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230320183616381.webp)
 	
 	**`磁柱是Cylinder, 磁头是Head, 扇区是Sector`**, 当我们知道这三个结构的编号, 就能`在磁盘中定位到一个指定的扇区`
 	
@@ -109,13 +109,13 @@ Linux的文件操作, 都是从内存文件进行操作, 即都是对打开的�
 	
 	就像磁带一样, 卷在一起的时候可以看作是数据存储在一个一个圆圈上, 当把磁带拉直也可以看作数据是存储在一条直线上. 不管是卷起来还是拉直, 其实都没有损坏磁带, 更没有损坏磁带上的数据.
 	
-	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230320225821020.png)
+	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230320225821020.webp)
 	
 	那么其实, 磁盘上的盘片上的磁带也可以抽象成这样的直线的、线性的形式, `作为一个数组被管理起来`
 	
 	即, 磁盘上的所有盘片的所有磁道都可以抽象成一个线性的数组然后整合起来：
 	
-	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230320232237424.png)
+	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230320232237424.webp)
 	
 	所有的扇区被整合成一个数组, 每个下标对应着一个扇区, 即可以根据数组的下标来定位到磁盘中的某个扇区, 这里的下标被叫做`LBA逻辑块地址`
 	
@@ -157,7 +157,7 @@ Linux的文件操作, 都是从内存文件进行操作, 即都是对打开的�
 
 即：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230321015206958.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230321015206958.webp)
 
 >  操作系统会将分区细分为向上面那样的组, 还会分出一个 Boot Block区域.
 >
@@ -175,7 +175,7 @@ Linux的文件操作, 都是从内存文件进行操作, 即都是对打开的�
 
 Linux中的文件系统, 会将分区在细分为组, 不同的组内存储一些相同结构的属性, 这些属性描述着组的内容：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230321121952307.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230321121952307.webp)
 
 ### Data blocks
 
@@ -197,7 +197,7 @@ Linux中的文件系统, 会将分区在细分为组, 不同的组内存储一�
 
 我们使用`ll` 或者 `stat` 可以查看多个或单个文件的属性：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230321104706071.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230321104706071.webp)
 
 我们使用 `stat` 查看单个文件的详细属性时, 可以看到 一个文件拥有非常多的属性：
 
@@ -209,7 +209,7 @@ Linux中的文件系统, 会将分区在细分为组, 不同的组内存储一�
 
 这些属性, 其实都存储在 Linux系统的inode结构体中：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230321105240147.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230321105240147.webp)
 
 这还只是一部分, 不过我们暂时只需要知道, 在Linux系统中,  **`inode是一个结构体, 存储着文件的所有属性`** 就可以了
 
@@ -217,19 +217,19 @@ Linux中的文件系统, 会将分区在细分为组, 不同的组内存储一�
 
 就是 `stat` 命令输出的一个叫 `Inode` 的属性, 也可以通过 `ll -i` 查看：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230321105910205.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230321105910205.webp)
 
-知道了inode 具体是什么东西, 那么再看 inode Table
+知道了`inode`具体是什么东西, 那么再看`inode Table`
 
 其实 `inode Table 就是组内用来存储 文件inode结构体的一个表格、数组, inode Table的每个单位存储一个inode结构体`
 
 > **`inode结构体的大小为 128字节, 那么 inode Table 的单位大小就是 128字节`**
 
-即：inode Table结构示意
+即：`inode Table`结构示意
 
-> inode结构体存储着 操作系统层面 文件的所有属性, 但是其中是`没有存储文件名的`
+> `inode`结构体存储着 操作系统层面 文件的所有属性, 但是其中是`没有存储文件名的`
 >
-> 文件名在Linux操作系统中是属性吗？是的, 但是inode中并没有存储文件名
+> 文件名在Linux操作系统中是属性吗？是的, 但是`inode`中并没有存储文件名
 >
 > 这其实意味着, **`在Linux底层层面, 系统是不认识文件名的, inode结构体中存储的inode编号 是操作系统底层对文件的唯一实际标识`**
 
@@ -319,15 +319,15 @@ inode中存储有一个类似block[15]这样的数组结构, 其中：
 
 访问目录进入目录, 我们`需要的是 x执行权限`：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230321165736065.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230321165736065.webp)
 
 在目录下创建文件, 我们`需要的是 w写权限`：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230321170038812.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230321170038812.webp)
 
 查看目录下的文件, 我们`需要的是 r读权限`:
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230321170315591.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230321170315591.webp)
 
 而 **`文件的w和r权限实际上是对 文件内容的读写权限, 也就是说 目录文件的文件内容 其实就是目录下的文件`**
 
@@ -339,7 +339,7 @@ inode中存储有一个类似block[15]这样的数组结构, 其中：
 >
 > 不可以, **`同一目录下的文件名是唯一的, 也就是说, 同一目录下一个文件名只对应一个inode编号`**
 >
-> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230321171238179.png)
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230321171238179.webp)
 
 ### 创建文件, 操作系统做了什么？
 
@@ -395,7 +395,7 @@ Linux操作系统删除文件会怎么做呢？
 
 而`硬连接, 就可以将不同的文件名, 映射到同一个inode编号上`
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230321175957021.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230321175957021.webp)
 
 创建硬连接的命令是：`ln 原文件名 新创建的硬链接文件名`
 
@@ -423,7 +423,7 @@ Linux操作系统删除文件会怎么做呢？
 
 要回答这个问题, 先创建一个目录文件和普通文件：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230321182851762.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230321182851762.webp)
 
 为什么这样呢？
 
@@ -431,7 +431,7 @@ Linux操作系统删除文件会怎么做呢？
 
 而目录文件不同：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230321183509137.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230321183509137.webp)
 
 这就是为什么, 当我们执行当前目录下的可执行文件的时候, 需要使用`./`作为前缀
 
@@ -441,7 +441,7 @@ Linux操作系统删除文件会怎么做呢？
 
 建立软连接的命令也是 `ln`, 只不过 需要添加一个选项 `-s`, 可以看做soft , 即 `ln -s` 表示建立软连接：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230321203419498.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230321203419498.webp)
 
 与 硬连接不同的是, 软连接是生成了一个新的文件, 因为映射的inode不同与原文件.
 

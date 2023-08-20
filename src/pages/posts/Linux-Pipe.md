@@ -5,8 +5,8 @@ pubDate: 2023-04-02
 description: 'Linux为我们提供了三种进程间通信的方法：1. pipe 管道通信 2. System V标准通信 3. POSIX标准通信. 本篇文章的主要内容是 匹配管道通信'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251758839.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251758839.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251758839.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251758839.webp'
     alt: 'cover'
 tags: ["Linux系统", "进程"]
 theme: 'light'
@@ -59,7 +59,7 @@ Linux为我们提供了三种进程间通信的方法：
 
 	管道通信相信许多人已经用过了, 在命令行中的标志就是: `|`: 
 	
-	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230324112501490.png)
+	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230324112501490.webp)
 	
 	管道通信一般用于 **`本地进程`**  之间传输数据.
 	
@@ -89,7 +89,7 @@ Linux为我们提供了三种进程间通信的方法：
 
 就像 一个进程向文件中写入内容, 另一个进程从同一个文件中读取内容：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230324114404251.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230324114404251.webp)
 
 这个过程中, 我们通过访问同一个文件资源, 达成了一个进程向另一个进程传递数据的目的, 那这其实就是一种广义上的进程通信.
 
@@ -123,11 +123,11 @@ Linux为我们提供了三种进程间通信的方法：
 
 而这个 `files结构体`中, 直接或间接描述了文件的所有属性, 以及 此文件的缓冲区相关信息：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230324122704908.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230324122704908.webp)
 
 缓冲区信息中, 包含着描述文件的inode结构体, 而inode结构体中其实描述着一个联合体：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230324123236480.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230324123236480.webp)
 
 这个处于inode结构体中的联合体, 其实就是为了标识这个文件的类型, 其中pipe 就表示此文件的类型是管道文件.
 
@@ -147,7 +147,7 @@ Linux为我们提供了三种进程间通信的方法：
 
 这是管道的特点, Linux的管道也是遵循这个特点的, 也就是说, `两个进程间使用管道通信时, 其中一个进程若以只写方式打开管道, 那么另一个进程就只能以只读方式打开文件`.
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230325110131491.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230325110131491.webp)
 
 或者也可以反过来, 不过`管道的两端只能是不同的打开方式`
 
@@ -170,11 +170,11 @@ Linux为我们提供了三种进程间通信的方法：
 
 匿名管道可以用于父子进程之间的通信, 那么管道的创建流程大概就是：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230325180631728.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230325180631728.webp)
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230325180720445.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230325180720445.webp)
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230325180850724.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230325180850724.webp)
 
 也就是说, 匿名管道的创建应该是 **`由父进程创建, 然后创建子进程继承父进程的管道, 然后再关闭管道的写入端或读取端`** 
 
@@ -202,7 +202,7 @@ Linux为我们提供了三种进程间通信的方法：
 
 	其实在file结构体中, 存在一个计数变量 f_count：
 	
-	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230327153807787.png)
+	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230327153807787.webp)
 	
 	不过, 这个变量实际上还是一个结构体, 用于计数
 
@@ -212,9 +212,9 @@ Linux为我们提供了三种进程间通信的方法：
 
 Linux操作系统提供了一个接口：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230324230532528.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230324230532528.webp)
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230325183110031.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230325183110031.webp)
 
 且, pipe(), 如果*`创建管道成功, 则返回0, 否则返回-1`*, 并设置errno
 
@@ -296,7 +296,7 @@ int main() {
 }
 ```
 
-![匿名管道通信测试 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E5%8C%BF%E5%90%8D%E7%AE%A1%E9%81%93%E9%80%9A%E4%BF%A1%E6%B5%8B%E8%AF%95.gif)
+![匿名管道通信测试 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/%E5%8C%BF%E5%90%8D%E7%AE%A1%E9%81%93%E9%80%9A%E4%BF%A1%E6%B5%8B%E8%AF%95.gif)
 
 可以看到, 我们成功使用pipe()接口创建了匿名管道, 在父进程与子进程之间建立了通信
 
@@ -304,11 +304,11 @@ int main() {
 
 1. 父进程每1s, 写入一次数据
 
-	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230325215305146.png)
+	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230325215305146.webp)
 
 2. 子进程死循环读取父进程写的数据
 
-	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230325215158088.png)
+	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230325215158088.webp)
 
 但是, 代码的执行结果是是什么？代码的执行结果 **`并不是子进程死循环读取父进程写入到管道的内容`** 
 
@@ -330,17 +330,17 @@ int main() {
 
 > pipe文件中, 存在等待队列：
 >
-> ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230325221323595.png)
+> ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230325221323595.webp)
 
 可以通过修改父子进程的写入和读取数据的时间, 来验证一下管道文件是否存在读写顺序：
 
 我们将, 父进程改为10s一写入, 再测试：
 
-![匿名管道通信顺序测试 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E5%8C%BF%E5%90%8D%E7%AE%A1%E9%81%93%E9%80%9A%E4%BF%A1%E9%A1%BA%E5%BA%8F%E6%B5%8B%E8%AF%95.gif)
+![匿名管道通信顺序测试 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/%E5%8C%BF%E5%90%8D%E7%AE%A1%E9%81%93%E9%80%9A%E4%BF%A1%E9%A1%BA%E5%BA%8F%E6%B5%8B%E8%AF%95.gif)
 
 我们将, 子进程改为15s一读取, 再将父进程改为死循环写入并输出写入次数：
 
-![匿名管道写满测试 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E5%8C%BF%E5%90%8D%E7%AE%A1%E9%81%93%E5%86%99%E6%BB%A1%E6%B5%8B%E8%AF%95.gif)
+![匿名管道写满测试 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/%E5%8C%BF%E5%90%8D%E7%AE%A1%E9%81%93%E5%86%99%E6%BB%A1%E6%B5%8B%E8%AF%95.gif)
 
 可以看到, `当父进程存在一定的写入间隔时, 子进程读取管道数据也会根据父进程的写入间隔进行读取`
 
@@ -495,7 +495,7 @@ int main() {
 
  执行这段代码的结果是：
 
-![单进程管道派发任务 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E5%8D%95%E8%BF%9B%E7%A8%8B%E7%AE%A1%E9%81%93%E6%B4%BE%E5%8F%91%E4%BB%BB%E5%8A%A1.gif)
+![单进程管道派发任务 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/%E5%8D%95%E8%BF%9B%E7%A8%8B%E7%AE%A1%E9%81%93%E6%B4%BE%E5%8F%91%E4%BB%BB%E5%8A%A1.gif)
 
 父进程会随机的向子进程派发, 我们设置的任务, 并且子进程会执行 
 
@@ -503,7 +503,7 @@ int main() {
 
 > 1. 任务列表和任务信息部分：
 >
->     ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230327114104041.png)
+>     ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230327114104041.webp)
 >
 >     这部分的代码
 >
@@ -519,7 +519,7 @@ int main() {
 >
 > 2. 然后就是main函数:
 >
->     ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230327114803469.png)
+>     ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230327114803469.webp)
 >
 >     main函数的内部其实可以分为4大块:
 >
@@ -537,7 +537,7 @@ int main() {
 >
 > 3. 再然后应该去写, 父进程需要执行的代码:
 >
->     ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230327115414065.png)
+>     ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230327115414065.webp)
 >
 >     父进程的功能是 向子进程随机派发任务列表中的任务, 也就需要取随机值, 先使用srand初始化随机数发射
 >
@@ -553,7 +553,7 @@ int main() {
 >
 > 4. 子进程需要执行的代码：
 >
->     ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230327152811581.png)
+>     ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230327152811581.webp)
 >
 >     子进程的需要实现：可以从管道中接收父进程写入的任务编号
 >
@@ -746,7 +746,7 @@ int main() {
 
 这段代码的执行结果是：
 
-![多进程管道派发任务 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E5%A4%9A%E8%BF%9B%E7%A8%8B%E7%AE%A1%E9%81%93%E6%B4%BE%E5%8F%91%E4%BB%BB%E5%8A%A1.gif)
+![多进程管道派发任务 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/%E5%A4%9A%E8%BF%9B%E7%A8%8B%E7%AE%A1%E9%81%93%E6%B4%BE%E5%8F%91%E4%BB%BB%E5%8A%A1.gif)
 
 匿名管道向多个进程派发任务, 其中 `父进程向管道中写入的过程 和 子进程从管道中读取的过程 是没有变化的`
 
@@ -756,7 +756,7 @@ int main() {
 
 上面匿名管道的多进程控制中, 父进程打开了多个子进程：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230327172513587.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230327172513587.webp)
 
 打开的所有子进程拥有相同的ppid, 即相同的父进程, 那么可以称这些进程为兄弟进程
 
@@ -794,19 +794,19 @@ int main() {
 
 	命名管道可以在命令行使用命令创建 `mkfifo`:
 	
-	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230327181301468.png)
+	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230327181301468.webp)
 	
 	管道都是先进先出的, 但是命名管道是可见的
 	
 	使用mkfifo 可以创建命名管道文件：
 	
-	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230327181812864.png)
+	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230327181812864.webp)
 
 2. 系统调用创建
 
 	Linux除了给了mkfifo命令, 还给了mkfifo()系统调用:
 	
-	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230327182036574.png)
+	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230327182036574.webp)
 	
 	`mkfifo(const char *pathname, mode_t mode)`有两个参数, 第一个参数肯定不用解释了, 是创建**`文件的路径及文件名`** 
 	
@@ -951,7 +951,7 @@ clean:
 
 执行make, 然后运行两个可执行程序：
 
-![命名管道基本用法](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E5%91%BD%E5%90%8D%E7%AE%A1%E9%81%93%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95.gif)
+![命名管道基本用法](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/%E5%91%BD%E5%90%8D%E7%AE%A1%E9%81%93%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95.gif)
 
 这样就实现了 毫不相干的两个进程之间的通信. 
 

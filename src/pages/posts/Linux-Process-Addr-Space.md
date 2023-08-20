@@ -5,8 +5,8 @@ pubDate: 2023-03-06
 description: '在介绍C++的内存控制时, 我用了这样一张图来大致表述一个程序的程序地址空间, 并且也提到过这块空间占用的是内存. 不过这张图, 在Linux系统中需要稍微改动一下'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251759942.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251759942.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251759942.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251759942.webp'
     alt: 'cover'
 tags: ["Linux系统", "进程"]
 theme: 'light'
@@ -15,11 +15,11 @@ featured: false
 
 # Linux下的进程地址空间
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221025221348296.png" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20221025221348296.webp" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
 在介绍C++的内存控制时, 我用了这样一张图来大致表述一个程序的程序地址空间, 并且也提到过这块空间占用的是内存, 并且通过下面的一段代码大致分析了, 各区域存储的变量类型：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220629141223975.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220629141223975.webp)
 
 >   如果不了解C++内存管理, 可以去看一下博主介绍C++内存管理的博客：
 >
@@ -35,7 +35,7 @@ featured: false
 
 不过针对Linux, 需要在将上图再细微修改一下：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230306100654594.png" alt=" |inline" style="zoom:67%; display: block; margin: 0 auto;"/>
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306100654594.webp" alt=" |inline" style="zoom:67%; display: block; margin: 0 auto;"/>
 
 这张图可以大致用来表示 Linux下进程地址空间区域分布
 
@@ -77,11 +77,11 @@ int main() {
 
 运行此代码程序可以看到：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230306101839314.png" style="zoom:80%; display: block; margin: 0 auto;" />
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306101839314.webp" style="zoom:80%; display: block; margin: 0 auto;" />
 
 1. 首先输出 main函数地址：
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230306102000284.png" alt="|wide" style="zoom:100%; display: block; margin: 0 auto;" />
+    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306102000284.webp" alt="|wide" style="zoom:100%; display: block; margin: 0 auto;" />
 
     是输出的所有地址中最小的, 也就是最低的
 
@@ -89,11 +89,11 @@ int main() {
 
 2. 其次是 未初始化的全局变量、初始化的全局变量 和 初始化的函数内部定义的静态变量：
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230306102255151.png" alt="|wide" style="zoom:100%; display: block; margin: 0 auto;" />
+    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306102255151.webp" alt="|wide" style="zoom:100%; display: block; margin: 0 auto;" />
 
     首先是未初始化、初始化的全局变量：可以看到, 未初始化的全局变量的地址是在已经初始化的全局变量上面的, 也就对应了图中细分的静态区区域：
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230306103810316.png" alt="|wide" style="zoom:100%; display: block; margin: 0 auto;" />
+    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306103810316.webp" alt="|wide" style="zoom:100%; display: block; margin: 0 auto;" />
 
      `全局变量相对来讲：未初始化数据在高地址, 初始化数据在低地址`
 
@@ -101,23 +101,23 @@ int main() {
 
 3. 定义在栈上的数据：
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230306102916297.png" alt="|inline" style="zoom:100%; display: block; margin: 0 auto;" />
+    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306102916297.webp" alt="|inline" style="zoom:100%; display: block; margin: 0 auto;" />
 
     按照定义的顺序, 最先定义的数据的地址空间最大最高, 之后定义的`按照定义顺序逐渐减小`, 这表明`在栈上定义数据 是由高到低占用空间的, 即在栈上定义数据占用空间是向下增长的`
 
 4. 定义在堆上的数据：
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230306103241681.png" alt="|inline" style="zoom:100%; display: block; margin: 0 auto;" />
+    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306103241681.webp" alt="|inline" style="zoom:100%; display: block; margin: 0 auto;" />
 
     按照定义的顺序, `其占用空间的方向 与栈刚好相反`. `在堆区定义数据 是由低到高占用空间的, 即在堆区定义数据占用空间是向上增长的`
 
 5. 栈 和 堆区数据的地址, 存在非常大的断层：
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230306103628951.png" alt="|inline" style="zoom:100%; display: block; margin: 0 auto;" />
+    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306103628951.webp" alt="|inline" style="zoom:100%; display: block; margin: 0 auto;" />
 
     这也说明 堆和栈之间是存在着非常大的一块地址空间的
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230306103958036.png" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
+    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306103958036.webp" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
 ## 如何感知到进程确实存在进程地址空间
 
@@ -163,7 +163,7 @@ int main() {
 
 运行上述代码, 你会发现一个令人震惊的现象：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230306113629800.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306113629800.webp)
 
 前5s, 父子进程global_Var的地址相同, 值也相同; 但是5s之后, 发现**`父子进程的global_Val地址相同, 但是值却不同了`**
 
@@ -177,17 +177,17 @@ int main() {
 
 在Linux系统中, 每一个进程被加载内存中时, 操作系统都会为其创建一个`虚拟地址空间(也叫进程地址空间)`, 这个`虚拟地址空间并不是内存的物理空间但是存在一定的映射关系, 且虚拟地址是被task_struct描述的`. 也就是说, 进程的task_struct、虚拟地址与物理地址存在类似此图示一样的关系：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230306141340956.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306141340956.webp)
 
 `task_struct描述着进程的所有属性, 也描述着进程的虚拟地址空间, 而虚拟地址空间与内存实际的物理地址只存在相互映射的关系`
 
 内存中加载的进程的代码和数据, 会通过一个叫页表的东西映射到虚拟地址空间中：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230306142809227.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306142809227.webp)
 
 每个进程都会有一个虚拟地址空间, 这个虚拟地址空间也是被操作系统管理着的, 即 操作系统也会对虚拟地址空间生成一个类似PCB的数据结构, 在Linux中叫 `struct mm_struct{}`：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230306143708779.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306143708779.webp)
 
 此结构中也描述着有关进程地址空间的属性, `它描述着进程地址空间中各个区域之间的范围：栈区、堆区、静态区、代码段……各区域的地址范围`, 实际上 `struct mm_struct{}`就是用来维护进程地址空间的
 
@@ -201,17 +201,17 @@ Linux中, 调用fork()系统调用创建的子进程的代码是继承自其父�
 
 首先, 操作系统会针对父进程生成一个属于父进程的进程地址空间, 当子进程被创建出来之后, 操作系统也会针对子进程生成一个属于子进程的进程地址空间：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230306153418095.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306153418095.webp)
 
 而所谓的共享代码, 实际的意思其实是`代码的物理地址共享` 即 `父进程地址空间中的代码、数据地址通过页表映射到物理地址中其相对应的指定地址, 而子进程地址空间中的代码、数据地址`**`通过页表映射到与父进程相同的物理地址`**：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230306155051868.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306155051868.webp)
 
 在父子进程都未修改数据时, 父子进程的数据的物理地址也是共享的, 也就是说在父子进程都未修改数据的时候, 虽然`父子进程都有属于自己的进程地址空间, 但内存中实际只加载了一份代码与数据`
 
 当子进程继续执行代码, 修改了`0x60104C地址`所存储的值时, `操作系统就会在在物理空间中申请一个新的地址供子进程存储数据使用`, 同时修改子进程页表内容：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230306160115800.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306160115800.webp)
 
 > 这种在数据做修改时, 才实际操作物理地址拷贝一份空间的方法叫`写时拷贝`
 
@@ -233,7 +233,7 @@ Linux中, 调用fork()系统调用创建的子进程的代码是继承自其父�
 
 	程序内, 其实也是存在区域的. 在Linux系统中, 可以很简单的观察到：
 	
-	<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230306165243300.png" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
+	<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306165243300.webp" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
 	
 	> readelf 指令可以用来查看文件的某些信息
 
@@ -244,7 +244,7 @@ Linux中, 调用fork()系统调用创建的子进程的代码是继承自其父�
 
 知道了这些数据, 就可以知道当前的区域的的大小, 存储的内容, 区域的地址等信息：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230306180144874.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306180144874.webp)
 
 此图就为readelf打印出的信息所列的表格, 虽然不够详细但是已经可以说明了此程序内数据的区域、地址信息等
 
@@ -256,11 +256,11 @@ Linux中, 调用fork()系统调用创建的子进程的代码是继承自其父�
 
 在操作系统根据程序的地址区域表, 将程序的数据加载到内存的这个过程中, 程序会认为其加载的这块内存也是从全0开始~全F结束的：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230306203300534.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306203300534.webp)
 
 此时就`操作系统根据程序中的数据地址和实际内存地址计算出了相应的虚拟地址`(只是可能, 具体算法要看操作系统), 直到程序中所有数据全部加载到内存中, 操作系统创建进程地址空间, 同时根据虚拟地址和实际地址创建页表：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230306204759511.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306204759511.webp)
 
 进程地址空间与也变创建完毕之后, `CPU向内存访问数据的时候遇到的地址就是经过计算的虚拟地址`, 如果修改了数据, 进程地址空间就会通过页表找到实际的内存物理地址将内存物理地址中的数据进行修改, 完成一系列的数据访问.
 

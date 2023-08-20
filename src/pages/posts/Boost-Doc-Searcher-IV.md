@@ -5,8 +5,8 @@ pubDate: 2023-08-05
 description: '本篇文章的内容为: 查找、搜索 相关接口的实现, 建立索引接口的相关优化, 本地搜索测试. 做完上面的内容, 就后面就是加入网络和页面的制作了~'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308050919612.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308050919612.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308050919612.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308050919612.webp'
     alt: 'cover'
 tags: ["项目", "搜索引擎", "Boost"]
 theme: 'light'
@@ -362,7 +362,7 @@ void search(const std::string& query, std::string* jsonString) {
 
 根据这些需求, 实现了第一部分的代码:
 
- ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308052319950.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308052319950.webp)
 
 第一部分的代码实现了:
 
@@ -400,7 +400,7 @@ void search(const std::string& query, std::string* jsonString) {
 
 因为, 获取每到一个文档内容就需要将文档内容输出了, 输出之后 就要做处理响应回客户端进行显示了. 这也意味着 在正排索引中的查找顺序 实际就是搜索结果的显示顺序, 所以在查找之前, 需要先排序:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308060002659.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308060002659.webp)
 
 这里的实现, 先使用`vector`存储`invertedElemOut`元素. 为了方便排序
 
@@ -432,7 +432,7 @@ void search(const std::string& query, std::string* jsonString) {
 >
 > [[Linux] 初识应用层协议: 序列化与反序列化、编码与解码、jsoncpp简单食用...](https://www.julysblog.cn/posts/Linux-Application-Layer-Protocol)
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308061850368.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308061850368.webp)
 
 这段代码中, 唯一要注意的就是: 
 
@@ -556,7 +556,7 @@ int main() {
 
 但是, 为什么`desc`会是`keyword does not exist!`? 
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308061931396.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308061931396.webp)
 
 搜到了文档, 应该就表示文档中有这个关键词. 但为什么会出现`keyword does not exist!`?
 
@@ -665,11 +665,11 @@ std::string getDesc(const std::string& content, const std::string& keyword) {
 
 怎么去除呢? `jieba`分词库, 已经提供了 统计了常见的停用词的文件: 
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308062024987.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308062024987.webp)
 
 内容是这样一行一行的:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308062025609.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308062025609.webp)
 
 我们只需要将文件的内容按行以`string`的类型 读取到内存中, 然后在分词之后 遍历分词 进行查找去除, 就可以实现去除分词中的停用词.
 
@@ -679,7 +679,7 @@ std::string getDesc(const std::string& content, const std::string& keyword) {
 >
 > 博主把 `about` `any` `move` 删除掉. 因为`data/input`目录下存在以这三个单词为名的文档:
 >
-> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308071701349.png)
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308071701349.webp)
 
 然后可以在`util.hpp`中的`jiebaUtil`类中添加一个去除停用词的版本. 
 

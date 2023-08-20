@@ -5,8 +5,8 @@ pubDate: 2022-02-16
 description: 'memcpy、memmove……'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251812215.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251812215.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251812215.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251812215.webp'
     alt: 'cover'
 tags: ["C语言", "内存管理"]
 theme: 'light'

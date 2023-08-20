@@ -5,8 +5,8 @@ pubDate: 2023-04-15
 description: '在Linux中, 使用 pthread_create() 创建线程的时候, 第一个参数就是用来接收线程ID的'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251802112.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251802112.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251802112.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251802112.webp'
     alt: 'cover'
 tags: ["Linux系统", "多线程"]
 theme: 'light'
@@ -58,13 +58,13 @@ int main() {
 }
 ```
 
-![输出一个线程ID |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230415174519962.png)
+![输出一个线程ID |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230415174519962.webp)
 
 它为什么这么长呢？
 
 虽然线程ID是一个无符号的长整型, 但 **`实际上线程ID表示的是一个地址`**, 如果我们将 获取到的TID以16进制输出：
 
-![线程ID表示一个地址 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230415174848676.png)
+![线程ID表示一个地址 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230415174848676.webp)
 
 ## 如何理解线程ID **
 
@@ -82,11 +82,11 @@ int main() {
 
 使用过`pthread` 库的接口, 编译生成的可执行程序. 运行时肯定是需要 `libpthread.so` 动态库的
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230415180303802.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230415180303802.webp)
 
 我们使用的 `pthread` 库, 是用户级的线程库, 程序运行调用接口时, 会被 `加载到内存` 中, 再 `映射到进程地址空间的共享区` 
 
-![|big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230415182322891.png)
+![|big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230415182322891.webp)
 
 当线程需要调用 `pthread` 库中的接口时, 操作系统就会将磁盘中的动态库加载到内存中, 然后线程就会跳到共享区去找内存加载的动态库代码.
 
@@ -102,7 +102,7 @@ int main() {
 
 那么, 其实就可以将一个简单的调用了 `pthread线程库` 的进程抽象为这样：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230415183801160.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230415183801160.webp)
 
 ---
 
@@ -140,7 +140,7 @@ struct thread_struct {
 
 即, `pthread` 库维护有线程的栈、线程的分配等结构. 此结构体也是库维护的：
 
-![|big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230415190851469.png)
+![|big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230415190851469.webp)
 
 描述线程属性的结构体, 会由 `pthread` 库创建并维护
 
@@ -216,7 +216,7 @@ int main() {
 
 执行这段代码：
 
-![所有线程都在修改全局变量 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/all_thread_inc_globalval.gif)
+![所有线程都在修改全局变量 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/all_thread_inc_globalval.gif)
 
 这段代码的执行结果就是, 我们创建的新线程都在对 global_value 执行`--`操作, 并且可以看到, 不同线程访问的global_value地址都是相同的 会互相影响.
 
@@ -228,7 +228,7 @@ __thread int global_value = 100;
 
 然后在执行代码：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/all_thread_inc_thread_globalval.gif)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/all_thread_inc_thread_globalval.gif)
 
 可以看到一个明显的变化, `不同线程看到的是不同的地址, 实际看到的是不同的数据`.
 

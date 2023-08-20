@@ -5,8 +5,8 @@ pubDate: 2023-03-19
 description: '前几天, 在云服务器里删了一些东西, 导致丢失了一些文件和软件的相关配置. 导致C/C++的开发环境用着及其不舒服, 所以重新搭建了一遍, 顺手写了这一篇文章'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251817103.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251817103.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251817103.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251817103.webp'
     alt: 'cover'
 tags: ["Linux使用问题"]
 theme: 'light'
@@ -894,4 +894,4 @@ yarn install
 
 感谢阅读！
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410181851457.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230410181851457.webp" alt="|inline" style="zoom: 33%;" />

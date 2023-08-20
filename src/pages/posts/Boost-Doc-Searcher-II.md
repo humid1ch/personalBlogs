@@ -5,8 +5,8 @@ pubDate: 2023-08-03
 description: '从本篇文章开始, Boost文档 站内搜索引擎项目, 就正式开始编写代码了. 本篇文章所写的内容是 parser 文档文本解析器模块'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308021640006.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308021640006.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308021640006.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308021640006.webp'
     alt: 'cover'
 tags: ["项目", "搜索引擎", "Boost"]
 theme: 'light'
@@ -46,7 +46,7 @@ featured: false
 
     查看目录下(包括子目录)有多少个`.html`文件:
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308021705977.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308021705977.webp)
 
     > `boost 1.82.0`版本 一共有 `8563`个文档文件
 
@@ -95,7 +95,7 @@ cd data/output
 touch raw
 ```
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308021733576.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308021733576.webp)
 
 然后回到`Boost-Doc-Searcher`目录下, 创建第一个模块代码文件`parser.cc`
 
@@ -220,7 +220,7 @@ int main() {
 
         然后执行`enumFile(srcPath, &filesList)`, 并判断结果.
 
-        ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308021810201.png)
+        ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308021810201.webp)
 
     2. 获取完所有文档的文件名之后, 就可以根据文件名找到文档. 然后对文档进行去标签处理, 并获取文档的 `title` `content` `url`. 并将其以`docInfo`结构体的形式存储到`vector`中
 
@@ -228,13 +228,13 @@ int main() {
 
         然后执行`parseDocInfo(filesList, &docResults)`, 并判断结果
 
-        ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308021815622.png)
+        ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308021815622.webp)
 
     3. 最后就是, 将`docResults`中存储的每个文档的`title` `content` `url`信息, 都存储到`output`文件中.
 
         即, 执行`saveDocInfo(docResults, output)`, 并判断结果
 
-        ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308021818885.png)
+        ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308021818885.webp)
 
 这些步骤, 就是`parser`模块的基本结构了. 之后只需要实现三个接口就可以了
 
@@ -288,7 +288,7 @@ bool enumFile(const std::string& srcPath, std::vector<std::string>* filesList) {
 
     `path`对象可以表示一条路径. `boost`库中 对它的描述是这样的:
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308021833970.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308021833970.webp)
 
 2. 其次`recursive_directory_iterator`迭代器:
 
@@ -296,17 +296,17 @@ bool enumFile(const std::string& srcPath, std::vector<std::string>* filesList) {
 
     此迭代器可以对目录下的所有文件进行迭代, 包括子目录下的文件. 该过程是递归的.
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308021836142.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308021836142.webp)
 
 重要的就是这两个内容了.
 
 我们使用`srcPath`实例化`boost::filesystem::path rootPath`对象.
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308021843233.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308021843233.webp)
 
 然后再使用`rootPath`实例化`recursive_directory_iterator`, 让迭代器可以从`srcPath`目录下开始递归迭代
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308021842970.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308021842970.webp)
 
 然后在迭代的过程中, 由于有目录文件和其他非`html`文件的存在
 
@@ -316,7 +316,7 @@ bool enumFile(const std::string& srcPath, std::vector<std::string>* filesList) {
 
 如果是, 就将迭代器所指的`path`对象 使用`path`对象的`string()`接口, 将`path`对象表示的路径名存储到`filesList`中:
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308021848077.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308021848077.webp)
 
 至此, `enumFile()`接口的功能就结束了, 我们可以在函数内 **输出每次获取的文件名** 来调试看是否正确:
 
@@ -441,11 +441,11 @@ namespace ns_util {
 
 首先以文本文件读取的方式打开`filePath`路径的文件:
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308022039776.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308022039776.webp)
 
 然后, 使用`std::getline()`从打开的文件流中 按行读取数据到`string line`中. 每次读取成功就将`line`的内容添加到输出型参数`out`之后. 直到读取结束.
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308022047292.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308022047292.webp)
 
 > `std::getline()`是按行读取的, 可以用来读取文本文件, 但是不能用来读取二进制数据文件
 >
@@ -471,11 +471,11 @@ namespace ns_util {
 
 我们可以随便查看一个文档, 于官网的文档页面对比:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308022058915.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308022058915.webp)
 
 再去查看对应的网页:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308022106766.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308022106766.webp)
 
 > `<title></title>`标签对, 就表示浏览器标签页上的标题
 
@@ -514,13 +514,13 @@ bool parseTitle(const std::string& fileContent, std::string* title) {
 
 直接在`fileContent`中找`<title>`和`</title>`的位置:
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308022112358.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308022112358.webp)
 
 找到两个字符串的位置之后, 截取从`begin + string("<title>").size()` 到 `end - begin + string("<title>").size()`之间的内容就好了
 
 不过, 要注意`begin + string("<title>").size()` < `end` 成立
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308022115848.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308022115848.webp)
 
 至此, 就已经获取的文档的`title`并存储到了`docInfo`结构体变量中.
 

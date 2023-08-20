@@ -5,8 +5,8 @@ pubDate: 2022-06-20
 description: '任何一个类，即使一个成员都不写，其实也会自动生成6个默认成员函数'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251806489.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251806489.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251806489.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251806489.webp'
     alt: 'cover'
 tags: ["C++", "类和对象"]
 theme: 'light'
@@ -32,11 +32,11 @@ featured: false
 
 什么是构造函数？
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.jpeg" alt="举个栗子" style="zoom:25%; display: block; margin: 0 auto;" />
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/举个栗子.jpeg" alt="举个栗子" style="zoom:25%; display: block; margin: 0 auto;" />
 
 以一个简单的日期类为例：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618190104510.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220618190104510.webp)
 
 `void SetDate`：是给 对象 设置日期内容的成员函数。
 
@@ -56,19 +56,19 @@ featured: false
 
     以 日期类 为例，`class Date` 的构造函数名，就为 `Date()`
     
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619111724057.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220619111724057.webp)
     
 3. #### 对象实例化时，`由编译器自动调用`
 
     给构造函数添加内容：
 
-    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/carbon%20(5).png)
+    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/carbon%20(5).webp)
 
     
 
     创建对象，并查看对象：
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619114415149.png" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
+    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220619114415149.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
     `对象d1`已经按照构造函数初始化
 
@@ -76,7 +76,7 @@ featured: false
 
     如果构造函数无内容(无显式构造函数)，那么：
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619133748010.png" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
+    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220619133748010.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
     `对象d1` 将是随机值
 
@@ -88,7 +88,7 @@ featured: false
 
     同样以日期类为例：
 
-    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619140021015.png)
+    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220619140021015.webp)
 
     对于重载的构造函数，传参使用是这样使用的：
 
@@ -102,7 +102,7 @@ featured: false
     d2.Display();
     ```
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619140341215.png" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
+    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220619140341215.webp" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
     既然可以传参使用，那么就涉及另一个运用：`缺省参数`
 
@@ -128,9 +128,9 @@ featured: false
 
     而无参构造函数 和 全缺省构造函数 是默认构造函数，这两种写法是不能同时存在的
 
-    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619142238895.png)
+    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220619142238895.webp)
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619142846977.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220619142846977.webp)
 
 7. #### 构造函数的数据处理特性
 
@@ -138,15 +138,15 @@ featured: false
 
     以下面的 日期类包含时间类 为例：
     
-    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/carbon%20(10).png)
+    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/carbon%20(10).webp)
     
     使用以上日期类定义对象，并且输出日期类 对象内容：
     
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619155322301.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220619155322301.webp)
     
     `内置类型成员数据没有处理，自定义类型成员数据 调用其类的默认构造函数处理`。但是，如果 自定义类型成员没有默认构造函数，则会发生报错：
     
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619160054107.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220619160054107.webp)
     
     
     
@@ -176,7 +176,7 @@ featured: false
 
 以下面 顺序表类为例：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/carbon%20(13).png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/carbon%20(13).webp)
 
 `~SeqList` 即为此类的析构函数。析构函数到底有什么作用呢？什么是资源清理？
 
@@ -191,7 +191,7 @@ int main()
 }
 ```
 
-![|big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220620164857856.png)
+![|big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220620164857856.webp)
 
 从上图可以清晰的看到，析构函数 `在程序还未结束，但是对象的生命周期快要结束时，对 对象的数据进行了清理，并且没有销毁对象`
 
@@ -207,7 +207,7 @@ int main()
 
     以顺序表类为例，其析构函数需写为：
     
-    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619225219081.png)
+    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220619225219081.webp)
     
 3. #### 一个类，有且只有一个析构函数
 
@@ -300,11 +300,11 @@ int main()
 
 以日期类为例，展示一下功能
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/carbon%20(14).png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/carbon%20(14).webp)
 
 调用拷贝构造，使 `对象d1` 拷贝至 `对象d2`
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220620191812996.png" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220620191812996.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
 ## 4.1 拷贝构造的特性
 
@@ -329,14 +329,14 @@ int main()
     >
     > 使用了指针传参，就不是拷贝构造函数了，拷贝构造函数的功能是：`对象的内容拷贝到另一个对象；而不是指针指向的内容拷贝到另一个对象`
 
-    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220620211803081.png)
+    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220620211803081.webp)
 
 3. #### 无显式定义拷贝构造函数时，编译器自动生成拷贝构造函数
 
     默认拷贝构造函数，按内存存储、按字节序实现拷贝。即，依照内存存储中，一字节一字节的直接拷贝。
     这种拷贝方式被称为：`浅拷贝`、`值拷贝`
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220620212744198.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220620212744198.webp)
 
     `浅拷贝`是可以在在一定程度上完成一些拷贝构造的
 
@@ -348,21 +348,21 @@ int main()
 
     比如，一个简单的 顺序表类
 
-    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220620213637751.png)
+    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220620213637751.webp)
 
     用这样的 对象实例化时，需要对成员进行`malloc`申请内存的，使用`浅拷贝`会引发很严重的问题
     
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220620214255055.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220620214255055.webp)
     
     两个对象实例化完成，程序并没有出现问题，但是如果光标继续移动，`即将调用 析构函数`
     
-    ![指针浅拷贝 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E6%8C%87%E9%92%88%E6%B5%85%E6%8B%B7%E8%B4%9D.gif)
+    ![指针浅拷贝 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/指针浅拷贝.gif)
     
     当 `对象slt1` 调用析构函数时，程序崩溃了. 为什么会崩溃呢？
     
     原因很简单：当浅拷贝完成时，仔细看会发现 两个对象中的 `_data指针成员` 指向了同一个地址，同一块空间
     
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220620215359917.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220620215359917.webp)
     
     而 对象调用 `析构函数` 时，是需要 `free` 掉 `malloc`出来的空间的，而两个指针指向同一块空间，就意味着要对同一块空间`free` 两次.
     这显然是无法实现的，所以程序崩溃了

@@ -5,8 +5,8 @@ pubDate: 2022-05-01
 description: '本篇内容是对单链表的一个 非常重要 的补充： 带环单链表 。它，是大厂面试时可能会提问的内容，非常的重要！'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220501153114604.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220501153114604.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220501153114604.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220501153114604.webp'
     alt: 'cover'
 tags: ["数据结构", "算法", "链表"]
 theme: 'light'
@@ -86,7 +86,7 @@ struct ListNode* middleNode(struct ListNode* head)
 }
 ```
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220430201513575.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220430201513575.webp)
 
 ## 题2：链表中倒数最后k个结点
 
@@ -94,7 +94,7 @@ struct ListNode* middleNode(struct ListNode* head)
 
 > 例如，输入 `{1,2,3,4,5}, 2` 时，对应的链表结构如下图所示：
 >
-> ![ |inline](https://uploadfiles.nowcoder.com/images/20211105/423483716_1636084313645/5407F55227804F31F5C5D73558596F2C)
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230820113325345.webp)
 >
 > 其中蓝色部分为该链表的最后2个结点，所以 `返回倒数第2个结点（也即结点值为4的结点）` 即可，系统会打印后面所有的节点来比较。
 >
@@ -155,7 +155,7 @@ struct ListNode* FindKthToTail(struct ListNode* pHead, int k )
 }
 ```
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220430203858767.png" alt=" |inline" style="zoom:60%; display: block; margin: 0 auto;" />
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220430203858767.webp" alt=" |inline" style="zoom:60%; display: block; margin: 0 auto;" />
 
 
 
@@ -180,7 +180,7 @@ struct ListNode* FindKthToTail(struct ListNode* pHead, int k )
 >
 > **`示例 1`**：
 >
-> > <img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/07/circularlinkedlist.png" style="zoom:80%;" />
+> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230820113356909.webp" alt="|wide" style="zoom:80%;" />
 > 
 > > 输入：`head = [3,2,0,-4], pos = 1`
 > >返回：`true`
@@ -188,7 +188,7 @@ struct ListNode* FindKthToTail(struct ListNode* pHead, int k )
 >
 > **`示例 2`**：
 >
-> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220501161526766.png" style="zoom:80%;" />
+> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220501161526766.webp" style="zoom:80%;" />
 > 
 > > 输入：`head = [1,2], pos = 0`
 > >返回：`true`
@@ -196,7 +196,7 @@ struct ListNode* FindKthToTail(struct ListNode* pHead, int k )
 >
 > **`示例 3`** ：
 >
-> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220501161546352.png" style="zoom:80%;" />
+> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220501161546352.webp" style="zoom:80%;" />
 > 
 > > 输入：`head = [1], pos = -1`
 > >返回：`false`
@@ -236,7 +236,7 @@ bool hasCycle(struct ListNode *head)
 }
 ```
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220430210039173.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220430210039173.webp)
 
 OK，带环链表的题做出来了
 
@@ -270,7 +270,7 @@ OK，带环链表的题做出来了
 
 画图抽象图来分析，一个带环链表，抽象的形式可以看作：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220430232045310.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220430232045310.webp)
 
 快慢指针 `同时` 从首节点开始走，快指针走得快，慢指针走得慢
 
@@ -278,11 +278,11 @@ OK，带环链表的题做出来了
 
 此时的情况可能是`(设一下，只是假设)`：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220430232210782.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220430232210782.webp)
 
 两个指针都入环之后，快指针开始在环内追逐慢指针：
 
-![pfast_2_pslow |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/pfast_2_pslow.gif)
+![pfast_2_pslow |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pfast_2_pslow.gif)
 
 因为 `当这样的两个指针都入环之后，两个指针之间的距离变化就变为了 每走一步减一`
 
@@ -312,7 +312,7 @@ OK，带环链表的题做出来了
 >
 >  >  **`情况 2：`** `X` 为 奇数
 >  >
->  >  ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/pfast_3_pslow_J.gif)
+>  >  ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pfast_3_pslow_J.gif)
 >  >
 >  >  此情况，快指针 超过 慢指针，但是由于快指针的移动是不连续的，所以两指针并不会相遇
 >  >
@@ -364,7 +364,7 @@ OK，带环链表的题做出来了
 
 首先还是画图假设一下：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220501142311619.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220501142311619.webp)
 
 > 先思考一个问题：慢指针 `从入环到被追上` ，走过的长度 是不是如假设的那样，`会不会已经走了一圈后才被追上的`？
 >
@@ -397,7 +397,7 @@ OK，带环链表的题做出来了
 
 这个式子有什么用呢？
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220501142311619.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220501142311619.webp)
 
 其实，这个等式说明：
 
@@ -431,7 +431,7 @@ OK，带环链表的题做出来了
 >
 > **`示例 1`**：
 >
-> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220501161642662.png" style="zoom:80%;" />
+> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220501161642662.webp" style="zoom:80%;" />
 >
 > > 输入：`head = [3,2,0,-4], pos = 1`
 > >
@@ -441,7 +441,7 @@ OK，带环链表的题做出来了
 >
 > **`示例 2`**：
 >
-> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220501161623339.png" style="zoom:80%;" />
+> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220501161623339.webp" style="zoom:80%;" />
 >
 > > 输入：`head = [1,2], pos = 0`
 > >
@@ -451,7 +451,7 @@ OK，带环链表的题做出来了
 >
 > **`示例 3`**：
 >
-> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220501161546352.png" style="zoom:80%;" />
+> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220501161546352.webp" style="zoom:80%;" />
 >
 > > 输入：`head = [1], pos = -1`
 > >
@@ -495,7 +495,7 @@ struct ListNode *detectCycle(struct ListNode *head)
 }
 ```
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220501150938765.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220501150938765.webp)
 
 
 
@@ -515,4 +515,4 @@ struct ListNode *detectCycle(struct ListNode *head)
 
 ---
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E7%BF%BB%E6%BB%9A%E5%B0%8F%E9%BB%84%E7%8B%97.gif" alt="翻滚小黄狗" style="zoom:80%;" />
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/翻滚小黄狗.gif" alt="翻滚小黄狗" style="zoom:80%;" />

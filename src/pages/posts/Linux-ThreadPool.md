@@ -5,8 +5,8 @@ pubDate: 2023-07-12
 description: ''
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307121404386.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307121404386.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307121404386.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307121404386.webp'
     alt: 'cover'
 tags: ["Linux系统", "多线程", "线程池"]
 theme: 'light'
@@ -244,19 +244,19 @@ pthread_create(&temp, nullptr, threadRoutine, this);
 
 首先, 线程需要 **在没有任务时, 通过条件变量陷入等待**. 而且, 线程在 **执行完任务** 时, 需要 **重新在没有任务时, 通过条件变量陷入等待**. 所以, 函数的主体功能是在 **一个循环** 内的.
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307131442281.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307131442281.webp)
 
 进入循环后, 就应该 **从任务队列中获取任务**, 但是 如果任务队列中 **没有任务, 线程就需要等待**.
 
 并且, **线程** 无论是获取任务的过程 还是 判断是否有任务的过程, **访问的都是临界资源**, 而 **临界资源需要保证线程安全**, 所以 在进入循环之后的 **第一件事**, 应该是 **对临界资源上锁, 即 多线程争夺锁**. 争夺到锁之后, 才能访问临界资源:
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307131459416.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307131459416.webp)
 
 获取到任务之后, 就表示线程访问本次临界资源已经结束, 就可以释放锁, 然后执行任务了.
 
 而, 除了线程执行的功能函数之外, 还有一个需要将任务放入任务队列的函数:
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307131512275.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307131512275.webp)
 
 至此, 有关线程池的主要功能函数就是先完毕了.
 
@@ -451,7 +451,7 @@ int main() {
 
 当派发速度变快 处理速度变慢, 之间超过5倍差的时候:
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307131602993.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307131602993.webp)
 
 ## 懒汉单例模式线程池
 

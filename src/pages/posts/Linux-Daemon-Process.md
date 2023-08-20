@@ -7,8 +7,8 @@ description: '我们使用的系统中, 一般以服务器的方式工作 对外
 守护进程, 一旦启动之后. 除非用户手动关闭, 否则不会被关闭 会一直运行'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307172256122.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307172256122.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307172256122.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307172256122.webp'
     alt: 'cover'
 tags: ["Linux网络", "服务器"]
 theme: 'light'
@@ -23,7 +23,7 @@ featured: false
 
 这就是因为, Linux服务器中 通常默认运行着 **`ssh`服务器的守护进程**:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307180953522.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307180953522.webp)
 
 守护进程, 一旦启动之后. **除非用户手动关闭, 否则不会被关闭 会一直运行**.
 
@@ -31,7 +31,7 @@ featured: false
 
 `ps ajx |head -1`可以打印出进程相关的头栏:
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307180954498.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307180954498.webp)
 
 简单介绍一下头栏的属性标识符是什么意思:
 
@@ -47,7 +47,7 @@ featured: false
 
     比如, 我们执行`sleep 1000 | sleep 2000 | sleep 3000 &`创建一个后台进程之后, 再查看进程的信息:
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307180955608.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307180955608.webp)
 
     可以发现 现在系统中已经存在了3个`sleep`进程, 并且这三个进程具有相同的`PGID`. 也就是说, 这三个`sleep`是一个进程组的. 并且, 创建一个进程组 其第一个创建的进程就是一个进程组的组长. `PGID`即为组长的`PID`
 
@@ -55,7 +55,7 @@ featured: false
 
     此时, 使用`jobs`查看当前任务, 就可以看到只有一组进程:
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307180955215.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307180955215.webp)
 
 4. `SID`: 会话ID
 
@@ -79,13 +79,13 @@ featured: false
     
     举个例子:
     
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307181059631.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307181059631.webp)
     
     此例中, 使用`sleep 1000 | sleep 2000 | sleep 3000 &`创建的进程的`SID`都是5242
     
     这里的5242是什么呢?
     
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307181104745.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307181104745.webp)
     
     `5242`即为`zsh`的`PID`, 并且可以看到`zsh`自成一族且为自己进程组的组长
     
@@ -97,11 +97,11 @@ featured: false
     
     此时`jobs`:
     
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307181116508.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307181116508.webp)
     
     当我们使用 `fg 1`, 将其提到前台, 我们再尝试输入命令, 就无法正常执行了:
     
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307181118787.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307181118787.webp)
     
     这是因为, 当把`sleep 1000 | sleep 2000 | sleep 3000 &`提到前台, 由于一个会话只能有一个前台进程组(有且只能有一个进程组处于前台), 此时的前台进程组成了它, 而不是`zsh`这个命令行解释器.
     
@@ -119,7 +119,7 @@ featured: false
 
 就像`sshd`:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307181129461.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307181129461.webp)
 
 自己创建一个会话, 自己就是会话首进程, 自己是一个进程组.
 
@@ -173,7 +173,7 @@ setsid();
 
     更多的是将三个文件描述符重定向到`/dev/null`这个文件中. 此文件是Linux中的 **数据垃圾桶**, 向此文件中写入的内容 都会被丢弃. 
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307181459050.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307181459050.webp)
 
     无论向`/dev/null`输入多少内容, 都会被丢弃
 
@@ -427,7 +427,7 @@ int main(int argc, char* argv[]) {
 
 `daemon()`可以一键完成`fork()`、`setsid()`以及重定向文件描述符的操作
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307181618440.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307181618440.webp)
 
 不过 还是更推荐上一种方式, 因为可以更加灵活的设置守护进程.
 
@@ -549,7 +549,7 @@ void logMessage(int level, const char* format, ...) {
 
 优化过之后, 再服务器中定义一个`log`类就可以了:
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307181646405.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307181646405.webp)
 
 然后, 再运行服务器, 就可以看当前目录下创建了一个文件:
 

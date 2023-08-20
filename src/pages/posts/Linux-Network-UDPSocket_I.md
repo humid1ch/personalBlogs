@@ -6,8 +6,8 @@ description: '本篇文章正式开始Linux中的网络编程. 本文介绍了, 
 实现了最简单的UDP公共聊天室'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307021623107.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307021623107.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307021623107.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307021623107.webp'
     alt: 'cover'
 tags: ["Linux网络", "套接字", "UDP"]
 theme: 'light'
@@ -44,7 +44,7 @@ featured: false
 
 网络协议栈与主机之间的关系是什么?
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306252053653.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306252053653.webp)
 
 网络层和传输层是属于操作系统的. 更上层的应用层, 是给用户使用的.
 
@@ -157,7 +157,7 @@ UDP协议的基本特点:
 
     小端字节序存储, 并 **`不是将数据倒序存储`**, 而是 **`以字节为单位`** 从低位数据到高位数据 存储到内存的 低地址到高地址
 
-![|big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306261642103.png)
+![|big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306261642103.webp)
 
 既然存储方式不同, 想要正确的读取到数据, 读取的顺序也需要不同.
 
@@ -194,7 +194,7 @@ UDP协议的基本特点:
 
 > C语言提供了相应的数据转换字节序的接口:
 >
-> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306261749665.png)
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306261749665.webp)
 >
 > 这些接口名很好记, `h` 表示 host, `n` 表示 network, `l` 表示 32位长整型, `s` 表示 16位短整型, `to` 表示 转换为
 >
@@ -264,7 +264,7 @@ sockaddr 是一个结构体, 这个结构体的作用是什么呢?
 1. 使用网络套接字实现网络通信, 需要 IP地址、端口号等资源, 所以设计了 `struct sockaddr_in` 等结构体, 来描述网络通信所需资源
 2. 使用域间套接字实现域间通信, 需要 路径名 等资源, 所以设计了 `struct sockaddr_un` 结构体, 来描述域间通信所需资源
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306281619679.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306281619679.webp)
 
 > `struct sockaddr_in` 的前16位 是一个宏, **`AF_INET`**
 >
@@ -282,11 +282,11 @@ sockaddr 是一个结构体, 这个结构体的作用是什么呢?
 
 此结构体的内容是这样的:
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306281633081.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306281633081.webp)
 
 单独看好像没有什么特殊的. 当 此结构体和 另外的结构体对比的时候:
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306281644752.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306281644752.webp)
 
 可以发现, 这三个结构体的首16位 都指 **`地址类型`**
 
@@ -320,7 +320,7 @@ int socket(int domain, int type, int protocol);
 
 `socket()` 的作用是 创建一个socket文件描述符. man 手册中是这样介绍的:
 
-![man For socket](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306301607179.png)
+![man For socket](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306301607179.webp)
 
 使用一个接口, 肯定要先了解它的参数, socket()有三个参数:
 
@@ -330,7 +330,7 @@ int socket(int domain, int type, int protocol);
 
     而这里的第一个参数 `int domain`, 就是传入地址类型 区分通信方式的. 被称作 `socket的域`
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306301613672.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306301613672.webp)
 
     其中, **`AF_UNIX`** 和 **`AF_LOCAL`** 相同. 传入之后 都表示本地通信
 
@@ -342,7 +342,7 @@ int socket(int domain, int type, int protocol);
 
     此参数是用来选择 **套接字类型** 的, 决定了通信时候对应的 **`报文类型`**. 
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306301656128.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306301656128.webp)
 
     其中, 前四个 **`SOCK_STREAM`** **`SOCK_DGRAM`** **`SOCK_SEQPACKET`** **`SOCK_RAW`** 是最常用的
 
@@ -370,7 +370,7 @@ int socket(int domain, int type, int protocol);
 
 了解了 `socket()` 的参数之后, 还需要了解一下它的返回值.
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306301754510.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306301754510.webp)
 
 如果成功了, 就返回 **`新套接字的文件描述符`**. 如果错误, 就返回 -1, 并设置 `errno`
 
@@ -464,7 +464,7 @@ void logMessage(int level, const char* format, ...) {
 >
 > 而 `vsnprintf()` 这个名字很长的接口, 则是 通过`va_list` 类型的变量, 格式化向字符数组中写入内容的
 >
-> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306302058207.png)
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306302058207.webp)
 >
 > 在上面代码中的作用就是
 >
@@ -485,7 +485,7 @@ void logMessage(int level, const char* format, ...) {
 
 1. `socket()、recvfrom()、bind() ...`
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307010939075.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307010939075.webp)
 
     ```cpp
     #include <sys/types.h>
@@ -498,7 +498,7 @@ void logMessage(int level, const char* format, ...) {
 
     `inet_addr()` 接口的作用是转换IP地址的格式.
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307010947730.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307010947730.webp)
 
     ```cpp
     #include <sys/socket.h>
@@ -679,7 +679,7 @@ int main(int argc, char* argv[]) {
 
 当程序运行起来之后, 使用 `netstat -lnup` 可以查看操作系统中的UDP相关网络连接等信息:
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307011608973.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307011608973.webp)
 
 代码中需要注意的地方, 基本都在注释中介绍了.
 
@@ -1233,7 +1233,7 @@ clean:
 相比最简单的 udp网络通信的实现. **`udpServer`** 和 **`udpClient`** 变化的地方在这些部分:
 1. `udpServer`
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307021434724.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307021434724.webp)
 
     在 udpServer 代码中, 首先是在类中添加了一个 成员变量 `_users`, 是一个哈希表 用来存储用户网络进程信息
 
@@ -1245,7 +1245,7 @@ clean:
 
 2. `udpClient`
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307021443300.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307021443300.webp)
 
     客户端代码的最大的不同, 就是多了一个多线程执行的函数 `recverAndPrint()`
 
@@ -1269,7 +1269,7 @@ clean:
 
     并且, 为了将来自服务器的信息重定向到其中 并且不出现扰乱信息, 我们将 `udpClient` 中其他 部分输出 由 `std::cout 标准输出` 换成了 `std::cerr 标准错误`. 比如, 输入提示的部分:
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307021518644.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307021518644.webp)
 
     这样 可以避免将 输入提示符 也重定向到管道文件中. 因为 命令行中 `>` 是标准输出重定向
 
@@ -1301,7 +1301,7 @@ clean:
 
 但是, 与之同系列的另一个接口 是存在着一些问题的, 接口: **`inet_ntoa()`**
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307021535705.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307021535705.webp)
 
 这个接口的功能 也很简单, 就是将 `struct in_addr` 里存储的 4字节IP, 转换成我们可以看懂的 点分十进制IP字符串, 然后以 `char*`的类型返回.
 
@@ -1319,7 +1319,7 @@ clean:
 >
 > **`inet_ntop()`**
 >
-> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307021549074.png)
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307021549074.webp)
 >
 > 这个接口, 可以将网络字节序的 IPv4 或 IPv6 地址转换为点分十进制字符串表示
 >

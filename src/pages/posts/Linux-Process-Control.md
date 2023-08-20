@@ -5,8 +5,8 @@ pubDate: 2023-03-07
 description: '这次, 是第三次正式的对fork()系统调用进行介绍、补充'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251759370.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251759370.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251759370.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251759370.webp'
     alt: 'cover'
 tags: ["Linux系统", "进程"]
 theme: 'light'
@@ -48,11 +48,11 @@ featured: false
 
 子进程不修改数据时：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230307195820005.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230307195820005.webp)
 
 子进程修改数据时：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230307200431181.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230307200431181.webp)
 
 
 
@@ -124,7 +124,7 @@ fork()子进程创建失败的场景, 其实与操作系统中进程的数量和
 
 而main()函数的返回值说明了进程的执行结果, 其实也就是说**`进程的main()函数的返回值 其实是为了返回给父进程的`**, 而 main() 函数的返回值, 我们也称之为 **`进程的退出码`**, 此退出码被描述在进程的PCB中, 也就是Linux中的task_struct中：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230307210527172.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230307210527172.webp)
 
 但是, 即使将退出码给父进程接收, 父进程怎么根据退出码来对进程任务的执行结果进行判断呢？
 
@@ -138,7 +138,7 @@ fork()子进程创建失败的场景, 其实与操作系统中进程的数量和
 
 > 在Linux中针对进程的不同退出码有不同的解释：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230307212714201.png" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230307212714201.webp" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
 >
 > 在程序中打印 字符串函数strerror(i) 的值, 就可以将Linux系统认为的退出码的意义打印出来
 
@@ -148,11 +148,11 @@ Linux系统中, 任何进程退出时都会存在退出码. 但是进程的退�
 
 `echo $?`, 这个指令可以在命令行中输出上一个推出的进程的退出码:
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230307213549395.png" alt=" |inline" style="zoom:100%; display: block; margin: 0 auto;" />
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230307213549395.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
 编译运行此代码程序, 然后在命令行执行`echo $?` 就可以查看到退出码：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230307213329167.png" alt=" |inline" style="zoom:100%; display: block; margin: 0 auto;" />
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230307213329167.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
 可以看到, `echo $?` 显示了上一个退出进程的退出码`66`
 
@@ -176,19 +176,19 @@ exit() 与 _exit()有一定的差别, 但是最终的作用都是相同的：
 
 此函数`可以在代码的任意位置使用, 使进程退出, 且exit()的参数即为进程的退出码`：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308075225187.png" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230308075225187.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
 调用exit()函数, 但是不在main()函数中调用, 看一看进程是否执行exit()退出：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308075605575.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230308075605575.webp)
 
 `_exit()`:
 
 如果用上面相同的代码, 只将exit()改为_exit(), 结果会不会有变化呢？
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308080052306.png" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230308080052306.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308080303936.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230308080303936.webp)
 
 而 相同的代码, 调用exit()和_exit()在结果上是否有什么区别？
 
@@ -212,7 +212,7 @@ exit() 与 _exit()有一定的差别, 但是最终的作用都是相同的：
 
 我们称父进程回收子进程的动作叫做等待, 那么等待的方法是什么呢？
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308082305445.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230308082305445.webp)
 
 进程存在两种等待方法：
 
@@ -265,13 +265,13 @@ exit() 与 _exit()有一定的差别, 但是最终的作用都是相同的：
 
     此代码执行之后, 配合进程观测指令, 可以看到的结果是：
 
-    ![1 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308085424246.png)
+    ![1 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230308085424246.webp)
 
-    ![2 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308085614576.png)
+    ![2 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230308085614576.webp)
 
-    ![3 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308085829108.png)
+    ![3 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230308085829108.webp)
 
-    ![4 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308085952297.png)
+    ![4 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230308085952297.webp)
 
     此代码, 可以看到子进程被创建, 子进程进入僵尸状态, 父进程等待子进程, 父进程退出的整个流程
 
@@ -303,7 +303,7 @@ exit() 与 _exit()有一定的差别, 但是最终的作用都是相同的：
 	
 	    子进程的退出信息不就是退出码吗？并不全是, 之前提到过进程的退出信息也是在 task_struct中存储着呢：
 	
-	    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308093956744.png)
+	    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230308093956744.webp)
 	
 	    也就是说, `status指向的内容中不仅存储了退出码, 还存储了退出信号`. 退出码我们知道是什么, 而退出信号又是什么？
 	
@@ -323,7 +323,7 @@ exit() 与 _exit()有一定的差别, 但是最终的作用都是相同的：
 	
 	    其实 status指针指向的是一个整型, 而这个整型只需要关注 `低16位`就可以了, `此低16位中的高8位 用来表示退出码, 低8位 用来表示退出信号`：
 	
-	    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308163321498.png)
+	    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230308163321498.webp)
 	
 	    也就是说, `waitpid()使用时第二个参数需传入一个int类型变量的地址, 当waitpid()等待到一个子进程之后, 传入的地址所指向的变量的低16位中, 低八位表示子进程的退出信号, 高八位表示子进程退出码`
 	
@@ -365,11 +365,11 @@ exit() 与 _exit()有一定的差别, 但是最终的作用都是相同的：
 	
 	    若此时子进程是15s后返回的return 0退出的, 那么会有什么结果呢？
 	
-	    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308170832817.png" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;"/>
+	    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230308170832817.webp" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;"/>
 	
 	    而若子进程在创建之后的15s内, 被某种进程信号强制退出的话, 又会有什么结果呢？
 	
-	    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308171415699.png)
+	    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230308171415699.webp)
 	
 	    可以看到, 父进程中的整型变量status成功接收到了子进程的退出码和退出信号.
 	
@@ -429,13 +429,13 @@ exit() 与 _exit()有一定的差别, 但是最终的作用都是相同的：
 
 fork()创建子进程之后, 子进程是与父进程共享代码和数据的：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230310163340114.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230310163340114.webp)
 
 当需要子进程发生进程替换的时候, 操作系统会`调用系统调用接口`, 首先操作系统会将内存中父进程的代码和数据都拷贝一份, 然后将磁盘中的程序加载到此内存结构中.
 
 然后再将子进程的页表重新建立, 将子进程的虚拟内存空间与新的代码与数据建立联系, 以此完成进程替换：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230310164644418.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230310164644418.webp)
 
 在此过程中, 从头到尾都是`没有新的进程被创建`的, 新进程被创建的标志是操作系统创建了进程的PCB和进程地址空间, 而这个过程中始终都是两个PCB和两个进程地址空间
 
@@ -454,7 +454,7 @@ fork()创建子进程之后, 子进程是与父进程共享代码和数据的：
 
 进程替换是由操作系统调用系统调用来实现的, 而系统调用时操作系同提供的接口, 所以进程替换要使用系统调用来实现：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230310165419839.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230310165419839.webp)
 
 使用这六个系统调用接口, 可以实现进程替换的功能
 
@@ -514,7 +514,7 @@ int main() {
 
 执行此代码之后, 可以发现子进程确实执行了 `ls -l -a` 的命令：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230310173029484.png" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230310173029484.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
 这也就意味着, execl的参数正如我们猜测的那样：
 
@@ -523,7 +523,7 @@ int main() {
 
 但是对比程序的执行结果和代码, 可以发现一个现象：`在execl函数之后的printf并没有打印出来, 即 printf()函数并未执行`：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230310173653897.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230310173653897.webp)
 
 这其实是因为, `当进程替换成功之后, 进程的所有代码和数据都已经被替换掉了, 也就意味着execl()函数之后的代码全部失效`
 
@@ -590,7 +590,7 @@ int main() {
 
 运行此代码的结果, 子进程的运行结果同样与`ls -l -a`相同
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230310181050935.png" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230310181050935.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
 ### execlp()
 
@@ -635,7 +635,7 @@ int main() {
 }
 ```
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230310182228023.png" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230310182228023.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
 ### execvp()
 
@@ -683,7 +683,7 @@ int main() {
 }
 ```
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230310182811677.png" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230310182811677.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
 ### execle()
 
@@ -739,13 +739,13 @@ int main() {
 
 此时, 父进程执行结果为：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230310205203321.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230310205203321.webp)
 
 但是, 好像并不能验证将`environ环境变量列表`传入了`env_Test`子进程中
 
 因为, 即使直接运行`env_Test` 也会打印这些内容的：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230310205421533.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230310205421533.webp)
 
 > 这其实是因为, 使用execle()函数将子进程替换为`env_Test`进程, 传入的环境变量其实是`父进程的环境变量列表environ`, 那么execle执行的`env_Test`也就打印了父进程的环境变量
 
@@ -784,7 +784,7 @@ int main() {
 
 此时, 不修改 `env_Test` 的代码, 再执行上面这个代码时：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230310211353456.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230310211353456.webp)
 
 由此可见, 这个`envp`参数的作用是, `接收从父进程传来的环境变量列表`
 
@@ -806,7 +806,7 @@ int main() {
 
 而这个putenv()功能则与其相反：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230310213442461.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230310213442461.webp)
 
 此系统调用的用法非常的简单, 只需要`在参数中传入需要在环境变量中添加的环境变量`就可以了：
 
@@ -848,7 +848,7 @@ int main() {
 
 答案是, 不会. 子进程的环境变量继承自父进程, 但是修改子进程的环境变量是不会影响到父进程的：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230310214727745.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230310214727745.webp)
 
 ### execvpe()
 
@@ -897,7 +897,7 @@ int main() {
 
 执行上述代码, 可得到的结果是：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230311081343364.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230311081343364.webp)
 
 > 经过介绍这6个接口, 为方便记忆其实可以将接口名中的字母赋予一定的意义：
 >
@@ -910,7 +910,7 @@ int main() {
 
 除上面的6个接口之外, 还存在一个接口在man手册中是`单独`列出来的:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230311081538185.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230311081538185.webp)
 
 ```c
 int execve(const char *filename, char *const argv[], char *const envp[]);
@@ -934,14 +934,14 @@ int execve(const char *filename, char *const argv[], char *const envp[]);
 
 在使用makefle时, 执行make命令 `默认只会执行第一行的所描述的目标文件的依赖方法`：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230311083805649.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230311083805649.webp)
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230311083914061.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230311083914061.webp)
 
 那么, 有没有什么办法让make生成多个不同的可执行程序, 即 `让make执行多个不同目标文件的依赖方法`
 
 有, 既然make只能执行makefile文件中的第一个目标文件的依赖方法, 那就这样：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230311084658580.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230311084658580.webp)
 
 <div id="pcMode" class="hidden"></div>

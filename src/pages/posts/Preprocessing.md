@@ -5,8 +5,8 @@ pubDate: 2022-03-12
 description: '在C语言的代码编写中，经常会见到的 #include #define #pragma 等写在整个代码文件开头的位置，这些 拥有 # 且一般写在 代码开头的语句，就是代码的 预处理指令'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251811483.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251811483.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251811483.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251811483.webp'
     alt: 'cover'
 tags: ["C语言"]
 theme: 'light'
@@ -51,9 +51,9 @@ int main()
 ```
 代码执行效果：
 
-![预定义符号 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/PRE-Symbols.png)
+![预定义符号 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE-Symbols.webp)
 
-![预定义符号效果 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/PRE-Symbols-Show.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE-Symbols-Show.webp" alt="预定义符号效果 |inline" style="zoom:80%; display: block; margin: 0 auto" />
 
 ## #define
 #define 
@@ -70,7 +70,7 @@ The time now is %s.\n", \
 ```
 这些被定义的 **宏** 在使用的时候，是不需要输入参数的，可以直接在代码编写中使用：
 
-![define-symbol-show |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/PRE-define-symbol-show.png)
+![define-symbol-show |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE-define-symbol-show.webp)
 
 截图，使用 `uchar` 定义了 无符号字符类型变量 `c`
 `c < 10`， 所以 `c` 被赋予 `Max`
@@ -127,7 +127,7 @@ int main()
 	return 0;
 }
 ```
-![define_function-pk |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/define_function-pk.png)
+![define_function-pk |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/define_function-pk.webp)
 
 结果是，`#define` 定义的 有参宏 与 自定义的函数，都实现了两数相加的功能。
 

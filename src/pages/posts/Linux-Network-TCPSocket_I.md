@@ -8,8 +8,8 @@ description: 'UDP和TCP的部分特点. 最主要的区别就是:
 所以, TCP多了三个用于连接的接口: connect()、listen()和accept() 这三个接口具体怎么使用, 下面实现简单的TCP网络通信时 介绍一下.'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061551105.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061551105.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061551105.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061551105.webp'
     alt: 'cover'
 tags: ["Linux网络", "套接字", "TCP"]
 theme: 'light'
@@ -285,7 +285,7 @@ int main(int argc, char* argv[]) {
 
 1. `init()` 初始化函数, 初始化服务器信息
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307141958725.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307141958725.webp)
 
     初始化函数, 要执行的就是一个服务器再启动之前 需要做的工作.
 
@@ -293,17 +293,17 @@ int main(int argc, char* argv[]) {
 
     由于, TCP面向的是字节流通信, 所以`socket()`第二个参数传入 **`SOCK_STREAM`**, 表示面向字节流:
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307142007105.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307142007105.webp)
 
     然后就是一系列无论是UDP还是TCP都要实现的:
 
     1. 将服务器网络信息 填充到 在用户栈创建的`sockaddr_in`结构体中, **需要传输到网络中的内容要以网络字节序存储**
 
-        ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307142009618.png)
+        ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307142009618.webp)
 
     2. 将网络信息绑定到系统内核
 
-        ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307142012312.png)
+        ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307142012312.webp)
 
     不过, 下面的一个步骤 UDP就没有了. 
 
@@ -313,7 +313,7 @@ int main(int argc, char* argv[]) {
 
     即, 调用`listen()`接口, 让服务器开启监听状态.
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307142019317.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307142019317.webp)
 
     执行`listen()`, 服务器会自动进入监听状态. 之后会一直监听 来自客户端 向服务器 发送的连接请求. 实际上监听的就是服务器的套接字. 监听的过程是非阻塞的. 
 
@@ -325,7 +325,7 @@ int main(int argc, char* argv[]) {
 
 2. `loop()` 服务器启动函数, 我们默认它是一个死循环
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307142031811.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307142031811.webp)
 
     如果是UDP服务器, 启动之后 就可以接受客户端发送来的信息然后做处理了.
 
@@ -335,11 +335,11 @@ int main(int argc, char* argv[]) {
 
     所以, 这里 TCP服务器开启的第一件事, 就是接受连接请求:
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307142037406.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307142037406.webp)
 
     接受连接请求的接口是: `accept()`
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307142049383.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307142049383.webp)
 
     `accept()`接口会按顺序接受来自客户端的连接请求. 并返回一个新的套接字文件描述符.
 
@@ -457,7 +457,7 @@ void low2upService(int sock, const std::string& clientIP, const uint16_t& client
 
 此成员函数实现之后, 就可以直接在`loop()`中调用此函数:
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307151137163.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307151137163.webp)
 
 至此, 一个简单的可以接收客户端消息 并 将消息中小写字母转换成大写字母的服务器就实现完毕了.
 
@@ -568,7 +568,7 @@ TCP客户端前面的实现 与UDP客户端前面的实现 步骤相同:
 
 连接请求的接口是:`connect()`
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307151149364.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307151149364.webp)
 
 没错, `connect()`也会向`sendto()`那样 自动绑定客户端的网络信息.
 
@@ -578,7 +578,7 @@ TCP客户端前面的实现 与UDP客户端前面的实现 步骤相同:
 
 具体的实现是:
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307151155026.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307151155026.webp)
 
 通过一个`bool`变量标识退出状态, 如果输入了`quit`这个单词 就不进入下一个循环.
 
@@ -667,7 +667,7 @@ void loop() {
 
 只需要使用`fork()`创建子进程, 然后将`low2upService()`放到子进程里执行就可以了.
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307151601587.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307151601587.webp)
 
 不过需要注意的问题是:
 
@@ -949,7 +949,7 @@ private:
 
     结构体对象作为回调函数的参数使用
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307151724012.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307151724012.webp)
 
     结构体的成员变量除了客户端网络信息之外, 还有`tcpServer`对象指针.
 
@@ -957,7 +957,7 @@ private:
 
 2. 回调函数的定义, 主要作用就是执行服务
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307151727427.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307151727427.webp)
 
     回调函数首先要执行线程分离. 因为主线程不能阻塞式`join`线程, 所以让线程自灭.
 
@@ -967,7 +967,7 @@ private:
 
 3. `loop()`内的线程创建
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307151731723.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307151731723.webp)
 
     这里就是常规的创建线程, 让线程执行回调函数
 
@@ -1425,17 +1425,17 @@ int main(int argc, char* argv[]) {
 
 1. 类中添加线程池 成员变量:
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307152114816.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307152114816.webp)
 
 2. 初始化时 加载线程池:
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307152117369.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307152117369.webp)
 
 3. 开启服务器时, 开启线程池.
 
     并且, 在原本该创建线程服务客户端时, 创建任务 并添加到线程池中:
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307152122514.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307152122514.webp)
 
     这里构造任务对象时, 第四个参数使用了`std::bind()`C++标准库函数.
 

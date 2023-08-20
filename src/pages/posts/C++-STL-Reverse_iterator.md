@@ -5,8 +5,8 @@ pubDate: 2022-07-16
 description: '反向迭代器该如何实现呢？它究竟是什么东西呢？'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251814470.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251814470.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251814470.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251814470.webp'
     alt: 'cover'
 tags: ["STL"]
 theme: 'light'
@@ -60,7 +60,7 @@ featured: false
 
 其实 STL 源码中也是这样设计的：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220716005519094.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220716005519094.webp)
 
 STL源码中的反向迭代器 是通过已经实现了的正向迭代器来实现的
 
@@ -70,7 +70,7 @@ STL源码中的反向迭代器 是通过已经实现了的正向迭代器来实�
 
 下面就可以根据 STL源码大致的框架，进行模拟实现了：
 
-![reverse_iterator_fix |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/reverse_iterator_fix.png)
+![reverse_iterator_fix](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/reverse_iterator_fix.webp)
 
 ```cpp
 template<class Iterator, class Ref, class Ptr>

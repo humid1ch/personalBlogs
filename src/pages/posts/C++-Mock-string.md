@@ -5,8 +5,8 @@ pubDate: 2022-07-04
 description: '本篇文章着重 模拟实现 string类 及其各接口'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251814025.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251814025.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251814025.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251814025.webp'
     alt: 'cover'
 tags: ["STL", "容器"]
 theme: 'light'
@@ -1154,4 +1154,4 @@ istream& operator>>(istream& in, string& s) {
 
 感谢阅读~
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410175841829.png" alt=" " style="zoom:33%; display: block; margin: 0 auto;" />
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230410175841829.webp" alt=" " style="zoom:33%; display: block; margin: 0 auto;" />

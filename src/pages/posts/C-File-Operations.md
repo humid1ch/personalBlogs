@@ -5,8 +5,8 @@ pubDate: 2022-03-02
 description: '文件按照功能，区分为两类：程序文件、数据文件'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251812049.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251812049.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251812049.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251812049.webp'
     alt: 'cover'
 tags: ["C语言", "文件"]
 theme: 'light'
@@ -219,7 +219,7 @@ int main()
 
 我们使用`fputc` 函数成功在文件中写入了内容
 
-![fputc_FILE |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fputc_FILE.png)
+![fputc_FILE |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-fputc_FILE.webp)
 
 不过这时候肯定会有疑惑，比如：`fputc`不是字符输出函数吗？为什么能往文件中输入字符？ 
 
@@ -231,7 +231,7 @@ int main()
 >
 >   但在文件操作中，输入，指 从键盘获取的内容 存入 内存中；也可以指 文件中的内容 存入 内存中。输入的终点，是内存，而不是文件
 >
->   <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-input.png" alt="input |wide" style="zoom:80%; display: block; margin: 0 auto;" />
+>   <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-input.webp" alt="input |wide" style="zoom:80%; display: block; margin: 0 auto;" />
 >
 > - 输出
 >
@@ -239,7 +239,7 @@ int main()
 >
 >   所以 用 `fputc` 字符输出函数，往文件中输入字符。
 >
->   <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-output.png" alt="output |wide" style="zoom:80%; display: block; margin: 0 auto;" />
+>   <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-output.webp" alt="output |wide" style="zoom:80%; display: block; margin: 0 auto;" />
 
 我们用 `fputc` 函数，成功向文件中写入了字符，那么如何向屏幕上输出字符呢？需不需要先类似打开文件的操作呢？很显然不需要先打开屏幕什么的。为什么呢？
 
@@ -279,7 +279,7 @@ int main()
 }
 ```
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fputc_STDOUT.png" alt="fputc_STDOUT" style="zoom:80%; display: block; margin: 0 auto;" />
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-fputc_STDOUT.webp" alt="fputc_STDOUT" style="zoom:80%; display: block; margin: 0 auto;" />
 
 上面测试了`fputc` 输出字符函数，那么怎么样使用输入字符函数将文件内的数据，输入至内存中呢？
 
@@ -322,7 +322,7 @@ int main()
 
 以上代码的运行结果如下(`test2.txt` 文件 在程序中被打开前 内容就为：`abcdefg`)：
 
-![fgetc_FILE |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fgetc_FILE.png)
+![fgetc_FILE |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-fgetc_FILE.webp)
 
 我们将`fgetc`的返回值存入 `变量ch` 并输出，是因为`fgetc`读取成功的返回值就是读取的内容，屏幕上也输出了 `a` 、`b` 、`c` 、`d`。
 
@@ -332,7 +332,7 @@ int main()
 
 答案是不行。为什么？
 
-![fgetc_RETURN |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fgetc_RETURN.png)
+![fgetc_RETURN |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-fgetc_RETURN.webp)
 
 在这句话中我们可以看出，`fgetc` 将读取到的字符以 `int` 类型返回 或者 返回 `EOF`，表示读取错误 或 文件结尾。
 
@@ -377,7 +377,7 @@ int main()
 > }
 > ```
 >
-> ![fputs_FILE |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fputs_FILE.png)
+> ![fputs_FILE |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-fputs_FILE.webp)
 >
 > 同样的，会改变传入的地址，会将传入的地址 向后移动输出的字符串位数 位
 
@@ -423,19 +423,19 @@ int main()
 > }
 > ```
 >
-> ![fgets_FILE |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fgets_FILE.png)
+> ![fgets_FILE |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-fgets_FILE.webp)
 >
 > `fgets` 函数可以 自定义每次输入的字符长度 ，即 第二个参数 减 1
 >
 > 并且，每次输入到内存中，如果传参不变，会将已经输入到内存中的数据覆盖
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fgets_MEMORY.png" alt="fgets_MEMORY |wide" style="zoom:90%; display: block; margin: 0 auto;" />
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-fgets_MEMORY.webp" alt="fgets_MEMORY |wide" style="zoom:90%; display: block; margin: 0 auto;" />
 >
 > 若，传参大于文件中数据的长度，则输入完整
 >
 > `fgets(ch, 3, pf);`  >>>>>>  `fgets(ch, 100, pf);`
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fgets_FLIE_LONGTH.png" alt="fgets_FLIE_LONGTH |wide" style="zoom:80%; display: block; margin: 0 auto;" />
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-fgets_FLIE_LONGTH.webp" alt="fgets_FLIE_LONGTH |wide" style="zoom:80%; display: block; margin: 0 auto;" />
 
 ---
 
@@ -482,7 +482,7 @@ int main()
 >
 > 程序运行结果如下：
 >
-> ![fprintf_FILE |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fprintf_FILE.png)
+> ![fprintf_FILE |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-fprintf_FILE.webp)
 >
 > 同样的，可以将文件指针改为 标准输出流 将内存中的数据输出到 屏幕上，这里就不演示了
 
@@ -520,7 +520,7 @@ int main()
 >
 >程序运行结果如下：
 >
->![fscanf_FILE |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fscanf_FILE.png)
+>![fscanf_FILE |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-fscanf_FILE.webp)
 
 通过两个例子可以看出，`fprintf` 和 `fscanf` 两个函数，可以对内存或者文件中的 格式化的数据 进行读写的操作。并且呢，两个函数的的使用方法与 `printf` `scanf` 两个函数的使用方法 十分的相似。
 
@@ -577,11 +577,11 @@ size_t fwrite(const void* buffer, size_t size, size_t count, FILE* stream );
 >}
 >```
 >
->![fwrite_FILE |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fwrite_FILE.png)
+>![fwrite_FILE |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-fwrite_FILE.webp)
 >
 >文件以记事本打开，发现数据存在乱码，那么究竟是不是二进制数据呢？
 >
->![fwrite_READ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fwrite_READ.png)
+>![fwrite_READ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-fwrite_READ.webp)
 >
 >以二进制编辑器打开，可以发现确实是二进制数据
 
@@ -635,7 +635,7 @@ size_t fread(void* buffer, size_t size, size_t count, FILE* stream );
 > }
 > ```
 >
-> ![fread_FILE |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fread_FILE.png)
+> ![fread_FILE |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-fread_FILE.webp)
 
 ---
 
@@ -687,7 +687,7 @@ int fseek( FILE *stream, long offset, int origin );
 
 >首先，我们先创建一个文件（我这里路径是 `D:\TEST.txt` ），并输入内容
 >
-><img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fseek_TEST.png" alt="fseek_TEST |inline" style="zoom:86%; display: block; margin: 0 auto;" />
+><img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-fseek_TEST.webp" alt="fseek_TEST |inline" style="zoom:86%; display: block; margin: 0 auto;" />
 >
 >当我们不使用 `fseek` 函数时，
 >
@@ -720,7 +720,7 @@ int fseek( FILE *stream, long offset, int origin );
 >
 >这段代码的运行结果是： 
 >
->![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fseek_NOFSEEK.png)
+>![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-fseek_NOFSEEK.webp)
 >
 > 此时，文件指针应该在 文件内容的 `k` 字符上。如果再使用 `ch = fgetc(pf)` ，并输出 `ch` 存入的字符，将输出 `k`。
 >
@@ -764,19 +764,19 @@ int fseek( FILE *stream, long offset, int origin );
 >
 >>  `fseek(pf, 10, SEEK_CUR);`
 >
->>  ![fseek_SEEK_CUR |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fseek_CUR.png)
+>>  ![fseek_SEEK_CUR |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-fseek_CUR.webp)
 >
 >>  文件指针从当前位置向后偏移 10 个字符，到 `u` 
 >
 >> `fseek(pf, 15, SEEK_SET);` 
 >
->> ![fseek_SEEK_SET |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fseek_SET.png)
+>> ![fseek_SEEK_SET |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-fseek_SET.webp)
 >
 >> 文件指针从文件内容的首位，想后偏移 15 个字符，到 `p`
 >
 >> `fseek(pf, -5, SEEK_END);` 
 >
->> ![fseek_SEEK_END |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fseek_END.png)
+>> ![fseek_SEEK_END |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-fseek_END.webp)
 >
 >> 文件字符从文件内容的末字符之后，向 前 偏移 5 个字符，到 `v`
 >
@@ -830,7 +830,7 @@ long ftell( FILE *stream );
 >
 > 上述代码的运行结果：
 >
-> ![ftell_FILE |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-ftell_FILE.png)
+> ![ftell_FILE |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-ftell_FILE.webp)
 >
 > 两次 `fget(pf)` 之后，计算偏移量 为 `2`;
 
@@ -881,12 +881,12 @@ void rewind( FILE *stream );
 >
 > 代码运行结果：
 >
-> ![rewind_FILE |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-rewind_FILE.png)
+> ![rewind_FILE |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-rewind_FILE.webp)
 
 ---
 
 以上就是部分的文件操作函数，并不是全部的文件操作函数，但是文件操作函数就只介绍到这里。
 
-~~ 传统功夫，以点到为止 ~~
+~~传统功夫，以点到为止~~
 
 如果想要了解 学习更多的 文件操作函数，可以参考 `Win32 API` 或者 [Cplusplus](http://cplusplus.com/) 等网站自行学习 

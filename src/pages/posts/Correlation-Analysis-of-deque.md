@@ -5,8 +5,8 @@ pubDate: 2022-07-15
 description: 'STL源码, 实现 stack 和 queue 都使用了 deque 作为适配器. deque 是什么？它的结构是什么？为什么 Stack和 Queue要用它来作为适配器实现？'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251815703.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251815703.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251815703.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251815703.webp'
     alt: 'cover'
 tags: ["STL", "容器"]
 theme: 'light'
@@ -21,13 +21,13 @@ deque 是什么？它的结构是什么？为什么 Stack和 Queue要用它来�
 
 # 文档中的 deque
 
-![  ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220715164827658.png)
+![  ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220715164827658.webp)
 
 官方文档中这样解释 `deque`，而通俗来讲 `deque` 就是一个可以前插后插、前删后删的动态开辟的线性结构的容器
 
 并且，这个 `deque` 拥有许多的成员函数:
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220715165839711.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220715165839711.webp)
 
 这些成员函数功能，好像 `list` 容器也有，但是 为什么 `Stack`、`Queue`的要由它作为适配器实现呢？
 
@@ -76,7 +76,7 @@ list 是单个数据节点由指针相互连接
 
 所以 deque 的结构，大致上是这样的：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220715174037071.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220715174037071.webp)
 
 每段 vector 之间没有实际联系，而是由另一个容器存放每个vector的地址，且存放vector地址的容器也不是从首空间开始存放的，因为需要考虑到头插新vector 需要添加指针
 

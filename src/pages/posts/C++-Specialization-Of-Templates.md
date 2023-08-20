@@ -5,8 +5,8 @@ pubDate: 2022-07-18
 description: '之前关于模板 还有一些问题没有解决，本篇文章就是对模板 提出问题和解决问题的'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251810793.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251810793.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251810793.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251810793.webp'
     alt: 'cover'
 tags: ["C++", "泛型编程"]
 theme: 'light'
@@ -25,7 +25,7 @@ featured: false
 
 在一般的模板中，无论是函数模板还是类模板，他们的定义都是，像这样的：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220716232837542.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220716232837542.webp)
 
 模板参数都是 虚拟的，传参时都需要传类型，但是 在定义模板时，模板参数还有另一种形式
 
@@ -35,7 +35,7 @@ featured: false
 
 其实查看一下 array 容器的模板定义一眼就可以看出来什么是 非类型模板参数：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220716233342736.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220716233342736.webp)
 
 对，没错，**非类型模板参数就是已经知道类型的模板参数**。使用这个模板 在传参的时候，除了传类型之外，还要传入**指定类型的数值**
 
@@ -45,7 +45,7 @@ featured: false
 
 而在 array 这个容器中，size_t N 这个模板参数的作用，是为了定义一个大小为N的数组准备的，并且这个数组是静态的，与C语言中原生定义的数组没有什么区别：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220716234201918.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220716234201918.webp)
 
 也就是说，在容器 array 中，存在的非类型模板参数是为了指定需要定义数组的大小
 
@@ -67,20 +67,20 @@ C++ 模板是泛型编程的一种，是为了一套代码 多方使用而出现
 
 但是 在实际的使用中总会有 特殊的类型需要特殊的处理的情况发生，就比如这样：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220718151812209.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220718151812209.webp)
 
 greater 是一个函数模板，是用来比较两个类型的大小的
 在使用时，对于a, b 这两个变量可以直接 返回正确的返回值，但是 当传入的是 a, b 的指针时，就会发生错误：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220718153756173.png" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220718153756173.webp" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
 
 因为，greater 函数是作用是 直接对比传入类型的数据，而 c, d 是两个指针 指针对比是对比的地址大小而不是指针指向的内容大小，所以对于这样的情况就需要 特殊处理：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220718161107898.png" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220718161107898.webp)
 
 经过特化处理的类型，再使用函数模板时，会调用最适合的函数模板：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220718161234325.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220718161234325.webp)
 
 不会再出现，返回值错误的情况
 
@@ -103,7 +103,7 @@ greater 是一个函数模板，是用来比较两个类型的大小的
 
 类模板的特化 随便一个类模板为例：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220718164040693.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220718164040693.webp)
 
 > 使用此模板实例化对象时，会打印： **TT <T1, T2>,  即 调用原模版**
 
@@ -115,11 +115,11 @@ greater 是一个函数模板，是用来比较两个类型的大小的
 
 类模板全特化的意思是，对 类模板所有的模板参数进行特化处理，即像这样
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220718165353335.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220718165353335.webp)
 
 当类模板对指定类型特化时，使用指定的类型实例化对象就会调用 特化版的类模板：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220718164552275.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220718164552275.webp)
 
 > 类模板的全特化 与 函数模板的特化，其实都不经常使用，因为类模板的全特化也像是直接定义了一个指定类型的类而已，类模板的特化更重要的、更常用的是，类模板的偏特化(半特化)
 
@@ -135,11 +135,11 @@ greater 是一个函数模板，是用来比较两个类型的大小的
 
 举个栗子：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220718165544695.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220718165544695.webp)
 
 而 当对象实例化的时候，如果第二个参数是 double，那么就会调用 特化过的类模板进行实例化：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220718165859957.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220718165859957.webp)
 
 除了这种，对类模板参数部分特化的偏特化之外，还有另外一种形式
 
@@ -147,15 +147,15 @@ greater 是一个函数模板，是用来比较两个类型的大小的
 
 特化 并不仅仅只是将模板参数特定为某一个类型，更可以将参数模板特化为 某种类型：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220718171040641.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220718171040641.webp)
 
 特化 更可以对特定的某种类型处理：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220718171215138.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220718171215138.webp)
 
 > 注意：只有所有参数都满足特化类型时，才会去调用特化类模板
 >
-> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220718171802484.png)
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220718171802484.webp)
 
 
 

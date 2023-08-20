@@ -5,8 +5,8 @@ pubDate: 2022-02-09
 description: 'strlen、strcpy、strcat……'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251811474.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251811474.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251811474.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251811474.webp'
     alt: 'cover'
 tags: ["C语言"]
 theme: 'light'

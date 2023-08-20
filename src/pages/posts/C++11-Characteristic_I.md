@@ -5,8 +5,8 @@ pubDate: 2023-04-21
 description: '本篇文章是关于C++11标准 一些常用的新特性的介绍, 比如: 列表初始化、右值引用、万能引用、完美转发、类的新默认成员函数 和 可变参数列表等'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251811775.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251811775.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251811775.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251811775.webp'
     alt: 'cover'
 tags: ["C++", "C++11"]
 theme: 'light'
@@ -125,11 +125,11 @@ int main() {
 }
 ```
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307041000041.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307041000041.webp)
 
 可以看到, `auto` 接收 `{}` 的类型是： `initializer_list`
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307041013969.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307041013969.webp)
 
 其实, `{}` 本身就是一个容器类型. `{1, 2, 3, 4, 5}`  就是通过 `initializer_list<int>` 实例化出的一个对象. 
 
@@ -149,13 +149,13 @@ int main() {
 
 因为, STL容器中其实定义有 使用 `{}` 对象的构造函数. 
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307041021964.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307041021964.webp)
 
 其他STL 容器中 也同样如此：
 
 `set:`
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307041021169.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307041021169.webp)
 
 ```cpp
 int main() {
@@ -168,7 +168,7 @@ int main() {
 
 `map:`
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307041022546.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307041022546.webp)
 
 ```cpp
 int main() {
@@ -209,7 +209,7 @@ int main() {
 }
 ```
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307041028181.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307041028181.webp)
 
 不过, auto 一般用于非常长的容器的迭代器的自动推导
 
@@ -228,7 +228,7 @@ int main() {
 }
 ```
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307041030249.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307041030249.webp)
 
 ### `nullptr`
 
@@ -253,7 +253,7 @@ int main() {
 }
 ```
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230422000634152.png" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230422000634152.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
 ## 智能指针
 
@@ -265,7 +265,7 @@ C++11 提出一个很重要的概念, 就是智能指针.
 
 C++11 为STL 添加了四个新容器：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307041035476.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307041035476.webp)
 
 除了哈希表, 另外两个其实没有什么值得介绍的. 
 
@@ -321,11 +321,11 @@ int main() {
 
 1. `int &g = 10;` 无法编译通过
 
-    ![int &g = 10 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307041803172.png)
+    ![int &g = 10 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307041803172.webp)
 
 2. `const int &g = 10; ` 可以编译通过
 
-    ![const int &g = 10 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307041806267.png)
+    ![const int &g = 10 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307041806267.webp)
 
 > 关于 左值引用的小总结:
 >
@@ -378,7 +378,7 @@ int main() {
 }
 ```
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307041809978.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307041809978.webp)
 
 > 关于 右值引用的小总结
 >
@@ -410,7 +410,7 @@ int main() {
 
 先来回顾一下, 在很久之前 模拟实现的 `string类` 时的部分代码:
 
-![string_default |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307042040063.png)
+![string_default](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307042040063.webp)
 
 展示的部分代码中, 只包含了几个类的默认函数 和 自定义的 `int类型`转`July::string类型` 的 `to_string()` 函数
 
@@ -569,11 +569,11 @@ C++11之后, 所有的STL容器也增加了这两个成员函数:
 
 **`vector`:**
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307051418871.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307051418871.webp)
 
 **`string`:**
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307051421175.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307051421175.webp)
 
 所有的STL容器都增加了这两个成员函数. 
 
@@ -585,7 +585,7 @@ C++11之后, 所有的STL容器也增加了这两个成员函数:
 
 其实, C++11 不仅提出了右值引用, 还增添了一个新的函数: `std::move()`, 这个函数的功能很简单 就是 **将左值转换为右值引用, 并返回.**
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307051430262.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307051430262.webp)
 
 也就是说, 某些情况我们需要将左值右值引用时, 就可以使用 `move()` 来将指定的左值变为右值引用.
 
@@ -609,9 +609,9 @@ C++11之后, 所有的STL容器也增加了这两个成员函数:
 
 那就是, **`push_back()`** 、 **`insert()`** 等一系列向容器中插入数据的接口. 
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307051505735.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307051505735.webp)
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307051507705.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307051507705.webp)
 
 不仅 `vector`, 其他容器也同样实现了 **数据添加接口的右值引用参数版本**.
 
@@ -675,7 +675,7 @@ int main() {
 
 而实际的结果是:
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307051719360.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307051719360.webp)
 
 不管是 `左值` 还是 `右值`. 传入模板函数之后, 识别出的类型都是 `左值` 相关的.
 
@@ -756,7 +756,7 @@ int main() {
 
 这段代码 编译是不通过的:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307051953061.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307051953061.webp)
 
 **其实就可以说明, 当右值引用的`变量`被 `直接用于作表达式`(使用变量) 时, 会被认为是左值.**
 
@@ -804,7 +804,7 @@ int main() {
 
 执行结果是:
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307052006779.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307052006779.webp)
 
 可以看到, 最终的执行结果是 执行了默认构造 和 拷贝构造. 都没有执行移动构造.
 
@@ -821,7 +821,7 @@ int main() {
 
 这时候, 就要用到C++11的一个新接口: **`std::forward()完美转发`**
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307052020225.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307052020225.webp)
 
 这个接口看起来非常的复杂, 但是实际使用并没有那么复杂:
 
@@ -866,7 +866,7 @@ int main() {
 
 这段代码的执行结果是:
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307052028288.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307052028288.webp)
 
 可以发现, **`经过完美转发的引用变量 会被识别为原本的类型`**.
 
@@ -882,7 +882,7 @@ int main() {
 
 并且, STL容器都是类模板, 肯定需要使用到完美转发. 就像这样:
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307052040700.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307052040700.webp)
 
 此例中, 由于 `List` 是一个模板类. 所以要想 针对不同类型 在各方面实现对右值引用的支持, 就需要用到 完美转发
 
@@ -952,7 +952,7 @@ public:
 
 这两个函数的参数数量是可变的. 即可以根据需要传入不同数量的参数.
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307060942712.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307060942712.webp)
 
 C++11之后, 不仅函数可以支持可变参数, 模板也可以支持可变参数了:
 
@@ -1020,7 +1020,7 @@ void ShowList(Args... args) {
 
     这段代码执行结果是:
 
-    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061006102.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061006102.webp)
 
 2. 列表初始化 展开参数包
 
@@ -1078,7 +1078,7 @@ void ShowList(Args... args) {
 
     这种方法的执行结果为:
 
-    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061057057.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061057057.webp)
 
 ## `emplace_back()`
 
@@ -1086,7 +1086,7 @@ void ShowList(Args... args) {
 
 我们都知道, STL容器都是模板类, 所以 `emplace_back()` 其实使用的就是模板可变参数.
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061101052.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061101052.webp)
 
 这个接口的使用也很简单:
 
@@ -1107,7 +1107,7 @@ int main() {
 }
 ```
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061109378.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061109378.webp)
 
 从结果来看好像没有区别. 从用法来看, 好像也没有什么太大的改变, 无非就是支持了 直接使用 构建 `pair` 的参数来插入.
 

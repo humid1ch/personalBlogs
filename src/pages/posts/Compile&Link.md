@@ -6,8 +6,8 @@ description: '在学习C语言的过程中，每一个源文件都会经过编�
 这些预处理过程到底是如何进行的，就是本篇文章的内容'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230414151451674.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230414151451674.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230414151451674.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230414151451674.webp'
     alt: 'cover'
 tags: ["程序员的自我修养", "编译原理"]
 theme: 'light'
@@ -54,7 +54,7 @@ featured: true
 > `printf` `scanf` 等等，
 > 这些函数，并不属于编写者所自定义的函数。这些函数是由 C 语言默认提供的。这些由 C 语言默认提供的函数，一般都存放在各自的库中：
 >
-> ![printf |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/printf%E9%9D%99%E6%80%81%E5%BA%93.png)
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230820110747684.webp)
 >
 > 像以上 `LIBC.LIB` 、 `LIBCMT.LIB` 、`MSVCRT.LIB` 都属于静态库，`printf` 函数就存在于这三个 `静态链接库` 中 
 
@@ -97,7 +97,7 @@ featured: true
 > ```
 > 然后用 GCC 编译器对 test.c 文件进行 预处理，并将 预处理 后的文件信息输出至 test.i 文件中：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-GCC-PRE-E.png" alt="GCC -E |inline" style="zoom:90%; display: block; margin: 0 auto;" />
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pre-Linux-GCC-PRE-E.webp" alt="GCC -E |inline" style="zoom:90%; display: block; margin: 0 auto;" />
 >
 > >✔️小知识：
 > >`gcc -E (源代码文件) 或 gcc (源代码文件) -E` 对源代码进行预编译 
@@ -106,7 +106,7 @@ featured: true
 >
 > 可以看到 路径下生成 test.i 文件，最后一部分内容为：
 >
-> ![TEST-i |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-TEST-i.png)
+> ![TEST-i |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pre-Linux-TEST-i.webp)
 >
 > 除了最后的几行代码，以上并不是原文件中的代码，并且 原代码文件中`#include <stdio.h>` 对头文件的包含消失不见
 >
@@ -114,7 +114,7 @@ featured: true
 >
 > `stdio.h` 部分内容：
 >
-> ![stdio.h |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-STDIO.png)
+> ![stdio.h |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pre-Linux-STDIO.webp)
 > 很容易发现，两文件中关键代码是相同的
 >
 > 所以可以肯定，`预编译过程中，编译器对源代码进行了 头文件的包含、展开的操作`
@@ -147,9 +147,9 @@ featured: true
 >
 > 对以上代码进行预编译操作，并查看预编译后的文件内容：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-GCC-VIM-TEST-i-Annotation.png" alt="READ-TEST.i |inline" style="zoom:90%; display: block; margin: 0 auto;" />
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pre-Linux-GCC-VIM-TEST-i-Annotation.webp" alt="READ-TEST.i |inline" style="zoom:90%; display: block; margin: 0 auto;" />
 >
-> ![GCC-PRE-E-Annotation |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-GCC-PRE-E-Annotation.png)
+> ![GCC-PRE-E-Annotation |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pre-Linux-GCC-PRE-E-Annotation.webp)
 >
 > 同样可以看出，预编译后的代码中，注释内容被删除了，也可以说是被空格替换掉了
 > 所以，`预编译过程中，编译器源代码进行了 删除注释 的操作`
@@ -172,15 +172,15 @@ featured: true
 > return 0;
 > }
 > ```
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-TEST-Macro.png" alt="TEST-Macro |inline" style="zoom:90%; display: block; margin: 0 auto;" />
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pre-Linux-TEST-Macro.webp" alt="TEST-Macro |inline" style="zoom:90%; display: block; margin: 0 auto;" />
 >
 > 预编译处理：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-GCC-PRE-E-Macro.png" alt="GCC-PRE-E-Macro |inline" style="zoom:90%; display: block; margin: 0 auto;" />
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pre-Linux-GCC-PRE-E-Macro.webp" alt="GCC-PRE-E-Macro |inline" style="zoom:90%; display: block; margin: 0 auto;" />
 
 > `test.i` 部分内容:
 >
-> ![TEST-i-Macro-READ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-TEST-i-Macro-READ.png)
+> ![TEST-i-Macro-READ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pre-Linux-TEST-i-Macro-READ.webp)
 >
 > 源代码中的 两句宏定义 语句被删除，函数中使用的宏定义符号 被替换为 原本的数值
 >
@@ -201,7 +201,7 @@ featured: true
 
 > 📌
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-GCC-PRE-S.png" alt="GCC-PRE-S |inline" style="zoom:90%; display: block; margin: 0 auto;" />
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pre-Linux-GCC-PRE-S.webp" alt="GCC-PRE-S |inline" style="zoom:90%; display: block; margin: 0 auto;" />
 >
 > >✔️小知识：
 > >`gcc -S (经过预编译的文件) 或 gcc (经过预编译的文件) -S`  
@@ -209,7 +209,7 @@ featured: true
 >
 > 查看 `test.s` 的具体内容：
 >
-> ![VIM-TEST-S |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-VIM-TEST-S.png)
+> ![VIM-TEST-S |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pre-Linux-VIM-TEST-S.webp)
 >
 > 查看 `test.s` 的内容不难发现，它的内容都是 `汇编代码` 
 >
@@ -231,7 +231,7 @@ featured: true
 对 `test.s` 文件进行汇编操作：
 > 📌
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-GCC-PRE-C.png" alt="GCC-PRE-C |inline" style="zoom:90%; display: block; margin: 0 auto;" />
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pre-Linux-GCC-PRE-C.webp" alt="GCC-PRE-C |inline" style="zoom:90%; display: block; margin: 0 auto;" />
 >
 > >✔️小知识：  
 > `gcc -c (经过预编译的文件) 或 gcc (经过预编译的文件) -c` 
@@ -241,7 +241,7 @@ featured: true
 >
 > 查看 `.o` 目标文件：
 >
-> ![TEST-O |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-TEST-O.png)
+> ![TEST-O |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pre-Linux-TEST-O.webp)
 > `vim` 打开，可以看出 目标文件几乎都是乱码。其实只是计算机可以直接识别的二进制的指令。
 >
 > 所以，`汇编操作` 是将 `汇编代码` 转换为 `机器指令（二进制指令）`。
@@ -292,15 +292,15 @@ featured: true
 >
 > `vim`：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-LINK-ADD-C.png" alt="add.c" style="zoom:80%; display: block; margin: 0 auto;" />
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pre-Linux-LINK-ADD-C.webp" alt="add.c" style="zoom:80%; display: block; margin: 0 auto;" />
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-LINK-SUB-C.png" alt="sub.c" style="zoom:80%; display: block; margin: 0 auto;" />
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pre-Linux-LINK-SUB-C.webp" alt="sub.c" style="zoom:80%; display: block; margin: 0 auto;" />
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-LINK-TEST-C.png" alt="test.c" style="zoom:80%; display: block; margin: 0 auto;" />
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pre-Linux-LINK-TEST-C.webp" alt="test.c" style="zoom:80%; display: block; margin: 0 auto;" />
 
 > 然后，分别对 `add.c` 、`sub.c`、 `test.c` 三个`.c` 文件，预编译、编译、汇编：
 >
-> ![PROJECT-E-S-c |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-PROJECT-E-S-c.png)
+> ![PROJECT-E-S-c |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pre-Linux-PROJECT-E-S-c.webp)
 >
 > 最终生成对应的：`add.o` 、`sub.o` 、`test.o`
 >
@@ -308,7 +308,7 @@ featured: true
 >
 > `（用户不用主动在意静态库，链接器会自动链接）`：
 >
-> ![PROJECT-LINK |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-PROJECT-LINK.png)
+> ![PROJECT-LINK |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pre-Linux-PROJECT-LINK.webp)
 >
 > >✔️小知识：  
 > `gcc (所有的目标文件)` 即可将所有目标文件链接在一起，生成可执行程序。
@@ -319,13 +319,13 @@ featured: true
 >
 > 方便进行对比：
 >
-> ![PROJECT-GCC |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-PROJECT-GCC.png)
+> ![PROJECT-GCC |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pre-Linux-PROJECT-GCC.webp)
 >
 > 直接编译链接，不指定文件名，生成  `a.out` 可执行程序 >
 >
 > 分别运行 `test` 、`a.out`
 >
-> ![PROJECT-RUN |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-PROJECT-RUN.png)
+> ![PROJECT-RUN |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pre-Linux-PROJECT-RUN.webp)
 >
 > `test` 、`a.out` 两程序运行结果相同，说明 拆解过程的编译链接 及 直接的编译链接 结果是一样的
 >

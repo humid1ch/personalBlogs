@@ -6,8 +6,8 @@ description: '红黑树 也是一种 二叉平衡搜索树, 但是 其对平衡�
 红黑树 关于平衡的限制是：最长的路径 不大于 最短路径的两倍'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251816728.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251816728.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251816728.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251816728.webp'
     alt: 'cover'
 tags: ["数据结构", "红黑树"]
 theme: 'light'
@@ -36,7 +36,7 @@ featured: false
 
 满足上面所有原则的一棵树 就是 `红黑树`：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410140841332.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230410140841332.webp)
 
 > 1. 每个节点, 不是 `红` 就是 黑
 >
@@ -221,7 +221,7 @@ bool insert(const T1& data) {
 >
 > 在分情况分析之前, 为了方便分析 需要约定一些内容：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410140857355.png" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230410140857355.webp" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
 >
 > `cur是当前`节点, `p是父亲(parent)`节点, `g是祖父(grandfather)`节点, `u是叔叔(uncle)`节点——与父亲节点同父亲节节点
 >
@@ -235,13 +235,13 @@ bool insert(const T1& data) {
 > >
 > > 即类似这种情况：
 > >
-> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410140903636.png" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
+> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230410140903636.webp" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
 > >
 > > 这种情况的处理方法很简单, 就是将 p 和 u 节点颜色改为 黑色, 再将 g 节点改为`红`色
 > >
 > > 即改为这样：
 > >
-> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410140920046.png" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
+> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230410140920046.webp" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
 > >
 > > > 问题：为什么 g 节点需要改为 `红`色？
 > > >
@@ -251,7 +251,7 @@ bool insert(const T1& data) {
 > >
 > > 不过, 修改 g 节点为 `红`色之后, 可能会出现 g节点和g 父亲节点同为`红`节点的情况, 即：
 > >
-> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410140956510.png" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
+> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230410140956510.webp" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
 > >
 > > 所以 需要将 g节点作为新的cur节点, 进而衍生出新的 p、u、g节点, 继续进行情况判断及调整
 > >
@@ -298,11 +298,11 @@ bool insert(const T1& data) {
 > >
 > > 此种情况的树 结构可能是这样的：
 > >
-> > ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221020205123688.png)
+> > ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20221020205123688.webp)
 > >
 > > 也可能是这样的：
 > >
-> > ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221020211843501.png)
+> > ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20221020211843501.webp)
 > >
 > > 这也是两种不同的情况, 处理的方法也是不一样的：
 > >
@@ -314,13 +314,13 @@ bool insert(const T1& data) {
 > > >
 > > >     所以, u 为空时, 插入新节点之后结构图应该是这样的：
 > > >
-> > >     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221020220018805.png" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
+> > >     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20221020220018805.webp" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
 > > >
 > > >     即 cur 没有左右子树
 > > >
 > > >     没有插入新节点的时候, 结构图应该是这样的：
 > > >
-> > >     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221020215706957.png" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
+> > >     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20221020215706957.webp" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
 > > >
 > > >     为什么呢？
 > > >
@@ -332,11 +332,11 @@ bool insert(const T1& data) {
 > > >
 > > >     所以 新节点插入 并 更新之后 此时的结构图就应该是这样：
 > > >
-> > >     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221020221431465.png" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
+> > >     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20221020221431465.webp" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
 > > >
 > > >     新节点插入之前, 应该是这样的：
 > > >
-> > >     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221020221555981.png" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
+> > >     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20221020221555981.webp" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
 > > >
 > > >     为什么？
 > > >
@@ -344,13 +344,13 @@ bool insert(const T1& data) {
 > > >
 > > >     所以 当 u节点 存在且为黑色时, 此种情况 的`cur节点 一定是由第一种大情况更新出来的, 即 cur节点不是新插入的节点`
 > > >     
-> > >     不过 对于这两种情况：<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221020220018805.png" alt="image-20221020220018805" style="zoom:80%;" /> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221020221431465.png" alt="image-20221020221431465" style="zoom: 57%;" /> 
+> > >     不过 对于这两种情况：<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20221020220018805.webp" alt="image-20221020220018805" style="zoom:80%;" /> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20221020221431465.webp" alt="image-20221020221431465" style="zoom: 57%;" /> 
 > > >     
 > > >     都可以用 同一种方法解决, 即 以 `p节点为右单旋的parent, 进行右单旋`：
 > > >     
-> > >     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221020231648658.png" alt="image-20221020231648658" style="zoom:80%;" /> 然后变色 `——>` <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221020231727070.png" alt="image-20221020231727070" style="zoom:80%;" /> 
+> > >     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20221020231648658.webp" alt="image-20221020231648658" style="zoom:80%;" /> 然后变色 `——>` <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20221020231727070.webp" alt="image-20221020231727070" style="zoom:80%;" /> 
 > > >     
-> > >     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221020223207761.png" alt="image-20221020223207761" style="zoom: 53%;" />然后变色 `——>` <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221020223358710.png" alt="image-20221020223358710" style="zoom:55%;" />
+> > >     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20221020223207761.webp" alt="image-20221020223207761" style="zoom: 53%;" />然后变色 `——>` <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20221020223358710.webp" alt="image-20221020223358710" style="zoom:55%;" />
 > > >     
 > > >     > 如果 对于旋转操作不理解或者不熟悉, 可以阅读博主另一篇关于AVL树分析的文章
 > > >     >
@@ -364,22 +364,22 @@ bool insert(const T1& data) {
 > > >
 > > > 1. u 不存在, 则插入新节点 前 后 的结构图应该是这样的
 > > >
-> > >     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221020232311761.png" alt="image-20221020232311761" style="zoom:59%;" /> 和 <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221020232353404.png" alt="image-20221020232353404" style="zoom:59%;" />
+> > >     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20221020232311761.webp" alt="image-20221020232311761" style="zoom:59%;" /> 和 <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20221020232353404.webp" alt="image-20221020232353404" style="zoom:59%;" />
 > > >
 > > > 2. 当 u 存在, 且为黑节点时, 插入新节点 前 后 的结构图应该是这样的；
 > > >
-> > >     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221020232635692.png" alt="image-20221020232635692" style="zoom: 65%;" /> 和 <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221020232702689.png" alt="image-20221020232702689" style="zoom: 65%;" />
+> > >     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20221020232635692.webp" alt="image-20221020232635692" style="zoom: 65%;" /> 和 <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20221020232702689.webp" alt="image-20221020232702689" style="zoom: 65%;" />
 > > >
 > > >     那么 对于这种情况, 也可以使用同一种方法解决, 即：
 > > >
 > > >     先 `将 p节点 作为左单旋的parent, 做左单旋, 将 折线的情况 转换 为直线的情况`：
 > > >
-> > >     ​	<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221020234113447.png" alt="image-20221020234113447" style="zoom:80%;" />  <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221020233802531.png" alt="image-20221020233802531" style="zoom:70%;" />
+> > >     ​	<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20221020234113447.webp" alt="image-20221020234113447" style="zoom:80%;" />  <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20221020233802531.webp" alt="image-20221020233802531" style="zoom:70%;" />
 > > >
 > > >     然后再 `将 cur节点作为 右单旋的parent, 做右单旋, 将直线的情况解决`：
 > > >
-> > >     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221020234641936.png" alt="image-20221020234641936" style="zoom:80%;" /> 然后变色 `——>` <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221020234718531.png" alt="image-20221020234718531" style="zoom:80%;" />
+> > >     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20221020234641936.webp" alt="image-20221020234641936" style="zoom:80%;" /> 然后变色 `——>` <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20221020234718531.webp" alt="image-20221020234718531" style="zoom:80%;" />
 > > >
-> > >     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221020234936694.png" alt="image-20221020234936694" style="zoom: 55%;" /> 然后变色 `——>` <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221020235017875.png" alt="image-20221020235017875" style="zoom:55%;" />
+> > >     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20221020234936694.webp" alt="image-20221020234936694" style="zoom: 55%;" /> 然后变色 `——>` <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20221020235017875.webp" alt="image-20221020235017875" style="zoom:55%;" />
 > > >
 > > >     即, 对于此种情况 需要使用 `左右双旋`解决

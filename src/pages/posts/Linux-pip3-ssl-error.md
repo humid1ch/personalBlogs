@@ -5,8 +5,8 @@ pubDate: 2023-07-20
 description: '执行pip3 install, 可能会警告 WARNING: pip is configured with locations that require TLS/SSL, however the ssl module in Python is not available.'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307210054736.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307210054736.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307210054736.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307210054736.webp'
     alt: 'cover'
 tags: ["Linux使用问题"]
 theme: 'light'
@@ -134,7 +134,7 @@ make
 
 这一次`make`没有再报`ssl`相关错误:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307210132623.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307210132623.webp)
 
 然后`make install`将`python3`安装
 
@@ -153,7 +153,7 @@ ln -s /usr/local/python3/bin/pip3 /usr/bin/pip3
 
 然后 尝试执行`pip3 install neovim`:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307210135325.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307210135325.webp)
 
 没有再报 **`WARNING: pip is configured with locations that require TLS/SSL, however the ssl module in Python is not available.`** 警告.
 
@@ -161,7 +161,7 @@ ln -s /usr/local/python3/bin/pip3 /usr/bin/pip3
 
 可以看到, `python3`成功被支持, `coc.nvim`也没有配置错误:
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307210138914.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307210138914.webp)
 
 问题解决~
 

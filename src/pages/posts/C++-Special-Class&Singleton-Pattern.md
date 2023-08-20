@@ -5,8 +5,8 @@ pubDate: 2023-07-11
 description: '设计模式 实际是一套被反复使用、多数人知晓的、经过分类的、代码设计经验的总结, 被人熟知的设计模式有 23种, 不过本篇文章只介绍一种: 单例模式'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307111050710.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307111050710.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307111050710.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307111050710.webp'
     alt: 'cover'
 tags: ["设计模式"]
 theme: 'light'
@@ -58,7 +58,7 @@ featured: false
     }
     ```
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307111102906.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307111102906.webp)
 
     > 需要设置为`private`. 因为 如果设置为`public`, 那么函数实现是可以在类外完成的. 如果有人在类外实现了拷贝构造和赋值重载. 那么此类还是可以完成拷贝
 
@@ -81,7 +81,7 @@ featured: false
 
     即使设置为`public`也可以
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307111109211.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307111109211.webp)
 
 ## 2. 只能在堆上创建的类
 
@@ -132,7 +132,7 @@ int main() {
 
 此时, 此类就不能再用传统的方式实例化了:
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307111134185.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307111134185.webp)
 
 而是只能通过调用`static`成员函数`CreateObj()`, 创建在堆上的对象:
 
@@ -150,7 +150,7 @@ int main() {
 
 这段代码 就可以编译通过了:
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307111137205.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307111137205.webp)
 
 ---
 
@@ -193,7 +193,7 @@ int main() {
 }
 ```
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307111425603.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307111425603.webp)
 
 只能调用 创建接口:
 
@@ -206,7 +206,7 @@ int main() {
 }
 ```
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307111450707.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307111450707.webp)
 
 ---
 
@@ -235,7 +235,7 @@ int main() {
 
     这样会尝试去调用拷贝构造, 然后发生错误:
 
-    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307111502593.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307111502593.webp)
 
     但是, 我们使用的 `CreatObj()` 是这样返回的 `return StackOnly();`
 
@@ -273,7 +273,7 @@ int main() {
 
     也可以算是 不能被继承.
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307111522804.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307111522804.webp)
 
 2. C++11
 
@@ -285,7 +285,7 @@ int main() {
 
     只需要一个关键词, 就表示此类是最终的, 无法被继承:
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307111523011.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307111523011.webp)
 
 ## 5. 单例模式 - 只能创建一个实例对象的类
 
@@ -447,7 +447,7 @@ int main() {
 }
 ```
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307111637649.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307111637649.webp)
 
 饿汉模式的单例对象, 是在进程没有进入到`main`函数时就已经创建了的.
 
