@@ -407,7 +407,7 @@ int main(int argc, char* argv[]) {
 
 在启动服务器之前, 配置好服务器信息之后, 执行`daemonize()`函数. 然后 再编译代码运行程序:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307181605972.gif)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211607962.gif)
 
 可以看到, 即使启动服务器时的会话关闭了, 服务器依然在运行中. 客户端依旧可以连接到服务器
 
@@ -415,7 +415,7 @@ int main(int argc, char* argv[]) {
 
 而, 如果没有设置守护进程:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307181616115.gif)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211607394.gif)
 
 就会发现 当前会话关闭之后, 服务器就随着会话退出了. 此时客户端就连接不上服务器了.
 
@@ -553,10 +553,10 @@ void logMessage(int level, const char* format, ...) {
 
 然后, 再运行服务器, 就可以看当前目录下创建了一个文件:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307181659298.gif)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211607397.gif)
 
 ---
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E7%BF%BB%E6%BB%9A%E5%B0%8F%E9%BB%84%E7%8B%97.gif" alt="翻滚小黄狗" style="zoom:80%;" />
-
 感谢阅读~
+
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/%E7%BF%BB%E6%BB%9A%E5%B0%8F%E7%8C%AB.gif" alt="翻滚小猫" style="zoom:80%; display: block; margin: 0 auto"/>

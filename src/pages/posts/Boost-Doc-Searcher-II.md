@@ -320,7 +320,7 @@ bool enumFile(const std::string& srcPath, std::vector<std::string>* filesList) {
 
 至此, `enumFile()`接口的功能就结束了, 我们可以在函数内 **输出每次获取的文件名** 来调试看是否正确:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308021854048.gif)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211621185.gif)
 
 通过`wc -l`命令可以看出, 确实输出了`8563`行. 也就表示确实获取到了`8563`个`.html`文件名
 
@@ -1036,7 +1036,7 @@ bool saveDocInfo(const std::vector<docInfo_t>& docResults, const std::string& ou
 
 编译代码, 并运行可执行程序:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308022348577.gif)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211621267.gif)
 
 可以看到, `raw`文件中, 每行都是一个文档的`docInfo`信息数据.
 

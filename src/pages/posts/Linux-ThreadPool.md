@@ -439,7 +439,7 @@ int main() {
 
 然后, 编译运行:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307131607039.gif)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211603489.gif)
 
 可以看到运行的结果就是 我们期望的结果, 主线程每秒添加并分配一个, 5个线程同步获取到任务并执行.
 
@@ -447,7 +447,7 @@ int main() {
 
 将 处理速度设置为`1s`, 添加分配速度设置为`0.1s`:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307131554040.gif)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211604868.gif)
 
 当派发速度变快 处理速度变慢, 之间超过5倍差的时候:
 
@@ -667,7 +667,7 @@ threadPool<T>* threadPool<T>::_instance = nullptr;
 
 运行结果:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307131641951.gif)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211604510.gif)
 
 执行效果是没有区别的.
 

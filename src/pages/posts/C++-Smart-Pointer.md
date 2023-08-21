@@ -915,7 +915,7 @@ int main() {
 
 用VS调试看看:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307101541988.gif)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211610937.gif)
 
 可以看到, `main` 函数执行完`return 0;`之后, `sp1`的引用计数从`1->0`, 资源被销毁.
 

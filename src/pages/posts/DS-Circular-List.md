@@ -507,12 +507,10 @@ struct ListNode *detectCycle(struct ListNode *head)
 
 本篇是对 `单链表带环问题` 的一个深入探索，单链表带环问题是 单链表中一个非常重要的应用 和 对单链表非常重要的理解。同时，他已经进入了大厂面试可能会考的范畴，重要的是对 `单链表带环问题的深入分析` ，`而不是简单的判断是否有环`。
 
+---
+
 本篇文章到此结束
 
 感谢阅读~
 
-
-
----
-
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/翻滚小黄狗.gif" alt="翻滚小黄狗" style="zoom:80%;" />
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/%E7%BF%BB%E6%BB%9A%E5%B0%8F%E7%8C%AB.gif" alt="翻滚小猫" style="zoom:80%; display: block; margin: 0 auto"/>

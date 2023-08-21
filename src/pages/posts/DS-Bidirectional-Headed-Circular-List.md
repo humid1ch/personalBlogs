@@ -577,4 +577,4 @@ void ListDestroy(ListNode *phead)
 
 OK~ 本篇文章到此就结束啦，介绍了 **`带头双向循环链表`** 这个很复杂 很重要 很简单 的链表结构，希望大家多多支持！
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E7%BF%BB%E6%BB%9A%E5%B0%8F%E7%8C%AB.gif" alt="翻滚小猫" style="zoom:80%;" />
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/%E7%BF%BB%E6%BB%9A%E5%B0%8F%E7%8C%AB.gif" alt="翻滚小猫" style="zoom:80%; display: block; margin: 0 auto" />

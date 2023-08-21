@@ -122,7 +122,7 @@ C++ 种提供了一个 关键字 `virtual`
 
 先查看一般的 菱形继承 的对象模型**(8字节查看)**：
 
-![&d1_对象模模型 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/&d1_对象模型x.gif)
+![&d1_对象模模型 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/&d1_%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8Bx.gif)
 
 可以看到，普通菱形继承的 对象d1 的对象模型是这样的
 

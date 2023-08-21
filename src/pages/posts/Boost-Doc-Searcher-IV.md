@@ -546,11 +546,11 @@ int main() {
 
 首先是 建立索引的过程:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308061918362.gif)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211619351.gif)
 
 然后就是搜索
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308061956240.gif)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211619112.gif)
 
 从大体的结果上来看, 是没什么问题的. 不仅可以搜索到, 而且是按照`weight`排序的
 
@@ -637,7 +637,7 @@ std::string getDesc(const std::string& content, const std::string& keyword) {
 
 在仿函数内, 将参数字符都以小写的形式比较, 就可以实现忽略大小写比较:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308062005819.gif)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211619259.gif)
 
 这次, 就可以在文档中找到关键词了.
 
@@ -655,7 +655,7 @@ std::string getDesc(const std::string& content, const std::string& keyword) {
 
 这些词, 实际对 这种文档的搜索是没有什么用的. 而我们在分词的时候 并没有去除这些字, 这会导致什么结果呢?
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308062021656.gif)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211619370.gif)
 
 搜索`the` ` ` `a` `an`都能搜出文档, 但是我们输入的并不是具有目的的有效内容. 空格都能搜出文档.
 
@@ -979,11 +979,11 @@ void search(const std::string& query, std::string* jsonString) {
 
 我们选择的这种方式, **会将建立索引的时长拉的很长**, 最起码比之前要长的多:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308071654557.gif)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211619658.gif)
 
 然后就可以进行搜索了:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308071654176.gif)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211620366.gif)
 
 ---
 

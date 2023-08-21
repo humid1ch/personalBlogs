@@ -133,7 +133,7 @@ greater 是一个函数模板，是用来比较两个类型的大小的
 
 看名字就可以看出来，部分特化，即 **将类模板参数列表中的一部分参数特化**
 
-举个栗子：
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.webp" alt="举个栗子" style="zoom:25%; display: block; margin: 0 auto" />
 
 ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220718165544695.webp)
 

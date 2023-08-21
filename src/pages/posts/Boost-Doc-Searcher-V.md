@@ -149,7 +149,7 @@ int main() {
 }
 ```
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308081430842.gif)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211618704.gif)
 
 直接访问根`url`, 没有任何响应. 但是如果我们在`url`之后添加`/hi`. 就能看到`Hello World!`的字样.
 
@@ -754,7 +754,7 @@ svr.set_base_dir(rootPath.c_str());
 
     此时, 搜索不到内容:
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308081624459.gif)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211618829.gif)
 
     点击就会跳转至主页.
 

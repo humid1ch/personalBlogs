@@ -381,7 +381,7 @@ int main(int argc, char* argv[]) {
 
 我们可以使用浏览器测试:
 
-![tcpServer](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307150959038.gif)
+![tcpServer](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211608870.gif)
 
 当我们使用浏览器访问服务器(IP:Port)时, 可以看到服务器`accept()`了连接请求. 但是由于服务器没有实现任何功能, 所以浏览器没有变化.
 
@@ -588,11 +588,11 @@ TCP客户端前面的实现 与UDP客户端前面的实现 步骤相同:
 
 整个服务器和客户端的执行演示:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307151203852.gif)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211606386.gif)
 
 但是, 这个版本的服务器是有缺陷的:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307151550540.gif)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211606462.gif)
 
 当多客户端尝试连接服务器时, 会发现 服务器只会对第一个连接的客户端进行响应.
 
@@ -693,7 +693,7 @@ void loop() {
 
 完成之后, 再打开服务器 和 多客户端:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307151624298.gif)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211606633.gif)
 
 可以发现, 已经可以多客户端连接并通信了.
 
@@ -764,7 +764,7 @@ void loop() {
 
 即, 主父进程创建子进程之后, 子进程又创建了孙子进程. 然后子进程退出, 让孙子进程与客户端通信. 主父进程直接回收退出的子进程. 也不会发生一直阻塞等待的情况.
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307151647934.gif)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211606793.gif)
 
 ### 多线程服务器
 
@@ -975,7 +975,7 @@ private:
 
 至此, 多线程的版本就结束了:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307151732723.gif)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211608861.gif)
 
 可以很明显的看出来, 多线程的版本多客户端连接 会让服务器的文件描述符增加. 因为 **多线程共享文件描述符表**
 
@@ -1445,7 +1445,7 @@ int main(int argc, char* argv[]) {
 
 这些内容实现之后, 就可以使用线程池服务客户端了:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307152132278.gif)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211613293.gif)
 
 ---
 

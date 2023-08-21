@@ -32,7 +32,7 @@ featured: false
 
 什么是构造函数？
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/举个栗子.jpeg" alt="举个栗子" style="zoom:25%; display: block; margin: 0 auto;" />
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.webp" alt="举个栗子" style="zoom:25%; display: block; margin: 0 auto" />
 
 以一个简单的日期类为例：
 
@@ -219,7 +219,7 @@ int main()
 
     > 以下动图是创建对象、调用构造函数、调用析构函数、对象生命周期结束的过程
     >
-    > ![class |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/class_202206192330.gif)
+    > ![class |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/class_202206192330.gif)
     >
     > 当 `对象slt1` 声明周期即将结束时，指令光标继续移动就会自动调用析构函数，清理对象数据、资源
 
@@ -255,7 +255,7 @@ int main()
 
 一张动图就可以分析出来`（注意右方监视对象的变化）`：
 
-![构造与析构过程 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E6%9E%84%E9%80%A0%E4%B8%8E%E6%9E%90%E6%9E%84%E8%BF%87%E7%A8%8B.gif)
+![构造与析构过程 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/%E6%9E%84%E9%80%A0%E4%B8%8E%E6%9E%90%E6%9E%84%E8%BF%87%E7%A8%8B.gif)
 
 可以看到，`main` 函数内部的局部对象`(slt2 和 d1)`：
 
@@ -356,7 +356,7 @@ int main()
     
     两个对象实例化完成，程序并没有出现问题，但是如果光标继续移动，`即将调用 析构函数`
     
-    ![指针浅拷贝 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/指针浅拷贝.gif)
+    ![指针浅拷贝 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/%E6%8C%87%E9%92%88%E6%B5%85%E6%8B%B7%E8%B4%9D.gif)
     
     当 `对象slt1` 调用析构函数时，程序崩溃了. 为什么会崩溃呢？
     

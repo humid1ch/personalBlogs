@@ -6,7 +6,7 @@ description: '顺序表(数组) 和 链表 哪一种结构 更优秀 一点呢�
 author: '七月.cc'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/cache_cover.webp'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/cache_cover.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/cache_cover.webp'
     alt: 'cover'
 tags: ["数据结构", "顺序表", "链表", "约2236字 -- 阅读时间≈10分钟"]
 theme: 'light'
@@ -146,7 +146,7 @@ featured: false
 
 所以 `链表` 的 `高速缓存命中率` 就 低。
 
-![cache_list1 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/cache_list1.gif)
+![cache_list1](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/cache_list1.gif)
 
 # 结语
 
@@ -156,5 +156,5 @@ featured: false
 
 OK，本篇文章就到这里~
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E7%BF%BB%E6%BB%9A%E9%B8%AD%E5%98%B4%E5%85%BD.gif" alt="翻滚鸭嘴兽" style="zoom:80%; display: block; margin: 0 auto;" />
+
 

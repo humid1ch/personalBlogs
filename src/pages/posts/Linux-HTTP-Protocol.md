@@ -57,7 +57,7 @@ featured: false
 
 并且之后, 是需要填写登录信息的. 不过现在已经看不到了. 现在都是以一个单独的网页或窗口的形式 输入账号密码登录, 然后像服务端发送请求, 再转换到`url`中再隐藏起来:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307271125732.webp)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230821152432217.webp)
 
 之后就是`域名`和`端口号`. 其中 使用域名访问网站时 是会被转换成对应的IP的, 也必须如此. 后面就是端口.
 
@@ -486,7 +486,7 @@ featured: false
 
 2. 还可以使用`telnet`连接到服务器之后, 向服务器发送请求, 然后可以看到 响应的内容:
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307291749682.gif)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211601900.gif)
 
     ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307291749607.webp)
 
@@ -526,7 +526,7 @@ void handlerHttpRequest(int sock) {
 
 然后重新编译启动服务器, 在访问服务器:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307300958632.gif)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211601404.gif)
 
 此时就可以看到客户端已经可以接收到服务器相应的资源了.
 
@@ -565,7 +565,7 @@ void handlerHttpRequest(int sock) {
 
 此时, 编译服务器并打开服务器, 再访问服务器:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307301035210.gif)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211601950.gif)
 
 可以看到, 浏览器已经可以按照`html`内容渲染网页.
 
@@ -596,7 +596,7 @@ void handlerHttpRequest(int sock) {
 
 然后, 可以先使用GET方法获取一下响应内容, 然后再用浏览器访问:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307301601737.gif)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211624338.gif)
 
 这里就指定了发送的有效载荷的内容是什么类型的了. 
 
@@ -630,7 +630,7 @@ void handlerHttpRequest(int sock) {
 }
 ```
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307301112321.gif)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211602654.gif)
 
 ### 响应文件内容
 
@@ -804,7 +804,7 @@ tree
 
 此时, 启动服务器:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307302029787.gif)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211602298.gif)
 
 > 这里的图片, 使用的是图床中的图片.
 >
@@ -903,7 +903,7 @@ tree
 
 然后运行并访问服务器:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307311543401.gif)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211624456.gif)
 
 页面多了几个元素. 并且, 在输入内容并点击提交之后.
 
@@ -974,7 +974,7 @@ tree
 
 但是在填写数据并提交之后, 有所不同:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307311546437.gif)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211624863.gif)
 
 使用`POST`方法提交字段, 字段被添加到了请求正文中 而不是`url`中.
 
@@ -1138,7 +1138,7 @@ void handlerHttpRequest(int sock) {
 
 运行服务器之后, 再访问服务器:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308010947744.gif)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211600182.gif)
 
 可以看到, 访问服务器时 会自动去跳转到`url/www.baidu.com`, 这是因为我们设置了重定向状态码和`Location: www.baidu.com\r\n`.
 
@@ -1148,7 +1148,7 @@ void handlerHttpRequest(int sock) {
 
 再次访问服务器会出现什么呢?
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308010953651.gif)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211600534.gif)
 
 直接跳转到了`https://www.baidu.com`
 

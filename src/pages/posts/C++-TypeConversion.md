@@ -50,7 +50,7 @@ C语言中总共有两种形式的类型转换：**隐式类型转换** 和 **�
 
     但是, 当程序执行之后:
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307102117182.gif)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211603499.gif)
 
     很神奇, 明明 `i < 0` 了 但是循环还在继续.
 

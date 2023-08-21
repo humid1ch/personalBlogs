@@ -62,7 +62,7 @@ featured: false
 
 # 栈帧是如何创建的?
 > 	以下均在Windows平台，VS2013编译环境下演示
->														
+>															
 > 	不同平台，不同编译环境下的栈帧操作可能会有差异，但是逻辑相通。
 
 创建一个最简单的可以观察函数栈帧的程序
@@ -461,13 +461,16 @@ int main()
 
     ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/mov_eax_to_c.webp)
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/esp%2B8_mov_c.gif" alt=" |inline" style="zoom:60%; display: block; margin: 0 auto;" />
+    ![esp+8-movC](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/esp%2B8-movC.gif)
+    
+    
 
 代码走到这里，函数栈帧的大部分内容都已经讲的很清楚了。本篇文章到这里也就结束了。
 
 ---
 
 # 结束
+
 再回过头来看文章开头的问题：
 1. 什么是函数栈帧？
 

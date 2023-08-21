@@ -530,7 +530,7 @@ struct S2
 
 这句预处理指令是设置默认对齐数用的，`n` 就是 要设置的默认对齐数的值
 
-> 举个栗子:
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.webp" alt="举个栗子" style="zoom:25%; display: block; margin: 0 auto" />
 >
 > ```c
 > #pragma pack(1)		//设置默认对齐数为1

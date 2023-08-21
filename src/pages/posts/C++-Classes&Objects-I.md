@@ -85,7 +85,9 @@ C++中的 结构体和类的内部 其实都设置有访问权限。但是结构
 
 但是访问限定符具体有什么作用呢？
 
-以上图中的 `User 类` 举个栗子
+以上图中的 `User 类`
+
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.webp" alt="举个栗子" style="zoom:25%; display: block; margin: 0 auto" />
 
 ```cpp
 class User

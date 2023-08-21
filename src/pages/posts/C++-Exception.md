@@ -483,7 +483,7 @@ int main() {
 
 没错, **`内存泄漏! 非常严重的内存泄漏!`**
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307081620779.gif)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211609441.gif)
 
 可以看到, 名为`exception_test.exe`的内存占用, 在疯狂的上涨.
 
@@ -521,7 +521,7 @@ void Func1() {
 
 这样, 就不会发生内存泄漏了:
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307081638583.gif)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211609599.gif)
 
 这是当前阶段最简单的处理方式, 不过太难用.
 
@@ -879,7 +879,7 @@ int main() {
 
 查看执行结果:
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307082333271.gif)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211609376.gif)
 
 从结果可以看到, 每次循环 每层调用都有一定的概率抛异常. 并且都会在`main`函数内被捕捉到并处理.
 
@@ -905,7 +905,7 @@ void SeedMsg(const string& str) {
 
 将 `main()` 函数try块中执行的函数 换为此函数, 查看执行:
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307082340517.gif)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211609918.gif)
 
 并尝试, 将 **网络错误异常的处理方式** 改为 发生异常之后 直接重试再发送10次.
 
@@ -955,7 +955,7 @@ int main() {
 
 执行结果:
 
-![inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307090007639.gif)
+![inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211610265.gif)
 
 这里的关键点就是, **异常的重新抛出**, 还有 **`SeedMsg()`之后的`break`**.
 

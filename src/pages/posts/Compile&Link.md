@@ -42,7 +42,7 @@ featured: true
 
 > 📌
 >
-> ![优化_编译_链接 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/%E4%BC%98%E5%8C%96_%E7%BC%96%E8%AF%91_%E9%93%BE%E6%8E%A5.gif)
+> ![优化_编译_链接 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/%E4%BC%98%E5%8C%96_%E7%BC%96%E8%AF%91_%E9%93%BE%E6%8E%A5.gif)
 >
 > 在这一整个过程中，`编译器`来完成编译操作，`链接器`来完成链接操作
 
@@ -338,4 +338,4 @@ featured: true
 >
 > 那么，项目文件从 `.c` 到 可执行文件的过程 可以简单的详细为：
 >
-> ![Pre-More |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/Pre-More.gif)
+> ![Pre-More |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Pre-More.gif)

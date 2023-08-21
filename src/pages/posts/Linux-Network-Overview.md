@@ -388,7 +388,7 @@ TCP/IP 通讯协议采用了 5层的层级结构，每一层都呼叫它的下�
 
 1. 当主机一要向主机二传输 "你好" 信息时, 生成的信息数据包 在主机一内部的网络协议栈中 的变化 是这样的:
 
-    ![PC1 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306181128745.gif)
+    ![PC1 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211616981.gif)
 
     首先, 主机一 产生的数据 在主机一内部 的 `流向是从上到下` 的.
 
@@ -404,7 +404,7 @@ TCP/IP 通讯协议采用了 5层的层级结构，每一层都呼叫它的下�
 
 3. 主机二 接收到数据之后, 数据在主机二内部的网络协议栈的变化是这样的:
 
-    ![PC2 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306132147093.gif)
+    ![PC2 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211616263.gif)
 
     首先, 接收到的数据包 在主机二内部的网络协议栈中的 流向是从下到上的.
 

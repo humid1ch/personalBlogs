@@ -224,7 +224,7 @@ C++中，继承是什么？
 
     > 什么是 **屏蔽父类对同名成员的直接访问**？
     >
-    > 举个栗子：
+    > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.webp" alt="举个栗子" style="zoom:25%; display: block; margin: 0 auto" />
     >
     > ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220721014511184.webp)
     >
@@ -260,7 +260,7 @@ C++中，继承是什么？
 
     就像这样：
 
-    ![Inherit_constructor |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Inherit_constructor.gif)
+    ![Inherit_constructor |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Inherit_constructor.gif)
 
     可以看到 子类实例化对象调用子类构造函数时，**会先去调用父类默认构造函数，然后再继续执行子类的构造函数**
 
@@ -290,7 +290,7 @@ C++中，继承是什么？
     >
     > 示例：
     >
-    > ![Inherit_Copy |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Inherit_Copy.gif)
+    > ![Inherit_Copy |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Inherit_Copy.gif)
     >
     > 当然，**当成员变量所属类型提供的有拷贝构造函数，编译器自动生成的默认拷贝构造函数，也是可以用的**
 
