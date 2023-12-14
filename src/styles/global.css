@@ -162,6 +162,18 @@ body {
   padding: 0 22px;
 }
 
+
+/* h1::after,
+h2::after,
+h3::after,
+h4::after,
+h5::after,
+h6::after {
+  content: "";
+  display: block;
+  margin-top: 10px;
+} */
+
 h1,
 h2,
 h3,
@@ -176,17 +188,6 @@ h6 {
   line-height: 1.2;
   font-family: 'Fira Code Regular', "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
-
-/* h1::after,
-h2::after,
-h3::after,
-h4::after,
-h5::after,
-h6::after {
-  content: "";
-  display: block;
-  margin-top: 10px;
-} */
 
 h1 {
   font-size: 27px;
