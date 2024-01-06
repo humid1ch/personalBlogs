@@ -31,14 +31,15 @@ This is a minimalist, beautiful, responsive blogging program written in Astro.
 
 ![](./public/preview/preview_different_mode.png)
 
-The three display modes of images are: `wide`, `big`, `inline`.
-When you edit your markdown file, you can add `wide` or `big` or `inline` to the image alt, like this:
+The three display modes of images are: `wide`, `big`, `inline` `cover`.
+When you edit your markdown file, you can add `wide` or `big` or `inline` or `cover` to the image alt, like this:
 
 ```markdown
 ![alt content|wide](a.png)
 ```
 
 <strong>The Separator is `|`, and the default mode is `big`.</strong>
+<strong>`inline(800)` `big(920)` `wide(1480)` `cover(1880)`</strong>
 
 ## 🚀 Project Structure
 

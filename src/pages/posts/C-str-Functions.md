@@ -8,7 +8,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251811474.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251811474.webp'
     alt: 'cover'
-tags: ["C语言", "约1983字 -- 阅读时间≈8分钟"]
+tags: ["C语言", "约1985字 -- 阅读时间≈5分钟"]
 theme: 'light'
 featured: false
 ---

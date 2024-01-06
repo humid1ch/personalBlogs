@@ -8,7 +8,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/3ffc2687b14840ef87c27e14844d9cfb.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/3ffc2687b14840ef87c27e14844d9cfb.webp'
     alt: 'cover'
-tags: ["技巧分享", "图床", "约979字 -- 阅读时间≈4分钟"]
+tags: ["技巧分享", "图床", "约989字 -- 阅读时间≈4分钟"]
 theme: 'light'
 featured: false
 ---

@@ -4,7 +4,7 @@ export const SITE_EMAIL = 'dxyt2002@163.com'
 export const SITE_NAME = 'www.julysblog.cn';
 export const SITE_URL = "https://www.julysblog.cn";
 export const SITE_LANG = "zh-CN";
-export const SITE_NUM = "437,762";
+export const SITE_NUM = "443,210";
 
 // Author, used only when author is not specified on the page, 
 // has lower priority than the author specified in the md file.

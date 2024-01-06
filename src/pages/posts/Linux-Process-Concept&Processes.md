@@ -8,7 +8,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251759330.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251759330.webp'
     alt: 'cover'
-tags: ["Linux系统", "进程", "约4235字 -- 阅读时间≈17分钟"]
+tags: ["Linux系统", "进程", "约4240字 -- 阅读时间≈11分钟"]
 theme: 'light'
 featured: false
 ---

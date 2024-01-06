@@ -8,7 +8,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251809273.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251809273.webp'
     alt: 'cover'
-tags: ["C++", "面向对象特性", "多态", "约3649字 -- 阅读时间≈15分钟"]
+tags: ["C++", "面向对象特性", "多态", "约3649字 -- 阅读时间≈10分钟"]
 theme: 'light'
 featured: false
 ---

@@ -28,17 +28,19 @@
 
 ![Syntax](./public/preview/preview_syntaxHighlighting.png)
 
-### 三种图片显示模式
+### 四种图片显示模式
 
 ![](./public/preview/preview_different_mode.png)
 
-有三种图片显示模式: wide, big, inline. 当你编写 mark 文件的时候可以指定 wide 或 big 或 inline 到你的图片 alt 属性中, 比如这样:
+有四种图片显示模式: wide, big, inline cover. 当你编写 mark 文件的时候可以指定 wide 或 big 或 inline 或 cover 到你的图片 alt 属性中, 比如这样:
 
 ```markdown
 ![alt content|wide](a.png)
 ```
 
 <strong>分割符号是`|`,默认的模式为 `big`.</strong>
+
+<strong>四种显示模式的大小: `inline(800)` `big(920)` `wide(1480)` `cover(1880)`</strong>
 
 ## 🚀 项目结构
 
