@@ -231,7 +231,7 @@ int main()
 >
 >   但在文件操作中，输入，指 从键盘获取的内容 存入 内存中；也可以指 文件中的内容 存入 内存中。输入的终点，是内存，而不是文件
 >
->   <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-input.webp" alt="input |wide" style="zoom:80%; display: block; margin: 0 auto;" />
+>   ![input |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-input.webp)
 >
 > - 输出
 >
@@ -239,7 +239,7 @@ int main()
 >
 >   所以 用 `fputc` 字符输出函数，往文件中输入字符。
 >
->   <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-output.webp" alt="output |wide" style="zoom:80%; display: block; margin: 0 auto;" />
+>   ![output |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-output.webp)
 
 我们用 `fputc` 函数，成功向文件中写入了字符，那么如何向屏幕上输出字符呢？需不需要先类似打开文件的操作呢？很显然不需要先打开屏幕什么的。为什么呢？
 
@@ -279,7 +279,7 @@ int main()
 }
 ```
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-fputc_STDOUT.webp" alt="fputc_STDOUT" style="zoom:80%; display: block; margin: 0 auto;" />
+![fputc_STDOUT](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-fputc_STDOUT.webp)
 
 上面测试了`fputc` 输出字符函数，那么怎么样使用输入字符函数将文件内的数据，输入至内存中呢？
 
@@ -429,13 +429,13 @@ int main()
 >
 > 并且，每次输入到内存中，如果传参不变，会将已经输入到内存中的数据覆盖
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-fgets_MEMORY.webp" alt="fgets_MEMORY |wide" style="zoom:90%; display: block; margin: 0 auto;" />
+> ![fgets_MEMORY |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-fgets_MEMORY.webp)
 >
 > 若，传参大于文件中数据的长度，则输入完整
 >
 > `fgets(ch, 3, pf);`  >>>>>>  `fgets(ch, 100, pf);`
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-fgets_FLIE_LONGTH.webp" alt="fgets_FLIE_LONGTH |wide" style="zoom:80%; display: block; margin: 0 auto;" />
+> ![fgets_FLIE_LONGTH |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-fgets_FLIE_LONGTH.webp)
 
 ---
 
@@ -687,7 +687,7 @@ int fseek( FILE *stream, long offset, int origin );
 
 >首先，我们先创建一个文件（我这里路径是 `D:\TEST.txt` ），并输入内容
 >
-><img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-fseek_TEST.webp" alt="fseek_TEST |inline" style="zoom:86%; display: block; margin: 0 auto;" />
+>![fseek_TEST |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-fseek_TEST.webp)
 >
 >当我们不使用 `fseek` 函数时，
 >

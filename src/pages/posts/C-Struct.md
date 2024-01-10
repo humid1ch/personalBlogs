@@ -127,7 +127,7 @@ struct S1
 
 我们用 `sizeof` 求出此结构体类型的大小是：`12` 字节 
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160006153.webp" alt="|inline" style="zoom:90%; display: block; margin: 0 auto;" />
+![|small](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160006153.webp)
 
 但是 `int`类型大小是 `4` 字节，`char` 类型的大小是 `1` 字节。这个结构体大小不应该是 `6` 字节吗？ 为什么是 `12` 字节呢？
 
@@ -157,7 +157,7 @@ struct S1
 >
 > 我们先计算一下上边这段结构体类型，各成员的偏移量(`%zu是输出 size_t 类型的数据的指定格式`)
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409155912476.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
+> ![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409155912476.webp)
 >
 > 第一个，`c1`的偏移量是 `0`;
 >
@@ -167,7 +167,7 @@ struct S1
 >
 > 我们做图明确出来：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160055320.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
+> ![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160055320.webp)
 >
 > 可以非常明显的看出，结构体成员`c1` 到 `i` 之间，有三个字节的空间是空的
 >
@@ -175,7 +175,7 @@ struct S1
 >
 > 所以，此结构体的内存空间占用情况，可能是这样的：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160201908.webp" alt=" |inline" style="zoom:100%; display: block; margin: 0 auto;" />
+> ![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160201908.webp)
 >
 > 那么，为什么呢？为什么会有 开辟了，但是没有用到 的空间呢？一个结构体类型的大小，到底如何计算呢？
 
@@ -215,7 +215,7 @@ struct S1
 
 先看一下总大小：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160320772.webp" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
+![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160320772.webp)
 
 然后我们具体来计算一下：
 
@@ -228,23 +228,23 @@ struct S1
 >
 > 1. `c1` 存放在结构体变量 开始地址的 0 偏移处
 >
->     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160409063.webp" alt=" |inline" style="zoom:100%; display: block; margin: 0 auto;" />
+>     ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160409063.webp)
 >
 > 2. `i` 的对齐数是 `4`，所以存放在偏移量是 `4`的整数倍 处
 >
 >    至少是`4` 
 >
->    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160443593.webp" alt=" |inline" style="zoom:100%; display: block; margin: 0 auto;" />
+>    ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160443593.webp)
 >
 > 3. `c2` 的对齐数是 `1`，所以存放在偏移量是 `1`的整数倍 处
 >
->     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160509167.webp" alt=" |inline" style="zoom:100%; display: block; margin: 0 auto;" />
+>     ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160509167.webp)
 >
 > 4. 结构体总大小必须为 最大对齐数的整数倍，在此结构体中即为 `4` 的整数倍。
 >
 >    `c2`所在空间已经是 第 `9` 个字节，所以此结构体总大小 最小为 `12`
 >
->    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160607382.webp" alt=" |inline" style="zoom: 80%; display: block; margin: 0 auto;" />
+>    ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160607382.webp)
 >
 >    所以，结构体大小为 `12` 字节
 
@@ -263,7 +263,7 @@ struct S2
 
 我们将，上一个结构体成员中的，`i` 和`c2`换一换位置结果又是什么呢?
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160744394.webp" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160744394.webp)
 
 我们发现只是换了一下位置，结构体大小就减少了 `4` 个字节 
 
@@ -276,21 +276,21 @@ struct S2
 >
 >1. `c1` 存放在结构体变量 开始地址的 0 偏移处
 >
->    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160409063.webp" alt=" |inline" style="zoom:100%; display: block; margin: 0 auto;" />
+>    ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160409063.webp)
 >
 >2. `c2` 的对齐数是 `1`，所以存放在偏移量是 `1`的整数倍 处，`c2` 下面就可以
 >
->    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160846070.webp" alt=" |inline" style="zoom:100%; display: block; margin: 0 auto;" />
+>    ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160846070.webp)
 >
 >3. `i` 的对齐数是 `4`，所以存放在偏移量是 `4`的整数倍 处, 至少是`4` 
 >
->    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160914404.webp" alt=" |inline" style="zoom:100%; display: block; margin: 0 auto;" />
+>    ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160914404.webp)
 >
 >4. 结构体总大小必须为 最大对齐数的整数倍，在此结构体中即为 `4` 的整数倍
 >    
 >    `i`存放完，结构体占`8`个字节，正好是 `4`的倍数，所以不用再占用其他空间
 >    
->    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160952045.webp" alt=" |inline" style="zoom:100%; display: block; margin: 0 auto;" />
+>    ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160952045.webp)
 >
 >此结构体总大小为：`8`字节
 
@@ -316,27 +316,27 @@ struct S3
 >
 > 1. `n` 存放在结构体变量 开始地址的 `0` 偏移处
 >
->     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409161007720.webp" alt=" |inline" style="zoom:100%; display: block; margin: 0 auto;" />
+>     ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409161007720.webp)
 >
 > 2. `c2` 的对齐数是 `1`，所以存放在偏移量是 `1`的整数倍 处
 >
->     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409161023625.webp" alt=" |inline" style="zoom:100%; display: block; margin: 0 auto;" />
+>     ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409161023625.webp)
 >
 > 3. `i` 的对齐数是 `4`，所以存放在偏移量是 `4`的整数倍处, 至少是`12` 
 >
->    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409161057999.webp" alt=" |inline" style="zoom:100%; display: block; margin: 0 auto;" />
+>    ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409161057999.webp)
 >
 > 4. 结构体总大小必须为 最大对齐数的整数倍，在此结构体中即为 `8` 的整数倍。
 >
 >    `i`存放完，结构体占`16`个字节，正好是 `8`的倍数，所以不用再占用其他空间
 >
->    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409161138105.webp" alt=" |inline" style="zoom:100%; display: block; margin: 0 auto;" />
+>    ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409161138105.webp)
 >
 >    此结构体总大小为：`16`字节
 
 我们来验证一下：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409161204408.webp" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409161204408.webp)
 
 确实跟我们计算的一样，这个结构体大小为 `16` 字节
 
@@ -375,21 +375,21 @@ struct S4
 >
 > 1. `n` （大小为`4`）存放在结构体变量 开始地址的 `0` 偏移处
 >
->     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409161222127.webp" alt=" |inline" style="zoom:100%; display: block; margin: 0 auto;" />
+>     ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409161222127.webp)
 >
 > 2. `s` （大小为`16`）的对齐数是 `8`，所以存放在偏移量是 `8`的整数倍 处
 >
->     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409161234978.webp" alt=" |inline" style="zoom:100%; display: block; margin: 0 auto;" />
+>     ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409161234978.webp)
 >
 > 3. `c1`（大小为 `1`）的对齐数是 `1`，所以存放在偏移量是 `1`的倍数 处
 >
->     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409161247181.webp" alt=" |inline" style="zoom:100%; display: block; margin: 0 auto;" />
+>     ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409161247181.webp)
 >
 > 4. 结构体总大小必须为 最大对齐数的整数倍，在此结构体中即为 `8` 的整数倍。
 >
 >    `c1` 存放完，已经占用 `25` 字节，所以此结构体总大小 最小为 `32`
 >
->    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409161317937.webp" alt=" |inline" style="zoom:100%; display: block; margin: 0 auto;" />
+>    ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409161317937.webp)
 >
 >    此结构体总大小为：`32` 字节
 
@@ -530,7 +530,7 @@ struct S2
 
 这句预处理指令是设置默认对齐数用的，`n` 就是 要设置的默认对齐数的值
 
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.webp" alt="举个栗子" style="zoom:25%; display: block; margin: 0 auto" />
+> ![举个栗子 |tiny](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.webp)
 >
 > ```c
 > #pragma pack(1)		//设置默认对齐数为1
@@ -551,7 +551,7 @@ struct S2
 > }
 > ```
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409161432807.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
+> ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409161432807.webp)
 >
 > 此时，`struct S1`的总大小变成了 `6` 字节，而我们没有改变的时候是 `12` 字节
 
