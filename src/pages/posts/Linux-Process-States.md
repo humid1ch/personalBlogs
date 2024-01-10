@@ -106,7 +106,7 @@ featured: false
 
 再Linux内核源码中, 有关进程状态分类的部分是这样的：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230303151243423.webp" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
+![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230303151243423.webp)
 
 Linux将进程的状态分为了：R(running)、S(sleeping)、D(disk sleep)、T(stopped)、t(tracing stop)、Z(zombie) 和 X(dead) 7种
 
@@ -156,7 +156,7 @@ int main() {
 >
 > 其实很简单, 只需要将上面代码中 cout 语句删除, 让此进程不需要使用其他硬件资源, 那就可以看到此进程在R (running)状态了：
 >
-> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230303155607212.webp)
+> ![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230303155607212.webp)
 >
 > ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230303155535534.webp)
 
@@ -172,7 +172,7 @@ D(disk sleeping) 深度睡眠状态, 其实也是阻塞状态, 不过是 `特指
 
 S 状态是可中断的, 即可以被 kill 掉：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230303160601469.webp)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230303160601469.webp)
 
 但 D 状态是不能被中断的, 也没有办法演示
 
@@ -222,7 +222,7 @@ Linux系统中的 X状态, 就是概念中的终止状态。当进程不会再�
 
 >  `task_struct` 中部分退出信息
 >
->  <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230303170038653.webp" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
+>  ![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230303170038653.webp)
 
 ### 模拟僵尸进程
 
@@ -315,11 +315,11 @@ Linux中, 存在一种特殊的进程——孤儿进程
 
 并且, 此时子进程一直在命令行中运行, 但是并不影响其他指令的执行：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304094640370.webp" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
+![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304094640370.webp)
 
 并且, `此时的子进程无法被Ctrl+C终止掉, 只能使用kill -9 PID的方式kill`
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304095030602.webp" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
+![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304095030602.webp)
 
 > 因为此时的子进程已经成为了后台进程, 在进程状态一栏中, 之前的进程的状态后都会有一个`+`号, 此 `+`号表示此程序是前台进程
 >
@@ -356,7 +356,7 @@ Linux中, 存在一种特殊的进程——孤儿进程
 1. `priority`：在Linux系统中, `指当前进程的优先级, 此数值越小即表明进程的优先级越高`
 2. `nice`：在Linux系统中, 可以理解为 `当前进程优先级被调整的数值`
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304091910718.webp)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304091910718.webp)
 
 > PRI即为priority, NI即为nice
 
@@ -372,7 +372,7 @@ Linux中, 存在一种特殊的进程——孤儿进程
 >
 > `知道进程的PID时, 进入top, 再按r, 再输入PID, 再输入需要的NI值, 就可以做到NI值的修改(必须为root用户)`
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304100931552.webp" alt=" " style="zoom:80%; display: block; margin: 0 auto;" />
+![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304100931552.webp)
 
 运行了一个死循环进程, PID 为 27495
 
@@ -394,7 +394,7 @@ Linux中, 存在一种特殊的进程——孤儿进程
 
 使用ps -la查看此进程的优先级, 发现同样发生了改变：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304101731404.webp)
+![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304101731404.webp)
 
 > PS：不同程序界面的PRI值不同, 可能是因为基准不同
 
@@ -406,9 +406,9 @@ Linux中, 存在一种特殊的进程——孤儿进程
 
 当我设置NI值 -100 和 100 时：
 
-![设置NI -100](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304102113415.webp)
+![设置NI -100 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304102113415.webp)
 
-![设置NI 100](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304102240387.webp)
+![设置NI 100 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304102240387.webp)
 
 可以发现, 其实 NI最低只能设置到-20, 最高只能设置到19。
 

@@ -25,11 +25,11 @@ featured: false
 
 在使用Linux系统且没有图形化界面的情况下, 所有的操作都要用命令行的形式执行, 操作系统会提供许多的相关指令, 像这样：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304151343614.webp" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
+![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304151343614.webp)
 
 并且可以使用 cd 指令, 再进入这个目录, 并使用 pwd 显示当前路径：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304151502777.webp" alt="|inline" style="zoom:100%; display: block; margin: 0 auto;" />
+![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304151502777.webp)
 
 而这些指令, 其实都是一个个程序 指令名即为程序名：
 
@@ -39,7 +39,7 @@ featured: false
 
 但是为什么 我们自己编写的程序不能直接用程序名运行, 而必须指定路径：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304152851154.webp" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
+![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304152851154.webp)
 
 这就与操作系统的环境变量有关系了！
 
@@ -107,19 +107,19 @@ featured: false
 2. export PATH=当前路径
 3. 直接运行一下程序
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304162336044.webp" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
+![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304162336044.webp)
 
 三个操作执行下来, 可以发现 我们自己的程序已经可以直接运行了
 
 但是, 当我们需要执行部分其他命令的时候, 你会发现：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304162604312.webp" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;"/>
+![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304162604312.webp)
 
 在Linux操作系统中经常使用的命令用不了了, 命令行会提示:`command not found`, 这是为什么?
 
 当再次执行`echo $PATH`查看PATH的内容时：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304162806014.webp" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;"/>
+![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304162806014.webp)
 
 发现 PATH内容 只剩下了你设置的那一个路径. 其他命令的路径都没有了, 命令也就用不了了
 
@@ -131,7 +131,7 @@ featured: false
 
 想要在PATH环境变量中添加路径, 需要这样 `PATH=$PATH:新路径`, `$PATH`可以直接表示PATH原来的内容, `:`是分隔符, 再加上新路径, 就可以完成在PATH环境变量中添加新路径的操作：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304164214197.webp)
+![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304164214197.webp)
 
 ---
 
@@ -143,7 +143,7 @@ featured: false
 
 在命令行中, 直接用 类似在C语言中定义变量的方式, 就可以在操作系统中定义一个本地变量：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304170205885.webp" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
+![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304170205885.webp)
 
 而 环境变量的创建, 就需要用到指令了
 
@@ -153,7 +153,7 @@ featured: false
 
 export其实也可以创建一个环境变量：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304170654452.webp" alt="|inline" style="zoom:100%; display: block; margin: 0 auto;" />
+![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304170654452.webp)
 
 > unset可以将创建的环境变量删除
 
@@ -173,7 +173,7 @@ export其实也可以创建一个环境变量：
 	
 	在非root用户使用su命令, 并输入root密码之后, 在查看 `环境变量HOME`, 可以发现其值改变了：
 	
-	<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304172541696.webp" alt="|inline" style="zoom:100%; display: block; margin: 0 auto;" />
+	![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304172541696.webp)
 
 4. `MAIL` 邮箱全局变量
 
@@ -224,13 +224,13 @@ int main(int argc, char *argv[]) {
 }
 ```
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304173852231.webp" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
+![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304173852231.webp)
 
 直接执行`./mainTest`, 此时 argv数组中只有一个元素, 存储的是 `./mainTest` 这句指令.
 
 但是, 在 `./mainTest`之后添加任意选项时：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304174156330.webp" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
+![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304174156330.webp)
 
 可以非常直观的看到, 程序打印的内容变多了, 也就意味着 argv数组中存储的元素变多了. 再一分析, 可以发现, `argv数组中多出来的元素 其实就是在执行程序时后面任意添加的选项`
 
@@ -367,7 +367,7 @@ int main() {
 }
 ```
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304202209572.webp" alt="|inline" style="zoom:100%; display: block; margin: 0 auto;" />
+![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304202209572.webp)
 
 ## 获取环境变量的作用
 
@@ -396,9 +396,9 @@ int main() {
 }
 ```
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304203049185.webp" alt="|inline" style="zoom:100%; display: block; margin: 0 auto;" />
+![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304203049185.webp)
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304203105014.webp" alt="|inline" style="zoom:100%; display: block; margin: 0 auto;" />
+![|small](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304203105014.webp)
 
 像这样, 在程序内部设置用户限制, 即使是root用户也无法突破限制
 
@@ -408,7 +408,7 @@ int main() {
 
 当我们运行自己的程序的时候, 我们可以发现此进程的父进程是zsh(bash)这类SHELL进程, 无论怎么运行、重新运行多少次, 进程的父进程永远都是SHELL进程：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/ba45600fc66de3e0dd212252be18baab.webp" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
+![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/ba45600fc66de3e0dd212252be18baab.webp)
 
 无论进程重新运行多少次, 变得永远都是PID, 而不是PPID, 除非SHELL进程也重新运行
 

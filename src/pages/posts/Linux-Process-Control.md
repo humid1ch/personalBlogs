@@ -124,7 +124,7 @@ fork()子进程创建失败的场景, 其实与操作系统中进程的数量和
 
 而main()函数的返回值说明了进程的执行结果, 其实也就是说**`进程的main()函数的返回值 其实是为了返回给父进程的`**, 而 main() 函数的返回值, 我们也称之为 **`进程的退出码`**, 此退出码被描述在进程的PCB中, 也就是Linux中的task_struct中：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230307210527172.webp)
+![ |huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230307210527172.webp)
 
 但是, 即使将退出码给父进程接收, 父进程怎么根据退出码来对进程任务的执行结果进行判断呢？
 
@@ -138,7 +138,7 @@ fork()子进程创建失败的场景, 其实与操作系统中进程的数量和
 
 > 在Linux中针对进程的不同退出码有不同的解释：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230307212714201.webp" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
+> ![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230307212714201.webp)
 >
 > 在程序中打印 字符串函数strerror(i) 的值, 就可以将Linux系统认为的退出码的意义打印出来
 
@@ -148,11 +148,11 @@ Linux系统中, 任何进程退出时都会存在退出码. 但是进程的退�
 
 `echo $?`, 这个指令可以在命令行中输出上一个推出的进程的退出码:
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230307213549395.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
+![ |small](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230307213549395.webp)
 
 编译运行此代码程序, 然后在命令行执行`echo $?` 就可以查看到退出码：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230307213329167.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
+![ |medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230307213329167.webp)
 
 可以看到, `echo $?` 显示了上一个退出进程的退出码`66`
 
@@ -176,19 +176,19 @@ exit() 与 _exit()有一定的差别, 但是最终的作用都是相同的：
 
 此函数`可以在代码的任意位置使用, 使进程退出, 且exit()的参数即为进程的退出码`：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230308075225187.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
+![ |medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230308075225187.webp)
 
 调用exit()函数, 但是不在main()函数中调用, 看一看进程是否执行exit()退出：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230308075605575.webp)
+![ |huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230308075605575.webp)
 
 `_exit()`:
 
 如果用上面相同的代码, 只将exit()改为_exit(), 结果会不会有变化呢？
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230308080052306.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
+![ |medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230308080052306.webp)
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230308080303936.webp)
+![ |huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230308080303936.webp)
 
 而 相同的代码, 调用exit()和_exit()在结果上是否有什么区别？
 
@@ -303,7 +303,7 @@ exit() 与 _exit()有一定的差别, 但是最终的作用都是相同的：
 	
 	    子进程的退出信息不就是退出码吗？并不全是, 之前提到过进程的退出信息也是在 task_struct中存储着呢：
 	
-	    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230308093956744.webp)
+	    ![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230308093956744.webp)
 	
 	    也就是说, `status指向的内容中不仅存储了退出码, 还存储了退出信号`. 退出码我们知道是什么, 而退出信号又是什么？
 	
@@ -365,7 +365,7 @@ exit() 与 _exit()有一定的差别, 但是最终的作用都是相同的：
 	
 	    若此时子进程是15s后返回的return 0退出的, 那么会有什么结果呢？
 	
-	    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230308170832817.webp" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;"/>
+	    ![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230308170832817.webp)
 	
 	    而若子进程在创建之后的15s内, 被某种进程信号强制退出的话, 又会有什么结果呢？
 	
@@ -514,7 +514,7 @@ int main() {
 
 执行此代码之后, 可以发现子进程确实执行了 `ls -l -a` 的命令：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230310173029484.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
+![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230310173029484.webp)
 
 这也就意味着, execl的参数正如我们猜测的那样：
 
@@ -590,7 +590,7 @@ int main() {
 
 运行此代码的结果, 子进程的运行结果同样与`ls -l -a`相同
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230310181050935.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
+![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230310181050935.webp)
 
 ### execlp()
 
@@ -635,7 +635,7 @@ int main() {
 }
 ```
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230310182228023.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
+![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230310182228023.webp)
 
 ### execvp()
 
@@ -683,7 +683,7 @@ int main() {
 }
 ```
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230310182811677.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
+![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230310182811677.webp)
 
 ### execle()
 

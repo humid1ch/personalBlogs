@@ -33,11 +33,11 @@ featured: false
 
 就像下面这个文件:
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230315171754060.webp)
+![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230315171754060.webp)
 
 即使此文件没有所谓的文件内容, 但还存在文件属性：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230315172458395.webp)
+![ |huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230315172458395.webp)
 
 使用 stat 命令可以直接查看文件的部分属性, 既然文件在磁盘中存在属性, 那么其在磁盘中就不会不占用空间
 
@@ -129,7 +129,7 @@ int main() {
 
 当我们执行之后, 可以发现：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230315200421031.webp)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230315200421031.webp)
 
 但是事实是这样的吗？
 
@@ -166,7 +166,7 @@ int main() {
 }
 ```
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230315201827732.webp)
+![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230315201827732.webp)
 
 第二次只写入一行数据：
 
@@ -186,7 +186,7 @@ int main() {
 
 执行第二次的程序之后, 可以发现, 第一次写入的 5 行数据没有了：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230315202014885.webp)
+![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230315202014885.webp)
 
 这说明, `使用w向文件中写入数据会先将文件中的原内容清除`
 
@@ -216,7 +216,7 @@ int main() {
 }
 ```
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230315202646301.webp)
+![ |huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230315202646301.webp)
 
 可以看到, 在文件的原数据中, 又追加了指定数据.
 
@@ -255,7 +255,7 @@ int main(int argc, char *argv[]) {
 }
 ```
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230315205847970.webp)
+![ |huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230315205847970.webp)
 
 ## 系统级文件接口有关问题
 
@@ -403,7 +403,7 @@ int main() {
 
 执行之后, 就可以看到 用户执行程序时所在的路径下会生成一个newlog.txt文件, 但是`此文件的权限非常的混乱`：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230316153137899.webp)
+![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230316153137899.webp)
 
 我们此时使用的是只需要两个参数的open()接口, 打开的文件并不存在, 所以创建了一个新的文件
 
@@ -441,7 +441,7 @@ int main() {
 
 此时我们查看 umask, 可以发现：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230316154129597.webp" alt=" |inline" style="zoom:80%;" />
+![ |medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230316154129597.webp)
 
 我们传入的0666, 减去 002, 是 0664, 此数表示的文件权限也就是`-rw-rw-r--`
 
@@ -580,7 +580,7 @@ open()打开文件时, 并不只有`创建(O_CREAT)`和`读写(O_RDONLY、O_WRON
 
 当前, 文件的内容是这样的
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230316163648077.webp)
+![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230316163648077.webp)
 
 当编译运行下面这段代码：
 
@@ -610,7 +610,7 @@ int main() {
 
 此时进程再次在文件中写入数据, 结果是从文件开头开始一一覆盖之前的内容
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230316163909761.webp)
+![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230316163909761.webp)
 
 而我们在使用 `fopen(), 并以w方式打开文件时, 会将文件原本的内容清空, 然后再在文件中写入数据`
 
@@ -732,7 +732,7 @@ int main() {
 
 多打开几个文件, 输出打开的文件的fd, 上述代码的执行结果是：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230317014057011.webp)
+![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230317014057011.webp)
 
 可以看到, 当进程打开文件时, `打开文件的fd按照顺序从3~7递增`
 
@@ -777,7 +777,7 @@ int main() {
 
 当你执行这段代码时, 此进程会从命令行接收输入的数据, 并输出两次：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/fd012.gif" alt="fd012  |inline" style="zoom:80%;" />
+![fd012  |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/fd012.gif)
 
 代码所编写的功能是：从fd=0的文件中读取数据, 并将读取到的数据写入到fd=1和fd=2的文件中
 
@@ -797,7 +797,7 @@ int main() {
 >
 > 而FILE在C语言中其实是一个结构体类型, 此结构体包含许多的成员, 其中`也包含着打开文件的fd`！
 >
-> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230317173724589.webp)
+> ![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230317173724589.webp)
 >
 > 我们分别输出 stdin、stdout、stderr这三个FILE指针的_fileno：
 >
@@ -814,7 +814,7 @@ int main() {
 > }
 > ```
 >
-> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230317173921857.webp)
+> ![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230317173921857.webp)
 >
 > 可以看到, `stdin、stdout、stderr这三个FILE指针的_fileno分别是0、1、2, 对应着系统的进程默认打开的标准输入、标准输出、标准错误三个fd`
 >
@@ -853,7 +853,7 @@ int main() {
 
 若操作系统将这些数据结构以链表的形式连接起来维护, 那么就会存在这样一个维护打开文件的数据结构：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230317100951611.webp" alt="|inline" style="zoom:67%;" />
+![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230317100951611.webp)
 
 当然操作系统维护文件结构体的数据结构可能并不是链表, 但是`操作系统一定会为文件结构体维护一个数据结构`
 

@@ -53,11 +53,11 @@ int main() {
 
 执行这段代码的结果是：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230317211153325.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto" />
+![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230317211153325.webp)
 
 可以看到, 新打开的文件分配的fd变成了`0`. 如果我们关闭0、2文件, 再打开两个文件, 新打开文件的fd会怎么分配呢？
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230317211753825.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto" />
+![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230317211753825.webp)
 
 这意味着什么？这其实意味着, `打开文件分配fd的规则其实是, 从头遍历fd_array[]数组, 将没有使用的最小下标分配给新打开的文件`
 
@@ -96,7 +96,7 @@ int main() {
 > }
 > ```
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230317214202374.webp" alt="|wide" style="zoom:80%; display: block; margin: 0 auto" />
+> ![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230317214202374.webp)
 
 那么, 如果我们关闭fd=1的文件, 再打开一个新的文件, 并使用C语言文件操作向stdout写入内容, 那么会发生什么呢？
 
@@ -124,7 +124,7 @@ int main() {
 }
 ```
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230317214441303.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto" />
+![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230317214441303.webp)
 
 > 关闭fd=1, fprintf()之后, 必须要手动刷新文件缓冲区, 不过暂时不做解释
 >
@@ -132,7 +132,7 @@ int main() {
 
 代码的执行结果并没有在屏幕中输出任何信息. 那信息打印到哪里了呢？
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230317214727485.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto" />
+![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230317214727485.webp)
 
 此时当你查看刚刚打开文件的内容, 会发现, `原来应该打印到标准输出流的信息 打印到了刚刚打开的文件中`
 
@@ -246,7 +246,7 @@ int main() {
 }
 ```
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230318001111053.webp)
+![ |huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230318001111053.webp)
 
 ### dup2()实现输入重定向
 
@@ -317,7 +317,7 @@ int main() {
 
 这段代码的执行结果是：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/printfBuffer.gif" alt="printfBuffer |inline" style="zoom:80%; display: block; margin: 0 auto" />
+![printfBuffer |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/printfBuffer.gif)
 
 可以看到, 明明在printf()之后的 write()语句先输出了. 
 
@@ -379,7 +379,7 @@ int main() {
 
 这段代码的执行结果是, 先输出了`"I am a process"`, 然后在3s之后输出了`"Hello world"`
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/printfBuffer.gif" alt="printfBuffer  |inline" style="zoom:80%; display: block; margin: 0 auto" />
+![printfBuffer  |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/printfBuffer.gif)
 
 这样的结果可以确定一个结论：`系统接口wirte(), 是不存在文件缓冲区的, 所以用write()向标准输出写数据, 会直接在屏幕中打印出来`
 
@@ -401,7 +401,7 @@ C语言中的FILE是一个结构体, 里面封装了许多与文件相关的属�
 
 在Linux平台中, /usr/include/stdio.h 文件内 有一句：`typedef struct _IO_FILE FILE;`：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230318084548361.webp" alt="|inline" style="zoom:80%; display: block; margin: 0 auto" />
+![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230318084548361.webp)
 
 这就是C语言中我们熟知的 FILE结构体. 那么 `struct _IO_FILE{}` 具体是什么呢？
 
@@ -459,13 +459,13 @@ int main() {
 
 执行上面的代码, 可以发现：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230318094633174.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto" />
+![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230318094633174.webp)
 
 屏幕上什么都没有打印.
 
 而, 当我们不关闭stdout时：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230318094804037.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto" />
+![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230318094804037.webp)
 
 执行代码就会在屏幕上打印三个`"Hello July"`
 
@@ -524,11 +524,11 @@ int main() {
 
 1. 正常编译运行：
 
-	<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230318101740805.webp" alt="|wide" style="zoom:80%; display: block; margin: 0 auto" />
+	![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230318101740805.webp)
 
 2. 输出重定向到文件中
 
-	<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230318101812284.webp" alt="|wide" style="zoom:80%; display: block; margin: 0 auto" />
+	![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230318101812284.webp)
 
 你会发现, `直接运行屏幕上输出了4句话, 但是如果是输出重定向到文件中, 文件中会被写入7句话`
 
@@ -544,9 +544,9 @@ int main() {
 
 我们首先要明确, `文件缓冲区是由FILE结构体维护的, 是属于父进程内部的数据`
 
-第二种情况是在运行时, 输出重定向到了一个文件中. 那么`文件缓冲区的刷新策略就改变了`, 上面介绍过向文件中写入数据, 文件缓冲区的刷新策略是`全刷新`. 所以在执行前三个语句时, **`会将三句话都存储到文件缓冲区内 且不刷新`**. 而执行系统接口**`wirte()是没有缓冲区`**的, 所以会率先写入到文件中. 
+第二种情况是在运行时, 输出重定向到了一个文件中. 那么`文件缓冲区的刷新策略就改变了`, 上面介绍过向文件中写入数据, 文件缓冲区的刷新策略是`全刷新`. 所以在执行前三个语句时, **`会将三句话都存储到文件缓冲区内 且不刷新`**. 而执行系统接口 **`wirte()是没有缓冲区`** 的, 所以会率先写入到文件中. 
 
-之后, 进程会创建子进程. 我们知道, 子进程和父进程在不修改数据时是**`共享一份代码和数据`**的. 而**`无论父子进程谁要修改数据, 就会发生写时拷贝`**. 子进程被创建时, 很明显父进程的文件缓冲区还没有被刷新. 那么也就是说**`子进程创建出来时, 是与父进程共享同一份文件缓冲区的`**. 那么接下来, 无论是子进程先终止, 还是父进程先终止, 都需要清除共享的文件缓冲区. 而`fork()父子进程修改数据的机制是, 只要修改就会发生写时拷贝`, 所以在**`进程要清除文件缓冲区时, 另一个进程会先拷贝一份`**. 拷贝完成之后, 先终止的进程就会刷新文件缓冲区, 将缓冲区内的数据写入到文件中, 然后另一个进程终止, 将拷贝的文件缓冲区也刷新掉, 将相同的数据写入到文件中.
+之后, 进程会创建子进程. 我们知道, 子进程和父进程在不修改数据时是 **`共享一份代码和数据`**的. 而**`无论父子进程谁要修改数据, 就会发生写时拷贝`**. 子进程被创建时, 很明显父进程的文件缓冲区还没有被刷新. 那么也就是说 **`子进程创建出来时, 是与父进程共享同一份文件缓冲区的`**. 那么接下来, 无论是子进程先终止, 还是父进程先终止, 都需要清除共享的文件缓冲区. 而`fork()父子进程修改数据的机制是, 只要修改就会发生写时拷贝`, 所以在 **`进程要清除文件缓冲区时, 另一个进程会先拷贝一份`**. 拷贝完成之后, 先终止的进程就会刷新文件缓冲区, 将缓冲区内的数据写入到文件中, 然后另一个进程终止, 将拷贝的文件缓冲区也刷新掉, 将相同的数据写入到文件中.
 
 至此, 就造成了此例中, 文件内被写入七句话
 
@@ -640,7 +640,7 @@ int main() {
 }
 ```
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230318112042472.webp)
+![ |huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230318112042472.webp)
 
 ## my_fclose()函数
 
@@ -729,7 +729,7 @@ int main() {
 
 ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230410155910812.webp)
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230410155916107.webp)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230410155916107.webp)
 
 # 再谈重定向
 
@@ -787,7 +787,7 @@ int main() {
 }
 ```
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230318203428385.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto" />
+![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230318203428385.webp)
 
 这段代码分别向标准输出和标准错误打印了4句话, 那么当我们执行代码并输出重定向到文件中时：
 
@@ -807,7 +807,7 @@ int main() {
 
 在介绍之前, 先看一下这个命令：`./out_err 1> out_err.txt`
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230410155942131.webp)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230410155942131.webp)
 
 那么如果是这个呢？`./out_err 2> out_err.txt`
 
@@ -831,7 +831,7 @@ int main() {
 
 `./out_err 1> out.txt 2> err.txt`
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230410155951117.webp)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230410155951117.webp)
 
 这样的重定向用法, `可以分离程序的运行日志, 可以将运行错误日志分离出来以便分析`
 

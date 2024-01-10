@@ -15,7 +15,7 @@ featured: false
 
 # Linux下的进程地址空间
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20221025221348296.webp" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
+![|small](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20221025221348296.webp)
 
 在介绍C++的内存控制时, 我用了这样一张图来大致表述一个程序的程序地址空间, 并且也提到过这块空间占用的是内存, 并且通过下面的一段代码大致分析了, 各区域存储的变量类型：
 
@@ -35,7 +35,7 @@ featured: false
 
 不过针对Linux, 需要在将上图再细微修改一下：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306100654594.webp" alt=" |inline" style="zoom:67%; display: block; margin: 0 auto;"/>
+![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306100654594.webp)
 
 这张图可以大致用来表示 Linux下进程地址空间区域分布
 
@@ -77,11 +77,11 @@ int main() {
 
 运行此代码程序可以看到：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306101839314.webp" style="zoom:80%; display: block; margin: 0 auto;" />
+![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306101839314.webp)
 
 1. 首先输出 main函数地址：
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306102000284.webp" alt="|wide" style="zoom:100%; display: block; margin: 0 auto;" />
+    ![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306102000284.webp)
 
     是输出的所有地址中最小的, 也就是最低的
 
@@ -89,11 +89,11 @@ int main() {
 
 2. 其次是 未初始化的全局变量、初始化的全局变量 和 初始化的函数内部定义的静态变量：
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306102255151.webp" alt="|wide" style="zoom:100%; display: block; margin: 0 auto;" />
+    ![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306102255151.webp)
 
     首先是未初始化、初始化的全局变量：可以看到, 未初始化的全局变量的地址是在已经初始化的全局变量上面的, 也就对应了图中细分的静态区区域：
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306103810316.webp" alt="|wide" style="zoom:100%; display: block; margin: 0 auto;" />
+    ![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306103810316.webp)
 
      `全局变量相对来讲：未初始化数据在高地址, 初始化数据在低地址`
 
@@ -101,23 +101,23 @@ int main() {
 
 3. 定义在栈上的数据：
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306102916297.webp" alt="|inline" style="zoom:100%; display: block; margin: 0 auto;" />
+    ![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306102916297.webp)
 
     按照定义的顺序, 最先定义的数据的地址空间最大最高, 之后定义的`按照定义顺序逐渐减小`, 这表明`在栈上定义数据 是由高到低占用空间的, 即在栈上定义数据占用空间是向下增长的`
 
 4. 定义在堆上的数据：
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306103241681.webp" alt="|inline" style="zoom:100%; display: block; margin: 0 auto;" />
+    ![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306103241681.webp)
 
     按照定义的顺序, `其占用空间的方向 与栈刚好相反`. `在堆区定义数据 是由低到高占用空间的, 即在堆区定义数据占用空间是向上增长的`
 
 5. 栈 和 堆区数据的地址, 存在非常大的断层：
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306103628951.webp" alt="|inline" style="zoom:100%; display: block; margin: 0 auto;" />
+    ![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306103628951.webp)
 
     这也说明 堆和栈之间是存在着非常大的一块地址空间的
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306103958036.webp" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
+    ![|small](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306103958036.webp)
 
 ## 如何感知到进程确实存在进程地址空间
 
@@ -233,7 +233,7 @@ Linux中, 调用fork()系统调用创建的子进程的代码是继承自其父�
 
 	程序内, 其实也是存在区域的. 在Linux系统中, 可以很简单的观察到：
 	
-	<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306165243300.webp" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
+	![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230306165243300.webp)
 	
 	> readelf 指令可以用来查看文件的某些信息
 

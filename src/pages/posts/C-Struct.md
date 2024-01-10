@@ -24,8 +24,7 @@ featured: false
 #### 1.1.1 标准声明
 
 ```c
-struct User
-{
+struct User {
     char Name[20];
     char Sex[10];
 };
@@ -37,14 +36,13 @@ struct User
 #### 1.1.2 特殊声明(不完全声明)
 
 ```c
-struct
-{
+struct {
 	char Name[20];
     char Sex[10];
     int age;
 }User1;
-struct
-{
+
+struct {
 	char Name[20];
     char Sex[10];
     int age;
@@ -61,8 +59,7 @@ struct
 以 链表节点 为例：
 
 ```c
-struct Node
-{
+struct Node {
     int data;
     struct Node* next;
 }
@@ -72,8 +69,7 @@ struct Node
 但是
 
 ```c
-typedef struct
-{
+typedef struct {
     int data;
     Node* next;
 }Node;
@@ -87,22 +83,19 @@ typedef struct
 
 ```c
 // 结构体声明
-struct Contact
-{
+struct Contact {
     char Addr[30];
     char Tele[12];
 };
 // 嵌套结构体的结构体声明
-struct User
-{
+struct User {
     char Name[20];
     char Sex[10];
     int age;
     struct Contact C;
 };
 
-int main()
-{
+int main() {
     struct Contact C1 = {"CSDN", "2xxxxxxxxxx" };//结构体变量的定义和初始化
 	struct User U1 = { "July3", "Male", 19, { "CSDN", "1xxxxxxxxxx" } };	//嵌套结构体的结构体变量的定义和初始化
     
@@ -117,8 +110,7 @@ int main()
 下面这段结构体的大小是多少？
 
 ```c
-struct S1
-{
+struct S1 {
     char c1;
     int i;
     char c2;
@@ -205,8 +197,7 @@ struct S1
 我们以上面举过例子的结构体为例：
 
 ```c
-struct S1
-{
+struct S1 {
     char c1;
     int i;
     char c2;
@@ -228,23 +219,23 @@ struct S1
 >
 > 1. `c1` 存放在结构体变量 开始地址的 0 偏移处
 >
->     ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160409063.webp)
+>     ![ |medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160409063.webp)
 >
 > 2. `i` 的对齐数是 `4`，所以存放在偏移量是 `4`的整数倍 处
 >
 >    至少是`4` 
 >
->    ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160443593.webp)
+>    ![ |medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160443593.webp)
 >
 > 3. `c2` 的对齐数是 `1`，所以存放在偏移量是 `1`的整数倍 处
 >
->     ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160509167.webp)
+>     ![ |medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160509167.webp)
 >
 > 4. 结构体总大小必须为 最大对齐数的整数倍，在此结构体中即为 `4` 的整数倍。
 >
 >    `c2`所在空间已经是 第 `9` 个字节，所以此结构体总大小 最小为 `12`
 >
->    ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160607382.webp)
+>    ![ |huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160607382.webp)
 >
 >    所以，结构体大小为 `12` 字节
 
@@ -253,8 +244,7 @@ struct S1
 再来看下边这个例子：
 
 ```c
-struct S2
-{
+struct S2 {
     char c1;
     char c2;
     int i;
@@ -263,7 +253,7 @@ struct S2
 
 我们将，上一个结构体成员中的，`i` 和`c2`换一换位置结果又是什么呢?
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160744394.webp)
+![ |medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160744394.webp)
 
 我们发现只是换了一下位置，结构体大小就减少了 `4` 个字节 
 
@@ -276,15 +266,15 @@ struct S2
 >
 >1. `c1` 存放在结构体变量 开始地址的 0 偏移处
 >
->    ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160409063.webp)
+>    ![ |medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160409063.webp)
 >
 >2. `c2` 的对齐数是 `1`，所以存放在偏移量是 `1`的整数倍 处，`c2` 下面就可以
 >
->    ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160846070.webp)
+>    ![ |medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160846070.webp)
 >
 >3. `i` 的对齐数是 `4`，所以存放在偏移量是 `4`的整数倍 处, 至少是`4` 
 >
->    ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160914404.webp)
+>    ![ |medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409160914404.webp)
 >
 >4. 结构体总大小必须为 最大对齐数的整数倍，在此结构体中即为 `4` 的整数倍
 >    
@@ -299,8 +289,7 @@ struct S2
 再来一个例子：
 
 ```c
-struct S3
-{
+struct S3 {
 	double n;
     char c1;
     int i;
@@ -316,15 +305,15 @@ struct S3
 >
 > 1. `n` 存放在结构体变量 开始地址的 `0` 偏移处
 >
->     ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409161007720.webp)
+>     ![ |medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409161007720.webp)
 >
 > 2. `c2` 的对齐数是 `1`，所以存放在偏移量是 `1`的整数倍 处
 >
->     ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409161023625.webp)
+>     ![ |medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409161023625.webp)
 >
 > 3. `i` 的对齐数是 `4`，所以存放在偏移量是 `4`的整数倍处, 至少是`12` 
 >
->    ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409161057999.webp)
+>    ![ |medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409161057999.webp)
 >
 > 4. 结构体总大小必须为 最大对齐数的整数倍，在此结构体中即为 `8` 的整数倍。
 >
@@ -336,22 +325,20 @@ struct S3
 
 我们来验证一下：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409161204408.webp)
+![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409161204408.webp)
 
 确实跟我们计算的一样，这个结构体大小为 `16` 字节
 
 ##### 1.4.2.4 示例4（嵌套结构体的结构体）
 
 ```c
-struct S3
-{
+struct S3 {
 	double n;
     char c1;
     int i;
 };
 
-struct S4
-{
+struct S4 {
     int n;
     struct S3 s;
     char c1;
@@ -375,21 +362,21 @@ struct S4
 >
 > 1. `n` （大小为`4`）存放在结构体变量 开始地址的 `0` 偏移处
 >
->     ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409161222127.webp)
+>     ![ |medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409161222127.webp)
 >
 > 2. `s` （大小为`16`）的对齐数是 `8`，所以存放在偏移量是 `8`的整数倍 处
 >
->     ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409161234978.webp)
+>     ![ |medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409161234978.webp)
 >
 > 3. `c1`（大小为 `1`）的对齐数是 `1`，所以存放在偏移量是 `1`的倍数 处
 >
->     ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409161247181.webp)
+>     ![ |medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409161247181.webp)
 >
 > 4. 结构体总大小必须为 最大对齐数的整数倍，在此结构体中即为 `8` 的整数倍。
 >
 >    `c1` 存放完，已经占用 `25` 字节，所以此结构体总大小 最小为 `32`
 >
->    ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409161317937.webp)
+>    ![ |huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409161317937.webp)
 >
 >    此结构体总大小为：`32` 字节
 
@@ -408,15 +395,13 @@ struct S4
 >   > 例如：
 >   >
 >   > ```c
->   > struct S3
->   > {
->   > 	double n;
+>   > struct S3 {
+>   >     double n;
 >   >     char c1;
 >   >     int i;
 >   > };
 >   > 
->   > struct S4
->   > {
+>   > struct S4 {
 >   >     int n;
 >   >     struct S3 s;
 >   >     char c1;
@@ -443,14 +428,12 @@ struct S4
    >举个例子：
    >
    >```c
-   >struct S
-   >{
+   >struct S {
    >    char c;
    >    int i;
    >}
    >
-   >int main()
-   >{
+   >int main() {
    >    struct S s1;
    >    return 0;
    >}
@@ -499,15 +482,13 @@ struct S4
 我们 举过的例子，`示例 2` 和 `示例 3` 仅仅是将结构体内部的成员换了一个位置，就节省了 4 个字节的空间。
 
 ```c
-struct S1
-{
+struct S1 {
     char c1;
     int i;
     char c2;
 };
 // ↓↓↓
-struct S2
-{
+struct S2 {
     char c1;
     char c2;
     int i;
@@ -530,28 +511,26 @@ struct S2
 
 这句预处理指令是设置默认对齐数用的，`n` 就是 要设置的默认对齐数的值
 
-> ![举个栗子 |tiny](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.webp)
+> ![|tiny](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.webp)
 >
 > ```c
 > #pragma pack(1)		//设置默认对齐数为1
 > #include <stdio.h>
 > 
-> struct S1
-> {
+> struct S1 {
 >  char c1;
 >  int i;
 >  char c2;
 > }
 > 
-> int main()
-> {
+> int main() {
 >  printf("%zu", sizeof(struct S1));
 > 
 >  return 0;
 > }
 > ```
 >
-> ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409161432807.webp)
+> ![ |medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409161432807.webp)
 >
 > 此时，`struct S1`的总大小变成了 `6` 字节，而我们没有改变的时候是 `12` 字节
 
@@ -566,20 +545,17 @@ struct S2
 1. 结构体变量直接传参
 
    ```c
-   struct S
-   {
+   struct S {
        int data[1000];
        int num;
    };
    struct S s1 = { {2,0,0,2}, 2022 };
    
-   void print1(struct S s)
-   {
+   void print1(struct S s) {
        printf("%d\n", s.num);
    }
    
-   int main()
-   {
+   int main() {
        print1(s1);
        return 0;
    }
@@ -590,20 +566,17 @@ struct S2
 2. 结构体变量地址传参
 
    ```c
-   struct S
-   {
+   struct S {
        int data[1000];
        int num;
    };
    struct S s1 = { {2,0,0,2}, 2022 };
    
-   void print2(struct S* ptrs)
-   {
+   void print2(struct S* ptrs) {
        printf("%d\n", ptrs->num);
    }
    
-   int main()
-   {
+   int main() {
        print2(&s1);
        return 0;
    }

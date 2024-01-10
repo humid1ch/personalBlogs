@@ -27,7 +27,9 @@ featured: false
 
 	为什么？因为shell是可以`循环从命令行接收用户输入的内容`的
 
-2. 其次, shell 需要一个设置一个提示符. 类似这样的东西：<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230311192332112.webp" alt="image-20230311192332112" style="zoom:75%;" />
+2. 其次, shell 需要一个设置一个提示符. 类似这样的东西: 
+    
+    ![|small](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230311192332112.webp)
 
 3. 第三, 我们使用shell是需要执行命令的, 且这些命令需要在环境变量PATH下
 
@@ -49,11 +51,11 @@ featured: false
 
 且在接收用户输入的指令之前, 需要先输出一个用户提示符：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230311195500369.webp" alt=" |inline" style="zoom:80%; display: block; margin:0 auto" />
+![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230311195500369.webp)
 
 执行：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/GIF%202023-3-11%2019-56-28.gif" alt=" |inline" style="zoom:80%; display: block; margin:0 auto" />
+![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/GIF%202023-3-11%2019-56-28.gif)
 
 用户提示符是打印出来了, 但是 是无限循环地打印.
 
@@ -88,7 +90,7 @@ int main() {
 
 执行上述代码的结果是：
 
-![myShell_fgets  |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/myShell_fgets.gif)
+![myShell_fgets  |huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/myShell_fgets.gif)
 
 可以实现命令行输入, 并且接收输入内容.
 
@@ -149,9 +151,9 @@ command_argV[0] 设置为 命令名之后, 从 command_arg[1] 开始 将每一�
 
 分割存储之后的 command_argV 内容可以展示一下：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230311225342322.webp)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230311225342322.webp)
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230311225845184.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto" />
+![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230311225845184.webp)
 
 将接收到的字符串分割存储到字符指针数组中之后, 就可以创建子进程并进程替换了
 
@@ -200,7 +202,7 @@ int main() {
 
 此时的代码, 就可以完成一些命令操作了：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230311231019639.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto" />
+![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230311231019639.webp)
 
 但是 执行结果好像有些奇怪
 
@@ -261,7 +263,7 @@ int main() {
 
 此时, 再执行代码：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230311231631386.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto" />
+![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230311231631386.webp)
 
 可以看到, 命令就可以正常执行了.
 
@@ -340,7 +342,7 @@ int main() {
 
 此时, ll 和 ls 就可以更加完善的执行：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230311233716429.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto" />
+![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230311233716429.webp)
 
 ### 5. 自建命令添加
 
@@ -350,7 +352,7 @@ shell最基本的功能已经实现了
 
 但是 有一些命令是无法执行的：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230313154548153.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto" />
+![ |huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230313154548153.webp)
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230313154906491.webp)
 
@@ -358,7 +360,7 @@ shell最基本的功能已经实现了
 
 因为, cd 和 export 命令实际上都是shell的内建命令, PATH环境变量路径下存在的程序其实也没有实际功能的：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230313162046302.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto" />
+![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230313162046302.webp)
 
 可以看到, 执行 /usr/bin 路径下的cd程序, 也是没有作用的
 
@@ -464,7 +466,7 @@ int main() {
 }
 ```
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230313164408816.webp)
+![ |huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230313164408816.webp)
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230313165631214.webp)
 
