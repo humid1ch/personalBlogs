@@ -27,21 +27,21 @@ Linux的文件操作, 都是从内存文件进行操作, 即都是对打开的�
 
 ## 磁盘的物理结构
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230320145023027.webp)
+![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230320145023027.webp)
 
 这就是一个磁盘, 上面的圆盘叫做`磁盘盘片`, 悬在盘片上的像针一样的东西叫`磁头`, 磁盘中间的部分叫`主轴`, 磁头链接着`磁头臂`, 磁头臂被一个`传动轴`连接着：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230320150109444.webp)
+![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230320150109444.webp)
 
 其中, 主轴下方是轴承和马达, 可以带动`盘片旋转`, 传动轴则可以让`磁头臂左右摆动`, 即 磁盘内部的机械结构是类似这样运动的：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230320151903616.webp)
+![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230320151903616.webp)
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/%E7%A3%81%E7%9B%98%E6%9C%BA%E6%A2%B0%E8%BF%90%E5%8A%A8.gif" alt="磁盘机械运动" style="zoom:80%; display: block; margin: 0 auto;"/>
+![磁盘机械运动 |medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/%E7%A3%81%E7%9B%98%E6%9C%BA%E6%A2%B0%E8%BF%90%E5%8A%A8.gif)
 
 并且, 一个磁盘中可能有上下排列有许多的盘片, 并且每个盘片上下都有6一个磁头, 类似这样：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230320152927464.webp" alt="image-20230320152927464" style="zoom:50%;" /><img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230320153121768.webp" alt="image-20230320153121768" style="zoom:50%;" />
+![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230320152927464.webp)
 
 ## 磁盘的存储结构
 
@@ -57,7 +57,7 @@ Linux的文件操作, 都是从内存文件进行操作, 即都是对打开的�
 
     其实光滑的`盘片上可以看作有无数个同心圆`, 图片表示就类似这样:
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230320163807230.webp" alt="|wide" style="zoom:68%;display: block; margin: 0 auto;" />
+    ![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230320163807230.webp)
 
     不过这些`圆在盘片上被称为磁道`, 而`每个磁道又会被分为许多的的扇区`：
 
@@ -109,7 +109,7 @@ Linux的文件操作, 都是从内存文件进行操作, 即都是对打开的�
 	
 	就像磁带一样, 卷在一起的时候可以看作是数据存储在一个一个圆圈上, 当把磁带拉直也可以看作数据是存储在一条直线上. 不管是卷起来还是拉直, 其实都没有损坏磁带, 更没有损坏磁带上的数据.
 	
-	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230320225821020.webp)
+	![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230320225821020.webp)
 	
 	那么其实, 磁盘上的盘片上的磁带也可以抽象成这样的直线的、线性的形式, `作为一个数组被管理起来`
 	
@@ -319,7 +319,7 @@ inode中存储有一个类似block[15]这样的数组结构, 其中：
 
 访问目录进入目录, 我们`需要的是 x执行权限`：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230321165736065.webp)
+![ |huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230321165736065.webp)
 
 在目录下创建文件, 我们`需要的是 w写权限`：
 

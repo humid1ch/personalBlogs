@@ -197,7 +197,7 @@ int pthread_create(pthread_t *thread, const pthread_attr *attr, void *(*start_ro
 
 不过, 实际上也没有太复杂. `pthread_t` 就是一个无符号长整型：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230412101716321.webp)
+![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230412101716321.webp)
 
 第一个参数就是此类型的指针, 第一个参数是一个输出型参数, 用于获取线程id
 

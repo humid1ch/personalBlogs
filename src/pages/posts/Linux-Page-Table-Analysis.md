@@ -138,7 +138,7 @@ CPU会分别用这三部分查找到物理内存.
 >
 > 即, 在操作系统中 物理内存被划分为了若干个4KB的单位, 被称为页框.
 >
-> ![物理内存被分为若干4KB大小的页框 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230414122136087.webp)
+> ![物理内存被分为若干4KB大小的页框 |medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230414122136087.webp)
 >
 > > 除了物理内存之外, 磁盘中的程序在编译的时候, 也是按照4KB为单位划分好的. `程序中`的4KB单位被称为`页帧`
 > >

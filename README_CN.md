@@ -32,8 +32,8 @@
 
 ![](./public/preview/preview_different_mode.png)
 
-有九种图片显示模式: wide, big, inline, cover, tiny, small, medium, large, huge. 
-当你编写 mark 文件的时候可以指定 wide 或 big 或 inline 或 cover 或 tiny 或 small 或 medium 或 large 或 huge 到你的图片 alt 属性中, 比如这样:
+有九种图片显示模式: wide, big, inline, cover, tiny, small, medium, large, huge, huger. 
+当你编写 mark 文件的时候可以指定 wide 或 big 或 inline 或 cover 或 tiny 或 small 或 medium 或 large 或 huge 或 huger 到你的图片 alt 属性中, 比如这样:
 
 ```markdown
 ![alt content|wide](a.png)
@@ -43,7 +43,7 @@
 
 <strong>前四种显示模式的大小: `inline(800)` `big(920)` `wide(1480)` `cover(1880)`</strong>
 
-<strong>然后: `tiny(128)` `small(256)` `medium(400)` `large(512)` `huge(660)`</strong>
+<strong>然后: `tiny(128)` `small(256)` `medium(400)` `large(512)` `huge(660)` `huger(700)`</strong>
 
 ## 🚀 项目结构
 

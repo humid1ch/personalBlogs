@@ -89,7 +89,7 @@ Linux为我们提供了三种进程间通信的方法：
 
 就像 一个进程向文件中写入内容, 另一个进程从同一个文件中读取内容：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230324114404251.webp)
+![ |huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230324114404251.webp)
 
 这个过程中, 我们通过访问同一个文件资源, 达成了一个进程向另一个进程传递数据的目的, 那这其实就是一种广义上的进程通信.
 
@@ -123,7 +123,7 @@ Linux为我们提供了三种进程间通信的方法：
 
 而这个 `files结构体`中, 直接或间接描述了文件的所有属性, 以及 此文件的缓冲区相关信息：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230324122704908.webp)
+![ |huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230324122704908.webp)
 
 缓冲区信息中, 包含着描述文件的inode结构体, 而inode结构体中其实描述着一个联合体：
 
@@ -214,13 +214,13 @@ Linux操作系统提供了一个接口：
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230324230532528.webp)
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230325183110031.webp)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230325183110031.webp)
 
-且, pipe(), 如果*`创建管道成功, 则返回0, 否则返回-1`*, 并设置errno
+且, pipe(), 如果 `创建管道成功, 则返回0, 否则返回-1`, 并设置errno
 
-pipe系统调用的作用是, 打开一个管道文件. 其参数是一个**`输出型参数`** 
+pipe系统调用的作用是, 打开一个管道文件. 其参数是一个 **`输出型参数`** 
 
-在pipe系统调用**`执行成功之后, 参数数组内会存储两个元素`** ：
+在pipe系统调用 **`执行成功之后, 参数数组内会存储两个元素`** ：
 
 1. `pipe[0],` 存储以 只读方式 打开管道时获得的fd
 2. `pipe[1]`, 存储以 只写方式 打开管道时获得的fd
@@ -330,7 +330,7 @@ int main() {
 
 > pipe文件中, 存在等待队列：
 >
-> ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230325221323595.webp)
+> ![ |huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230325221323595.webp)
 
 可以通过修改父子进程的写入和读取数据的时间, 来验证一下管道文件是否存在读写顺序：
 

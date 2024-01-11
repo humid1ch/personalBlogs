@@ -39,7 +39,7 @@ Linux操作系统中, 由于进程地址空间的存在, 进程具有独立性
 
 进程的进程地址空间的大致模型是这样的：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230328180441494.webp)
+![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230328180441494.webp)
 
 在Linux动态库的相关文章中提到过, 动态库在进程运行时是加载到内存中, 再被映射到进程地址空间的共享区的
 
@@ -99,7 +99,7 @@ shmget() 是操作系统提供的`分配共享内存的系统调用`, 需要三�
 	
 	因为 key_t 其实就是整型：
 	
-	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230328221108075.webp)
+	![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230328221108075.webp)
 	
 	传入的key值, 其实是 `创建的共享内存段在操作系统层面的的唯一标识符`
 	
@@ -399,11 +399,11 @@ int main() {
 >
 > 若不设置权限, 则创建出的共享内存块的权限会0, 即任何用户无法使用:
 >
-> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230329105553570.webp)
+> ![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230329105553570.webp)
 >
 > 当我们通过 `| 0666` 设置权限之后:
 >
-> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230329105706308.webp)
+> ![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230329105706308.webp)
 
 `ipcShmClient:`
 
@@ -485,7 +485,7 @@ clean:
 
 其实可以很明显的看到: 
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230329111729949.webp)
+![ |huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230329111729949.webp)
 
 然后在进程退出的过程中:
 

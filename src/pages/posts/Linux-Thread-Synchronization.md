@@ -999,13 +999,13 @@ int main() {
 
 用数组实现的普通队列的先进先出一般是固定的队头, 如果以 [0, 7] 来实现, 那么队头恒为0.
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230421153132693.webp)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230421153132693.webp)
 
  先进先出总是 `从 0位置出`, 然后将后面的元素向前移动一位.
 
 而 **`环形队列不同`**. 环形队列可以看作将数组卷了起来：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230421144734700.webp" alt="|inline" style="zoom:80%; display: block; margin: 0 auto" />
+![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230421144734700.webp)
 
 环形队列 使用两个"指针"来表示队头和队尾. 并且, 不同于普通的队列, **`环形队列的队头是可以变化的`**. 什么意思呢？
 

@@ -103,7 +103,7 @@ kill -l 显示出的Linux进程信号中,  **`1 ~ 31 号都是普通的进程信
 
 其实这些信号都是  **`宏`**. 这些宏定义在  **`signum.h`** 头文件中：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230404093506092.webp)
+![ |huger](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230404093506092.webp)
 
 除了直接查看头文件里定义的内容, 还可以通过 `man 7 signal` 来查看man手册中记录的有关信号的内容：
 
@@ -141,23 +141,23 @@ man 手册中, 不仅记录了信号的宏定义和编号, 还记录的此  **`�
 
 当用户编写了指定信号的自定义处理方法时, 进程在接收到信号之后, 本该由系统内核处理的信号 会转换为用户态的指定处理方法 来处理信号. 这种情况被称为  **`信号的捕捉`**
 
-### signal() 捕捉信号
+### `signal()`捕捉信号
 
-signal() 是一个系统调用接口, 用于捕捉进程信号, 并由用户处理:
+`signal()`是一个系统调用接口, 用于捕捉进程信号, 并由用户处理:
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230404102659624.webp)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230404102659624.webp)
 
 此函数的声明为：`sighandler_t signal(int signum, sighandler_t handler);`
 
 看起来非常的麻烦, 但其实 `sighandler_t` 只是一个 返回值为空 参数为一个int类型 的函数指针：`void (*)(int)`
 
-那么也就是说, `signal()` 函数的返回值是一个函数指针, 其第二个参数也需要传入一个函数指针
+那么也就是说,`signal()`函数的返回值是一个函数指针, 其第二个参数也需要传入一个函数指针
 
-那么 signal() 的参数：
+那么`signal()`的参数：
 
-1. `int signum`, 此为signal() 的第一个参数, 需要传入指定的信号编号, 表示捕捉此信号时 自定义处理
+1. `int signum`, 此为`signal()`的第一个参数, 需要传入指定的信号编号, 表示捕捉此信号时 自定义处理
 
-2. `sighandler_t handler`, 此为 signal()的第二个参数, 需要传入一个 返回值为空, 参数为一个int类型 的函数指针, 其实可直接传入一个函数名. 传入的函数, 即为  **`指定信号的自定义处理函数`**.
+2. `sighandler_t handler`, 此为`signal()`的第二个参数, 需要传入一个 返回值为空, 参数为一个int类型 的函数指针, 其实可直接传入一个函数名. 传入的函数, 即为  **`指定信号的自定义处理函数`**.
 
 	即, 当捕捉到指定信号之后, 不会按照默认情况去处理此信号, 而是通过我们传入的自定义函数来处理
 	
@@ -200,17 +200,17 @@ int main() {
 
 ![SIGINT |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/SIGINT.gif)
 
-而上面的代码中, 我们通过使用 signal() 将2信号的处理方式设置为一个自定义的回调函数. 在使用 `Ctrl + C` 会发生什么呢？
+而上面的代码中, 我们通过使用 `signal()` 将2信号的处理方式设置为一个自定义的回调函数. 在使用 `Ctrl + C` 会发生什么呢？
 
 ![signal_SIGINT |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/signal_SIGINT.gif)
 
 可以看到, 尽管一直使用 `Ctrl + C` 快捷键, 也不能中断进程了, 而是不断回调我们传入的函数 以自定义处理信号.
 
-这就是 signal() 的作用,  **`捕捉指定信号, 并自定义处理`**
+这就是 `signal()` 的作用,  **`捕捉指定信号, 并自定义处理`**
 
-> 按理论来说, signal() 是可以针对所有的普通信号进行捕捉的, 但实际上存在例外：
+> 按理论来说, `signal()` 是可以针对所有的普通信号进行捕捉的, 但实际上存在例外：
 >
-> signal() 无法捕捉 `9信号(SIGKILL)`. 也就是说, 即使使用了 `signal(9, handler);`, 给进程发送 9信号, 进程依旧会默认处理：
+> `signal()` 无法捕捉 `9信号(SIGKILL)`. 也就是说, 即使使用了 `signal(9, handler);`, 给进程发送 9信号, 进程依旧会默认处理：
 >
 > ```cpp
 > #include <iostream>
@@ -362,7 +362,7 @@ int main(int argc, char* argv[]) {
 }
 ```
 
-在上面这段代码中, 我们先使用 signal() 来捕捉2信号, 然后再循环使用 raise(2) 测试raise()发送信号的结果.
+在上面这段代码中, 我们先使用 `signal()` 来捕捉2信号, 然后再循环使用 raise(2) 测试raise()发送信号的结果.
 
 最终的执行结果为：
 
@@ -370,29 +370,29 @@ int main(int argc, char* argv[]) {
 
 从结果可以看出, `raise()` 的作用确实是  **`向自己发送信号`**
 
-#### abort()
+#### `abort()`
 
-abort() 是一个使用和作用更加简单的系统调用：
+`abort()` 是一个使用和作用更加简单的系统调用：
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230404175023714.webp)
 
 此系统调用的作用就是,  **`使调用它的进程异常终止`**
 
-> man 手册中关于 abort() 系统调用的描述的大致意思是：
+> man 手册中关于 `abort()` 系统调用的描述的大致意思是：
 >
-> 首先接触对 ==SIGABRT== 信号的阻塞, 并向调用的进程发送 ==SIGARBT== 信号. 这会导致进程异常终止, 除非 ==SIGABRT== 信号被捕捉, 且自定义的处理信号的函数返回.
+> 首先接触对 **SIGABRT** 信号的阻塞, 并向调用的进程发送 **SIGARBT** 信号. 这会导致进程异常终止, 除非 **SIGABRT** 信号被捕捉, 且自定义的处理信号的函数返回.
 >
-> 并且, abort() 函数导致进程终止, 会关闭并刷新进程打开的所有流
+> 并且, `abort()` 函数导致进程终止, 会关闭并刷新进程打开的所有流
 >
-> 如果, ==SIGABRT== 信号被忽略 或 被捕捉且处理信号的函数会返回. 则 `abort() 函数仍然会将进程终止`. 他会恢复进程对 ==SIGABRT== 信号的默认配置并通过二次发送信号, 达到终止进程的目的.
+> 如果, **SIGABRT** 信号被忽略 或 被捕捉且处理信号的函数会返回. 则 `abort()` 函数仍然会将进程终止. 他会恢复进程对 **SIGABRT** 信号的默认配置并通过二次发送信号, 达到终止进程的目的.
 
-也就是说,  **`调用 abort() 一般情况下一定会使进程异常退出, 无论 SIGABRT 信号是被忽略还是被捕捉`**
+也就是说,  **调用 `abort()` 一般情况下一定会使进程异常退出, 无论 SIGABRT 信号是被忽略还是被捕捉**
 
-abort() 会向自己发送 ==SIGABRT== 信号, SIGABRT 信号的编号是什么呢？
+`abort()` 会向自己发送 **SIGABRT** 信号, **SIGABRT** 信号的编号是什么呢？
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230404180640582.webp)
+![ |huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230404180640582.webp)
 
-那么, 我们可以在代码中使用 abort() 函数：
+那么, 我们可以在代码中使用 `abort()` 函数：
 
 ```cpp
 #include <iostream>
@@ -425,9 +425,9 @@ int main(int argc, char* argv[]) {
 
 ![abort  |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/abort_2023-4-4.gif)
 
-正常情况下, abort() 可以使进程异常退出
+正常情况下, `abort()` 可以使进程异常退出
 
-如果, 我们在调用 abort() 之前, 捕捉了 ==SIGABRT== 信号, 会如何呢？
+如果, 我们在调用 `abort()` 之前, 捕捉了 **SIGABRT** 信号, 会如何呢？
 
 ```cpp
 #include <iostream>
@@ -461,21 +461,20 @@ int main(int argc, char* argv[]) {
 
 ![SIGABORT  |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/signal_SIGABRT_abort_2023-4-4.gif)
 
-可以看到, 进程最终还是调用 abort() 终止了. 但是与不捕捉 ==SIGABRT== 信号时不同的是,  **`abort() 实际上是调用了两次才成功终止了进程`**
+可以看到, 进程最终还是调用 `abort()` 终止了. 但是与不捕捉 **SIGABRT** 信号时不同的是,  **`abort()` 实际上是调用了两次才成功终止了进程**
 
-因为, 我们可以看到, 第一次调用 abort() 时, 给进程发送的 ==SIGABRT== 信号被捕捉了.
-
+因为, 我们可以看到, 第一次调用 `abort()` 时, 给进程发送的 **SIGABRT** 信号被捕捉了.
 第二次 才使进程终止了
 
 ### 软件条件产生进程信号
 
-==SIGALRM== 是一个软件条件产生的信号. 我们可以在程序内 `调用 alarm() 系统调用来设置闹钟`. 
+**SIGALRM** 是一个软件条件产生的信号. 我们可以在程序内 `调用 alarm() 系统调用来设置闹钟`. 
 
-等到闹钟"响" 的时候, 操作系统就会向进程发送 ==SIGALRM== 信号. 此信号的默认处理是  **`终止进程`**
+等到闹钟"响" 的时候, 操作系统就会向进程发送 **SIGALRM** 信号. 此信号的默认处理是  **`终止进程`**
 
-==SIGALRM== 信号的编号是14：
+**SIGALRM** 信号的编号是14：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230404184826180.webp)
+![ |huger](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230404184826180.webp)
 
 ```cpp
 #include <iostream>
@@ -538,7 +537,7 @@ int main(int argc, char* argv[]) {
 >
 > 所以说,  **`I/O速度 相比较于硬件的运行速度 是非常的慢的`**
 
-alarm() 是一个系统调用, 但是 ==SIGALRM== 信号 并 **`不是这个系统调用本身产生的`**.
+alarm() 是一个系统调用, 但是 **SIGALRM** 信号 并 **`不是这个系统调用本身产生的`**.
 
 alarm() 的作用只是设置一个闹钟,  **`只是设置了一个条件`**.
 
@@ -646,7 +645,7 @@ int main() {
 
 我们看到, `越界访问和解引用空指针` 会产生信号11, 而 `除0` 会产生信号8. 这两个信号在Linux系统中, 可以看到：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230405170438971.webp)
+![ |huger](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230405170438971.webp)
 
 这两个信号的默认处理方案都是 使进程终止.
 
@@ -762,7 +761,7 @@ core dump *`可以是一个动作 叫做 内存快照`*.
 
 而 进程只有在接收到特定的信号时, 才可能会执行 core dump 操作:
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230405180115554.webp)
+![ |huger](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230405180115554.webp)
 
 我们可以通过在命令行使用 `man 7 signal` 命令, 来查看man手册中记载的有关进程信号的部分详细信息. 其中记录着各信号以及其编号.
 
@@ -808,7 +807,7 @@ int main() {
 
 其实这与系统的设置有关, 我们在命令行使用 `ulimit -a` 可以查看系统的一部分相关设置：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230405181640938.webp)
+![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230405181640938.webp)
 
 其中, 有一个 core file size 的设置, 如果你使用的是云服务器的话, 这个设置应该不是0 就是 unlimited.
 
@@ -946,7 +945,7 @@ block 是阻塞位图, 用来表示对应位置的信号是否阻塞. 当`指定
 
 不过, 在Linux操作系统中, pending 和 block 并不是以整型来表示位图的. 而是以一个结构体的形式：`sigset_t`
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230406090112245.webp)
+![ |huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230406090112245.webp)
 
 `sigset_t` 是一个 typedef 出来的类型, 实际上是一个结构体`__sigset_t`, 不过这个结构体内部只有一个 `unsigned long int`类型的数组
 
@@ -960,7 +959,7 @@ block 是阻塞位图, 用来表示对应位置的信号是否阻塞. 当`指定
 
 > 为什么 sigset_t 结构体中的数组大小不固定？
 >
-> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230406090824167.webp)
+> ![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230406090824167.webp)
 >
 > 这是 此结构体的实际内容.
 >
@@ -1001,7 +1000,7 @@ int sigismember(const sigset_t *set, int signo);
 
 3. `int sigfillset()`:
 
-	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230406095213355.webp)
+	![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230406095213355.webp)
 	
 	调用此函数, 会将传入的信号集所有位设置为1.
 	
@@ -1019,7 +1018,7 @@ int sigismember(const sigset_t *set, int signo);
 
 5. `int sigismember()`:
 
-	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230406100142578.webp)
+	![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230406100142578.webp)
 	
 	调用此函数, 可以判断 信号集中是否有某信号. 即 判断信号集的某位是否为1
 	
@@ -1059,9 +1058,9 @@ int sigismember(const sigset_t *set, int signo);
 	
 	| how             | set的意义                               | 函数功能                                                     |
 	| --------------- | --------------------------------------- | ------------------------------------------------------------ |
-	| ==SIG_BLOCK==   | set的内容为 需要添加阻塞的信号的位置为1 | 在mask中 为set指定的信号 添加阻塞. 以位图的角度可以看作 mask \|= set |
-	| ==SIG_UNBLOCK== | set的内容为 需要解除阻塞的信号的位置为1 | 在mask中 为set指定的信号 解除阻塞. 以位图的角度可以看作 mask &= ~set |
-	| ==SIG_SETMASK== | set的内容为 需要指定设置的mask          | 将set设置为mask. 以位图的角度可以看作 mask = set             |
+	| **SIG_BLOCK**   | set的内容为 需要添加阻塞的信号的位置为1 | 在mask中 为set指定的信号 添加阻塞. 以位图的角度可以看作 mask \|= set |
+	| **SIG_UNBLOCK** | set的内容为 需要解除阻塞的信号的位置为1 | 在mask中 为set指定的信号 解除阻塞. 以位图的角度可以看作 mask &= ~set |
+	| **SIG_SETMASK** | set的内容为 需要指定设置的mask          | 将set设置为mask. 以位图的角度可以看作 mask = set             |
 
 只用文字的话, 这个函数的使用方法及功能很抽象. 下面我用图片的形式 解释一下.
 
@@ -1197,7 +1196,7 @@ int main() {
 
 我们知道, 操作系统中 每个进程都有一个进程地址空间, 以32位环境举例大概长这样：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230406165440060.webp)
+![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230406165440060.webp)
 
 并且, 进程地址空间 与 物理内存之间是由 页表相互映射的.
 
@@ -1205,7 +1204,7 @@ int main() {
 
 而实际上, 进程地址空间 与 物理内存之间并不只有一张页表,  **`还存在一张页表 用于 内核空间 与 物理内存 之间相互映射, 被称为内核级页表`**
 
-并且,  ==**`与用户级的页表不同, 进程地址空间的内核空间 与 物理内存之间的映射页表, 整个操作系统只有一张`**==, 也就是说操作系统中  **`所有进程共用一张 内核级页表`**. 即：
+并且,  ****`与用户级的页表不同, 进程地址空间的内核空间 与 物理内存之间的映射页表, 整个操作系统只有一张`****, 也就是说操作系统中  **`所有进程共用一张 内核级页表`**. 即：
 
 ![|big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230406172142849.webp)
 
@@ -1301,7 +1300,7 @@ int main() {
 
 所以, 为了保护系统内核：
 
-==**`当进程需要执行用户方法去处理进程信号时, 进程还会先转换回用户态去执行.`**==
+****`当进程需要执行用户方法去处理进程信号时, 进程还会先转换回用户态去执行.`****
 
 
 
@@ -1349,17 +1348,17 @@ int main() {
 
 在本篇文章的第二部分内容(进程信号的处理)中, 我们已经介绍了一个系统调用`signal()`用来捕捉信号, 并自定义处理.
 
-除了signal()之外, Linux操作系统还为我们提供了另一个系统调用, 来对信号进行捕捉.
+除了`signal()`之外, Linux操作系统还为我们提供了另一个系统调用, 来对信号进行捕捉.
 
 #### sigaction()
 
-不过, 这个接口的使用要`更复杂`一些, 但最终要实现的功能与 `signal()` 是一样的：
+不过, 这个接口的使用要`更复杂`一些, 但最终要实现的功能与`signal()`是一样的：
 
 `sigaction():`
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230408085255453.webp)
 
-从man手册中对sigaction()的描述以及参数可以看出, 此函数的使用比 signal() 要复杂的多：
+从man手册中对sigaction()的描述以及参数可以看出, 此函数的使用比 `signal()` 要复杂的多：
 
 1. 第一个参数 `int signum`, 很明显 这个参数就需要传入指定的进程信号, 表示 **`要捕捉的信号`**
 
@@ -1367,7 +1366,7 @@ int main() {
 
 	这个结构体的内容是什么？
 	
-	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230408085547938.webp)
+	![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230408085547938.webp)
 	
 	在man手册中, 可以看到 `struct sigaction` 的内容一共有5个：
 	
@@ -1438,7 +1437,7 @@ int main() {
 
 我们设置捕捉2信号, 并在处理时进入死循环打印pending信号集, 即 只要捕捉到2信号就不会再返回到main函数内了.
 
-这段代码的执行结果, 与 使用signal()捕捉信号相同, 但是使用要麻烦一些：
+这段代码的执行结果, 与 使用`signal()`捕捉信号相同, 但是使用要麻烦一些：
 
 ![while_sigaction |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/while_sigaction(2)_2023-4-8.gif)
 
@@ -1510,7 +1509,7 @@ int main() {
 
 不过, 这样做有什么意义呢？
 
-这样做可以 == **`防止用户自定义处理信号时, 嵌套式的发送其他信号并捕捉处理`**==. 
+这样做可以 ** **`防止用户自定义处理信号时, 嵌套式的发送其他信号并捕捉处理`****. 
 
 如果 用户的自定义处理信号方法内部, 还会发送其他信号, 并且用户还对其进行了捕捉. 那么 信号的处理就无止尽了. 这种情况是不允许发生的.
 
@@ -1520,9 +1519,9 @@ int main() {
 
 一般情况下, 我们如果要捕捉指定的信号, 并对信号进行不同的处理, 首先就是需要编写不同的处理函数.
 
-然后再通过 signal() 或 sigaction() 传入不同的信号以及对应的不同的处理方法进行对信号的捕捉.
+然后再通过 `signal()` 或 `sigaction()` 传入不同的信号以及对应的不同的处理方法进行对信号的捕捉.
 
-不过, 我们还可以通过一种方式使 调用signal() 或 sigaction() 捕捉信号时, 只传入相同的函数指针就可以实现 对不同信号不同处理：
+不过, 我们还可以通过一种方式使 调用`signal()`或`sigaction()`捕捉信号时, 只传入相同的函数指针就可以实现 对不同信号不同处理：
 
 ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230408102546919.webp)
 
@@ -1530,7 +1529,7 @@ int main() {
 
 > 如果需要捕捉的信号过多, 也可以使用 一定的数据结构 将所有的信号自定义处理函数存到数组结构中, 然后再通过指定方法进行对信号的分别处理.
 
-此时, 我们在使用 `signal()` 或者 `sigaction()` 捕捉信号时, 就只需要统一传入 `handlerAll` 的函数指针就可以了.  
+此时, 我们在使用`signal()`或者 `sigaction()` 捕捉信号时, 就只需要统一传入 `handlerAll` 的函数指针就可以了.  
 
 这是一种 解耦技巧
 
@@ -1538,9 +1537,9 @@ int main() {
 
 关于可重入函数的解释, 可以从一个具体的例子进行分析：
 
-一个进程中, 存在一个==`全局的单链表`==结构. 并且此时需要执行一个节点的头插操作：
+一个进程中, 存在一个 **`全局的单链表`** 结构. 并且此时需要执行一个节点的头插操作：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230408104659228.webp)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230408104659228.webp)
 
 那么此时, 头插的操作就是：
 
@@ -1666,7 +1665,7 @@ volatile int flags = 0; 		// 全局变量
 
 而, 实际上 子进程退出是会通知父进程的, 只不过父进程会忽略而已. 
 
-这个通知的方式是: == **`子进程退出时, 会向父进程发送一个信号, 即 SIGCHLD 信号`**==
+这个通知的方式是: ** **`子进程退出时, 会向父进程发送一个信号, 即 SIGCHLD 信号`****
 
 怎么证明呢？
 
@@ -1713,29 +1712,29 @@ int main() {
 
 可以看到, 子进程退出时 父进程确实收到了一个信号, 这个信号是 17.
 
-17 是 ==SIGCHLD== 吗？可以在man手册中查看：
+17 是 **SIGCHLD** 吗？可以在man手册中查看：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230408122431671.webp)
+![ |huger](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230408122431671.webp)
 
-可以看到, ==SIGCHLD== 的值确实是17. 而 默认的处理是 `ignore` 忽略
+可以看到, **SIGCHLD** 的值确实是17. 而 默认的处理是 `ignore` 忽略
 
-那么, 也就是说 子进程退出时子进程其实会给父进程发送一个 ==SIGCHLD== 信号. 还有其他情况吗？
+那么, 也就是说 子进程退出时子进程其实会给父进程发送一个 **SIGCHLD** 信号. 还有其他情况吗？
 
-man手册中写了, 子进程暂停或终止时会发送 ==SIGCHLD== 信号, 我们来测试一下：
+man手册中写了, 子进程暂停或终止时会发送 **SIGCHLD** 信号, 我们来测试一下：
 
-> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230404091257203.webp)
+> ![|huger](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230404091257203.webp)
 >
 > 暂停信号是 19, 继续信号是 18
 
 ![STOP_SIGCHLD](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/STOP_SIGCHLD_2023-4-8.gif)
 
-可以看到, 其实子进程不仅退出时会向父进程发送 ==SIGCHLD== 信号, 暂停时 和 恢复时 都会向父进程发送 ==SIGCHLD== 信号
+可以看到, 其实子进程不仅退出时会向父进程发送 **SIGCHLD== 信号, 暂停时 和 恢复时 都会向父进程发送 ==SIGCHLD** 信号
 
-子进程在退出时向父进程发送 ==SIGCHLD== 信号, 这个动作有什么作用呢？
+子进程在退出时向父进程发送 **SIGCHLD** 信号, 这个动作有什么作用呢？
 
 在介绍进程等待时 提到过, `waitpid()` 会等待子进程退出, 而等待的动作是主动去询问子进程是否退出.
 
-现在我们知道了, 子进程退出时会向父进程发送 ==SIGCHLD== 信号, 那么父进程是不是可以通过捕捉此信号 然后等待子进程呢？
+现在我们知道了, 子进程退出时会向父进程发送 **SIGCHLD** 信号, 那么父进程是不是可以通过捕捉此信号 然后等待子进程呢？
 
 ```cpp
 #include <cassert>
@@ -1779,7 +1778,7 @@ int main() {
 }
 ```
 
-这段代码 捕捉 ==SIGCHLD== 信号 处理此信号为调用`waitpid()`回收子进程.
+这段代码 捕捉 **SIGCHLD** 信号 处理此信号为调用`waitpid()`回收子进程.
 
 > `waitpid()`, 第一个参数应该传入回收子进程的pid, 不过  **`-1 表示回收任意子进程`**
 >
@@ -2071,7 +2070,7 @@ int main() {
 
 ![SIGCHLD_SETIGN](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/SIGCHLD_SETIGN.gif)
 
-可以看到, 我们没有自定义处理子进程, 知识通过signal()手动对 SIGCHLD 信号设置了 SIG_IGN 忽略处理, 但是最终子进程却自动被回收了.
+可以看到, 我们没有自定义处理子进程, 知识通过`signal()`手动对 SIGCHLD 信号设置了 SIG_IGN 忽略处理, 但是最终子进程却自动被回收了.
 
 不捕捉此信号时, 父进程对此信号的默认处理方式也是 忽略, 但最终子进程退出会进入僵尸状态.
 

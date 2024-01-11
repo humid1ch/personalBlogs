@@ -384,7 +384,7 @@ int main() {
 }
 ```
 
-![线程和进程接收信号相同状态  |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Thread_Shared_SIG.gif)
+![线程和进程接收信号相同状态 ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Thread_Shared_SIG.gif)
 
 我们向进程发送19信号, 所有线程都会暂停运行.
 
@@ -620,7 +620,7 @@ int main() {
 
 将退出信息改为 **PTHREAD_CANCELED** . 这是一个 pthread 库提供的宏, 其实就是 `((void*)-1)` 的宏定义：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230415085216694.webp)
+![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230415085216694.webp)
 
 ## 线程分离
 

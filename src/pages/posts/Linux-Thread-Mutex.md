@@ -711,9 +711,9 @@ int main() {
 
 那么, 以 lock 和 unlock 的伪代码, 分析以下 这两个操作的原子性是怎么实现的：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230417113128941.webp" style="zoom:80%;" />
+![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230417113128941.webp)
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230417113310347.webp" style="zoom:80%;" />
+![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230417113310347.webp)
 
 我们针对 lock 修改过的伪代码分析.
 
