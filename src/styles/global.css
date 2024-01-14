@@ -400,20 +400,24 @@ li {
   line-height: 1.1;
   font-family: 'Fira Code Regular', "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   color: #000000;
-  max-width: 740px;
+ /* max-width: 740px;*/
 }
 
 ol {
   font-family: 'Fira Code Regular', "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-  margin-left: 1.17647em;
   font-size: 16px;
   font-weight: 450;
   /* display: table; */
   border-radius: 5px;
-  padding: 5px 2rem;
+  padding-left: 2.5rem;
+  padding-right: 2rem;
+  padding-top: 5px;
+  padding-bottom: 1px;
+  margin-left: 0;
+  margin-right: 0;
   box-shadow: 0 0 12px #89b8ff55;
   margin-bottom: 20px;
-  max-width: 740px;
+ /* max-width: 740px;*/
 }
 
 ul {
@@ -505,7 +509,7 @@ ul strong {
   font-family: 'Fira Code Regular', "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-weight: bold;
   border-radius: 2px;
-  padding: 2px 6px;
+  padding: 2px 0 0 0;
   position: relative;
   border-left: none;
 }
@@ -7463,7 +7467,7 @@ strong {
   color: #4870ac;
   font-weight: bold;
   border-radius: 2px;
-  padding: 2px 6px;
+  padding: 2px 0 0 0;
   position: relative;
   border-left: none;
 }
