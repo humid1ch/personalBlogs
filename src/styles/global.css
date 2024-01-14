@@ -408,9 +408,9 @@ ol {
   margin-left: 1.17647em;
   font-size: 16px;
   font-weight: 450;
-  display: table;
+  /* display: table; */
   border-radius: 5px;
-  padding: 0rem 2rem;
+  padding: 5px 2rem;
   box-shadow: 0 0 12px #89b8ff55;
   margin-bottom: 20px;
   max-width: 740px;
@@ -5613,10 +5613,6 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   width: 840px
 }
 
-li .component {
-  width: 740px;
-}
-
 .component::before,
 .component::after {
   content: ' ';
@@ -5647,26 +5643,26 @@ li .component {
   .component {
     margin-left: auto;
     margin-right: auto;
-    width: 87.5%
+    width: 100%
   }
 }
 
 .component {
-  margin-top: 32px;
-  margin-bottom: 32px
+  margin-top: 24px;
+  margin-bottom: 6px;
 }
 
 @media only screen and (max-width: 1068px) {
   .component {
-    margin-top: 24px;
-    margin-bottom: 24px
+    margin-top: 18px;
+	margin-bottom: 6px;
   }
 }
 
 @media only screen and (max-width: 734px) {
   .component {
     margin-top: 10px;
-    margin-bottom: 10px
+	margin-bottom: 6px;
   }
 }
 
@@ -7384,24 +7380,87 @@ code {
   font-family: 'Fira Code Regular', "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   color: #4870ac;
   background-color: #0077ed10;
-  border-radius: 0.3rem;
-  padding: 0.1rem 0.3rem;
-  margin: 0.1rem 0.1rem;
+  border-radius: 5px;
+  padding-left: 0.15rem;
+  padding-right: 0.15rem;
+  padding-top: 0.15rem;
+  padding-bottom: 0.05rem;
+  margin: 0.1rem 0;
   word-wrap: break-word;
 }
+
+/* pre code.hljs {
+	padding-top: 2.8rem;
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+}
+
+pre code.hljs::before {
+	content: '';
+  	position: absolute; 
+  	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 1; 
+  	z-index: -1;
+	background: linear-gradient(to right, #cde3ff, rgb(0, 0, 0, 0));
+  	border-radius: 5px;
+	padding-top: 2rem;
+}
+
+pre code.hljs::after {
+	content: '📋'; 
+	position: absolute;
+	top: 0;
+	right: 1%;
+	padding-top: 0.2rem;
+	font-size: 1.2rem;
+	cursor: pointer;
+} */
+
 
 blockquote {
   font-family: 'Fira Code Regular', "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   background: #ffffff;
-  /* border: 1px solid #897d7d; */
-  border-left: 0.3em solid #4870ac;
+  /* border-top: 1rem solid #4870ac; */
+  border-radius: 3px;
+  /* border-width: 1rem 0 0 0; */
+  /* border-style: solid transparent; */
+  /* border-image: linear-gradient(to left, rgb(0, 0, 0, 0), #0744ac) 1 / 1rem 0 0 0; */
   box-shadow: 0 0 12px #89b8ff55;
-  padding: 0.5em 0.5em;
-  border-radius: 5px;
+  padding: 2.8rem 0.5rem 1rem 1.1rem;
+  margin-top: 1.4211em;
   margin-bottom: 1.4211em;
   color: #000000;
   font-size: 14px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
 }
+
+blockquote::before {
+	content: ''; /* 伪元素必须有content属性 */
+  	position: absolute; /* 设置绝对定位 */
+  	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 1; /* 伪元素覆盖整个元素 */
+  	z-index: -1; /* 将伪元素置于元素内容之下 */
+	background: linear-gradient(to right, #cde3ff, rgb(0, 0, 0, 0), #cde3ff);
+  	/* background: linear-gradient(to left, rgb(0, 0, 0, 0), #0744acaa); 设置渐变背景 */
+  	border-radius: 3px; /* 设置伪元素的圆角 */
+	padding-top: 2rem;
+}
+
+blockquote::after {
+	content: '🌀'; /* 这里添加您想要的字母 */
+	position: absolute;
+	top: 2%;
+	left: 48%;
+	font-size: 1.3rem; /* 字母大小 */
+  }
+
 
 .theme-dark blockquote {
   background: #1d1d1f;
@@ -7874,7 +7933,7 @@ img {
 hr {
   margin: auto;
   height: 1px;
-  background-image: linear-gradient(to right, #0744ac, rgb(0, 0, 0, 0), #0744ac);;
+  background-image: linear-gradient(to right, #0744ac, rgb(0, 0, 0, 0), #0744ac);
   unicode-bidi: isolate;
   margin-block-start: 0.5em;
   margin-block-end: 0.5em;
@@ -7894,12 +7953,12 @@ hr {
     margin: 3px;
 }
 
-p {
+/* p {
   margin-right: 0.3em;
   margin-left: 0.3em;
   margin-top: 0.8em;
   margin-bottom: 0.8em;
-}
+} */
 
 .dialog-content > p {
   margin-right: 0;
