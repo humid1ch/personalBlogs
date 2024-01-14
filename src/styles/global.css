@@ -7392,10 +7392,6 @@ code {
   word-wrap: break-word;
 }
 
-.hljs {
-	background: #eff6ff;
-}
-
 blockquote {
   font-family: 'Fira Code Regular', "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   background: #ffffff;
