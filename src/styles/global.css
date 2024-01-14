@@ -7209,26 +7209,28 @@ blockquote .image.image-wide .component-content {
 }
 
 blockquote pre {
-  border-radius: 3px;
-  margin-bottom: 14px;
+	max-width: 740px;
+  	border-radius: 3px;
+  	margin-bottom: 1rem;
 }
-
+li blockquote {
+	margin-bottom: 0;
+}
 li pre {
-  width: 740px;
-  box-shadow: 0 0 12px #89b8ff55;
+  max-width: 740px;
+  box-shadow: 0 0 20px #89b8ff55;
   border-radius: 3px;
+  margin-bottom: 1rem;
 }
 
 li ol li pre {
   max-width: 687px;
 }
 
-
 .code pre {
-  border-radius: 15px;
-  box-shadow: 0 0 12px #89b8ff55;
+  border-radius: 10px;
+  box-shadow: 0 0 33px #89b8ff55;
 }
-
 
 .theme-dark table th,
 .theme-dark table td {
@@ -7278,6 +7280,7 @@ li ol li pre {
   padding-top: 20px;
   font-size: 12px;
   text-align: center;
+  margin-top: 2rem;
 }
 
 .theme-dark .article-copyright {
@@ -7389,36 +7392,9 @@ code {
   word-wrap: break-word;
 }
 
-/* pre code.hljs {
-	padding-top: 2.8rem;
-	position: relative;
-	overflow: hidden;
-	z-index: 1;
+.hljs {
+	background: #eff6ff;
 }
-
-pre code.hljs::before {
-	content: '';
-  	position: absolute; 
-  	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 1; 
-  	z-index: -1;
-	background: linear-gradient(to right, #cde3ff, rgb(0, 0, 0, 0));
-  	border-radius: 5px;
-	padding-top: 2rem;
-}
-
-pre code.hljs::after {
-	content: '📋'; 
-	position: absolute;
-	top: 0;
-	right: 1%;
-	padding-top: 0.2rem;
-	font-size: 1.2rem;
-	cursor: pointer;
-} */
-
 
 blockquote {
   font-family: 'Fira Code Regular', "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
@@ -7428,7 +7404,7 @@ blockquote {
   /* border-width: 1rem 0 0 0; */
   /* border-style: solid transparent; */
   /* border-image: linear-gradient(to left, rgb(0, 0, 0, 0), #0744ac) 1 / 1rem 0 0 0; */
-  box-shadow: 0 0 12px #89b8ff55;
+  box-shadow: 0 0 15px #89b8ff55;
   padding: 2.8rem 0.5rem 1rem 1.1rem;
   margin-top: 1.4211em;
   margin-bottom: 1.4211em;
@@ -7450,17 +7426,25 @@ blockquote::before {
 	background: linear-gradient(to right, #cde3ff, rgb(0, 0, 0, 0), #cde3ff);
   	/* background: linear-gradient(to left, rgb(0, 0, 0, 0), #0744acaa); 设置渐变背景 */
   	border-radius: 3px; /* 设置伪元素的圆角 */
-	padding-top: 2rem;
+	padding-top: 1.8rem;
 }
 
 blockquote::after {
 	content: '🌀'; /* 这里添加您想要的字母 */
 	position: absolute;
-	top: 2%;
+	top: 0;
 	left: 48%;
 	font-size: 1.3rem; /* 字母大小 */
-  }
+}
 
+li blockquote::after {
+	content: '🌀'; /* 这里添加您想要的字母 */
+	position: absolute;
+	top: 3%;
+	left: 48%;
+	font-size: 1.3rem; /* 字母大小 */
+
+}
 
 .theme-dark blockquote {
   background: #1d1d1f;

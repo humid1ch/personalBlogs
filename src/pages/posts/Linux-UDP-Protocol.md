@@ -168,7 +168,3 @@ featured: false
 
 
 
-```cpp
-#include <iostream>
-```
-
