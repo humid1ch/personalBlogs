@@ -7472,6 +7472,10 @@ strong {
   border-left: none;
 }
 
+em {
+	color: #4870ac;
+}
+
 /* 定义动画 */
 @keyframes dialog-show {
   0% {
