@@ -6297,6 +6297,55 @@ blockquote .image.image-wide .component-content {
   }
 }
 
+
+.image.image-lwide {
+	width: 100%;
+	max-width: 1180px;
+}
+  
+.image.image-lwide .component-content {
+	width: 100%;
+	max-width: 1180px;
+}
+  
+.image.image-lwide .image-asset {
+	width: 100%;
+	height: 100%
+}
+  
+.image.image-lwide .image-sharesheet,
+.image.image-lwide .pullquote-lwide {
+	width: 100%;
+	border-radius: 10px
+}
+  
+@media only screen and (min-width: 1441px) {  
+	.image.image-lwide .image-sharesheet,
+	.image.image-lwide .pullquote-lwide {
+		max-width: 1441px;
+		margin: 0 auto
+	}
+}
+  
+@media only screen and (min-width: 1922px) {
+	.image.image-lwide .image-sharesheet,
+	.image.image-lwide .pullquote-lwide {
+		border-radius: 10px;
+		overflow: hidden;
+		z-index: 0;
+		position: relative
+	}
+}
+  
+@media only screen and (min-width: 1441px) {
+	.image.image-lwide .picture-image {
+		position: relative;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%) scale(1.01)
+	}
+}
+
 .image-grid {
   position: relative;
   z-index: 1
