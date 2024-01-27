@@ -155,11 +155,7 @@ struct ListNode* FindKthToTail(struct ListNode* pHead, int k )
 }
 ```
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220430203858767.webp" alt=" |inline" style="zoom:60%; display: block; margin: 0 auto;" />
-
-
-
----
+![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220430203858767.webp)
 
 在分析带环链表之前，需要 需要了解一下 `快慢指针` ，因为 `带环链表的分析` 是根据 `快慢指针` 分析的.
 
@@ -180,26 +176,32 @@ struct ListNode* FindKthToTail(struct ListNode* pHead, int k )
 >
 > **`示例 1`**：
 >
-> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230820113356909.webp" alt="|wide" style="zoom:80%;" />
-> 
+> > ![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230820113356909.webp)
+> >
 > > 输入：`head = [3,2,0,-4], pos = 1`
-> >返回：`true`
+> >
+> > 返回：`true`
+> >
 > > 解释：`链表中有一个环，其尾部连接到第二个节点`
 >
 > **`示例 2`**：
 >
-> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220501161526766.webp" style="zoom:80%;" />
-> 
+> > ![|small](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220501161526766.webp)
+> >
 > > 输入：`head = [1,2], pos = 0`
-> >返回：`true`
+> >
+> > 返回：`true`
+> >
 > > 解释：`链表中有一个环，其尾部连接到第一个节点`
 >
 > **`示例 3`** ：
 >
-> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220501161546352.webp" style="zoom:80%;" />
-> 
+> > ![|tiny](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220501161546352.webp)
+> >
 > > 输入：`head = [1], pos = -1`
-> >返回：`false`
+> >
+> > 返回：`false`
+> >
 > > 解释：`链表中没有环`
 >
 > 原题链接：[Leetcode - 141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/)
@@ -431,8 +433,8 @@ OK，带环链表的题做出来了
 >
 > **`示例 1`**：
 >
-> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220501161642662.webp" style="zoom:80%;" />
->
+> > ![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220501161642662.webp)
+>>
 > > 输入：`head = [3,2,0,-4], pos = 1`
 > >
 > > 输出：`返回索引为 1 的链表节点`
@@ -441,8 +443,8 @@ OK，带环链表的题做出来了
 >
 > **`示例 2`**：
 >
-> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220501161623339.webp" style="zoom:80%;" />
->
+> > ![|small](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220501161623339.webp)
+>>
 > > 输入：`head = [1,2], pos = 0`
 > >
 > > 输出：`返回索引为 0 的链表节点`
@@ -451,8 +453,8 @@ OK，带环链表的题做出来了
 >
 > **`示例 3`**：
 >
-> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220501161546352.webp" style="zoom:80%;" />
->
+> > ![|tiny](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220501161546352.webp)
+>>
 > > 输入：`head = [1], pos = -1`
 > >
 > > 输出：`返回 null`
@@ -513,4 +515,4 @@ struct ListNode *detectCycle(struct ListNode *head)
 
 感谢阅读~
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/%E7%BF%BB%E6%BB%9A%E5%B0%8F%E7%8C%AB.gif" alt="翻滚小猫" style="zoom:80%; display: block; margin: 0 auto"/>
+![|tiny](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/%E7%BF%BB%E6%BB%9A%E5%B0%8F%E7%8C%AB.gif)

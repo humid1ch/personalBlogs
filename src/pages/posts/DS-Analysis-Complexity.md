@@ -335,21 +335,20 @@ int Find_10(int *arr, int arrSize)
 # 空间复杂度
 
 **`空间复杂度`** 主要衡量一个算法运行所需要的额外空间
+
 这里提到一个词：**`额外空间`**
 
 为什么是 `额外空间` ？
+
 因为，`函数运行时所需要的栈空间(存储参数、局部变量、一些寄存器信息等)在编译期间已经确定好了，在函数运行前就已经确定了一部分空间，这些空间的占用不能由算法本身决定`
+
 所以，空间复杂度主要通过 `函数在运行时候申请的额外空间` 来确定。
 
 > 这里推荐一篇 详细又简单 的 函数栈帧 的好文章：
-
-> <a href="https://www.julysblog.cn/posts/Function-Stack-Frame" target="-blank"><img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Laugh.webp" style="zoom:10%">
 >
 > [【程序员的自我修养】[动态图文] 超详解函数栈帧](https://www.julysblog.cn/posts/Function-Stack-Frame)
 
-
-
-> 	在函数内使用动态开辟内存的函数，以及创建柔性数组等操作，就会增加函数的额外空间哦
+> 在函数内使用动态开辟内存的函数，以及创建柔性数组等操作，就会增加函数的额外空间哦
 
 `空间复杂度` 和 `时间复杂度` 的表示方法一样，都用 大O渐进表示法。
 
@@ -396,12 +395,14 @@ int Find_10(int *arr, int arrSize)
 > 	{  
 > 		fibArray[i] = fibArray[i - 1] + fibArray [i - 2];  
 > 	}  
-> 	
+> 
 > 	return fibArray;  
 > }
 > ```
 > 这是使用 `数组实现的计算斐波那契数列的 前N 项`
+>
 > 分析代码可以看出，这段代码 使用 `malloc` 函数开辟了 `n+1` 个 `long long`类型的空间，即额外使用的空间与 `N` 1:1相关  
+>
 > 所以 按照 大O 渐进表示法，空间复杂度为 `O(N)`
 
 > ```c
@@ -410,19 +411,24 @@ int Find_10(int *arr, int arrSize)
 > {  
 > 	if(N == 0)  
 > 		return 1;  
-> 		
+> 
 > 	return Fac(N-1)*N;  
 > }
 > ```
 > `递归求N的阶乘`
+>
 > 分析代码可以看出，代码执行需要递归 `N` 次，且每次递归都需要开辟函数栈帧，`每次函数栈帧开辟都会消耗常量个空间`，所以是 `常量 * N`
+>
 > 按照 大O 渐进表示法，空间复杂度为 `O(N)`
 
 ---
-以上内容就是 关于 **`时间复杂度`** 和 **`空间复杂度`**  的介绍。
+以上内容就是 关于 **`时间复杂度`** 和 **`空间复杂度`**  的介绍
+
 复杂度需要进行学习的已经介绍的差不多了。
+
 但是，需要注意的是
-`其实大部分的代码，时间、空间复杂度是不容易直接看出来的，一定要执行分析。对存在循环体的代码，也不要直接简单粗暴的去数循环体执行的次数，因为循环并不一定是都需要执行的。一定要分析。`
+
+`其实大部分的代码，时间、空间复杂度是不容易直接看出来的，一定要执行分析。对存在循环体的代码，也不要直接简单粗暴的去数循环体执行的次数，因为循环并不一定是都需要执行的。一定要分析`
 
 ---
 
@@ -430,7 +436,7 @@ int Find_10(int *arr, int arrSize)
 
 常见的复杂度都有什么呢？
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Com_com.webp)
+![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Com_com.webp)
 
 ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Com_FUN.webp)
 
@@ -438,11 +444,13 @@ int Find_10(int *arr, int arrSize)
 
 # 结束语
 
-数据结构与算法关于复杂度的部分到这里就介绍完了。
-本篇文章是对 `数据结构与算法` 这片`神秘海域`的初探索。
+数据结构与算法关于复杂度的部分到这里就介绍完了
+
+本篇文章是对 `数据结构与算法` 这片`神秘海域`的初探索
+
 同样也是 `向更深海域探索的重要基石`
 
 ---
 感谢阅读！
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/fangun_dog.gif" style="zoom:80%; display: block; margin:0 auto" />
+![|tiny](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/fangun_dog.gif)

@@ -224,7 +224,7 @@ C++中，继承是什么？
 
     > 什么是 **屏蔽父类对同名成员的直接访问**？
     >
-    > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.webp" alt="举个栗子" style="zoom:25%; display: block; margin: 0 auto" />
+    > ![|tiny](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.webp)
     >
     > ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220721014511184.webp)
     >
@@ -232,7 +232,7 @@ C++中，继承是什么？
     >
     > 答案 很明显：
     >
-    > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220721014742874.webp" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
+    > ![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220721014742874.webp)
     >
     > 直接访问 `_age` 会访问 `stu 自己的 _age` 而不是继承父类的 `_age`
     >
@@ -318,7 +318,7 @@ C++中，继承是什么？
 
     按照之前的逻辑，子类的构造函数应该这样写：
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220721152043967.webp" alt="|wide" style="zoom:80%;display: block; margin: 0 auto;" />
+    ![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220721152043967.webp)
 
     为什么会出现：`没有与这些操作数匹配的'~'运算符`  `没有与参数列表匹配的构造函数Person::Person`  `Person 没有合适地默认构造可用` 这样的错误？
 
@@ -370,7 +370,7 @@ C++中，继承是什么？
 
 `TEST` 作为 `Person的友元函数`，可以访问 `Person`的成员：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220721160501463.webp" alt="|inline" style="zoom:80%;display: block; margin: 0 auto;" />
+![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220721160501463.webp)
 
 而 `Student`作为 `Person的子类`，`TEST`作为`Person的友元` 若解开注释：
 

@@ -31,8 +31,8 @@ This is a minimalist, beautiful, responsive blogging program written in Astro.
 
 ![](./public/preview/preview_different_mode.png)
 
-The nine display modes of images are: `wide`, `big`, `inline` `cover` or `tiny` `small` `medium` `large` `huge` `huger`.
-When you edit your markdown file, you can add `wide` or `big` or `inline` or `cover` or `tiny` or `small` or `medium` or `large` or `huge` or `huger` to the image alt, like this:
+The nine display modes of images are: `wide`, `lwide` `big`, `inline` `cover` or `tiny` `small` `medium` `large` `huge` `huger`.
+When you edit your markdown file, you can add `wide` or `lwide` or `big` or `inline` or `cover` or `tiny` or `small` or `medium` or `large` or `huge` or `huger` to the image alt, like this:
 
 ```markdown
 ![alt content|wide](a.png)
@@ -40,7 +40,7 @@ When you edit your markdown file, you can add `wide` or `big` or `inline` or `co
 
 <strong>The Separator is `|`, and the default mode is `big`.</strong>
 
-<strong>`inline(800)` `big(920)` `wide(1480)` `cover(1880)`</strong>
+<strong>`inline(800)` `big(920)` `lwide(1180)` `wide(1480)` `cover(1880)`</strong>
 
 <strong>`tiny(128)` `small(256)` `medium(400)` `large(512)` `huge(660)` `huger(700)`</strong>
 

@@ -67,7 +67,9 @@ featured: true
 
 上面了解到，由源代码到可执行程序的过程是要经过 `翻译环境` 的一系列操作的，翻译环境大方面分为 `编译` `链接` 两个大过程，而编译又可以细分为：预编译( 预处理 )、编译、汇编 三个详细过程。
 下面是编译的三个详细过程的详解：
- >              以下 均为 Linux平台-GCC编译环境下 的演示效果
+
+> **以下 均为 Linux平台-GCC编译环境下 的演示效果**
+
 #### 1.2.1 预编译
 预编译是干什么的？
 预编译，一般进行三项操作：
@@ -97,7 +99,7 @@ featured: true
 > ```
 > 然后用 GCC 编译器对 test.c 文件进行 预处理，并将 预处理 后的文件信息输出至 test.i 文件中：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pre-Linux-GCC-PRE-E.webp" alt="GCC -E |inline" style="zoom:90%; display: block; margin: 0 auto;" />
+> ![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pre-Linux-GCC-PRE-E.webp)
 >
 > >✔️小知识：
 > >`gcc -E (源代码文件) 或 gcc (源代码文件) -E` 对源代码进行预编译 
@@ -147,7 +149,7 @@ featured: true
 >
 > 对以上代码进行预编译操作，并查看预编译后的文件内容：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pre-Linux-GCC-VIM-TEST-i-Annotation.webp" alt="READ-TEST.i |inline" style="zoom:90%; display: block; margin: 0 auto;" />
+> ![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pre-Linux-GCC-VIM-TEST-i-Annotation.webp)
 >
 > ![GCC-PRE-E-Annotation |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pre-Linux-GCC-PRE-E-Annotation.webp)
 >
@@ -172,11 +174,11 @@ featured: true
 > return 0;
 > }
 > ```
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pre-Linux-TEST-Macro.webp" alt="TEST-Macro |inline" style="zoom:90%; display: block; margin: 0 auto;" />
+> ![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pre-Linux-TEST-Macro.webp)
 >
 > 预编译处理：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pre-Linux-GCC-PRE-E-Macro.webp" alt="GCC-PRE-E-Macro |inline" style="zoom:90%; display: block; margin: 0 auto;" />
+> ![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pre-Linux-GCC-PRE-E-Macro.webp)
 
 > `test.i` 部分内容:
 >
@@ -201,7 +203,7 @@ featured: true
 
 > 📌
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pre-Linux-GCC-PRE-S.webp" alt="GCC-PRE-S |inline" style="zoom:90%; display: block; margin: 0 auto;" />
+> ![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pre-Linux-GCC-PRE-S.webp)
 >
 > >✔️小知识：
 > >`gcc -S (经过预编译的文件) 或 gcc (经过预编译的文件) -S`  
@@ -231,7 +233,7 @@ featured: true
 对 `test.s` 文件进行汇编操作：
 > 📌
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pre-Linux-GCC-PRE-C.webp" alt="GCC-PRE-C |inline" style="zoom:90%; display: block; margin: 0 auto;" />
+> ![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pre-Linux-GCC-PRE-C.webp)
 >
 > >✔️小知识：  
 > `gcc -c (经过预编译的文件) 或 gcc (经过预编译的文件) -c` 
@@ -292,11 +294,11 @@ featured: true
 >
 > `vim`：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pre-Linux-LINK-ADD-C.webp" alt="add.c" style="zoom:80%; display: block; margin: 0 auto;" />
+> ![|small](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pre-Linux-LINK-ADD-C.webp)
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pre-Linux-LINK-SUB-C.webp" alt="sub.c" style="zoom:80%; display: block; margin: 0 auto;" />
+> ![|small](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pre-Linux-LINK-SUB-C.webp)
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pre-Linux-LINK-TEST-C.webp" alt="test.c" style="zoom:80%; display: block; margin: 0 auto;" />
+> ![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/pre-Linux-LINK-TEST-C.webp)
 
 > 然后，分别对 `add.c` 、`sub.c`、 `test.c` 三个`.c` 文件，预编译、编译、汇编：
 >

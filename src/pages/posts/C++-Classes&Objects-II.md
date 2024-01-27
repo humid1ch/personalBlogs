@@ -32,7 +32,7 @@ featured: false
 
 什么是构造函数？
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.webp" alt="举个栗子" style="zoom:25%; display: block; margin: 0 auto" />
+![|tiny](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.webp)
 
 以一个简单的日期类为例：
 
@@ -65,10 +65,9 @@ featured: false
     ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/carbon%20(5).webp)
 
     
-
     创建对象，并查看对象：
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220619114415149.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
+    ![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220619114415149.webp)
 
     `对象d1`已经按照构造函数初始化
 
@@ -76,7 +75,7 @@ featured: false
 
     如果构造函数无内容(无显式构造函数)，那么：
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220619133748010.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
+    ![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220619133748010.webp)
 
     `对象d1` 将是随机值
 
@@ -102,7 +101,7 @@ featured: false
     d2.Display();
     ```
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220619140341215.webp" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
+    ![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220619140341215.webp)
 
     既然可以传参使用，那么就涉及另一个运用：`缺省参数`
 
@@ -304,7 +303,7 @@ int main()
 
 调用拷贝构造，使 `对象d1` 拷贝至 `对象d2`
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220620191812996.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
+![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220620191812996.webp)
 
 ## 4.1 拷贝构造的特性
 

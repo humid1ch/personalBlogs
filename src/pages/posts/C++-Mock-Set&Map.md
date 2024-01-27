@@ -448,7 +448,7 @@ struct _RB_Tree_Iterator {
 
 > 以一棵 二叉搜索树 为例：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20221026154152076.webp" alt="|inline" style="zoom:60%; display: block; margin: 0 auto;" />
+> ![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20221026154152076.webp)
 >
 > 此 红黑树的中序遍历是：17 22 31 34 41 53 54 56 58 67 70 77 78 82 94
 >

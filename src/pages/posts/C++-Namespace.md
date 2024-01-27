@@ -47,7 +47,7 @@ C语言因为这个规定，就会造成：如果存在命名相同，那就只�
 
 相信许多人在刚开始学习 `C++` 的时候，一定很纳闷这是个什么东西：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220513141346741.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
+![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220513141346741.webp)
 
 这句话究竟是什么意思：`using` 是什么意思？`namespace` 是什么意思？`std` 又是什么意思？
 

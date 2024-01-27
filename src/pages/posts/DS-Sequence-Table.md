@@ -21,10 +21,10 @@ featured: false
 
 | 线性结构 | 逻辑结构图示：                                               |
 | :----- | :----------------------------------------------------------- |
-| 顺序表 | <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/SeqList_photo.webp" style="zoom:50%;" /> |
-| 链表   | <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/List_photo.webp" style="zoom:50%;" /> |
-| 栈     | <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_photo.webp" style="zoom:50%;" /> |
-| 队列   | <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Queue_photo.webp" style="zoom:50%;" /> |
+| 顺序表 | <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/SeqList_photo.webp" style="zoom:67%;" /> |
+| 链表   | <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/List_photo.webp" style="zoom:62%;" /> |
+| 栈     | <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_photo.webp" style="zoom:66%;" /> |
+| 队列   | <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Queue_photo.webp" style="zoom:67%;" /> |
 
 本篇文章将详细介绍 **`顺序表`** 的 `结构` `增` `删` `查` `改` `插入` 等操作。
 

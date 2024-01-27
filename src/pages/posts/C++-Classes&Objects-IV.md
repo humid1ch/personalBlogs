@@ -85,7 +85,7 @@ featured: falsechik
 
 ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220627140435108.webp)
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220627140634031.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
+![|small](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220627140634031.webp)
 
 是 `1` 和 `随机值`
 
@@ -127,7 +127,7 @@ featured: falsechik
 
 如果不加 `const` 修饰就会报错：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220627144459207.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
+![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220627144459207.webp)
 
 因为 `直接使用数值进行对象实例化，数值会先构造成一个临时对象，临时对象其实是具有常性的`
 如果不用`const`修饰就加以引用，其实是一种权限放大的操作，是错误的 
@@ -140,7 +140,7 @@ featured: falsechik
 >
 > PS：直接使用常量传参在 `string` 中，非常有意义：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220627150359000.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
+> ![|small](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220627150359000.webp)
 
 # 二、static 修饰类成员
 
@@ -259,7 +259,7 @@ featured: falsechik
 
 定义完之后会发现，无法正常使用：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220628003034692.webp)
+![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220628003034692.webp)
 
 原因很清楚：
 因为`运算符重载默认，第一个参数为左操作数，第二个参数为右操作数`
@@ -285,15 +285,17 @@ featured: falsechik
 
 ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220628003647141.webp)
 
-这样就可以正常的使用了：
+然后:
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220628004424890.webp" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
+![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220628004424890.webp)
+
+这样就可以正常的使用了
 
 ---
 
 在上面对日期类中 `>>` 和 `<<` 的重载，想要正常使用两个运算符，就必须使用友元：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220628004819766.webp)
+![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220628004819766.webp)
 
 像这样的函数，就被称为`友元函数`
 
@@ -315,7 +317,7 @@ featured: falsechik
 
 还是以日期类为例，`将日期类作为时间类的友元类`
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220628010522764.webp)
+![|huger](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220628010522764.webp)
 
 友元类的所有成员函数，都可以作为另一个类的友元函数使用
 
@@ -333,7 +335,7 @@ featured: falsechik
 >
 > 并且，`内部类就是外部类的友元类`，但 外部类不是内部类的友元类
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220628012549678.webp" alt=" |inline" style="zoom:90%; display: block; margin: 0 auto;" />
+![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220628012549678.webp)
 
 类B的对象，可访问 类A对象的成员
 

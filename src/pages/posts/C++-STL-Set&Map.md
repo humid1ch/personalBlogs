@@ -72,7 +72,7 @@ featured: false
 >
 > pair 也是一个类模板，有两个模板参数：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202209021757230.webp" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
+> ![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202209021757230.webp)
 >
 > `T1`：第一个元素类型；`T2`：第二个元素类型
 >
@@ -105,15 +105,15 @@ featured: false
 
 `set` 与其他容器一样 常用两个函数取迭代器，一个 `begin()` 用来取首元素正向迭代器，一个 `end()` 用来取末元素正向迭代器
 
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.webp" alt="举个栗子" style="zoom:25%; display: block; margin: 0 auto" />
+> ![|tiny](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.webp)
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202209022034744.webp" alt="|wide" style="zoom:86%; display: block; margin: 0 auto;" />
+> ![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202209022034744.webp)
 >
 > 关于 `set` 的迭代器需要注意的是：**`set` 迭代器表示的内容是无法修改的**
 >
 > 即，即使是 `iterator` 而不是 `const_iterator` ，其表示的内容也是无法修改的：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202209022037506.webp" alt="|wide" style="zoom:84%; display: block; margin: 0 auto;" />
+> ![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202209022037506.webp)
 >
 > 原因其实是，**STL** 设计`set`时，`iterator` 其实也是 `const` 修饰过的`iterator`：
 >
@@ -150,13 +150,13 @@ erase 删除元素接口，有三个不同的重载版本：
 
 > **删除指定值版本：**
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202209022116800.webp" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
+> ![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202209022116800.webp)
 >
 > 只需要在调用时传入值就可以完成指定值的删除
 >
 > 即使是 `set` 中没有的值，也不会出错：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202209022117827.webp" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
+> ![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202209022117827.webp)
 >
 > 多次重复删除 3，也不会出现问题
 >
@@ -166,7 +166,7 @@ erase 删除元素接口，有三个不同的重载版本：
 >
 > `erase` 删除指定位置，一般需要先使用 `find` 在 `set` 中找到相应的位置，然后再 `erase` 进行删除：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202209022131483.webp" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
+> ![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202209022131483.webp)
 >
 > 当find找到了确定值的位置时，就可以正常的删除
 >
@@ -184,7 +184,7 @@ erase 删除元素接口，有三个不同的重载版本：
 >
 > 举个例子：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202209022145947.webp" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
+> ![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202209022145947.webp)
 >
 > 当 传入 `set` 的 `begin()` 和 `end()` 时，就会把 `set` 内的所有数据都删除
 >
@@ -216,7 +216,7 @@ erase 删除元素接口，有三个不同的重载版本：
 >
 > 比如，对于 `1 2 3 4 5 6 7 8 9 10` 删除 `[2, 7)` 之间的数据：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202209022351794.webp" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
+> ![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202209022351794.webp)
 >
 > > 注意：由于erase的迭代器失效、以及erase没有有效的迭代器返回值问题，不能使用类似下面这样的代码，对`set`的一个迭代器区间进行删除数据：
 > >
@@ -239,7 +239,7 @@ erase 删除元素接口，有三个不同的重载版本：
 
 `multiset` 与 `set` 略有不同，`multiset` 可以存储重复的数据，除此之外 与 set 没有什么区别
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202209030047679.webp" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
+![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202209030047679.webp)
 
 ### multiset 常用的接口
 
@@ -267,7 +267,7 @@ erase 删除元素接口，有三个不同的重载版本：
 
 `set` 中的 `erase`，只删除指定的一个数据，而 `multiset` 中的`erase` 是将结构中 相同的数据全部删除： 
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202209030056483.webp" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
+![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202209030056483.webp)
 
 #### 4. count
 
@@ -405,7 +405,7 @@ operator[] 返回值类型是 mapped_type&
 
 map的文档显示：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230410135729169.webp" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
+![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230410135729169.webp)
 
 mapped_type 是map的第二个模板参数，其实就是关键字映射的值得类型
 

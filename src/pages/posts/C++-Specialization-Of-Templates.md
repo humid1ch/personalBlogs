@@ -72,7 +72,7 @@ C++ 模板是泛型编程的一种，是为了一套代码 多方使用而出现
 greater 是一个函数模板，是用来比较两个类型的大小的
 在使用时，对于a, b 这两个变量可以直接 返回正确的返回值，但是 当传入的是 a, b 的指针时，就会发生错误：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220718153756173.webp" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
+![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220718153756173.webp)
 
 因为，greater 函数是作用是 直接对比传入类型的数据，而 c, d 是两个指针 指针对比是对比的地址大小而不是指针指向的内容大小，所以对于这样的情况就需要 特殊处理：
 
@@ -133,7 +133,7 @@ greater 是一个函数模板，是用来比较两个类型的大小的
 
 看名字就可以看出来，部分特化，即 **将类模板参数列表中的一部分参数特化**
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.webp" alt="举个栗子" style="zoom:25%; display: block; margin: 0 auto" />
+![|tiny](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.webp)
 
 ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220718165544695.webp)
 

@@ -43,7 +43,7 @@ featured: false
 >
 > 但是实际查看会发现：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220726135319978.webp" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
+> ![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220726135319978.webp)
 >
 > **Base 类的大小为 8(32位环境)**
 >
@@ -255,7 +255,7 @@ VS环境下证明的方法有一个，那就是 **查看反汇编代码** (此�
 
 > 普通调用：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220727000717413.webp" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
+> ![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220727000717413.webp)
 >
 > 普通调用，直接就call了函数地址，也就是说运行时就已经知道了需要调用的函数的地址
 >
@@ -470,7 +470,7 @@ C++多态的细节其实是比较多的，什么**接口继承**、**协变**、
     > >
     > > 首先打开项目属性：
     > >
-    > > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220730131704053.webp" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
+    > > ![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220730131704053.webp)
     > >
     > > 然后进行设置
     > >

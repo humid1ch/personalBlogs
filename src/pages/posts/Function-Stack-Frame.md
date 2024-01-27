@@ -62,7 +62,7 @@ featured: false
 
 # 栈帧是如何创建的?
 > 	以下均在Windows平台，VS2013编译环境下演示
->																
+>																	
 > 	不同平台，不同编译环境下的栈帧操作可能会有差异，但是逻辑相通。
 
 创建一个最简单的可以观察函数栈帧的程序
@@ -117,7 +117,7 @@ int main()
 以动画形式演示：
  1. `main` 函数调用之前，`mainCRTStartup` 和 `__mainCRTStartup` 函数的栈帧创建(无详细内容)：
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/SF_MAINSRTSTARTUP_PUSH.gif" alt="简单main 函数栈帧创建 |inline" style="zoom:60%; display: block; margin: 0 auto;" />
+    ![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/SF_MAINSRTSTARTUP_PUSH.gif)
 
  2. 进入 `main` 函数：
 
@@ -138,8 +138,8 @@ int main()
     > 执行 `mov ebp,esp` :
     >
     > ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/mov_esp_ebp_change.webp)
-
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/push_epb.gif" alt="压栈ebp，调整 |inline" style="zoom:60%; display: block; margin: 0 auto;" />
+    >
+    > ![压栈ebp，调整 |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/push_epb.gif)
 
 3. 此时，反汇编中的语句光标指向了 
 

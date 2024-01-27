@@ -20,10 +20,10 @@ featured: false
 >
 > | 线性结构 | 逻辑结构图示：                                               |
 > | :----- | :----------------------------------------------------------- |
-> | 顺序表 | <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/SeqList_photo.webp" style="zoom:50%;" /> |
-> | **`链表`**  | <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/List_photo.webp" style="zoom:50%;" /> |
-> | 栈     | <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_photo.webp" style="zoom:50%;" /> |
-> | 队列   | <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Queue_photo.webp" style="zoom:50%;" /> |
+> | 顺序表 | <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/SeqList_photo.webp" style="zoom:67%;" /> |
+> | **`链表`**  | <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/List_photo.webp" style="zoom:62%;" /> |
+> | 栈     | <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_photo.webp" style="zoom:67%;" /> |
+> | 队列   | <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Queue_photo.webp" style="zoom:67%;" /> |
 >
 
 上一篇文章的内容是：`顺序表`，从上一篇文章 可以看出 `顺序表` 存在非常明显的缺点：
@@ -90,7 +90,7 @@ featured: false
 
 引言的表中，简单表示了 `单链表的结构` ：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/List_photo.webp" style="zoom:50%;" />
+![|huger](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/List_photo.webp)
 
 是有一个一个节点链接在一起形成的，不过这只是逻辑结构，逻辑顺序是通过 `链表中的指针链接次序` 实现的，而实际的链表是一种 物理存储结构上 `非连续、非顺序` 的存储结构，即 这些 `单个的节点在内存中不一定是连续存放的` 。
 

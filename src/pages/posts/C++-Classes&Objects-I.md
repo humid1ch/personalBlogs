@@ -87,7 +87,7 @@ C++中的 结构体和类的内部 其实都设置有访问权限。但是结构
 
 以上图中的 `User 类`
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.webp" alt="举个栗子" style="zoom:25%; display: block; margin: 0 auto" />
+![|tiny](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.webp)
 
 ```cpp
 class User
@@ -261,13 +261,13 @@ private:
 
 像这样没有成员变量的类，它的大小会是多少呢？
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220617221108502.webp" style="zoom:80%; display: block; margin: 0 auto;" />
+![|huger](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220617221108502.webp)
 
 可以看到，只有成员函数的类的大小为 `1`
 
 如果是空类呢？
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220617221308917.webp" alt=" |wide" style="zoom:80%; display: block; margin: 0 auto;" />
+![|huger](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220617221308917.webp)
 
 可以看到，没有成员变量的类，其大小都为 `1`
 
@@ -296,7 +296,7 @@ private:
 
     > 对于相同的类，每个对象大致是这样的
     >
-    > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220618000801437.webp" alt="对象 " style="zoom:80%; display: block; margin: 0 auto;" />
+    > ![|small](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220618000801437.webp)
     >
     > 此方式有一个缺点，就是每个对象中都存储有功能相同的函数，会造成浪费
 
@@ -395,7 +395,7 @@ int main()
 
 注意：在执行 `Show()` 时并不会崩溃，因为 `Show() 函数中并没有对 this指针进行解引用`
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220618154435802.webp" alt=" |wide" style="zoom:80%; display: block; margin: 0 auto;" />
+![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220618154435802.webp)
 
 由此，可以判断出 其实` this指针 是可以为空指针的，this指针为空指针时不会有任何的编译错误`。但是，如果 this指针为空指针，那么成员函数很有可能会对空指针解引用，发成运行错误导致程序崩溃。所以，`this指针 最好不要为空指针`
 

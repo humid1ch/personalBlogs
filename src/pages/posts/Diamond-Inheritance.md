@@ -140,7 +140,7 @@ C++ 种提供了一个 关键字 `virtual`
 >
 > 为了 方便观察，给 对象的成员赋了值，且 A对象的成员 _a 给了缺省参数 10：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220721200545442.webp" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
+> ![|small](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220721200545442.webp)
 >
 > 对比来看 对象模型
 >
@@ -166,7 +166,7 @@ C++ 种提供了一个 关键字 `virtual`
 >
 > 同样是给 对象的成员赋了值，且 A对象的成员 _a 给了缺省参数 10：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220721200545442.webp" alt="image-20220721200545442" style="zoom:80%; display: block; margin: 0 auto;" />
+> ![|small](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220721200545442.webp)
 >
 > 观察 其对象模型，可以发现存储的是地址和数值：
 >
@@ -216,7 +216,7 @@ C++ 种提供了一个 关键字 `virtual`
 >
 >  还是以 A,B,C,D 这个继承体系为例：
 >
->  <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220721211413526.webp" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
+>  ![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220721211413526.webp)
 >
 >  如果不存储偏移量去找数据，怎么完成这个赋值的操作
 >

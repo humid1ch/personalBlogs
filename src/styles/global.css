@@ -7489,7 +7489,7 @@ blockquote::after {
 li blockquote::after {
 	content: '🌀'; /* 这里添加您想要的字母 */
 	position: absolute;
-	top: 3%;
+	top: 0.054rem;
 	left: 48%;
 	font-size: 1.3rem; /* 字母大小 */
 

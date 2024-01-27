@@ -21,10 +21,10 @@ featured: false
 
 | 线性结构 | 逻辑结构图示：                                               |
 | :------- | :----------------------------------------------------------- |
-| 顺序表   | <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/SeqList_photo.webp" style="zoom:50%;" /> |
-| 链表     | <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/List_photo.webp" style="zoom:50%;" /> |
-| **`栈`** | <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_photo.webp" style="zoom:50%;" /> |
-| 队列     | <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Queue_photo.webp" style="zoom:50%;" /> |
+| 顺序表   | <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/SeqList_photo.webp" style="zoom:67%;" /> |
+| 链表     | <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/List_photo.webp" style="zoom:62%;" /> |
+| **`栈`** | <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_photo.webp" style="zoom:67%;" /> |
+| 队列     | <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Queue_photo.webp" style="zoom:67%;" /> |
 
 前面已经介绍了前两个：`顺序表` 和 `链表`
 
@@ -271,4 +271,4 @@ void StackDestory(Stack *pst)
 
 OK~ 本篇文章到此结束~ 
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/005PeXV6gy1grtp9ji59cg306r07iaf0.gif" alt="给你点个赞" style="zoom:80%; display: block; margin: 0 auto;" />
+![|tiny](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/005PeXV6gy1grtp9ji59cg306r07iaf0.gif)

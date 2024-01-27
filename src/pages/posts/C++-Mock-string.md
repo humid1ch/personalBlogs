@@ -1154,4 +1154,4 @@ istream& operator>>(istream& in, string& s) {
 
 感谢阅读~
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230410175841829.webp" alt=" " style="zoom:33%; display: block; margin: 0 auto;" />
+![|tiny](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230410175841829.webp)

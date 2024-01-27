@@ -9,7 +9,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251816728.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251816728.webp'
     alt: 'cover'
-tags: ["数据结构", "红黑树", "约3751字 -- 阅读时间≈10分钟"]
+tags: ["数据结构", "红黑树", "约3751字 -- 阅读时间≈16分钟"]
 theme: 'light'
 featured: false
 ---
@@ -383,3 +383,5 @@ bool insert(const T1& data) {
 > > >     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20221020234936694.webp" alt="image-20221020234936694" style="zoom: 55%;" /> 然后变色 `——>` <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20221020235017875.webp" alt="image-20221020235017875" style="zoom:55%;" />
 > > >
 > > >     即, 对于此种情况 需要使用 `左右双旋`解决
+
+<div id="pcMode" class="hidden"></div>

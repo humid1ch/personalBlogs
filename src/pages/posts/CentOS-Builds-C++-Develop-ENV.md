@@ -894,4 +894,4 @@ yarn install
 
 感谢阅读！
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230410181851457.webp" alt="|inline" style="zoom: 33%;" />
+![|tiny](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230410181851457.webp)

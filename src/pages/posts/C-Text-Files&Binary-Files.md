@@ -30,9 +30,13 @@ featured: false
 
 比如：
 
-> 一个 `.txt` 文件:  <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-TEXT_FILE.webp" alt="TEXT_FILE" style="zoom: 80%;" />
+> 一个 `.txt` 文件: 
 >
-> 或者 一个 `.md` 文件 <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-BINARY_FILE.webp" alt="BINARY_FILE" style="zoom:50%;" />
+> ![|small](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-TEXT_FILE.webp)
+>
+> 或者 一个 `.md` 文件 :
+> 
+> ![|small](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-BINARY_FILE.webp)
 
 而对于二进制文件，一般人打开二进制文件是没有办法直接看懂的，因为大部分内容都是乱码
 
@@ -127,7 +131,7 @@ featured: false
 > > 
 > >     `VS2013`：对文件中以二进制输出 `99999`
 > > 
-> >     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-DATA_STORAGE-BINARY-READ.webp" alt="BINARY-READ1 |inline" style="zoom:80%;" />
+> >     ![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-DATA_STORAGE-BINARY-READ.webp)
 > > 
 > >     ![BINARY-READ2 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/file-DATA_STORAGE-BINARY-READ2.webp)
 > >
