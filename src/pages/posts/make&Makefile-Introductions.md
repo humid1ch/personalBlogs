@@ -21,11 +21,11 @@ featured: false
 
 以一个简单的 C++ 文件为例：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230227112324266.webp" alt="|inline" style="zoom:88%; display: block; margin: 0px auto;" />
+![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230227112324266.webp)
 
 在Linux平台下 需要使用g++指令来进行编译：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230227112451565.webp" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
+![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230227112451565.webp)
 
 可以生成可执行文件`helloworld`
 
@@ -47,11 +47,11 @@ featured: false
 
 make其实只是一个指令, 需要在当前目录下存在makefile文件时才可以正确执行, 否则就会出现：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230227114212877.webp" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
+![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230227114212877.webp)
 
 当makefile文件存在, 且内容正确的时候, 再执行make则会出现：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230227115214759.webp" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
+![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230227115214759.webp)
 
 执行make之后, 执行了g++操作, 生成了helloworld可执行文件
 
@@ -63,7 +63,7 @@ makefile 是一个文件, 为 make指令提供依靠的文件
 
 以上面为例, 其中makefile文件的内容是：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230228211500117.webp" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
+![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230228211500117.webp)
 
 此文件的内容, 其实大致包括两个东西：
 
@@ -95,11 +95,11 @@ makefile内容写入完毕之后, 只需要在当前目录下执行make指令, �
 
 此指令 只有在makefile文件中表明clean的依赖方法时才能使用, 在上例中即为：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230228215630769.webp" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
+![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230228215630769.webp)
 
 执行的结果为：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230228220043504.webp)
+![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230228220043504.webp)
 
 > makefile文件中
 >
@@ -116,21 +116,21 @@ makefile内容写入完毕之后, 只需要在当前目录下执行make指令, �
 >
 > 测试一下：
 >
-> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230228222513199.webp)
+> ![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230228222513199.webp)
 >
 > 然后先执行 make：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230228222633669.webp" alt="|wide" style="zoom: 80%; display: block; margin: 0px auto;" />
+> ![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230228222633669.webp)
 >
 > 生成了helloworld可执行文件和helloworld.o文件
 >
 > 再make clean清除：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230228222754184.webp" alt="|wide" style="zoom: 80%; display: block; margin: 0px auto;" />
+> ![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230228222754184.webp)
 >
 > 那么可不可以 输入 make helloworld.o 只执行相应的依赖方法呢？
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230228223021219.webp" alt="|wide" style="zoom: 80%; display: block; margin: 0px auto;" />
+> ![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230228223021219.webp)
 >
 > 答案是可以的, 所以 其实makefile依赖关系中的目标文件是可以作为make指令的后缀 当成一个单独的指令的
 
@@ -142,15 +142,15 @@ makefile内容写入完毕之后, 只需要在当前目录下执行make指令, �
 
 依旧以上为例：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230228230610372.webp" alt="|inline" style="zoom: 80%; display: block; margin: 0px auto;" />
+![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230228230610372.webp)
 
 当多次执行make指令时：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230228230837691.webp)
+![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230228230837691.webp)
 
 当在makefile文件中添加, `.PHONY:helloworld` 时, 再多次执行 make: 
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230228231503651.webp)
+![|huger](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230228231503651.webp)
 
 所以, 被.PHONY修饰的目标文件名, 即表示 `此目标文件的依赖方法恒可执行, 无论目标文件是否存在、是否最新`
 
@@ -158,7 +158,7 @@ makefile内容写入完毕之后, 只需要在当前目录下执行make指令, �
 
 在系统中, 存在一个指令叫 stat, 这个指令的作用是显示文件的状态属性：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230301165423095.webp)
+![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230301165423095.webp)
 
 对文件使用 stat指令可以看到, 文件具有三个有关时间的属性：`最近访问时间` `最近更改时间` `最近改动时间`
 
@@ -174,4 +174,4 @@ makefile内容写入完毕之后, 只需要在当前目录下执行make指令, �
 
 感谢阅读~
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230410181909816.webp" alt="|inline" style="zoom:40%; display: block; margin: 0 auto;" />
+![|tiny](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230410181909816.webp)

@@ -29,7 +29,7 @@ featured: false
 
 C/C++ 程序运行之后，程序中的数据的存储区域大致可以划分这样：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409232144743.webp" alt="内存分布 |inline" style="zoom:80%; display: block; margin: 0 auto;" />
+![|small](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409232144743.webp)
 
 这张图可以展示出 C/C++ 程序数据在内存中的大致区域
 
@@ -41,7 +41,7 @@ C/C++ 程序运行之后，程序中的数据的存储区域大致可以划分�
 
 看完数据的存储区域，上面的问题就可以完美的解决了！：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220629141223975.webp)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220629141223975.webp)
 
 > `globalVar`、`staticGlobalVar`、`staticVar` 很明显属于 全局或静态变量，所以应该存储在`静态区`
 >
@@ -138,7 +138,7 @@ C++ 补充了 `new` 和 `delete` 作为自己的动态内存管理工具
 
 `new` 和 `delete` 的用法 比 C语言动态内存管理的方法 简单许多
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220629161545639.webp)
+![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220629161545639.webp)
 
 `new` 和 `detele` 都属于 C++ 中的关键词，而不是函数，所以与C语言中 `malloc` 等用法不同
 
@@ -154,7 +154,7 @@ C++ 补充了 `new` 和 `delete` 作为自己的动态内存管理工具
 
 `new` 和 `detele` 操作自定义类型空间的使用，与操作内置类型的使用相同
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220629163737630.webp)
+![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220629163737630.webp)
 
 在对自定义类型空间的操作上，`new` `delete` 与 `malloc` `free` 相比，有一个非常适合 C++语法的作用 就是
 `new` 和 `detele` 在操作自定义类型的空间时，会调用 `构造函数和析构函数`；而 `malloc` 和 `free` 不会
@@ -163,7 +163,7 @@ C++ 补充了 `new` 和 `delete` 作为自己的动态内存管理工具
 
 调试
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220629164925433.webp" alt="|wide" style="zoom:90%; display: block; margin: 0 auto;" />
+![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220629164925433.webp)
 
 所以，`new` 开辟自定义类型的空间，实际对象的实例化，也是调用 其构造函数实现的
 
@@ -171,17 +171,17 @@ C++ 补充了 `new` 和 `delete` 作为自己的动态内存管理工具
 
 如果是对下面这个类动态开辟空间：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220629171128548.webp)
+![|huger](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220629171128548.webp)
 
 使用 `new` 动态开辟：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220629173132969.webp)
+![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220629173132969.webp)
 
 除了开辟空间之外，还会调用构造函数对对象初始化
 
 使用 `malloc` 动态开辟：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220629173737579.webp)
+![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220629173737579.webp)
 
 只负责开辟空间，不调用构造函数，对象不初始化
 
@@ -244,7 +244,7 @@ int* pa = (int*)operator new(sizeof(int));
 
 如果接收了抛出的异常：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220629181443062.webp)
+![ |huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220629181443062.webp)
 
 #### operator new 和 operator delete 的类专属重载
 
@@ -274,7 +274,7 @@ int* pa = (int*)operator new(sizeof(int));
 
 ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220629213043600.webp)
 
-![|inlinel](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220629213200638.webp)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20220629213200638.webp)
 
 
 

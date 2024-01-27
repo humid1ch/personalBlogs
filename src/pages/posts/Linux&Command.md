@@ -793,4 +793,4 @@ Linux 不仅仅只有上面那些指令，还有许多指令需要学习：
 
 感谢阅读~
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230410181909816.webp" alt="|inline" style="zoom:40%; display: block; margin: 0 auto;" />
+![|tiny](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230410181909816.webp)

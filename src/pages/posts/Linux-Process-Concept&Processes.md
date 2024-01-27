@@ -218,14 +218,16 @@ Linux系统中, 每一个进程都存在一个唯一的标识符, 此标识符�
 > 查看系统调用可以用 man 2或3 系统调用 指令来查看, 但是在使用 man 2或3 之前, 需要安装 man-pages
 >
 > CentOS 下的指令是 `sudo yum install man-pages`
+> 
+> 如果是`openEuler`相关系统, 还需要安装`man-pages-help`, 即执行 `sudo yum install man-pages-help`
 
 此系统调用可以直接在程序中使用：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230302081525766.webp" alt="|inline" style="zoom:80%; display: block; margin: 0 auto" />
+![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230302081525766.webp)
 
 此时, 编译运行程序：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230302081826732.webp" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
+![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230302081826732.webp)
 
 可以输出此程序的PID, 使用kill指令进行验证：
 
@@ -241,7 +243,7 @@ PID 是 Process ID, 表示进程的标识符。PPID 又是什么意思呢？
 
 在使用 ps ajx | head 指令查看系统进程时, 第一列数据就是PPID, 第二列数据才是PID：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230302082719959.webp)
+![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230302082719959.webp)
 
 ##### getppid() 获取PPID
 
@@ -255,7 +257,7 @@ PID 是 Process ID, 表示进程的标识符。PPID 又是什么意思呢？
 
 并打印出来：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230302083206268.webp" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
+![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230302083206268.webp)
 
 ## 父进程 与 子进程
 
@@ -263,13 +265,13 @@ PID 是 Process ID, 表示进程的标识符。PPID 又是什么意思呢？
 
 我们自己编写的c++程序也存在父进程
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230302083557676.webp" alt="|wide" style="zoom: 80%; display: block; margin: 0 auto;" />
+![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230302083557676.webp)
 
 在这个例子中, ./AMProcess进程的父进程是28528号进程
 
 如果不小心将此进程结束了, 再次运行此程序：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230302084109375.webp" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
+![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230302084109375.webp)
 
 可以发现, 无论重新运行程序多少次, 生成进程之后PID会发生变化, 但是`PPID始终不变 恒为28528`
 
@@ -336,9 +338,9 @@ int main() {
 }
 ```
 
-将代码编译为CreatCProcess可执行程序, 并运行：
+将代码编译为`CreatCProcess`可执行程序, 并运行：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230302092830090.webp" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
+![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230302092830090.webp)
 
 可以惊奇的发现, 居然输出了两次, 并且输出内容不同, 而源文件中只存在一个输出语句。
 

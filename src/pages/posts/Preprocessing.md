@@ -53,10 +53,10 @@ int main()
 
 ![预定义符号 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE-Symbols.webp)
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE-Symbols-Show.webp" alt="预定义符号效果 |inline" style="zoom:80%; display: block; margin: 0 auto" />
+![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE-Symbols-Show.webp)
 
 ## #define
-#define 
+
 ### 用#define定义 无参宏(标识符)
 用 #define 来定义无参数的宏，也被成为标识符，是比较简单的
 
