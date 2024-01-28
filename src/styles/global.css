@@ -397,7 +397,7 @@ ol+* {
 
 li {
   font-size: 17px;
-  line-height: 1.1;
+  line-height: 1.41;
   font-family: 'Fira Code Regular', "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   color: #000000;
  /* max-width: 740px;*/
@@ -7978,6 +7978,8 @@ hr {
   margin-inline-end: auto;
   overflow: hidden;
   border-width: 0px;
+  margin-bottom: 1.3rem;
+  margin-top: 1.7666rem;
 }
 .hr::before,
 .hr::after {

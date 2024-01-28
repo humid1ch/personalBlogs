@@ -553,16 +553,349 @@ Linux中, 超时以`500ms`为一个单位进行控制, 每次判定超时重发�
 
 ![|huger](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202401271707265.webp)
 
-从图中看, `TCP`的"四次挥手", 是由 **两个主机分别发送`FIN`报文, 对端再响应`ACK`报文** 形成的
+从图中看, `TCP`的"四次挥手", 是由 **两端分别发送`FIN`报文, 对端再响应`ACK`报文** 形成的
 
-并且 可以看到:
+整个过程是这样的:
 
-1. 先发送`FIN`的一端(A) 在接收到对端(B)的`ACK`之后, 会进入`FIN_WAIT_2`状态, 而不是直接`CLOSED`
+1. 先发送`FIN`的一端(主动端A) 在接收到对端(被动端B)的`ACK`之后, 会进入`FIN_WAIT_2`状态, 而不是直接`CLOSED`
 2. 并且, B端接收到`FIN`之后, 也没有直接响应`FIN`关闭连接. 而是, 进入了`CLOSE_WAIT`状态
 3. 然后, B端才发送了`FIN`报文, 并进入`LAST_ACK`状态, 直到收到A端的`ACK`响应报文
 4. A端收到B端发送的`FIN`报文, 并发送`ACK`响应报文之后, 并没有直接进入`CLOSED`状态, 而是先进入了`TIME_WAIT`状态
+5. > "四次挥手"的主动发起者, 可以是客户端, 也可以是服务端
+    >
+    > 所以, "四次挥手"用主动端和被动端来区分状态
 
-可以看到, `TCP`"四次挥手"的过程中, 有许多的状态:
+可以看到, `TCP`"四次挥手"的过程中, 双方会进入许多的状态:
 
 1. 先发送`FIN`的一端, 会依次进入`FIN_WAIT_1` `FIN_WAIT_2` `TIME_WAIT`, 最后才`CLOSED`
 2. 后发送的一端, 则会在接收到`FIN`之后, 依次进入`CLOSE_WAIT` `LAST_WAIT`, 然后才`COLSED`
+
+> 哪一方发送了`FIN`报文, 就表示这一方想要断开连接了, 此端应用层不会再向对端发送数据了
+
+---
+
+那么了解了"四次挥手"的整个过程, 一定会有一个疑问: **A端发送`FIN`报文之后, 为什么B端没有直接响应`FIN`, 而是进入了`CLOSE_WAIT`状态?**
+
+答案是, **为了维护数据传输的可靠性**
+
+A端向B端发送`FIN`报文, 表示A端不准备通信了, 实际也就表示A端应用层不会再向B端发送数据了
+
+但是, A端没有数据发送了, B端却不一定. 毕竟, `TCP`协议是存在发送缓冲区的, 也就是说 B端可能还有数据没有向A端发送呢, 如果直接和A端一起断开连接, 那么还没有发送的数据怎么办?
+
+所以, 虽然A端发送了`FIN`报文, 想要断开连接, 但是B端可能并不想现在据断开连接, 所以就可能不会直接响应`FIN`
+
+即, 当被动端不想直接断开连接时, 就只响应`ACK`报文, 并进入`CLOSE_WAIT`状态
+
+直到, 被动端也没有要发送的数据了, 被动端才会发送`FIN`报文, 并进入`LAST_ACK`状态
+
+> 如果, 主动端发送`FIN`报文时, 被动端也想要断开连接了
+>
+> 那么, B端就可能会响应`ACK+FIN`的报文
+>
+> 不过, 这并不是一般情况, 我们还是要讨论一般情况滴
+
+主动端接收到被动端的`FIN`报文之后, 向被动端响应最后一个`ACK`报文, 并进入`TIME_WAIT`状态 持续一段时间后, 正式关闭连接
+
+被动端在收到主动端的`ACK`响应报文之后, 正式关闭连接
+
+#### "四次挥手"状态分析
+
+我们已经了解了"四次挥手"的大致过程, "四次挥手"过程中 挥手双方 会进入这么多的状态
+
+那么, **双方为什么要进入这么多状态? 这些状态都有什么存在意义?**
+
+下面, 就来解释一下:
+
+**针对主动端:**
+
+1. 主动端(我)发送`FIN`报文之后, 会进入 **`FIN_WAIT_1`** 状态
+
+    **`FIN_WAIT_1`** 状态 的作用
+
+    1. 表示我已经主动发送`FIN`报文, 告诉对端 自己想要断开连接
+    2. 防止因网络延迟或其他原因, 我没有收到对端的`ACK`响应报文. 出现此情况, 还需要超时重传`FIN`报文
+    3. 进入`FIN_WAIT_1`状态开始, 我就关闭了`TCP`发送缓冲区, 应用层不会再向对端发送数据, 同时让对端也了解到这一点
+
+    此状态持续时间, 取决于什么时候收到对端的`ACK`响应报文
+
+2. 主动端接收到对端的`ACK`报文之后, 会进入 **`FIN_WAIT_2`** 状态
+
+    **`FIN_WAIT_2`** 状态 的作用
+
+    1. 表示我已经收到了对端的`ACK`响应报文
+    2. 并了解到 对端还不想关闭连接, 所以 我需要保持`TCP`接收缓冲区不关闭, 保持此端接收数据的功能
+
+    此状态持续时间, 取决于对端什么时候想要关闭连接, 即 什么时候收到对端发送的`FIN`报文
+
+3. 主动端接收到对端的`FIN`报文, 并作出响应之后, 会进入 **`TIME_WAIT`** 状态
+
+    **`TIME_WAIT`** 状态 的作用
+
+    1. 表示我已经收到了对端发送的`FIN`报文, 了解到对端数据也发完了, 对端也想要关闭连接了
+
+    2. 此端也已经发送了`ACK`响应报文, 告诉对端收到了`FIN`报文
+
+    3. 但是, 此状态并不会直接结束, 而是会持续一段时间
+
+        原因一: 对端发送的数据可能还在传输中, 所以并不能马上关闭连接
+
+        原因而: 对端可能没有收到我发送的`ACK`响应, 对端可能还会发送`FIN`报文, 我还得再次`ACK`响应, 保证对端收到了`ACK`之后 正确关闭连接
+
+    此状态持续时间, 不能过长 不能过短, 一般为`2*MSL` (后面分析解释)
+
+那么
+
+**针对被动端:**
+
+1. 被动端收到对端的`FIN`报文, 并作出响应之后, 会进入 **`CLOSE_WAIT`** 状态
+
+    **`CLOSE_WAIT`** 状态 的作用
+
+    1. 表示被动端已经收到了对端的`FIN`报文, 知道了对端要关闭连接 并且已经关闭了发送缓冲区 不再给被动端发送数据了
+
+    2. 不过, 被动端暂时还不想关闭连接, `TCP`发送缓冲区内还有数据没有发送完, 所以需要维持`CLOSE_WAIT`状态
+
+    3. 并且, 需要在 对端没有收到`ACK`响应, 再次发送`FIN`报文时, 重新响应`ACK`报文
+
+    4. 还有, 被动端收到了`FIN`报文, 也会向应用层关闭发送缓冲区
+
+        提醒应用层, 将`write()`或`send()`缓冲区里已经存在的数据发走之后, 就不要在发送数据了, 发送缓冲区要关闭了
+
+        不然, 还一直有数据要发送, 还要一直消耗双方资源
+
+    此状态持续时间, 取决于什么时候`TCP`发送缓冲区的数据发完, 并且与`close()`调用有关 (后面分析解释)
+
+2. 被动端数据发送完, 调用`close()` 发送`FIN`报文之后, 会进入 **`LAST_ACK`** 状态
+
+    **`LAST_ACK`** 状态 的作用
+
+    1. 表示被动端已经发送了`FIN`报文, 也要关闭连接了
+
+    2. 等待对端的`ACK`响应报文, 即 需要知道 对端已经收到了被动端的`FIN`报文
+
+        如果长时间没有收到对端的`ACK`响应报文, 被动端需要重新发送`FIN`报文
+
+        所以, 需要维护`LAST_ACK`状态
+
+    直到收到对端的`ACK`响应, 才会关闭连接
+
+在上面这5个状态中, 有2个状态很重要: **被动端的`COLSE_WAIT`** 和 **主动端的`TIME_WAIT`**
+
+并且, 这两种状态也是"四次挥手"过程中, 最容易观察到的
+
+#### 观察、分析`CLOSE_WAIT`和`TIME_WAIT`
+
+我们可以实现一个最简单的`TCP`服务器, 并使用`telnet`建立连接查看端口的状态
+
+`tcpServer.cpp`
+
+```cpp
+#pragma once
+
+#include <iostream>
+#include <string>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <unistd.h>
+#include <sys/wait.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+
+#define SOCKET_ERR  1
+#define BIND_ERR    2
+#define LISTEN_ERR  3
+#define USE_ERR     4
+#define CONNECT_ERR 5
+#define FORK_ERR    6
+#define WAIT_ERR    7
+
+#define BUFFER_SIZE 1024
+
+class tcpServer {
+public:
+    tcpServer(uint16_t port, const std::string& ip = "")
+        : _port(port)
+        , _ip(ip)
+        , _listenSock(-1) {}
+
+    void init() {
+        _listenSock = socket(AF_INET, SOCK_STREAM, 0);
+
+        if (_listenSock < 0) {
+            // 套接字文件描述符创建失败
+            printf("socket() faild:: %s : %d\n", strerror(errno), _listenSock);
+            exit(SOCKET_ERR); // 创建套接字失败 以 SOCKET_ERR 退出
+        }
+        printf("socket create success: %d\n", _listenSock);
+
+        // 套接字创建成功, 就需要将向 sockaddr_in 里填充网络信息
+        struct sockaddr_in local;
+        std::memset(&local, 0, sizeof(local));
+
+        // 填充网络信息
+        local.sin_family = AF_INET;
+        local.sin_port = htons(_port);
+        _ip.empty() ? (local.sin_addr.s_addr = htonl(INADDR_ANY)) : (inet_aton(_ip.c_str(), &local.sin_addr));
+
+        // 绑定网络信息到主机
+        if (bind(_listenSock, (const struct sockaddr*)&local, sizeof(local)) == -1) {
+            printf("bind() faild:: %s : %d\n", strerror(errno), _listenSock);
+            exit(BIND_ERR);
+        }
+        printf("socket bind success : %d\n", _listenSock);
+
+        if (listen(_listenSock, 2) == -1) {
+            printf("listen() faild:: %s : %d\n", strerror(errno), _listenSock);
+            exit(LISTEN_ERR);
+        }
+        printf("listen success : %d\n", _listenSock);
+        // 开始监听之后, 别的主机就可以发送连接请求了.
+    }
+
+    // 服务器初始化完成之后, 就可以启动了
+    void loop() {
+        while (true) {
+            sleep(1);
+            struct sockaddr_in peer;          // 输出型参数 接受所连接主机客户端网络信息
+            socklen_t peerLen = sizeof(peer); // 输入输出型参数
+            
+//          int serviceSock = accept(_listenSock, (struct sockaddr*)&peer, &peerLen);
+//          if (serviceSock == -1) {
+//              printf("accept() faild:: %s : %d\n", strerror(errno), serviceSock);
+//              continue;
+//          }
+//          sleep(60);
+//  		close(serviceSock);
+        }
+    }
+
+private:
+    uint16_t _port; // 端口号
+    std::string _ip;
+    int _listenSock; // 服务器套接字文件描述符
+};
+
+void Usage(std::string proc) {
+    std::cerr << "Usage:: \n\t" << proc << " port ip" << std::endl;
+    std::cerr << "example:: \n\t" << proc << " 8080 127.0.0.1" << std::endl;
+}
+
+int main(int argc, char* argv[]) {
+    if (argc != 3 && argc != 2) {
+        Usage(argv[0]);
+        exit(USE_ERR);
+    }
+    uint16_t port = atoi(argv[1]);
+    std::string ip;
+    if (argc == 3) {
+        ip = argv[2];
+    }
+
+    tcpServer svr(port, ip);
+
+    svr.init();
+    svr.loop();
+
+    return 0;
+}
+```
+
+这是一个非常简单的`tcpServer`, 编译、运行起来后 就可以对其发起连接了
+
+这个服务器需要注意的是:
+
+1. **`listen(_listenSock, 2)`, `listen()`第二个参数设置为`2`**
+2. **`accept()`接口没有被调用, `close()`同样没有被调用**
+
+将程序编译、运行起来, 使用`telnet`进行连接, 使用`netstat`命令查看状态:
+
+1. 服务器运行起来, 暂时没有建立连接时
+
+    使用`netstat -nlpt`查看, 系统中处于`LISTEN`状态的`TCP`服务
+
+    ![|huger](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202401282054317.webp)
+
+2. 当使用`telnet`向服务器发起连接之后
+
+    使用`netstat -npt`查看`TCP`服务的连接状态
+
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202401282059635.webp)
+
+    可以看到, 系统维护有 **从客户端到服务端的连接** 和 **从服务端到客户端的连接**, 并且状态都处于`ESTABLISHED`
+
+    这可以说明什么?
+
+    要知道, 上面的服务代码是没有调用`accept()`的. 可能很多人认为`accept()`接口是用来同意连接请求的, 但实际并不是的, 因为即使没有调用`accept()`, "三次握手"依然是正常完成了, 双端正常进入了`ESTABLISHED`状态
+
+    所以, 这个现象说明"三次握手"完成与否, 是与应用层是否调用`accept()`无关的
+
+    并且说明了, `accept()`接口的功能 只是将内核中已经与客户端建立好的`TCP`连接数据、信息, "拿"到进程中使用
+
+3. 重新使用`telnet`向服务器发起连接, 并且记录从建立连接, 到断开连接, 服务端连接状态的变化
+
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202401282247759.webp)
+
+    可以看到:
+
+    1. 客户端发起连接之后, 服务端和客户端相互维护连接, 均进入`ESTABLISHED`状态
+
+    2. 客户端主动关闭连接之后, 服务端进入`CLOSE_WAIT`状态
+
+    3. 之后, 如果服务端没有停止运行, 服务端会一直处于`CLOSE_WAIT`状态
+
+    4. 服务端停止运行了, 相应的连接状态才关闭
+
+    5. > 客户端(主动端)主动关闭连接之后, 可以看到 先进入了`FIN_WAIT_2`状态
+        >
+        > 并且, 在之后的观察中 可以发现, 主动端完整的关闭了连接
+        >
+        > 但是, `TCP`"四次挥手"规定, 只要主动端没有收到被动端发送的`FIN`报文, 就会一直处于`FIN_WAIT_2`状态吗?
+        >
+        > 理论上是这样的, 但是 Linux在实现上并没有这样实现:
+        >
+        > 执行`man tcp`的命令, 并搜索`tcp_fin_timeout`:
+        >
+        > ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202401282259457.webp)
+        >
+        > **tcp_fin_timeout（整数; 默认值: 60; 自 Linux2.2 起）**
+        >
+        > **它指定了在强制关闭套接字之前, 等待最终`FIN`数据包的秒数. 这违反了`TCP`规范, 但却是防止服务攻击所必需的. 在 Linux2.2 中, 默认值为 180**
+        >
+        > 也就是, 说Linux针对 主动端 等待 被动端的`FIN`报文 设定了一个时间限制. 只要 主动端等待的时间 超出了这个时间限制, 主动端就会强制关闭连接
+        >
+        > 这也就是为什么, 上面 客户端进入`FIN_WAIT_2`一段时间之后, 突然不见了
+
+    可以发现, 客户端(主动端)关闭连接, 服务端(被动端)好像会一直处于`CLOSE_WAIT`状态
+
+    服务端处于`CLOSE_WAIT`状态, 但是客户端已经关闭了连接, 就会导致服务端一直无效占用系统资源
+
+    
+
+4. 
+
+5. 
+
+6. 
+
+7. 如果使用`telnet`向服务器发起更多连接(一共4次)
+
+    再次使用`netstat -npt`查看`TCP`服务的连接状态
+
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202401282115992.webp)
+
+    可以看到, `telnet`4次尝试向服务端建立连接, 系统成功建立了3条`TCP`连接
+
+    有1条没有成功建立, 而是客户端进入了`SYN_SENT`状态, 也就表示服务端好像没有响应
+
+    出现这种现象的原因是: **`listen()`的第二个参数设置为了`2`, 并且没有调用`accept()`将建立好的连接拿走**
+
+    > 如果`listen()`的第二个参数设置为1, 那么 就只能成功连接2条
+    >
+    > 如果`listen()`的第二个参数设置为0, 那么 就只能成功连接1条
+    >
+    > **前提是不调用`accept()`**
+    >
+    > 很容易测试, 可以试一下
