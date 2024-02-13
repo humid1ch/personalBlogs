@@ -136,7 +136,7 @@ const coverurl = frontmatter.cover.url;
           <div class="divUpSidebar"></div>
           <nav id="tocc" style="overflow: hidden;" class="toc">
             <div class="toggle-button">
-              <button style="font-weight:600" id="toggleButton" class="expand">TOC</button>
+              <button style="font-weight:600; writing-mode: vertical-rl; padding-top:0.4em" id="toggleButton" class="expand">展开目录</button>
             </div>
             <ul class="js-toc"></ul> 
           </nav>
@@ -207,21 +207,25 @@ const coverurl = frontmatter.cover.url;
           let toc = document.getElementById('tocc');
           toc.classList.add('collapsed');
           // 调用计算函数
-          const divUpRect = document.querySelector('.divUp').getBoundingClientRect();
-          const divSidebarRect = document.querySelector('.divUpSidebar').getBoundingClientRect();
+        //   const divUpRect = document.querySelector('.divUp').getBoundingClientRect();
+        //   const divSidebarRect = document.querySelector('.divUpSidebar').getBoundingClientRect();
 
-          const distance = divSidebarRect.top - divUpRect.bottom;
+        //   const distance = divSidebarRect.top - divUpRect.bottom;
 
-          window.addEventListener('scroll', handleScroll);
+        //   window.addEventListener('scroll', handleScroll);
 
-          function handleScroll() {
-            if(window.scrollY > distance) {
-              toc.classList.add('fixed');
-            }
-            else if (window.scrollY < distance) {
-              toc.classList.remove('fixed');
-            }
-          }
+        //   function handleScroll() {
+        //     if(window.scrollY > distance) {
+			// 获取当前页面高度
+
+            toc.classList.add('fixed');
+			toc.style.top = window.innerHeight/2 - 42 + "px";
+
+        //     }
+        //     else if (window.scrollY < distance) {
+        //       toc.classList.remove('fixed');
+        //     }
+        //   }
 
           var toggleButton = document.getElementById('toggleButton');
 
@@ -231,10 +235,26 @@ const coverurl = frontmatter.cover.url;
 
             if (!toc.contains(target)) {
               toc.classList.add('collapsed');
+			  toggleButton.textContent = '展开目录';
+				toc.style.height = "5em";
+				toc.style.top = window.innerHeight/2 - 42 + "px";
             }
           });
+
           toggleButton.addEventListener('click', function() {
             toc.classList.toggle('collapsed');
+			if (toc.classList.contains('collapsed')) {
+    			// 如果有，说明 toc 是收起的，那么 button 的文本应该是展开目录
+    			toggleButton.textContent = '展开目录';
+				toc.style.height = "5em";
+				toc.style.top = window.innerHeight/2 - 42 + "px";
+
+  			} else {
+    			// 如果没有，说明 toc 是展开的，那么 button 的文本应该是收起目录
+    			toggleButton.textContent = '收起目录';
+				toc.style.top = "0px";
+				toc.style.height = window.innerHeight + "px";
+  			}
           });
         </script>
       </section>
