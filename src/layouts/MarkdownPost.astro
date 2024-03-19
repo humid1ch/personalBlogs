@@ -206,26 +206,10 @@ const coverurl = frontmatter.cover.url;
 
           let toc = document.getElementById('tocc');
           toc.classList.add('collapsed');
-          // 调用计算函数
-        //   const divUpRect = document.querySelector('.divUp').getBoundingClientRect();
-        //   const divSidebarRect = document.querySelector('.divUpSidebar').getBoundingClientRect();
 
-        //   const distance = divSidebarRect.top - divUpRect.bottom;
+          toc.classList.add('fixed');
+		  toc.style.top = window.innerHeight/2 - 42 + "px";
 
-        //   window.addEventListener('scroll', handleScroll);
-
-        //   function handleScroll() {
-        //     if(window.scrollY > distance) {
-			// 获取当前页面高度
-
-            toc.classList.add('fixed');
-			toc.style.top = window.innerHeight/2 - 42 + "px";
-
-        //     }
-        //     else if (window.scrollY < distance) {
-        //       toc.classList.remove('fixed');
-        //     }
-        //   }
 
           var toggleButton = document.getElementById('toggleButton');
 

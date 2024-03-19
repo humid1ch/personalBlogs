@@ -8018,12 +8018,6 @@ hr {
   padding-right: 1em;
   width: 244px;
   height: 5em;
-  /* position: sticky; */
-  /* top: translateY(-50%); */
-  /* position: fixed;
-  top: 0;
-  bottom: 0;
-  transform: translateY(-50%); */
   z-index: 999;
   float: right;
   right: 0;
