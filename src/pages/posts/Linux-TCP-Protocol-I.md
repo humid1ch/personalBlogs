@@ -155,7 +155,7 @@ featured: false
 >
 > 那么, 基于协议, 在实际实现时就可能会出现这样的情况:
 >
-> ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202401171656408.webp)
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202401171656408.webp)
 >
 > 这是种实现被称为 **积累应答** 或 **延迟应答**, 可以有效提高通信效率
 >
