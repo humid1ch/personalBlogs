@@ -8,7 +8,7 @@ cover:
     url: ''
     square: ''
     alt: 'cover'
-tags: ["算法", "排序", "C++", ""]
+tags: ["算法", "排序", "C++", "约1181字 -- 阅读时间≈3分钟"]
 theme: 'light'
 featured: false
 ---
@@ -49,7 +49,7 @@ featured: false
 >         }
 >         cout << endl;
 >     }
->         
+>             
 >     void printVector(const std::vector<int>& nums, int begin, int end) {
 >         for (int i = begin; i <= end; i++) {
 >             cout << nums[i] << " ";
