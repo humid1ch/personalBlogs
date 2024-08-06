@@ -177,8 +177,8 @@ const coverurl = frontmatter.cover.url;
               clientID: '0c4d13aa9a4a6440b432',
               clientSecret: 'c72866174280de49fb3a2e20eb4f4dcbcd804050',
               repo: 'gitalk_blog',      // The repository of store comments,
-              owner: 'DxytJuly3',
-              admin: ['DxytJuly3'],
+              owner: 'humid1ch',
+              admin: ['humid1ch'],
               id: location.pathname,      // Ensure uniqueness and length less than 50
               distractionFreeMode: false  // Facebook-like distraction free mode
           })
@@ -208,7 +208,7 @@ const coverurl = frontmatter.cover.url;
           toc.classList.add('collapsed');
 
           toc.classList.add('fixed');
-		  toc.style.top = window.innerHeight/2 - 42 + "px";
+		      toc.style.top = window.innerHeight/2 - 42 + "px";
 
 
           var toggleButton = document.getElementById('toggleButton');
@@ -219,26 +219,25 @@ const coverurl = frontmatter.cover.url;
 
             if (!toc.contains(target)) {
               toc.classList.add('collapsed');
-			  toggleButton.textContent = '展开目录';
-				toc.style.height = "5em";
-				toc.style.top = window.innerHeight/2 - 42 + "px";
+			        toggleButton.textContent = '展开目录';
+				      toc.style.height = "5em";
+				      toc.style.top = window.innerHeight/2 - 42 + "px";
             }
           });
 
           toggleButton.addEventListener('click', function() {
             toc.classList.toggle('collapsed');
-			if (toc.classList.contains('collapsed')) {
-    			// 如果有，说明 toc 是收起的，那么 button 的文本应该是展开目录
-    			toggleButton.textContent = '展开目录';
-				toc.style.height = "5em";
-				toc.style.top = window.innerHeight/2 - 42 + "px";
-
-  			} else {
-    			// 如果没有，说明 toc 是展开的，那么 button 的文本应该是收起目录
-    			toggleButton.textContent = '收起目录';
-				toc.style.top = "0px";
-				toc.style.height = window.innerHeight + "px";
-  			}
+			      if (toc.classList.contains('collapsed')) {
+    			    // 如果有，说明 toc 是收起的，那么 button 的文本应该是展开目录
+    			    toggleButton.textContent = '展开目录';
+				      toc.style.height = "5em";
+				      toc.style.top = window.innerHeight/2 - 42 + "px"; 
+  			    } else {
+    			    // 如果没有，说明 toc 是展开的，那么 button 的文本应该是收起目录
+    			    toggleButton.textContent = '收起目录';
+				      toc.style.top = "0px";
+				      toc.style.height = window.innerHeight + "px";
+  			    }
           });
         </script>
       </section>
