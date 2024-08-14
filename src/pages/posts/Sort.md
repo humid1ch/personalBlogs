@@ -49,7 +49,7 @@ featured: false
 >         }
 >         cout << endl;
 >     }
->                                                 
+>                                                     
 >     void printVector(const std::vector<int>& nums, int begin, int end) {
 >         for (int i = begin; i <= end; i++) {
 >             cout << nums[i] << " ";

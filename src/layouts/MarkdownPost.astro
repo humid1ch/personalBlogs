@@ -248,5 +248,13 @@ const coverurl = frontmatter.cover.url;
       script.src = "/static/js/initPost.js";
       document.head.appendChild(script);
     </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', (event) => {
+    document.querySelectorAll('pre code').forEach((block) => {
+        block.classList.add('hljs');
+    });
+});
+
+    </script>
   </body>
 </html>
