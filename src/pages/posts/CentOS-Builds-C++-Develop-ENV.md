@@ -1,6 +1,6 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
-title: '[CentOS 7.6]从零开始搭建C/C++开发环境'
+title: '[CentOS 7.6]从零开始搭建C/C++开发环境(废弃)'
 pubDate: 2023-03-19
 description: '前几天, 在云服务器里删了一些东西, 导致丢失了一些文件和软件的相关配置. 导致C/C++的开发环境用着及其不舒服, 所以重新搭建了一遍, 顺手写了这一篇文章'
 author: '七月.cc'

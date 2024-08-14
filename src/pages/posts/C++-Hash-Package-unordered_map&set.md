@@ -241,7 +241,7 @@ template<class Key, class T, class KeyOfT, class hashFunc>
 class hashTable {
 	typedef hashNode<T> Node;
 	
-	template<class Key, class T, class KeyOfT, class hashFunc>
+	template<class KeyType, class Type, class KeyOfType, class hashFunction>
 	friend struct __hashTableIterator;
 
 public:
@@ -249,9 +249,47 @@ public:
 	
 private:
 	vector<Node*> _tables;						 // 存储桶的数组
-	size_t _n = 0;							// 存储的节点数
+	size_t _n = 0;								// 存储的节点数
 };
 ```
+
+注意, **按照C++标准, 在`hashTable`类内 声明`__hashTableIterator`为友元类时, `__hashTableIterator`生命的模板参数不可以与`hashTable`的模板参数使用相同的命名, 即使 模板参数没有什么实际意义**
+
+什么意思?
+
+```cpp
+template<class Key, class T, class KeyOfT, class hashFunc>
+class hashTable {
+	template<class KeyType, class Type, class KeyOfType, class hashFunction>
+	friend struct __hashTableIterator;
+};
+```
+
+需要在`hashTable`内部声明`__hashTableIterator`为友元
+
+如果`hashTable`的模板参数为`template<class Key, class T, class KeyOfT, class hashFunc>`
+
+那么声明`__hashTableIterator`就不能`template<class Key, class T, class KeyOfT, class hashFunc>`
+
+否则, 就是发生了 **模板参数重影**
+
+就像下面这样的代码:
+
+```cpp
+template<class Key, class T, class KeyOfT, class hashFunc>
+class hashTable {
+	template<class Key, class T, class KeyOfT, class hashFunc>
+	friend struct __hashTableIterator;
+};
+```
+
+使用`g++`编译, 是会报错的
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20240807192429057.webp)
+
+不过, 如果使用`MSVC`的编译器, 就不会出错
+
+编译器处理有差异
 
 ### 接口函数
 
