@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '[Linux] GDB使用记录'
 pubDate: 2024-7-1
 description: ''
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: ''
     square: ''

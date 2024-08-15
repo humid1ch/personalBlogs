@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '[C++] 类和对象(4): 初始化列表、构造函数细节、static成员、友元、内部类...'
 pubDate: 2022-06-28
 description: '关于："对象的成员变量是在哪里定义的？" 的这个问题, 要提出一个名词：初始化列表'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251807073.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251807073.webp'

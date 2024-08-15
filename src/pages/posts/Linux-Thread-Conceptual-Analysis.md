@@ -4,7 +4,7 @@ title: '[Linux] 多线程概念相关分析: 什么是线程、再次理解进�
 pubDate: 2023-04-11
 description: '线程可以说是实际区别于进程的一个概念, 但也可以说是实际没有区别于进程的一个概念.
 而实际区别与否, 其实 **`与平台有关`**'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251801032.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251801032.webp'

@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '[Linux] UDP协议介绍:UDP协议格式、端口号在网络协议栈那一层工作...'
 pubDate: 2024-01-08
 description: '本篇文章, 简单介绍UDP协议的相关内容'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202401080145365.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202401080145365.webp'

@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '[Linux] 环境变量介绍：什么是环境变量？C/C++如何获取环境变量？环境变量有什么特性？有什么用？'
 pubDate: 2023-03-04
 description: '什么是环境变量？认识 环境 这两个字, 也知道 变量 是什么, 把这两个词结合起来的环境变量是什么东西？'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251757454.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251757454.webp'

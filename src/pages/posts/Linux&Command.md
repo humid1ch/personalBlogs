@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '[Linux] Linux最常用的20个基本指令 介绍与分析'
 pubDate: 2022-07-08
 description: '要使用命令行熟练操作Linux，最重要的知识就是 Linux 操作系统的内核 以及 Linux环境下的指令，本篇文章的主要内容就是 Linux 环境下的 指令操作'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251803778.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251803778.webp'
@@ -705,7 +705,7 @@ date 用法：**`date [OPTION]... [+FORMAT]`**
 
 ## 19. tar
 
-语法：**`tar [-cxtzjvf] 文件与目录 .... 参数`**
+语法：**`tar [-cxtzjvf] 文件与目录 ....参数`**
 功能：将目录或文件压缩成`tar.gz 或 tgz`格式，或解压 `tar.gz、tgz`文件，或直接查看`tar.gz、tgz`文件内容
 常用选项：
 

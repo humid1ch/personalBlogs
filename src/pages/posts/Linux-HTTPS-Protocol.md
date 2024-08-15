@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '[Linux] HTTPS协议介绍:...'
 pubDate: 2023-08-09
 description: 'HTTP协议是以明文的形式传输数据的, 这在网络中是非常不安全的. 所以 HTTPS 出现了, HTTPS就是在HTTP协议的基础上引入了加密层...'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308091419976.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308091419976.webp'

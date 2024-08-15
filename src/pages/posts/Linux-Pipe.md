@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '[Linux] 详解 Linux管道通信：匿名管道、命名管道的原理及使用等'
 pubDate: 2023-04-02
 description: 'Linux为我们提供了三种进程间通信的方法：1. pipe 管道通信 2. System V标准通信 3. POSIX标准通信. 本篇文章的主要内容是 匹配管道通信'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251758839.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251758839.webp'

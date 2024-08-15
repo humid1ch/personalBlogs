@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '[数据结构] 最复杂的链表结构？不，是最方便的链表结构~ 带你领略双向带头循环链表的美~'
 pubDate: 2022-05-04
 description: '本篇文章的的具体内容是 带 头结点的双向循环链表 接口的实现'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Blog_SXDTXHLB_cover.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Blog_SXDTXHLB_cover.webp'

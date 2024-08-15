@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '[Linux] 什么是进程地址空间？父子进程的代码时如何继承的？程序是怎么加载成进程的？为什么要有进程地址空间？'
 pubDate: 2023-03-06
 description: '在介绍C++的内存控制时, 我用了这样一张图来大致表述一个程序的程序地址空间, 并且也提到过这块空间占用的是内存. 不过这张图, 在Linux系统中需要稍微改动一下'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251759942.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251759942.webp'

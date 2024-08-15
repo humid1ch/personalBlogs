@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '[C++] 位图与布隆过滤器的相关介绍'
 pubDate: 2023-02-20
 description: '哈希是一种思想, 位图 和 布隆过滤器是哈希思想的实现的一种'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251805666.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251805666.webp'

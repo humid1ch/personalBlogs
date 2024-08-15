@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '[C++-STL] deque的分析'
 pubDate: 2022-07-15
 description: 'STL源码, 实现 stack 和 queue 都使用了 deque 作为适配器. deque 是什么？它的结构是什么？为什么 Stack和 Queue要用它来作为适配器实现？'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251815703.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251815703.webp'

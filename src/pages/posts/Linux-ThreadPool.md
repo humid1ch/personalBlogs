@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '[Linux] 最基础简单的线程池及其单例模式的实现'
 pubDate: 2023-07-12
 description: ''
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307121404386.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307121404386.webp'

@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '[C++] C++11新特性介绍 分析(1): 列表初始化、右值引用、完美转发、移动语义...'
 pubDate: 2023-04-21
 description: '本篇文章是关于C++11标准 一些常用的新特性的介绍, 比如: 列表初始化、右值引用、万能引用、完美转发、类的新默认成员函数 和 可变参数列表等'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251811775.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251811775.webp'

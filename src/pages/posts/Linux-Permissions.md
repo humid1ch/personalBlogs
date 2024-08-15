@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '[Linux] Linux用户权限、文件权限、权限操作相关介绍'
 pubDate: 2022-07-09
 description: 'Linux下有两种用户：超级用户(root)、普通用户'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251758851.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251758851.webp'

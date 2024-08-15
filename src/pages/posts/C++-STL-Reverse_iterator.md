@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '[C++-STL] 反向迭代器实现原理的相关介绍'
 pubDate: 2022-07-16
 description: '反向迭代器该如何实现呢？它究竟是什么东西呢？'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251814470.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251814470.webp'

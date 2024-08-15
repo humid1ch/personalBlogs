@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '[Linux] 详析进程控制：fork子进程运行规则？怎么回收子进程？什么是进程替换？进程替换怎么操作？'
 pubDate: 2023-03-07
 description: '这次, 是第三次正式的对fork()系统调用进行介绍、补充'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251759370.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251759370.webp'

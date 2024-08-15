@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '[C++] C++异常处理介绍 分析: 异常概念、异常抛出与捕获匹配原则、重新抛出、异常安全、异常体系...'
 pubDate: 2023-07-07
 description: 'C语言程序发生错误, 很可能会直接导致程序退出. 而C++引进了 异常的概念, 可以更灵活更快速的 排查处理错误...'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307071821830.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307071821830.webp'

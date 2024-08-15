@@ -5,7 +5,7 @@ pubDate: 2023-07-17
 description: '我们使用的系统中, 一般以服务器的方式工作 对外提供服务的服务器, 都是以守护进程的方式在系统中工作的
 比如, 我们使用Linux服务器时, 大多都会使用一些终端软件通过ssh远程连接服务器使用
 守护进程, 一旦启动之后. 除非用户手动关闭, 否则不会被关闭 会一直运行'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307172256122.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307172256122.webp'

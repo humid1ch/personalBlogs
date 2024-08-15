@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '[Linux] 如何理解线程ID？什么是线程局部存储？'
 pubDate: 2023-04-15
 description: '在Linux中, 使用 pthread_create() 创建线程的时候, 第一个参数就是用来接收线程ID的'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251802112.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251802112.webp'

@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '[C++] 菱形继承和虚拟菱形继承 原理分析'
 pubDate: 2022-07-23
 description: 'C++继承的使用，有许多需要特别注意的地方. 本篇文章的内容就是 分析一下 C++继承中的特别需要注意的地方：菱形继承'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251808894.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251808894.webp'

@@ -4,7 +4,7 @@ title: '[Linux] 多线程控制分析：获取线程ID、线程退出分析、�
 pubDate: 2023-04-14
 description: '我们知道, 进程有自己相关控制接口, 等待、创建等
 而线程作为轻量级的进程, 其实也是有控制接口的.'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251801575.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251801575.webp'

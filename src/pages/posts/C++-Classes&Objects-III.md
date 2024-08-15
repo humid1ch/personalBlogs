@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '[C++] 类和对象(3): 赋值重载、运算符重载...'
 pubDate: 2022-06-26
 description: 'C++ 中，引入了 运算符重载，使同类对象之间可以使用运算符，进而提高代码可读性'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251806029.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251806029.webp'

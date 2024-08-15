@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '[Linux] 初识应用层协议: 序列化与反序列化、编码与解码、jsoncpp简单食用...'
 pubDate: 2023-07-18
 description: '真正的应用层开发中, 需要传输的网络数据并不只有语言原生类型, 更多的是自定义并且结构化的数据'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307261508349.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307261508349.webp'

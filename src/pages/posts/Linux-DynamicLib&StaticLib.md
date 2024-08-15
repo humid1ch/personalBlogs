@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '[Linux] 详析动、静态库原理、创建与使用'
 pubDate: 2023-04-01
 description: '在Linux环境下, 我们使用gcc编译链接代码文件时, 可以统分为 静态链接和动态链接'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251756107.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251756107.webp'

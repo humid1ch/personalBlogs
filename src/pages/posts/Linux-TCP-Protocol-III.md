@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '[Linux] TCP协议介绍(3): TCP协议的"四次挥手"过程、状态分析...'
 pubDate: 2024-01-15
 description: 'TCP协议是面向连接的, 面向字节流的, 可靠的 传输层协议...'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202403200105048.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202403200105048.webp'

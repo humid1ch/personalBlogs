@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '[Linux] 详析 Linux磁盘文件管理系统、文件inode以及 软硬连接'
 pubDate: 2023-03-29
 description: '本篇文章的主要内容就是介绍Linux的文件系统是怎么管理磁盘文件'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251755489.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251755489.webp'

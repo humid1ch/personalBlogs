@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '[C++项目] Boost文档 站内搜索引擎(5): cpphttplib实现网络服务、html页面实现、服务器部署...'
 pubDate: 2023-08-07
 description: '本篇文章 介绍如何使用cpphttplib 将已经完成的后端工作, 部署到网络中. 并实现页面的制作以及 Boost库文档搜索引擎服务器的部署.'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308081258103.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308081258103.webp'

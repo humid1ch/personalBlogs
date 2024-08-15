@@ -1,16 +1,15 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
-title: '[算法] 一篇文章搞懂 递归'
-pubDate: 0000-00-00
+title: '[QT5] QT5.14.2在Windows下安装 以及 相关工具介绍'
+pubDate: 2024-8-15
 description: ''
 author: '哈米d1ch'
 cover:
     url: ''
     square: ''
     alt: 'cover'
-tags: ["算法", "递归"]
+tags: ["QT", "Windows", "C++", "约字 -- 阅读时间≈分钟"]
 theme: 'light'
 featured: false
 ---
 
-# 总览递归

@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '怎么防止云服务图床被爬虫爬？给自己的图床添加白名单~'
 pubDate: 2022-04-18
 description: ''
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: ''
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/3ffc2687b14840ef87c27e14844d9cfb.webp'

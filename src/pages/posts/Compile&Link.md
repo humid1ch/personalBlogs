@@ -4,7 +4,7 @@ title: '[程序员的自我修养] 理解编译到链接的过程'
 pubDate: 2022-03-23
 description: '在学习C语言的过程中，每一个源文件都会经过编译链接等预处理操作才能成为一个 可执行文件. 
 这些预处理过程到底是如何进行的，就是本篇文章的内容'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230414151451674.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230414151451674.webp'

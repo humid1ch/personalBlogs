@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '[C++-STL] set和map容器的相关介绍'
 pubDate: 2022-09-01
 description: 'set 和 map 的底层就是由一种二叉搜索树来实现的——红黑树. 本篇文章先来介绍一下 set 和 map 简单的介绍，以及相关接口的使用'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251815314.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251815314.webp'

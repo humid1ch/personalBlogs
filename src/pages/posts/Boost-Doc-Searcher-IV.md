@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '[C++项目] Boost文档 站内搜索引擎(4): 搜索的相关接口的实现、线程安全的单例index接口、cppjieba分词库的使用、综合调试...'
 pubDate: 2023-08-05
 description: '本篇文章的内容为: 查找、搜索 相关接口的实现, 建立索引接口的相关优化, 本地搜索测试. 做完上面的内容, 就后面就是加入网络和页面的制作了~'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308050919612.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308050919612.webp'

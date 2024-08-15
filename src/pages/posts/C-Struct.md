@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '[C语言] 详解结构体，详细分析结构体对齐'
 pubDate: 2022-02-15
 description: '结构体是一些值的集合，这些值成为成员变量。结构的每个成员可以是不同类型的变量。结构体属于自定义类型。'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409155622571.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409155622571.webp'

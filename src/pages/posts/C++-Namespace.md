@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '[C++] 带你理解 using namespace std;'
 pubDate: 2022-05-19
 description: '本篇文章要涉及的内容，就是理解 C++ 中 using namespace std; 的含义'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251809044.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251809044.webp'

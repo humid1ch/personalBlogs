@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '[C++] C++特殊类设计 以及 单例模式:设计无法拷贝、只能在堆上创建、只能在栈上创建、不能继承的类, 单例模式以及饿汉与懒汉的场景...'
 pubDate: 2023-07-11
 description: '设计模式 实际是一套被反复使用、多数人知晓的、经过分类的、代码设计经验的总结, 被人熟知的设计模式有 23种, 不过本篇文章只介绍一种: 单例模式'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307111050710.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307111050710.webp'

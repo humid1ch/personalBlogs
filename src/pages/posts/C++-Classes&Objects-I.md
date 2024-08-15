@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '[C++] 类和对象(1): 认识类、封装特性、隐含的this指针...'
 pubDate: 2022-06-18
 description: 'C++ 中的类其实与 C语言 中的结构体类似。不过，C++将C语言 中的 struct 进行了升级，在C++中 struct 可以用来定义类'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251806115.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251806115.webp'

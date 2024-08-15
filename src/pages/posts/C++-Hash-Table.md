@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '[C++-STL] 哈希表以及unordered_set和unordered_set的介绍'
 pubDate: 2022-11-11
 description: 'unordered_set 和 unordered_map 的底层是由 哈希表 实现的, 那么 什么是哈希表？'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251815879.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251815879.webp'

@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '[Linux] 从零开始配置openEuler/EulerOS下的 C/C++开发环境: zsh安装、nivm的LSP-C/C++补全、MySQL57安装配置'
 pubDate: 2024-8-8
 description: '一切, 都源于一场意外'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408091358719.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408091358719.webp'

@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '[C语言] C语言能对文件进行哪些操作？'
 pubDate: 2022-03-02
 description: '文件按照功能，区分为两类：程序文件、数据文件'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251812049.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251812049.webp'

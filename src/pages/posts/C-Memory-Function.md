@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '[C语言] 内存函数介绍与模拟实现'
 pubDate: 2022-02-16
 description: 'memcpy、memmove……'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251812215.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251812215.webp'

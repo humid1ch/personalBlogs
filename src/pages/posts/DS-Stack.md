@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '[数据结构] 栈 详解'
 pubDate: 2022-05-07
 description: '本篇文章来介绍一下 栈 这种数据结构'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Cover.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Cover.webp'

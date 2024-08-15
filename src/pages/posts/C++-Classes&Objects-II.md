@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '[C++] 类和对象(2): 默认成员函数介绍分析、构造函数、析构函数、拷贝构造...'
 pubDate: 2022-06-20
 description: '任何一个类，即使一个成员都不写，其实也会自动生成6个默认成员函数'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251806489.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251806489.webp'

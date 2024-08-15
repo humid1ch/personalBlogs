@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '[C++] C++编译器 关于构造函数的优化'
 pubDate: 2023-03-19
 description: '一些编译器, 针对连续使用的构造函数 会存在一些优化的行为'
-author: '七月.cc'
+author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307051139974.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307051139974.webp'
