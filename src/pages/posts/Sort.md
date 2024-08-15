@@ -5,8 +5,8 @@ pubDate: 2024-8-1
 description: ''
 author: '哈米d1ch'
 cover:
-    url: ''
-    square: ''
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408151516397.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408151516397.webp'
     alt: 'cover'
 tags: ["算法", "排序", "C++", "约14280字 -- 阅读时间≈37分钟"]
 theme: 'light'
@@ -49,7 +49,7 @@ featured: false
 >         }
 >         cout << endl;
 >     }
->                                                                 
+>                                                                     
 >     void printVector(const std::vector<int>& nums, int begin, int end) {
 >         for (int i = begin; i <= end; i++) {
 >             cout << nums[i] << " ";
