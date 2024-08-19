@@ -135,7 +135,7 @@ https://download.qt.io/archive/qt/
 
 要用C++开发QT桌面应用就选第一个就可以, 然后就是一系列的项目配置:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408191509314.webp)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408191509314.webp)
 
 1. 项目路径
 
