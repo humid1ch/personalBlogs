@@ -13,4 +13,34 @@ theme: 'light'
 featured: false
 ---
 
-# QT5
+# `QWidget`默认项目结构
+
+使用`QT Creator`创建一个`QWidget`的默认项目之后, 可以看到整个项目的结构
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408200830383.webp)
+
+首先从`main.cc`开始
+
+> 博主在`QT Creator`中修改了C++源文件的后缀, 默认应该是`.cpp`
+
+## `main.cc`
+
+自动生成的`main`函数所在源文件:
+
+```cpp
+#include "widget.h"
+
+#include <QApplication>
+
+int main(int argc, char* argv[]) {
+    QApplication a(argc, argv);
+    Widget w;
+    w.show();
+    
+    return a.exec();
+}
+```
+
+先看`main()`函数
+
+`main()`函数内, 首先创建了一个`QApplication`对象, 构造的参数是`argc`和`argv`, 即程序运行时传入的选项数及选项
