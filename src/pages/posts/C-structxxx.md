@@ -161,7 +161,7 @@ pstu pstu2 = NULL;
 >
 > 即使两个匿名结构体类型的成员一模一样
 >
-> ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408211411082.webp)
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408211411082.webp)
 >
 > 无法将`stu3`赋值给`sut1`, 编译器不认他们是相同或相似类型
 >
@@ -270,7 +270,7 @@ struct student {
 >
 > `offsetof(struct, member)`可以计算成员在结构体内部的偏移量:
 >
-> ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408211923850.webp)
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408211923850.webp)
 >
 > 
 >
@@ -288,7 +288,7 @@ struct student {
 >
 > 可以通过 `#pragma pack(n)` 设置默认对齐数, 让编译器处理, 如果设置为`#pragma pack(1)`, 表示默认对齐数为`1`
 >
-> ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408211500782.webp)
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408211500782.webp)
 
 按照结构体对齐规则, `struct student{};` 在内存中的对齐情况是这样的:
 
@@ -324,7 +324,7 @@ Linux平台下, 数据类型的大小就是成员的对齐数, 所以:
 
 分别计算 结构体变量 和 各成员变量的地址:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408211954552.webp)
+![|lwide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408211954552.webp)
 
 能够发现
 
@@ -351,7 +351,7 @@ struct stu {
 
 分析一个此结构体变量 内存不对齐和对齐的情况:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408220110132.webp)
+![|lwide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408220110132.webp)
 
 如果`CPU`要访问`_age`
 
@@ -368,4 +368,3 @@ struct stu {
 
 
 结构体对齐会浪费一定的内存空间, 所以, 结构体对齐是一种典型的用空间换时间的思想
-
