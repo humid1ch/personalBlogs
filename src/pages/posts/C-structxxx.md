@@ -227,11 +227,11 @@ struct student stu7 = { ._age = 12, ._name = "xxx" };
 
 结构体变量访问结构体成员, 可以使用`.`符号:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408211349964.webp)
+![|lwide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408211349964.webp)
 
 如果是结构体指针, 则可以通过`->`访问其指向结构体的成员:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408211352577.webp)
+![|lwide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408211352577.webp)
 
 ## 结构体类型的大小(对齐)
 
@@ -247,11 +247,11 @@ struct student {
 
 不过, 使用`sizeof`计算出此结构体类型的大小是`16`字节:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408212350691.webp)
+![|lwide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408212350691.webp)
 
 并且, 如果将`_name[8]`改成`_name[9]`, 那么此结构体类型的大小会变成`20`字节:
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408212354972.webp)
+![|lwide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408212354972.webp)
 
 出现这种情况, 就是因为 **结构体对齐** 的存在, 结构体大小是在 **结构体对齐** 之后在进行计算的
 
