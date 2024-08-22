@@ -251,6 +251,14 @@ struct student {
 
 并且, 如果将`_name[8]`改成`_name[9]`, 那么此结构体类型的大小会变成`20`字节:
 
+```cpp
+struct student {
+    char _group;
+    int _age;
+    char _name[9];
+};
+```
+
 ![|lwide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408212354972.webp)
 
 出现这种情况, 就是因为 **结构体对齐** 的存在, 结构体大小是在 **结构体对齐** 之后在进行计算的
@@ -268,6 +276,8 @@ struct student {
 >
 > 结构体成员的存储地址与结构体变量首地址 之间偏移的字节数, 就是结构体成员偏移量
 >
+> 结构体成员偏移量, 实际可以看作是成员变量在结构体内部对齐之后的存储位置, 相对于结构体变量首地址的位置
+>
 > `offsetof(struct, member)`可以计算成员在结构体内部的偏移量:
 >
 > ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408211923850.webp)
@@ -276,7 +286,7 @@ struct student {
 >
 > **成员对齐数**
 >
-> 
+> 结构体成员偏移量是 **根据成员对齐数** 来计算的
 >
 > **C语言编译器中, 成员对齐数是 成员变量类型大小 和 编译器默认对齐数 中的较小值**
 >
