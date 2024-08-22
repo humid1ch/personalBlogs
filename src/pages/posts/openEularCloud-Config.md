@@ -1,6 +1,6 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
-title: '[Linux] 从零开始配置openEuler/EulerOS下的 C/C++开发环境: zsh安装、nivm的LSP-C/C++补全、MySQL57安装配置'
+title: '[Linux] 从零开始配置openEuler/EulerOS下的 C/C++开发环境: zsh安装、nvim的LSP-C/C++补全、MySQL57安装配置'
 pubDate: 2024-8-8
 description: '一切, 都源于一场意外'
 author: '哈米d1ch'
@@ -27,28 +27,99 @@ featured: false
 
 ---
 
+> 以下均在`openEuler22.02 STL`环境下执行
+>
+> 如果是`EulerOS`, 会有很多软件已经预装好了, 已经装好的软件不用再安装, 只需要安装没有的软件就行
+
 先不添加用户, 在`root`下配置好环境再说
 
-# 安装基本开发工具
+# 所需软件安装
 
-`openEuler`默认安装有`gcc10.3`, 但是没有`g++`
+## 可以直接`dnf`命令安装的
 
-所以第一件事, 安装`g++` `gdb`
+`openEuler`的官方库维护的挺好的, 至少对国内的用户来说
+
+本篇文章, 所配置的开发环境, 大部分所需要的软件都可以直接通过`dnf`命令安装, `most`和`nvim`除外
+
+直接用`dnf`将大部分软件安装好
+
+```bash
+# 直接在命令行执行就好
+dnf -y install g++ gdb git man-pages man-pages-help zsh wget unzip jsoncpp-devel tree
+
+# 你也可以单独安装:
+# dnf install g++: g++, openEuler默认安装有gcc, 没有g++
+# dnf install gdb: gdb, 调试用
+# dnf install git: git, 很重要, 后面配置 基本都要用到
+# dnf install man-pages man-pages-help: man-pages 和 man-pages-help, openEuler man手册不完整, 所以需要补充完整
+# dnf install zsh: zsh, 博主用的shell
+# dnf install wget: wget, 获取网络资源的工具
+# dnf install unzip: unzip, 后面nvim配置需要用到的解压工具
+# dnf install jsoncpp-devel: jsoncpp-devel, 懂得都懂(只是一个cpp用的json包)
+# dnf install tree: tree, 可以以树形结构输出目录结构
+# dnf不仅会安装这些东西, 还会自动安装一些前置库等
+```
+
+还有`most`和`nvim`没有安装, 官方的`dnf`源没有`most`, `nvim`我更习惯手动安装
+
+## `most`
+
+`most`是一个分页工具, 我安装是为了让`man`手册有颜色, 有重点
+
+`openEuler`的`dnf`没有`most`的下载源, 所以找一个在`rpmifnd`找了一个`rpm`:
 
 ```shell
-# 直接在命令行执行就好
-dnf -y install g++ gdb
+wget https://rpmfind.net/linux/epel/8/Everything/x86_64/Packages/m/most-5.1.0-6.el8.x86_64.rpm
+# 下载完之后
+
+# 安装
+sudo rpm -ivh most-5.1.0-6.el8.x86_64.rpm
 ```
 
+## `nvim`
 
+`neovim`的安装也比较方便
 
-然后安装`git` **`git`很重要, 后面配置 基本都要用到**
+去`nvim`的`github`, `https://github.com/neovim/neovim/tree/master`找最新`release`下载, 或者直接执行下面的命令:
 
-```cpp
-dnf -y install git
+```shell
+wget https://github.com/neovim/neovim/releases/download/v0.10.1/nvim-linux64.tar.gz
 ```
 
-再设置`git`的一些`config`
+这里下载的是, 配置时的最新`release`版
+
+```shell
+# 下载完成之后 解压
+tar -xvf nvim-linux64.tar.gz
+
+# 解压完成之后, 安装一下 实际就是移到一个你了解的 软件安装路径下
+# 不太了解的 就直接按照下面的命令执行, /usr/local 本来就是安装软件的地方
+mv nvim-linux64 /usr/local/nvim
+# 给nvim建立软连接
+ln -s /usr/local/nvim/bin/nvim /usr/local/bin/nvim
+```
+
+然后, 添加`nvim`对`python3`的支持:
+
+```shell
+# 直接在命令行执行
+pip3 install pynvim
+
+
+# 如果提示没有pip3命令, 就需要安装pip3
+# 可以先看看python3有没有安装
+dnf install python3
+# 再安装pip3
+dnf install python3-pip
+```
+
+正常情况下, 等一会就成功安装了
+
+# 配置软件
+
+## `git`
+
+设置`git`的一些`config`
 
 ```shell
 # 一样的 安装完之后直接 再命令行执行就好
@@ -60,68 +131,21 @@ git config --global core.editor nvim
 ssh-keygen -t rsa -b 4096 -C "email"
 ```
 
-除了设置`user.name`和`user.email`之外, 还要设置一下`git`默认的编辑工具(如果你用`vim`, 就不用修改)
+除了设置`user.name`和`user.email`之外, 还要设置一下`git`默认的编辑工具
 
 因为我个人用的`neovim`, 所以设置为`nvim`
 
+## `zsh`
 
+已经安装了`zsh`, 就可以改用户的`shell`:
 
-`openEuler`有`man`但是看不了, 没有`man-pages`, 所以要安装一下才能使用`man`查看系统调用等
+```bash
+# openEuler
+chsh -s /bin/zsh username
 
-```shell
-dnf -y install man-pages man-pages-help
+# EulerOS, 应该是没有chsh
+usermode -s /bin/zsh username
 ```
-
-但是这样的`man`只是黑白的, 所以可以安装`most`分页工具, 分页并且让`man`渲染成彩色的
-
-不过, `openEuler`官方没有`most`的下载源, 所以找一个在`rpmifnd`找了一个`rpm`:
-
-```shell
-wget https://rpmfind.net/linux/epel/8/Everything/x86_64/Packages/m/most-5.1.0-6.el8.x86_64.rpm
-# 下载完之后
-# 安装
-sudo rpm -ivh most-5.1.0-6.el8.x86_64.rpm
-```
-
----
-
-下面这一步, 要在安装、配置完后面的`ZSH`之后, 再操作
-
-然后在`~/.zshrc`中添加环境变量: `export PAGER=most`
-
-之后再用`man`就可以看到彩色的了, 虽然也并不是很彩, 但至少是有重点了:
-
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20240809124502717.webp)
-
----
-
-然后再安装一个`jsoncpp`开发包, 博主要用到
-
-```shell
-dnf install -y jsoncpp-devel
-```
-
-
-
-# `ZSH`
-
-然后换`shell`
-
-`openEuler`可以直接安装`zsh5.8.3`, 还是比较友好的
-
-```shell
-dnf -y install zsh
-```
-
-安装完成之后, 就可以改用户的`shell`
-
-```shell
-usermode -s /bin/zsh root
-```
-
-这样就可以修改`root`用户的`shell`为`zsh`
-
-## 配置`zsh`
 
 安装`oh-my-zsh`和`p10k`, 强化一下`zsh`:
 
@@ -160,11 +184,11 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/p
 
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408091253714.webp)
 
-然后`vim ~/.zshrc`, 找到`plugins={git}`的一行
+然后`nvim ~/.zshrc`, 找到`plugins=(git)`的一行
 
 在其中添加`zsh-autosuggestions` 和 `zsh-syntax-highlighting`:
 
-`plugins={git zsh-autosuggestions zsh-syntax-highlighting}`
+`plugins=(git zsh-autosuggestions zsh-syntax-highlighting)`
 
 保存退出
 
@@ -209,53 +233,25 @@ alias setpig="export https_proxy=http://127.0.0.1:15777 http_proxy=http://127.0.
 >
 >之后, 执行`rlrm(realrm)`就是原本的`rm`
 
+## `man`
+
+`openEuler`有`man`但是看不了, 所以在上面安装了`man-pages` `man-pages-help`
+
+但是这样的`man`只是黑白的, 所以还安装了`most`分页工具
 
 
-# `neovim`
 
-`neovim`的安装比较方便, 因为博主自己有自用的配置在`github`中
+然后在`~/.zshrc`中添加环境变量: `export PAGER=most`
 
-先安装`nvim`
+之后再用`man`就可以看到彩色的了, 虽然也并不是很彩, 但至少是有重点了:
 
-去`nvim`的`github`, `https://github.com/neovim/neovim/tree/master`找最新`release`下载, 或者直接执行下面的命令:
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20240809124502717.webp)
 
-```shell
-wget https://github.com/neovim/neovim/releases/download/v0.10.1/nvim-linux64.tar.gz
-```
+## `neovim`
 
-这里下载的是, 配置时的最新`release`版
-
-```shell
-# 下载完成之后 解压
-tar -xvf nvim-linux64.tar.gz
-
-# 解压完成之后, 安装一下 实际就是移到一个你了解的 软件安装路径下
-# 不太了解的 就直接按照下面的命令执行, /usr/local 本来就是安装软件的地方
-mv nvim-linux64 /usr/local/nvim
-# 给nvim建立软连接
-ln -s /usr/local/nvim/bin/nvim /usr/local/bin/nvim
-```
-
-然后就可以`nvim`, 打开`nvim`了
-
-> 如果想的话, 就可以将`vim`卸载了:
->
-> ```shell
-> dnf remove vim
-> ```
-
-然后, 添加`nvim`对`python3`的支持:
-
-```shell
-# 直接在命令行执行
-pip3 install pynvim
-```
-
-正常情况下, 等一会就成功安装了
+`neovim`的配置比较方便, 因为博主自己有自用的配置在`github`中
 
 ---
-
-## 配置`nvim`
 
 不同用户, 软件的配置是不互通的
 
@@ -314,11 +310,45 @@ git clone https://github.com/humid1ch/nvim.git
 
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408091338628.webp)
 
-
-
 愉快 愉快~
 
-# MySQL57
+## `gdb`
+
+`gdb`是用来调试`C/C++`程序的, 不过在实际调试时, 会出现一些提示, 说调试信息缺失什么的
+
+然后会有一句提示大概是:
+
+```shell
+dnf debuginfo-install libgcc-xxxxxxx.x86_64 libstdc++-xxxxxxx.x86_64
+```
+
+是让你安装`gcc/g++`对应版本的一些`gdb`需要的调试信息的
+
+所以直接复制提示的版本安装就可以了:
+
+```shell
+dnf debuginfo-install libgcc-xxxxxxx.x86_64 libstdc++-xxxxxxx.x86_64
+
+# EulerOS 可能会关闭dnf或yum的 debuginfo
+# 所以需要手动打开, 然后再安装
+# 这里以openEuler22.03 STL为演示打开yum的debufinfo, 然后在使用yum安装对应的调试信息
+cd /etc/yum.repos.d
+# 然后编辑里边的文件
+vim xxxxxx.conf
+# 找到 [debuginfo]
+# 将所属的enable=0, 改成enable=1
+enable=1
+# :wq写入退出
+
+# 然后使用yum安装就可以了
+yum debuginfo-install libgcc-xxxxxxx.x86_64 libstdc++-xxxxxxx.x86_64
+```
+
+**这里需要`libgcc`和`libstdc++`都要安装, 不然`nvim-lsp`会出现`bug`, 无法对其中一种语言实现补全**
+
+大功告成~
+
+# `MySQL57` 的安装
 
 安装`MySQL5.7`:
 

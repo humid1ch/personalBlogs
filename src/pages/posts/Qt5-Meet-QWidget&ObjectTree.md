@@ -17,13 +17,11 @@ featured: false
 
 使用`QT Creator`创建一个`QWidget`的默认项目之后, 可以看到整个项目的结构
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408200830383.webp)
-
-首先从`main.cc`开始
+![|lwide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408200830383.webp)
 
 > 博主在`QT Creator`中修改了C++源文件的后缀, 默认应该是`.cpp`
 
-## `main.cc`
+## `QWidget` 
 
 自动生成的`main`函数所在源文件:
 
@@ -41,6 +39,30 @@ int main(int argc, char* argv[]) {
 }
 ```
 
-先看`main()`函数
+`main()`函数内
 
-`main()`函数内, 首先创建了一个`QApplication`对象, 构造的参数是`argc`和`argv`, 即程序运行时传入的选项数及选项
+1. 首先创建了一个`QApplication`对象, 构造函数的参数是`argc`和`argv`, 即程序运行时传入的选项数及选项
+2. 定义了一个`Widget`对象`w`, 这个类是用户创建项目时自定义命名的类, 选择`QWidget`为基类之后 默认命名就是`Widget`
+3. 通过`w`调用`show()`成员函数
+4. `return a.exec()`
+
+重点看`Widget`类, 打开`widget.h`:
+
+![|lwide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408221555667.webp)
+
+首先, 因为`Widget`是`QWidget`的派生类, 所以需要先`#include <QWidget>`
+
+然后使用两个宏, 在合适的`namespace`内声明了`Widget`类
+
+```cpp
+QT_BEGIN_NAMESPACE
+namespace Ui {
+	class Widget;
+}
+QT_END_NAMESPACE
+```
+
+`QT_BEGIN_NAMESPACE` `QT_END_NAMESPACE` 是`QT`官方库定义的两个宏, 其实际的内容:
+
+1. **`#define QT_BEGIN_NAMESPACE namespace QT_NAMESPACE {`**
+2. **`#define QT_END_NAMESPACE }`**
