@@ -8,7 +8,7 @@ cover:
     url: ''
     square: ''
     alt: 'cover'
-tags: ["C语言", "结构体", "约1890字 -- 阅读时间≈5分钟"]
+tags: ["C语言", "结构体", "约2400字 -- 阅读时间≈6分钟"]
 theme: 'light'
 featured: false
 ---
