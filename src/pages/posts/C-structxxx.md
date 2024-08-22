@@ -298,7 +298,7 @@ struct student {
 >
 > 可以通过 `#pragma pack(n)` 设置默认对齐数, 让编译器处理, 如果设置为`#pragma pack(1)`, 表示默认对齐数为`1`
 >
-> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408211500782.webp)
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408220826993.webp)
 
 按照结构体对齐规则, `struct student{};` 在内存中的对齐情况是这样的:
 
