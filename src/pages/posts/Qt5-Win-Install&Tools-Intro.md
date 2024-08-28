@@ -5,8 +5,8 @@ pubDate: 2024-8-15
 description: '简单介绍一下什么是QT, 怎么安装QT Creator, 怎么使用QT Creator创建项目...'
 author: '哈米d1ch'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408171830391.webp'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408171830391.webp'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408280930338.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408280930338.webp'
     alt: 'cover'
 tags: ["QT", "Windows", "GUI", "约1770字 -- 阅读时间≈5分钟"]
 theme: 'light'

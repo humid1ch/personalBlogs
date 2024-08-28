@@ -97,11 +97,20 @@ struct User {
 
 int main() {
     struct Contact C1 = {"CSDN", "2xxxxxxxxxx" };//结构体变量的定义和初始化
+    
+    struct Contact C2 = { }; // 结构体变量所有位初始化为0, 与{0}同作用
+    struct Contact C3 = { .Tele = "2xxxxxxxxxx" };//结构体变量的定义 部分初始化
+    
 	struct User U1 = { "July3", "Male", 19, { "CSDN", "1xxxxxxxxxx" } };	//嵌套结构体的结构体变量的定义和初始化
     
 	return 0;
 }
 ```
+
+使用`{}`对结构体变量初始化, 可以这样理解:
+
+1. 未指定初始化值的成员, 均被初始化为0
+2. 如果指定了, 就初始化为指定值
 
 ### 1.4 结构体内存对齐 *
 
