@@ -378,6 +378,19 @@ ol+h6 {
   margin-top: 2.5em
 }
 
+.toc-link:before {
+  margin-left: 35px;
+  background-color: #c3dfff!important;
+  content: " ";
+  display: inline-block;
+  height: .9em !important;
+  left: 0;
+  margin-top: 3.9px !important;
+  position: absolute;
+  width: 4px!important;
+  border-radius: 2px!important;
+}
+
 .heading-collapsed+* {
   margin-top: 0
 }
