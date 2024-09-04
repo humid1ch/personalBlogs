@@ -17,7 +17,7 @@ featured: false
 
 在上一篇文章中, 已经从`Boost`官网获取了`Boost`库的源码.
 
-> [🫦[C++项目] Boost文档 站内搜索引擎(1): 项目背景介绍、相关技术栈、相关概念介绍...](https://www.julysblog.cn/posts/Boost-Doc-Searcher-I)
+> [🫦[C++项目] Boost文档 站内搜索引擎(1): 项目背景介绍、相关技术栈、相关概念介绍...](https://www.humid1ch.cn/posts/Boost-Doc-Searcher-I)
 
 接下来就要编写代码了. 不过还需要做一些准备工作.
 

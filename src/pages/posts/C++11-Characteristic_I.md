@@ -275,9 +275,9 @@ C++11 为STL 添加了四个新容器：
 
 而另外的 哈希表, 博主有专门介绍的文章：
 
-> [[C++-STL] 哈希表以及unordered_set和unordered_set的介绍](https://www.julysblog.cn/posts/C++-Hash-Table)
+> [[C++-STL] 哈希表以及unordered_set和unordered_set的介绍](https://www.humid1ch.cn/posts/C++-Hash-Table)
 >
-> [[C++-STL] 用哈希表封装unordered_map和unordered_set](https://www.julysblog.cn/posts/C++-Hash-Table-Package-unordered_map&unordered_set)
+> [[C++-STL] 用哈希表封装unordered_map和unordered_set](https://www.humid1ch.cn/posts/C++-Hash-Table-Package-unordered_map&unordered_set)
 
 ## **`右值引用 **`**
 

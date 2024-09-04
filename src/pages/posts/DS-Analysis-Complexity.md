@@ -346,7 +346,7 @@ int Find_10(int *arr, int arrSize)
 
 > 这里推荐一篇 详细又简单 的 函数栈帧 的好文章：
 >
-> [【程序员的自我修养】[动态图文] 超详解函数栈帧](https://www.julysblog.cn/posts/Function-Stack-Frame)
+> [【程序员的自我修养】[动态图文] 超详解函数栈帧](https://www.humid1ch.cn/posts/Function-Stack-Frame)
 
 > 在函数内使用动态开辟内存的函数，以及创建柔性数组等操作，就会增加函数的额外空间哦
 

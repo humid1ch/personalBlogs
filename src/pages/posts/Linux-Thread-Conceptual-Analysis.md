@@ -18,12 +18,12 @@ featured: false
 
 > 博主有关Linux进程相关介绍的文章：
 >
-> 1. 💥[[Linux\] 系统进程相关概念、系统调用、Linux进程详析、进程查看、fork()初识](https://www.julysblog.cn/posts/Linux-Process-Concept&Processes)
->2. 💥[[Linux\] 进程状态相关概念、Linux实际进程状态、进程优先级](https://www.julysblog.cn/posts/Linux-Process-States&System-Process-Actual-States)
+> 1. 💥[[Linux\] 系统进程相关概念、系统调用、Linux进程详析、进程查看、fork()初识](https://www.humid1ch.cn/posts/Linux-Process-Concept&Processes)
+>2. 💥[[Linux\] 进程状态相关概念、Linux实际进程状态、进程优先级](https://www.humid1ch.cn/posts/Linux-Process-States&System-Process-Actual-States)
 > 
->3. 💥[[Linux\] 什么是进程地址空间？父子进程的代码时如何继承的？程序是怎么加载成进程的？为什么要有进程地址空间？](https://www.julysblog.cn/posts/Linux-Process-Addr-Space)
+>3. 💥[[Linux\] 什么是进程地址空间？父子进程的代码时如何继承的？程序是怎么加载成进程的？为什么要有进程地址空间？](https://www.humid1ch.cn/posts/Linux-Process-Addr-Space)
 > 
->4. 💥[[Linux\] 详析进程控制：fork子进程运行规则？怎么回收子进程？什么是进程替换？进程替换怎么操作？](https://www.julysblog.cn/posts/Linux-Process-Control)
+>4. 💥[[Linux\] 详析进程控制：fork子进程运行规则？怎么回收子进程？什么是进程替换？进程替换怎么操作？](https://www.humid1ch.cn/posts/Linux-Process-Control)
 
 通过阅读这几篇文章, 至少可以让我们对Linux系统中的进程 有一个最基本又相对全面的认识.
 

@@ -8,7 +8,7 @@ cover:
     url: ''
     square: ''
     alt: 'cover'
-tags: ["Linux网络", "TCP/IP", "网络层", "协议", "IP", "约5755字 -- 阅读时间≈25分钟"]
+tags: ["Linux网络", "TCP-IP", "网络层", "协议", "IP", "约5755字 -- 阅读时间≈25分钟"]
 theme: 'light'
 featured: false
 ---
@@ -21,6 +21,14 @@ TCP/IP 四层协议模型:
 
 1. 应用层: `HTTP`和`HTTPS`
 
-    https://www.humid1ch.cn/posts/Linux-Application-Layer-Protocol
+    []()
+
+    []()
+
+    []()
+
+    []()
+
+    []()
 
 2. 传输层: `TCP`和`UDP`

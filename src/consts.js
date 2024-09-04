@@ -2,7 +2,7 @@ export const SITE_TITLE = `humid1ch blogs`;
 export const SITE_DESCRIPTION = '哈米d1ch 的个人博客';
 export const SITE_EMAIL = 'dxyt2002@163.com'
 export const SITE_NAME = 'www.julysblog.cn';
-export const SITE_URL = "https://www.julysblog.cn";
+export const SITE_URL = "https://www.humid1ch.cn";
 export const SITE_LANG = "zh-CN";
 export const SITE_NUM = "459,135";
 

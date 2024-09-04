@@ -15,10 +15,10 @@ featured: false
 
 在前四篇文章中, 我们实现了从文档文件的清理 到 搜索的所有内容:
 
-1. 项目背景: [🫦[C++项目] Boost文档 站内搜索引擎(1): 项目背景介绍、相关技术栈、相关概念介绍...](https://www.julysblog.cn/posts/Boost-Doc-Searcher-I)
-2. 文档解析、处理模块`parser`的实现: [🫦[C++项目] Boost文档 站内搜索引擎(2): 文档文本解析模块parser的实现、如何对文档文件去标签、如何获取文档标题...](https://www.julysblog.cn/posts/Boost-Doc-Searcher-II)
-3. 文档 **正排索引与倒排索引** 建立的接口的实现: [🫦[C++项目] Boost文档 站内搜索引擎(3): 建立文档及其关键字的正排 倒排索引、jieba库的安装与使用...](https://www.julysblog.cn/posts/Boost-Doc-Searcher-III)
-4. 文档的 **搜索功能** 接口的实现: [🫦[C++项目] Boost文档 站内搜索引擎(4): 实现搜索的相关接口、线程安全的单例index接口、cppjieba分词库的使用...](https://www.julysblog.cn/posts/Boost-Doc-Searcher-IV)
+1. 项目背景: [🫦[C++项目] Boost文档 站内搜索引擎(1): 项目背景介绍、相关技术栈、相关概念介绍...](https://www.humid1ch.cn/posts/Boost-Doc-Searcher-I)
+2. 文档解析、处理模块`parser`的实现: [🫦[C++项目] Boost文档 站内搜索引擎(2): 文档文本解析模块parser的实现、如何对文档文件去标签、如何获取文档标题...](https://www.humid1ch.cn/posts/Boost-Doc-Searcher-II)
+3. 文档 **正排索引与倒排索引** 建立的接口的实现: [🫦[C++项目] Boost文档 站内搜索引擎(3): 建立文档及其关键字的正排 倒排索引、jieba库的安装与使用...](https://www.humid1ch.cn/posts/Boost-Doc-Searcher-III)
+4. 文档的 **搜索功能** 接口的实现: [🫦[C++项目] Boost文档 站内搜索引擎(4): 实现搜索的相关接口、线程安全的单例index接口、cppjieba分词库的使用...](https://www.humid1ch.cn/posts/Boost-Doc-Searcher-IV)
 5. **`建议先阅读上面四篇文章`**
 
 后端的主要功能接口完成之后, 就可以结合网络将其设计为服务器 然后部署到网络上了
@@ -857,7 +857,7 @@ svr.set_base_dir(rootPath.c_str());
 
 > 这部分涉及到守护进程相关内容, 建议阅读博主文章了解:
 >
-> [🫦[Linux] 守护进程介绍、服务器的部署、日志文件...](https://www.julysblog.cn/posts/Linux-Daemon-Process)
+> [🫦[Linux] 守护进程介绍、服务器的部署、日志文件...](https://www.humid1ch.cn/posts/Linux-Daemon-Process)
 
 直接在项目中引入两个文件, 这两个文件都是之前实现过 只不过做了一点点修改的. 很简单:
 

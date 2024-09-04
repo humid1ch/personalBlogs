@@ -1277,17 +1277,17 @@ clean:
     >
     > 博主 线程与重定向的相关文章:
     >
-    > [[Linux] 线程同步分析：什么是条件变量？生产者消费者模型是什么？POSIX信号量怎么用？阻塞队列和环形队列模拟生产者消费者模型](https://www.julysblog.cn/posts/Linux-Thread-Synchronization)
+    > [[Linux] 线程同步分析：什么是条件变量？生产者消费者模型是什么？POSIX信号量怎么用？阻塞队列和环形队列模拟生产者消费者模型](https://www.humid1ch.cn/posts/Linux-Thread-Synchronization)
     >
-    > [[Linux] 线程互斥分析: 多线程会有什么问题？什么是互斥锁？C++怎么封装使用互斥锁？](https://www.julysblog.cn/posts/Linux-Thread-Mutex)
+    > [[Linux] 线程互斥分析: 多线程会有什么问题？什么是互斥锁？C++怎么封装使用互斥锁？](https://www.humid1ch.cn/posts/Linux-Thread-Mutex)
     >
-    > [[Linux] 如何理解线程ID？什么是线程局部存储？](https://www.julysblog.cn/posts/Linux-ThreadID-Analysis)
+    > [[Linux] 如何理解线程ID？什么是线程局部存储？](https://www.humid1ch.cn/posts/Linux-ThreadID-Analysis)
     >
-    > [[Linux] 多线程控制分析：如何获取线程ID？如何自动回收线程？](https://www.julysblog.cn/posts/Linux-Thread-Control)
+    > [[Linux] 多线程控制分析：如何获取线程ID？如何自动回收线程？](https://www.humid1ch.cn/posts/Linux-Thread-Control)
     >
-    > [[Linux] 多线程概念相关分析](https://www.julysblog.cn/posts/Linux-Thread-Conceptual-Analysis)
+    > [[Linux] 多线程概念相关分析](https://www.humid1ch.cn/posts/Linux-Thread-Conceptual-Analysis)
     >
-    > [[Linux] 详析 Linux下的 文件重定向 以及 文件缓冲区](https://www.julysblog.cn/posts/Linux-Redirection&File-Buffers)
+    > [[Linux] 详析 Linux下的 文件重定向 以及 文件缓冲区](https://www.humid1ch.cn/posts/Linux-Redirection&File-Buffers)
 
 这样就实现了 最简单的 `udp公共聊天`
 

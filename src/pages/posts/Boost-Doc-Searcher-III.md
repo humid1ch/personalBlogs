@@ -17,11 +17,11 @@ featured: false
 
 1. 第一篇文章介绍了本项目的背景, 获取了`Boost`库文档
 
-    [🫦[C++项目] Boost文档 站内搜索引擎(1): 项目背景介绍、相关技术栈、相关概念介绍...](https://www.julysblog.cn/posts/Boost-Doc-Searcher-I)
+    [🫦[C++项目] Boost文档 站内搜索引擎(1): 项目背景介绍、相关技术栈、相关概念介绍...](https://www.humid1ch.cn/posts/Boost-Doc-Searcher-I)
 
 2. 第二篇文章 分析实现了`parser`模块. 此模块的作用是 对所有文档`html`文件, 进行清理并汇总
 
-    [🫦[C++项目] Boost文档 站内搜索引擎(2): 文档文本解析模块parser的实现、如何对文档文件去标签、如何获取文档标题...](https://www.julysblog.cn/posts/Boost-Doc-Searcher-II)
+    [🫦[C++项目] Boost文档 站内搜索引擎(2): 文档文本解析模块parser的实现、如何对文档文件去标签、如何获取文档标题...](https://www.humid1ch.cn/posts/Boost-Doc-Searcher-II)
 
 至此, 搜索引擎建立索引的4个步骤:
 

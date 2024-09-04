@@ -15,15 +15,15 @@ featured: false
 
 > 本篇文章主要用到线程相关内容, 下面是博主关于线程相关内容的文章:
 >
-> [[Linux] 线程同步分析：什么是条件变量？生产者消费者模型是什么？POSIX信号量怎么用？阻塞队列和环形队列模拟生产者消费者模型](https://www.julysblog.cn/posts/Linux-Thread-Synchronization)
+> [[Linux] 线程同步分析：什么是条件变量？生产者消费者模型是什么？POSIX信号量怎么用？阻塞队列和环形队列模拟生产者消费者模型](https://www.humid1ch.cn/posts/Linux-Thread-Synchronization)
 >
-> [[Linux] 线程互斥分析: 多线程的问题、互斥锁、C++封装使用互斥锁、线程安全分析、死锁分析...](https://www.julysblog.cn/posts/Linux-Thread-Mutex)
+> [[Linux] 线程互斥分析: 多线程的问题、互斥锁、C++封装使用互斥锁、线程安全分析、死锁分析...](https://www.humid1ch.cn/posts/Linux-Thread-Mutex)
 >
-> [[Linux] 如何理解线程ID？什么是线程局部存储？](https://www.julysblog.cn/posts/Linux-ThreadID-Analysis)
+> [[Linux] 如何理解线程ID？什么是线程局部存储？](https://www.humid1ch.cn/posts/Linux-ThreadID-Analysis)
 >
-> [[Linux] 多线程控制分析：获取线程ID、线程退出分析、自动回收线程、线程分离...](https://www.julysblog.cn/posts/Linux-Thread-Control)
+> [[Linux] 多线程控制分析：获取线程ID、线程退出分析、自动回收线程、线程分离...](https://www.humid1ch.cn/posts/Linux-Thread-Control)
 >
-> [[Linux] 多线程概念相关分析: 什么是线程、再次理解进程、线程的创建与查看、线程异常、线程与进程的对比...](https://www.julysblog.cn/posts/Linux-Thread-Conceptual-Analysis)
+> [[Linux] 多线程概念相关分析: 什么是线程、再次理解进程、线程的创建与查看、线程异常、线程与进程的对比...](https://www.humid1ch.cn/posts/Linux-Thread-Conceptual-Analysis)
 
 ---
 

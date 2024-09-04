@@ -225,7 +225,7 @@ void daemonize() {
 
 > 此服务器的具体实现, 请阅读博主文章:
 >
-> [[Linux] 网络编程 - 初见TCP套接字编程](https://www.julysblog.cn/posts/Linux-Network-TCPSocket_I)
+> [[Linux] 网络编程 - 初见TCP套接字编程](https://www.humid1ch.cn/posts/Linux-Network-TCPSocket_I)
 
 **`tcpServer.cc`:**
 

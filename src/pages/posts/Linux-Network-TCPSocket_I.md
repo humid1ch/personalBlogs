@@ -18,7 +18,7 @@ featured: false
 
 网络的上一篇文章, 我们介绍了网络变成的一些重要的概念, 以及 UDP套接字的编程演示. 还实现了一个简单更简陋的UDP公共聊天室.
 
-> [[Linux] 网络编程 - 初见UDP套接字编程: 网络编程部分相关概念、TCP、UDP协议基本特点、网络字节序、socket接口使用、简单的UDP网络及聊天室实现...](https://www.julysblog.cn/posts/Linux-Network-UDPSocket_I)
+> [[Linux] 网络编程 - 初见UDP套接字编程: 网络编程部分相关概念、TCP、UDP协议基本特点、网络字节序、socket接口使用、简单的UDP网络及聊天室实现...](https://www.humid1ch.cn/posts/Linux-Network-UDPSocket_I)
 
 本篇文章, 我们来介绍一下 TCP套接字编程的接口 及 演示.
 
@@ -987,7 +987,7 @@ private:
 
 > 博主在之前的文章中实现过简单的线程池, 阅读下面内容之前, 建议阅读这篇文章:
 >
-> [[Linux] 最基础简单的线程池及其单例模式的实现](https://www.julysblog.cn/posts/Linux-ThreadPool)
+> [[Linux] 最基础简单的线程池及其单例模式的实现](https://www.humid1ch.cn/posts/Linux-ThreadPool)
 
 上面的多线程服务器功能实现的是, 每连接一个客户端创建一个线程. 这样效率太低了.
 
@@ -1439,7 +1439,7 @@ int main(int argc, char* argv[]) {
 
     这里构造任务对象时, 第四个参数使用了`std::bind()`C++标准库函数.
 
-    此函数在博主[另一篇文章](https://www.julysblog.cn/posts/C++11-Characteristic_II)有过介绍, 本篇文章就不赘述了
+    此函数在博主[另一篇文章](https://www.humid1ch.cn/posts/C++11-Characteristic_II)有过介绍, 本篇文章就不赘述了
 
     使用`std::bind()`原因是, 服务函数`low2upService()`是类内函数, 不通过类对象是无法正常调用的.
 
