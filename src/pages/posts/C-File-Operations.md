@@ -40,7 +40,7 @@ featured: false
 
 > 比如：
 >
-> 存在两个源文件	`test1.c`	`test2.c`
+> 存在两个源文件`test1.c` `test2.c`
 >
 > 如果 `test1.c` 文件可以对 `test2.c` 文件中的数据进行读取等操作，那么`test1.c` 就是程序文件，`test2.c` 就是数据文件。
 
@@ -152,7 +152,7 @@ int fclose( FILE* stream );
 > 	if (pf != NULL)
 > 	{
 > 	//文件操作
->      //…………
+>      	//…………
 > 	//关闭文件
 > 		fclose (pf);
 >     	pf = NULL;
