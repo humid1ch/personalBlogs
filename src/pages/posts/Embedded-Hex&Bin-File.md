@@ -1,7 +1,7 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
 title: 'Hex文件与Bin文件'
-pubDate: 2024-9-19
+pubDate: 1001-01-01
 description: '嵌入式中的Hex文件与Bin文件'
 author: '哈米d1ch'
 cover:

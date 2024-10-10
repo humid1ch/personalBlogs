@@ -724,7 +724,12 @@ a.nav-title:hover {
   border-radius: 17px;
   overflow: hidden;
   z-index: 0;
-  position: relative
+  position: relative;
+  transition: box-shadow 200ms ease-in-out;
+}
+
+.tile:hover {
+  box-shadow: 0px 0px 17px rgba(0, 0, 0, 0.37);
 }
 
 .tile .tile__description {
@@ -5257,7 +5262,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
 
 
 .tile.tile-list {
-  border-radius: revert;
+  border-radius: 17px;
   overflow: revert;
   z-index: revert;
   position: revert;
