@@ -31,7 +31,7 @@ featured: false
 
 > 有关Linux平台下代码的编译的分析, 推荐博主文章：
 >
-> [[程序员的自我修养\] 理解编译到链接的过程](http://julysblog.cn/posts/Compile&Link)
+> [[程序员的自我修养\] 理解编译到链接的过程](http://humid1ch.cn/posts/Compile&Link)
 >
 > 本篇文章不多赘述
 

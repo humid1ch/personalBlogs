@@ -27,9 +27,9 @@ featured: false
 
 > 阅读本文章之前, 建议先阅读博主 红黑树 和 set与map封装 的相关文章:
 >
-> [[C++-STL\] 红黑树的详析分析与实现](http://julysblog.cn/posts/DS-Analysis-RedBlack-Tree)
+> [[C++-STL\] 红黑树的详析分析与实现](http://humid1ch.cn/posts/DS-Analysis-RedBlack-Tree)
 >
-> [[C++-STL\] set和map容器的模拟实现](http://julysblog.cn/posts/C++-Simulate-the-Implementation-of-Set&Map)
+> [[C++-STL\] set和map容器的模拟实现](http://humid1ch.cn/posts/C++-Simulate-the-Implementation-of-Set&Map)
 
 unordered_set 和 unordered_map 的封装 其实与 set 和 map 的封装 `很相似`:
 

@@ -50,7 +50,7 @@ featured: false
 >
 > 操作系统中的 `栈`，如果调用函数，创建栈帧是从栈顶创建的，销毁栈帧也是从栈顶销毁的
 >
-> 详情可阅读博主本篇文章：[【程序员的自我修养】[动态图文] 超详解函数栈帧](https://julysblog.cn/posts/Function-Stack-Frame)
+> 详情可阅读博主本篇文章：[【程序员的自我修养】[动态图文] 超详解函数栈帧](https://humid1ch.cn/posts/Function-Stack-Frame)
 
 
 

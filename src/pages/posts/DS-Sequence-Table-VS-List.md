@@ -41,7 +41,7 @@ featured: false
     首先，扩容本身 `有一定的时间空间上的消耗`，其次 由于扩容机制`(一般二倍二倍的扩容)`的原因，非常可能会造成一定程度上空间的浪费 `(缺点)`
 3. 需要在 `顺序表` 头部或者中间 插入数据 或 删除数据 时，需要 向后挪动 或 向前挪动 数据，一般时间复杂度为`[O(N)]`，存在一定的时间消耗，效率低  `(缺点)`
 
-> 具体可以阅读博主文章：[❤️‍🔥【神秘海域】[动图] 顺序表千字破解~](https://julysblog.cn/posts/DS-Sequence-Table)
+> 具体可以阅读博主文章：[❤️‍🔥【神秘海域】[动图] 顺序表千字破解~](https://humid1ch.cn/posts/DS-Sequence-Table)
 >
 
 顺序表存在两个非常不方便的缺点，所以 `链表` 诞生了
@@ -59,11 +59,11 @@ featured: false
 
 > 具体可以阅读博主文章：
 >
-> [❤️‍🔥【神秘海域】[动图] 掌握 单链表 只需要这篇文章~ 「超详细」](https://julysblog.cn/posts/DS-Single-List)
+> [❤️‍🔥【神秘海域】[动图] 掌握 单链表 只需要这篇文章~ 「超详细」](https://humid1ch.cn/posts/DS-Single-List)
 >
-> [❤️‍🔥【神秘海域】[动图] 结合题目-手把手带你剖析 “带环链表”](https://julysblog.cn/posts/DS-Circular-List)
+> [❤️‍🔥【神秘海域】[动图] 结合题目-手把手带你剖析 “带环链表”](https://humid1ch.cn/posts/DS-Circular-List)
 >
-> [❤️‍🔥【神秘海域】[动图] 最复杂的链表结构？不，是最方便的链表结构~ 带你领略双向带头循环链表的美~](https://julysblog.cn/posts/DS-Bidirectional-Headed-Circular-List)
+> [❤️‍🔥【神秘海域】[动图] 最复杂的链表结构？不，是最方便的链表结构~ 带你领略双向带头循环链表的美~](https://humid1ch.cn/posts/DS-Bidirectional-Headed-Circular-List)
 
 ## 顺序表及链表对比
 

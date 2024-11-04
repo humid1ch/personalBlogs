@@ -783,7 +783,7 @@ void handlerHttpRequest(int sock) {
     <img border="2px" src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307302017964.webp" alt="img-test" width="500px" height="500px"> </img>
 
     <h2>链接</h2>
-    <p>个人博客链接: <a href="http://www.julysblog.cn">July.cc Blogs</a></p>
+    <p>个人博客链接: <a href="http://www.humid1ch.cn">July.cc Blogs</a></p>
   </body>
 </html>
 ```
@@ -892,7 +892,7 @@ tree
     </form>
 
     <h2>链接</h2>
-    <p>个人博客链接: <a href="http://www.julysblog.cn">July.cc Blogs</a></p>
+    <p>个人博客链接: <a href="http://www.humid1ch.cn">July.cc Blogs</a></p>
   </body>
 </html>
 ```
@@ -965,7 +965,7 @@ tree
     </form>
 
     <h2>链接</h2>
-    <p>个人博客链接: <a href="http://www.julysblog.cn">July.cc Blogs</a></p>
+    <p>个人博客链接: <a href="http://www.humid1ch.cn">July.cc Blogs</a></p>
   </body>
 </html>
 ```

@@ -251,7 +251,7 @@ private:
 
 > 这里不再赘述，如有需要可以参考结构体博文：
 >
-> [详解结构体，详细分析结构体对齐](http://julysblog.cn/posts/C-Struct)
+> [详解结构体，详细分析结构体对齐](http://humid1ch.cn/posts/C-Struct)
 
 所以，**`一般的类的大小其实就是对齐后成员变量的大小`**
 

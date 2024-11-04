@@ -751,7 +751,7 @@ status指针指向的是一个整型, 而这个整型只需要关注 `低16位`�
 
 > 博主有关进程控制的文章的相关链接：
 >
-> [[Linux\] 详析进程控制：fork子进程运行规则？怎么回收子进程？什么是进程替换？进程替换怎么操作？](http://julysblog.cn/posts/Linux-Process-Control)
+> [[Linux\] 详析进程控制：fork子进程运行规则？怎么回收子进程？什么是进程替换？进程替换怎么操作？](http://humid1ch.cn/posts/Linux-Process-Control)
 
 那么, core dump 究竟是什么？
 
