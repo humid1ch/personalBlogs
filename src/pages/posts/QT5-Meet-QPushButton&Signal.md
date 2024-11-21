@@ -137,7 +137,7 @@ void Widget::changeText() {
 connect(ui->pushButton, &QPushButton::clicked, this, &Widget::changeText);
 ```
 
-`connect()`函数, 是`QT`中用于连接信号与槽的一个函数, **不是`Linux`的`socket`编程中的`connect()`**
+`connect()`函数, 是`QT`中用于连接信号与槽的一个函数, **不是Linux的`socket`编程中的`connect()`**
 
 ```cpp
 QObject::connect(

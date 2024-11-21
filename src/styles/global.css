@@ -7529,6 +7529,10 @@ blockquote p {
   display:block;
 }
 
+blockquote pre code {
+  width: 781px;
+}
+
 strong {
   font-family: 'Fira Code Regular', "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   color: #4870ac;

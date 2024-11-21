@@ -531,7 +531,7 @@ int main(int argc, char* argv[]) {
 >
 > 那么, Linux的`MSL`就应该是`30`
 >
-> 但实际不是的. 查看`Linux`源码可以看到, `MSL=60`:
+> 但实际不是的. 查看Linux源码可以看到, `MSL=60`:
 >
 > ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202401300028550.webp)
 >

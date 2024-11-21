@@ -143,7 +143,7 @@ https://download.qt.io/archive/qt/
 
 2. 构建工具
 
-    如果你在`Linux`平台下, 构建过`C/C++`项目, 那么你大概率使用过`make`或`cmake`
+    如果你在Linux平台下, 构建过`C/C++`项目, 那么你大概率使用过`make`或`cmake`
 
     像这样的构建工具, 如果将`makefile`写好了, 可以节省大量的项目编译、构建成本
 
