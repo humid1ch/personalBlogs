@@ -25,7 +25,7 @@ string类 实质上其实就是一个提供了许多功能接口的字符串
 
 但是 string类 除了字符串之外, 类中还提供了 表示字符串大小和容量的变量
 
-所以 string类的结构应该是：
+所以 string类的结构应该是: 
 
 ```cpp
 class string {
@@ -38,13 +38,13 @@ private:
 
 ## 构造函数
 
-string类 的构造函数需要实现的功能有：
+string类 的构造函数需要实现的功能有: 
 
 1. 默认实例化 空string
 2. 使用 C字符串 实例化string
 3. 使用其他string对象 实例化 新的string对象
 
-`默认构造函数`可以实现前两个功能，`拷贝构造函数`则用于实现第三个功能
+`默认构造函数`可以实现前两个功能, `拷贝构造函数`则用于实现第三个功能
 
 ### 默认构造函数
 
@@ -76,7 +76,7 @@ string类 的构造函数需要实现的功能有：
 >
 > 使用了 `字符串函数 来进行字符串的拷贝`
 >
-> 不过 这两个构造函数可以合并在一起由 一个构造函数来实现：
+> 不过 这两个构造函数可以合并在一起由 一个构造函数来实现: 
 >
 > ```cpp
 > string(const char* str = "")
@@ -106,7 +106,7 @@ string类 的构造函数需要实现的功能有：
 >
 > 这是传统的 拷贝构造函数的实现方法
 >
-> 拷贝构造函数的实现还有更加便捷的实现：
+> 拷贝构造函数的实现还有更加便捷的实现: 
 >
 > ```cpp
 > void swap(string& s) {
@@ -122,9 +122,9 @@ string类 的构造函数需要实现的功能有：
 >
 > 这种拷贝构造函数的写法, 其实是 `调用了 字符串实例化string类的构造函数, 然后使用swap函数将临时string对象的内容与 新string类内容做交换`
 >
-> 就完成了拷贝构造函数，此种实现拷贝构造函数的方法被称为`现代方法`
+> 就完成了拷贝构造函数, 此种实现拷贝构造函数的方法被称为`现代方法`
 
-所以 模拟string类的构造函数相关代码：
+所以 模拟string类的构造函数相关代码: 
 
 ```cpp
 class string {
@@ -174,7 +174,7 @@ private:
 2. 实现 被赋值的对象的 `内容, _size, _capacity` 均被赋值
 3. 实现 `连续赋值`
 
-所以 赋值重载函数相关代码可以为：
+所以 赋值重载函数相关代码可以为: 
 
 ```cpp
 string& operator=(const string& s) {			// string&返回值 可以实现连续赋值
@@ -199,7 +199,7 @@ string& operator=(const string& s) {			// string&返回值 可以实现连续赋
 
 不过这只是传统的写法
 
-与 拷贝构造函数一样, 赋值重载函数也存在现代写法：
+与 拷贝构造函数一样, 赋值重载函数也存在现代写法: 
 
 ```cpp
 string& operator=(const string& s) {
@@ -212,7 +212,7 @@ string& operator=(const string& s) {
 }
 ```
 
-不过 除此之外, 还存在更简单的现代写法：
+不过 除此之外, 还存在更简单的现代写法: 
 
 ```cpp
 string& operator=(string s) {
@@ -226,7 +226,7 @@ string& operator=(string s) {
 
 直接将 本对象与临时对象的内容交换, 就可以直接完成赋值, 且不用考虑自我赋值的情况, 因为 传值传参生成的是临时对象
 
-所以 模拟string类的赋值重载函数 代码如下：
+所以 模拟string类的赋值重载函数 代码如下: 
 
 ```cpp
 class string {
@@ -244,7 +244,7 @@ public:
     
         return *this;			// 返回当前对象的地址
     }
-    // 现代写法1：
+    // 现代写法1: 
     string& operator=(const string& s) {
         if (this != &s) {					// 依旧禁止自我赋值
             string tmpStr(s._str);				// 使用s的内容 实例化对象
@@ -253,7 +253,7 @@ public:
     
         return *this;
     }
-    // 现代写法2：
+    // 现代写法2: 
     string& operator=(string s) {
         swap(s);
     
@@ -269,9 +269,9 @@ private:
 
 ## 迭代器
 
-上一篇文章中介绍过, string的迭代器实际上就是 char* 类型的指针，也就是说 string中的迭代器其实就是 `指向字符串某位置的指针`
+上一篇文章中介绍过, string的迭代器实际上就是 char* 类型的指针, 也就是说 string中的迭代器其实就是 `指向字符串某位置的指针`
 
-所以 string关于迭代器的代码：
+所以 string关于迭代器的代码: 
 
 ```cpp
 class string {
@@ -304,9 +304,9 @@ private:
 
 ## resize 和 reserve
 
-string类中有两个非常重要的接口函数, 就是：reserve 和 resize
+string类中有两个非常重要的接口函数, 就是: reserve 和 resize
 
-> **`reserve`** 需要实现的是：
+> **`reserve`** 需要实现的是: 
 >
 > 1. 指定大小扩容
 > 2. 不能缩容
@@ -322,7 +322,7 @@ string类中有两个非常重要的接口函数, 就是：reserve 和 resize
 > >
 > > C++ 中对于扩容, `通常直接 new一块新空间来代替原空间`
 >
-> 所以 reserve的实现 相关代码可以为：
+> 所以 reserve的实现 相关代码可以为: 
 >
 > ```cpp
 > void reserve(size_t n) {
@@ -337,13 +337,13 @@ string类中有两个非常重要的接口函数, 就是：reserve 和 resize
 > }
 > ```
 
-> **`resize`** 则需要实现的是：
+> **`resize`** 则需要实现的是: 
 >
 > 1. n < _size 时, 直接截断字符串, 不改变 _capacity
 > 2. n > _size, 但是 n < _capacity 时, 从 _size 到 n-1 填充指定字符
 > 3. n > _caapcity, 则 扩容, 并填充
 >
-> 则 resize相关代码可以为：
+> 则 resize相关代码可以为: 
 >
 > ```cpp
 > void resize(size_t n, char ch = '\0') {				// 第二个参数是指定字符
@@ -367,7 +367,7 @@ string类中有两个非常重要的接口函数, 就是：reserve 和 resize
 > }
 > ```
 
-## 插入字符：push_back、append、insert、+=的重载
+## 插入字符: push_back、append、insert、+=的重载
 
 > ### `push_back`
 >
@@ -405,7 +405,7 @@ string类中有两个非常重要的接口函数, 就是：reserve 和 resize
 
 > ### `insert`
 >
-> `insert` 需要提供的功能就多了：
+> `insert` 需要提供的功能就多了: 
 >
 > 1. 指定位置插入字符
 > 2. 指定位置插入字符串
@@ -427,9 +427,9 @@ string类中有两个非常重要的接口函数, 就是：reserve 和 resize
 > 	// 1. end位置在 _size+1, 挪动数据的步骤就是将 end-1 位置的数据一个一个挪至end
 > 	// 2. 如果 end位置在 _size, 则挪动数据的步骤是将 end位置的数据 挪至 end+1
 > 	// (两种方法 从 '\0' 开始挪动)
-> 	// 表面看 两种方法好像都一样，但是 如果end的初始位置是_size, 需要额外处理 pos位置为0的情况
+> 	// 表面看 两种方法好像都一样, 但是 如果end的初始位置是_size, 需要额外处理 pos位置为0的情况
 > 	// 因为 当pos位置为零时, 方案二 end的结束位置应该在 -1, 但是 end是 size_t 类型的数据, 所以end永远不会为-1, 即会死循环
-> 	// 而 方案一 不会有这种情况，方案一 如果 pos为0, 循环结束时 end == pos, 会退出循环
+> 	// 而 方案一 不会有这种情况, 方案一 如果 pos为0, 循环结束时 end == pos, 会退出循环
 > 	while (end > pos) {
 > 		_str[end] = _str[end - 1];
 > 		end--;
@@ -480,7 +480,7 @@ string类中有两个非常重要的接口函数, 就是：reserve 和 resize
 >
 > `+=` 操作是string尾插字符(串) 最常用的操作
 >
-> `+=` 操作 需要实现 尾插字符、字符串、对象的操作，并且需要支持 连续`+=`
+> `+=` 操作 需要实现 尾插字符、字符串、对象的操作, 并且需要支持 连续`+=`
 >
 > 不过 在实现过上面的几种插入操作之后, `+=重载`的实现 可以直接复用上面的接口
 >
@@ -503,7 +503,7 @@ string类中有两个非常重要的接口函数, 就是：reserve 和 resize
 
 string 类提供的 erase操作, 有 删除 指定两位置之间的字符
 
-所以 erase的相关代码可以为：
+所以 erase的相关代码可以为: 
 
 ```cpp
 string& earse(size_t pos, size_t len = npos) {
@@ -532,9 +532,9 @@ string& earse(size_t pos, size_t len = npos) {
 
 string提供的 `find` 有四个重载类型
 
-这里只简单实现两个 重载类型：查找字符、查找字符串
+这里只简单实现两个 重载类型: 查找字符、查找字符串
 
-> 查找字符：
+> 查找字符: 
 >
 > ```cpp
 > size_t find(char ch, size_t pos = 0) {
@@ -553,13 +553,13 @@ string提供的 `find` 有四个重载类型
 >
 > 然后向后一一对比就可以了
 
-> 查找字符串：
+> 查找字符串: 
 >
 > ```cpp
 > size_t find(const char* str, size_t pos = 0) {
 > 	assert(pos < _size);
 > 
-> 	//直接用strstr()找字符串的地址，找到就返回字符串首字符的地址，找不到就返回空指针
+> 	//直接用strstr()找字符串的地址, 找到就返回字符串首字符的地址, 找不到就返回空指针
 > 	// 找到的话  找到的str的地址 - 原字符串的地址 就是字符串首字符的在string中的位置
 > 	const char* ps = strstr(_str + pos, str);
 > 	if (ps != nullptr) {
@@ -614,9 +614,9 @@ bool operator!=(const string& s1, const string& s2) {
 
 ### << 流插入重载
 
-流插入重载用于输出, 而C++`输出的数据 是 >> 的右操作符`, `流对象是左操作符`, 语句结构就像这样：cout << string;
+流插入重载用于输出, 而C++`输出的数据 是 >> 的右操作符`, `流对象是左操作符`, 语句结构就像这样: cout << string;
 
-所以 << 重载的第一个参数需要是 流对象, 所以需要在类外定义：
+所以 << 重载的第一个参数需要是 流对象, 所以需要在类外定义: 
 
 ```cpp
 ostream& operator<<(ostream& out, const string& s) {
@@ -642,7 +642,7 @@ ostream& operator<<(ostream& out, const string& s) {
 
 > C++库中 string 类的 `cin` 效果是 **`完全将原字符串替换为写入的字符串`**
 >
-> 被替换的还有 `_size`, 且 如果原来的 `_capacity` 不足以容纳输入的字符串，就扩容；如果足以容纳，则 `_capacity` 不变
+> 被替换的还有 `_size`, 且 如果原来的 `_capacity` 不足以容纳输入的字符串, 就扩容；如果足以容纳, 则 `_capacity` 不变
 >
 > 并且 `cin >>` 的操作 会以 `' '` 和 '`\n'` 为结束标志
 
@@ -650,15 +650,15 @@ ostream& operator<<(ostream& out, const string& s) {
 
 1. `先清除 string 类中的内容`
 
-	> C++库中 string 有 clear()函数 是清楚字符串内容的，这里需要自己实现
+	> C++库中 string 有 clear()函数 是清楚字符串内容的, 这里需要自己实现
 
-2. 定义一个char变量 来`循环接收输入的字符 并 += 至s字符串中`(字符串已用`clear()`清除，所以用+=)
+2. 定义一个char变量 来`循环接收输入的字符 并 += 至s字符串中`(字符串已用`clear()`清除, 所以用+=)
 
-	> 注意，接收输入的字符不能用 `cin>>` 接收，因为 `cin 也不能接收' ' 和 '\n'，所以会导致无法判断结尾`
+	> 注意, 接收输入的字符不能用 `cin>>` 接收, 因为 `cin 也不能接收' ' 和 '\n', 所以会导致无法判断结尾`
 	>
 	> 这里接收字符 会用到输入流类的一个成员函数 `get() 这个函数接收 单个字符没有限制`
 
-3. 因为 ch的内容要用来判断循环结束，所以ch第一次接收无法在循环内接收，所以需要在循环外第一次接收字符
+3. 因为 ch的内容要用来判断循环结束, 所以ch第一次接收无法在循环内接收, 所以需要在循环外第一次接收字符
 
 4. 然后设置循环
 
@@ -680,13 +680,13 @@ istream& operator>>(istream& in, string& s) {
 }
 ```
 
-但是 上面这种输入方式有一个弊端：
+但是 上面这种输入方式有一个弊端: 
 
-**`如果使用上面那种方法 输入一个很长的字符串, 由于是一个一个字符接收并 += 的, 会造成频繁的扩容，就会消耗许多资源`**
+**`如果使用上面那种方法 输入一个很长的字符串, 由于是一个一个字符接收并 += 的, 会造成频繁的扩容, 就会消耗许多资源`**
 
 所以有一种优化版的输入模拟实现方法
 
-**`将输入的字符串先存在一个字符数组中，字符数组满了再一次性 += 至string字符串中, 如果字符数组未满时，就已经换行或者接收到了' ' 就直接将当前的字符数组内容 += 至 string字符串中`**
+**`将输入的字符串先存在一个字符数组中, 字符数组满了再一次性 += 至string字符串中, 如果字符数组未满时, 就已经换行或者接收到了' ' 就直接将当前的字符数组内容 += 至 string字符串中`**
 
 这样 可以有效地优化 当输入一个长字符串时 频繁扩容的消耗
 
@@ -695,8 +695,8 @@ istream& operator>>(istream& in, string& s) {
 	char ch;
 	s.clear();		// 清理string原字符串
 	ch = in.get();
-	char tmp[128] = { '\0' };		//字符数组内容初始化为 '\0'，大小适合就可以
-	size_t i = 0;				   // 用来访问字符数组下标赋值，以及记录字符数组中字符个数
+	char tmp[128] = { '\0' };		//字符数组内容初始化为 '\0', 大小适合就可以
+	size_t i = 0;				   // 用来访问字符数组下标赋值, 以及记录字符数组中字符个数
 	while (ch != ' ' && ch != '\n') {
 		tmp[i++] = ch;
 		if (i == 127) {	
@@ -725,7 +725,7 @@ istream& operator>>(istream& in, string& s) {
 
 `[]` 符号的重载, 需要实现 以此`访问指定位置字符、修改字符` 的功能
 
-所以 `[]` 的重载可以写为：
+所以 `[]` 的重载可以写为: 
 
 ```cpp
 char& operator[](size_t pos) {
@@ -735,7 +735,7 @@ char& operator[](size_t pos) {
 }
 ```
 
-还有一个 只读指定位置字符的版本：
+还有一个 只读指定位置字符的版本: 
 
 ```cpp
 const char& operator[](size_t pos) const {
@@ -747,7 +747,7 @@ const char& operator[](size_t pos) const {
 
 ## 成员函数补充
 
-除了上述模拟实现的更加重要一些接口函数之外, 还有些稍微重要但是没有难点的的成员函数：
+除了上述模拟实现的更加重要一些接口函数之外, 还有些稍微重要但是没有难点的的成员函数: 
 
 ```cpp
 // 析构函数
@@ -825,7 +825,7 @@ public:
     
 		return *this;			// 返回当前对象的地址
 	}
-	// 现代写法1：
+	// 现代写法1: 
 	string& operator=(const string& s) {
 		if (this != &s) {					// 依旧禁止自我赋值
 			string tmpStr(s._str);				// 使用s的内容 实例化对象
@@ -835,7 +835,7 @@ public:
 		return *this;
 	}*/
     
-	// 现代写法2：
+	// 现代写法2: 
 	string& operator=(string s) {
 		swap(s);
 
@@ -926,9 +926,9 @@ public:
 		// 1. end位置在 _size+1, 挪动数据的步骤就是将 end-1 位置的数据一个一个挪至end
 		// 2. 如果 end位置在 _size, 则挪动数据的步骤是将 end位置的数据 挪至 end+1
 		// (两种方法 从 '\0' 开始挪动)
-		// 表面看 两种方法好像都一样，但是 如果end的初始位置是_size, 需要额外处理 pos位置为0的情况
+		// 表面看 两种方法好像都一样, 但是 如果end的初始位置是_size, 需要额外处理 pos位置为0的情况
 		// 因为 当pos位置为零时, 方案二 end的结束位置应该在 -1, 但是 end是 size_t 类型的数据, 所以end永远不会为-1, 即会死循环
-		// 而 方案一 不会有这种情况，方案一 如果 pos为0, 循环结束时 end == pos, 会退出循环
+		// 而 方案一 不会有这种情况, 方案一 如果 pos为0, 循环结束时 end == pos, 会退出循环
 		while (end > pos) {
 			_str[end] = _str[end - 1];
 			end--;
@@ -1017,7 +1017,7 @@ public:
 	size_t find(const char* str, size_t pos = 0) {
 		assert(pos < _size);
 	
-		//直接用strstr()找字符串的地址，找到就返回字符串首字符的地址，找不到就返回空指针
+		//直接用strstr()找字符串的地址, 找到就返回字符串首字符的地址, 找不到就返回空指针
 		// 找到的话  找到的str的地址 - 原字符串的地址 就是字符串首字符的在string中的位置
 		const char* ps = strstr(_str + pos, str);
 		if (ps != nullptr) {
@@ -1129,8 +1129,8 @@ istream& operator>>(istream& in, string& s) {
 	char ch;
 	s.clear();		// 清理string原字符串
 	ch = in.get();
-	char tmp[128] = { '\0' };		//字符数组内容初始化为 '\0'，大小适合就可以
-	size_t i = 0;				   // 用来访问字符数组下标赋值，以及记录字符数组中字符个数
+	char tmp[128] = { '\0' };		//字符数组内容初始化为 '\0', 大小适合就可以
+	size_t i = 0;				   // 用来访问字符数组下标赋值, 以及记录字符数组中字符个数
 	while (ch != ' ' && ch != '\n') {
 		tmp[i++] = ch;
 		if (i == 127) {	

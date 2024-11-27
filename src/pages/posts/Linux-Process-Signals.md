@@ -1686,7 +1686,7 @@ volatile int flags = 0; 		// 全局变量
 
 ![volatile_O2  |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/volatile_O2_2023-4-8.gif)
 
-这就是 `volatile` 关键词的作用, 即  **`保持内存的可见性`**. 告知编译器，被该关键字修饰的变量, 不允许被优化, 对该变量的任何操作, 都`必须在真实的内存中进行操作` 
+这就是 `volatile` 关键词的作用, 即  **`保持内存的可见性`**. 告知编译器, 被该关键字修饰的变量, 不允许被优化, 对该变量的任何操作, 都`必须在真实的内存中进行操作` 
 
 ## SIGCHLD 信号
 

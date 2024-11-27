@@ -1,6 +1,6 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
-title: '[Linux] 环境变量介绍：什么是环境变量？C/C++如何获取环境变量？环境变量有什么特性？有什么用？'
+title: '[Linux] 环境变量介绍: 什么是环境变量？C/C++如何获取环境变量？环境变量有什么特性？有什么用？'
 pubDate: 2023-03-04
 description: '什么是环境变量？认识 环境 这两个字, 也知道 变量 是什么, 把这两个词结合起来的环境变量是什么东西？'
 author: '哈米d1ch'
@@ -21,23 +21,23 @@ featured: false
 
 环境变量, 稍微正式一点来讲, 其实是 **`在操作系统中用来指定操作系统运行环境的一些参数`**
 
-这些运行环境具体指的是什么呢？这个不太容易解释, 但是可以举个例子：
+这些运行环境具体指的是什么呢？这个不太容易解释, 但是可以举个例子: 
 
-在使用Linux系统且没有图形化界面的情况下, 所有的操作都要用命令行的形式执行, 操作系统会提供许多的相关指令, 像这样：
+在使用Linux系统且没有图形化界面的情况下, 所有的操作都要用命令行的形式执行, 操作系统会提供许多的相关指令, 像这样: 
 
 ![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304151343614.webp)
 
-并且可以使用 cd 指令, 再进入这个目录, 并使用 pwd 显示当前路径：
+并且可以使用 cd 指令, 再进入这个目录, 并使用 pwd 显示当前路径: 
 
 ![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304151502777.webp)
 
-而这些指令, 其实都是一个个程序 指令名即为程序名：
+而这些指令, 其实都是一个个程序 指令名即为程序名: 
 
 ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304152443049.webp)
 
 这些指令 在用户使用的时候运行 成为进程, 完成任务之后再从内存中被释放。运行流程与我们个人编写的程序并没有什么区别。
 
-但是为什么 我们自己编写的程序不能直接用程序名运行, 而必须指定路径：
+但是为什么 我们自己编写的程序不能直接用程序名运行, 而必须指定路径: 
 
 ![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304152851154.webp)
 
@@ -47,13 +47,13 @@ featured: false
 
 当在操作系统的命令行不指定路径输入指令的时候, 操作系统会自动地在`PATH环境变量` 设置的路径中搜索是否存在与指令相匹配的程序。如果可以找到 那就执行, 如果找不到, 那就会提示 `command not found`
 
-操作系统中有很多的环境变量, 这些环境变量中设置的内容都是与操作系统运行环境有关的参数, 使用 env 指令可以查看：
+操作系统中有很多的环境变量, 这些环境变量中设置的内容都是与操作系统运行环境有关的参数, 使用 env 指令可以查看: 
 
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304154112509.webp)
 
 > 博主使用的这台服务器上, 环境变量其实算很少了
 
-上图中可以看到的环境变量有：`USER` `LOGNAME` `HOME` `PAHT` `MAIL` `SHELL` …… 很多
+上图中可以看到的环境变量有: `USER` `LOGNAME` `HOME` `PAHT` `MAIL` `SHELL` …… 很多
 
 本篇文章对于这些环境变量的介绍, 只会重点涉及到 `PATH`, 其他的不做重点说明
 
@@ -61,17 +61,17 @@ featured: false
 
 `PATH` 是一个环境变量, 此环境变量用于 `指定 命令的搜索路径`. 就像上面介绍的那样, 当一个程序 在此环境变量中的路径下时, 那么此命令就可以不指定路径直接使用.
 
-使用 `echo $PATH` 可以查看 环境变量PATH的内容：
+使用 `echo $PATH` 可以查看 环境变量PATH的内容: 
 
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304154925796.webp)
 
 > `echo $环境变量名` 即可查看环境变量的内容
 
-可以看到, PATH中设置的路径有很多：`/usr/local/bin` `/usr/bin` `/home/July/bin` `/usr/local/sbin` …… 并且, 每个路径之间用 `:` 分隔
+可以看到, PATH中设置的路径有很多: `/usr/local/bin` `/usr/bin` `/home/July/bin` `/usr/local/sbin` …… 并且, 每个路径之间用 `:` 分隔
 
-这些路径下都有什么呢？就以 `/usr/bin` 路径为例：
+这些路径下都有什么呢？就以 `/usr/bin` 路径为例: 
 
-当你进入这个路径, 并执行 ls指令的时候, 你会发现 这个路径下有非常多的可执行程序：
+当你进入这个路径, 并执行 ls指令的时候, 你会发现 这个路径下有非常多的可执行程序: 
 
 ![bin路径下的程序](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/bin%E8%B7%AF%E5%BE%84%E4%B8%8B%E7%9A%84%E7%A8%8B%E5%BA%8F.webp)
 
@@ -83,7 +83,7 @@ featured: false
 
 1. 直接在PATH指定的路径下 添加程序(不推荐)
 
-我们随便编写一个程序, 将它添加到 PATH环境变量中的某个路径下, 试验一下能否直接运行：
+我们随便编写一个程序, 将它添加到 PATH环境变量中的某个路径下, 试验一下能否直接运行: 
 
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304160825183.webp)
 
@@ -101,7 +101,7 @@ featured: false
 
 直接将程序当前所在路径添加到PATH环境变量中不就可以了吗？
 
-那么就直接操作：
+那么就直接操作: 
 
 1. 使用pwd命令查看当前路径
 2. export PATH=当前路径
@@ -111,13 +111,13 @@ featured: false
 
 三个操作执行下来, 可以发现 我们自己的程序已经可以直接运行了
 
-但是, 当我们需要执行部分其他命令的时候, 你会发现：
+但是, 当我们需要执行部分其他命令的时候, 你会发现: 
 
 ![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304162604312.webp)
 
 在Linux操作系统中经常使用的命令用不了了, 命令行会提示:`command not found`, 这是为什么?
 
-当再次执行`echo $PATH`查看PATH的内容时：
+当再次执行`echo $PATH`查看PATH的内容时: 
 
 ![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304162806014.webp)
 
@@ -129,7 +129,7 @@ featured: false
 
 原来是因为在添加PATH内容的时候, 直接 `PATH=新路径, 不是添加的操作 而是覆盖`
 
-想要在PATH环境变量中添加路径, 需要这样 `PATH=$PATH:新路径`, `$PATH`可以直接表示PATH原来的内容, `:`是分隔符, 再加上新路径, 就可以完成在PATH环境变量中添加新路径的操作：
+想要在PATH环境变量中添加路径, 需要这样 `PATH=$PATH:新路径`, `$PATH`可以直接表示PATH原来的内容, `:`是分隔符, 再加上新路径, 就可以完成在PATH环境变量中添加新路径的操作: 
 
 ![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304164214197.webp)
 
@@ -141,7 +141,7 @@ featured: false
 
 操作系统中的变量, 分环境变量 和 本地变量
 
-在命令行中, 直接用 类似在C语言中定义变量的方式, 就可以在操作系统中定义一个本地变量：
+在命令行中, 直接用 类似在C语言中定义变量的方式, 就可以在操作系统中定义一个本地变量: 
 
 ![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304170205885.webp)
 
@@ -151,7 +151,7 @@ featured: false
 
 上面介绍PATH时, 使用过export命令, 修改过PATH环境变量的内容
 
-export其实也可以创建一个环境变量：
+export其实也可以创建一个环境变量: 
 
 ![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304170654452.webp)
 
@@ -159,7 +159,7 @@ export其实也可以创建一个环境变量：
 
 ## 其他环境变量
 
-上面介绍环境变量的概念时, 使用env命令将当前系统中的环境变量全都列了出来, 可以看到系统中存在许多的环境变量, 下面就简单的介绍一下其中部分的环境变量都是什么：
+上面介绍环境变量的概念时, 使用env命令将当前系统中的环境变量全都列了出来, 可以看到系统中存在许多的环境变量, 下面就简单的介绍一下其中部分的环境变量都是什么: 
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/fc3b0504bb005fd9cccd20e6503f52f7.webp)
 
@@ -171,7 +171,7 @@ export其实也可以创建一个环境变量：
 
 	关于 `环境变量HOME`, 可以切换用户 观察其变化
 	
-	在非root用户使用su命令, 并输入root密码之后, 在查看 `环境变量HOME`, 可以发现其值改变了：
+	在非root用户使用su命令, 并输入root密码之后, 在查看 `环境变量HOME`, 可以发现其值改变了: 
 	
 	![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304172541696.webp)
 
@@ -207,7 +207,7 @@ main()函数如果使用参数的话, 那么定义main()函数应该是: `int ma
 
 那 argv这个数组的内容是什么呢？
 
-数组内容其实可以查看, 只需要遍历输出就能看到数组内容：
+数组内容其实可以查看, 只需要遍历输出就能看到数组内容: 
 
 ```cpp
 #include <iostream>
@@ -228,7 +228,7 @@ int main(int argc, char *argv[]) {
 
 直接执行`./mainTest`, 此时 argv数组中只有一个元素, 存储的是 `./mainTest` 这句指令.
 
-但是, 在 `./mainTest`之后添加任意选项时：
+但是, 在 `./mainTest`之后添加任意选项时: 
 
 ![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304174156330.webp)
 
@@ -240,11 +240,11 @@ int main(int argc, char *argv[]) {
 
 请好好思考一下, 既然argv接收了运行程序时后面添加的选项, 那也就意味着在程序中其实是可以获取argv数组中的内容的, 即`程序中是可以获取选项的内容的`既然能获取选项的内容, 那么也`就可以在程序中实现一些的功能对应特定的选项, 在用户选择特定的选项时, 程序可以做出不同的应答, 从而实现选择不同的选项 实现不同的功能！`
 
-这不就是 Linux操作系统中各种命令 以及 命令选项的实现方式吗？就像：`ls -l -a` 或 `rm -r -f` 等一样
+这不就是 Linux操作系统中各种命令 以及 命令选项的实现方式吗？就像: `ls -l -a` 或 `rm -r -f` 等一样
 
 有了 argc 和 argv, 我们也可以实现类似的命令行选项功能
 
-比如, 下面这段代码：
+比如, 下面这段代码: 
 
 ```cpp
 #include <iostream>
@@ -288,27 +288,27 @@ int main(int argc, char *argv[]) {
 }
 ```
 
-此代码编译链接出来的程序, 是一个简单的命令行版的整数加减乘除计算器：
+此代码编译链接出来的程序, 是一个简单的命令行版的整数加减乘除计算器: 
 
-可以做到以下功能：
+可以做到以下功能: 
 
-1. 使用 ：`./程序 [-a|-s|-m|-d](加减乘除) 数据1 数据2`
-2. 当输入出错时, 会提醒使用方法： `./myCalc [-a|-s|-m|-d] one_data two_data`
+1. 使用 : `./程序 [-a|-s|-m|-d](加减乘除) 数据1 数据2`
+2. 当输入出错时, 会提醒使用方法:  `./myCalc [-a|-s|-m|-d] one_data two_data`
 3. 简单的整数加减乘除
 
 ## main()函数第三个参数 env 
 
-main()函数的第三个参数为：`char *env[]`, 也是一个指针数组
+main()函数的第三个参数为: `char *env[]`, 也是一个指针数组
 
-所以, 把 main()函数的三个参数都明示出来, main()函数就是这样定义的：`int main(int argc, char *argv[], char *env[])`
+所以, 把 main()函数的三个参数都明示出来, main()函数就是这样定义的: `int main(int argc, char *argv[], char *env[])`
 
 看到第三个参数的参数名, 一定就能想到 `此参数与环境变量有关`, 因为 Linux中env的作用就是将当前系统的环境变量列出来
 
-事实也确实如此, 这 `env数组, 其实就是接收环境变量用的, 即env就是一张环境变量表`, 数组中每个元素存储的都是环境变量, 且存储顺序与使用env命令时列出的顺序相同, 类似这样：
+事实也确实如此, 这 `env数组, 其实就是接收环境变量用的, 即env就是一张环境变量表`, 数组中每个元素存储的都是环境变量, 且存储顺序与使用env命令时列出的顺序相同, 类似这样: 
 
 ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304195356212.webp)
 
-即env数组中的最后一个元素为NULL, 所以可以直接for循环 以遇到到NULL为结束条件 进行数组遍历：
+即env数组中的最后一个元素为NULL, 所以可以直接for循环 以遇到到NULL为结束条件 进行数组遍历: 
 
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304195607147.webp)
 
@@ -316,7 +316,7 @@ main()函数的第三个参数为：`char *env[]`, 也是一个指针数组
 
 上面使用main()函数的第三个参数, 来获取系统的环境变量是 `C/C++ 获取环境变量的第一种方法`
 
-C/C++ 获取环境变量一共有三种方法：
+C/C++ 获取环境变量一共有三种方法: 
 
 #### environ变量获取环境变量
 
@@ -324,7 +324,7 @@ environ是一个全局变量, 并且此全局变量没有在任何头文件中�
 
 `environ可以看作一个数组指针, 它指向了环境变量表, 即 environ指向了env这个指针数组`
 
-使用它的方法, 与使用env数组的方法一致：
+使用它的方法, 与使用env数组的方法一致: 
 
 ```cpp
 #include <iostream>
@@ -343,15 +343,15 @@ int main() {
 
 #### 系统调用getenv()获取环境变量
 
-getenv()是Liunx系统提供的系统调用：
+getenv()是Liunx系统提供的系统调用: 
 
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304201439146.webp)
 
-此函数调用的参数传入的是需要查找的函数变量的变量名, 即这部分等号左边的全大写字母的内容：
+此函数调用的参数传入的是需要查找的函数变量的变量名, 即这部分等号左边的全大写字母的内容: 
 
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304201740044.webp)
 
-将变量名字符串传入 getenv系统调用, 就可以获得对应环境变量的内容：
+将变量名字符串传入 getenv系统调用, 就可以获得对应环境变量的内容: 
 
 ```cpp
 #include <iostream>
@@ -373,7 +373,7 @@ int main() {
 
 介绍了三种C/C++获取环境变量的方法, 但是好像并没有什么意义. 好像用不太到.
 
-其实 获取环境变量还是很有作用的, 其作用之一就是, `可以限制程序功能的使用对象`：
+其实 获取环境变量还是很有作用的, 其作用之一就是, `可以限制程序功能的使用对象`: 
 
 ```cpp
 #include <iostream>
@@ -385,7 +385,7 @@ using std::endl;
 int main() {
 	char *User = getenv("USER");
 	if(strcmp("July", User) == 0) {
-		// 程序功能代码：……
+		// 程序功能代码: ……
 		cout << "可以执行" << endl;
 	}
 	else {
@@ -406,21 +406,21 @@ int main() {
 
 在回答这个问题之前, 先思考另外一个问题, `环境变量是谁给进程的？`
 
-当我们运行自己的程序的时候, 我们可以发现此进程的父进程是zsh(bash)这类SHELL进程, 无论怎么运行、重新运行多少次, 进程的父进程永远都是SHELL进程：
+当我们运行自己的程序的时候, 我们可以发现此进程的父进程是zsh(bash)这类SHELL进程, 无论怎么运行、重新运行多少次, 进程的父进程永远都是SHELL进程: 
 
 ![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/ba45600fc66de3e0dd212252be18baab.webp)
 
 无论进程重新运行多少次, 变得永远都是PID, 而不是PPID, 除非SHELL进程也重新运行
 
-其实还有一个细节：当从命令行运行top时：
+其实还有一个细节: 当从命令行运行top时: 
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230410152216028.webp)
 
-运行 gdb时：
+运行 gdb时: 
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230410152222257.webp)
 
-或者运行其他程序时：
+或者运行其他程序时: 
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230410152227528.webp)
 
@@ -434,7 +434,7 @@ int main() {
 
 ---
 
-而SHELL进程的环境变量也来源于它的父进程, 这样一直往上推, 可以推到 1号进程：
+而SHELL进程的环境变量也来源于它的父进程, 这样一直往上推, 可以推到 1号进程: 
 
 ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230304212926602.webp)
 
@@ -450,7 +450,7 @@ int main() {
 
 答案是肯定的。
 
-但如果是这样, 就又出现了另外一个问题：`既然本地变量不能被子进程继承, 那么为什么echo、set等命令, 又可以查找到本地变量？`
+但如果是这样, 就又出现了另外一个问题: `既然本地变量不能被子进程继承, 那么为什么echo、set等命令, 又可以查找到本地变量？`
 
 **`其实, Linux系统中的绝大部分命令都是以SHELL进程的子进程的形式运行的, 但是 就是存在那一小部分命令并不通过子进程的方式执行, 而是SHELL自己执行.`**
 

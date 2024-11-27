@@ -158,7 +158,7 @@ bool saveDocInfo(const std::vector<docInfo_t>& docResults, const std::string& ou
 
 int main() {
     std::vector<std::string> filesList;
-    // 1. 递归式的把每个html文件名带路径，保存到filesList中，方便后期进行一个一个的文件进行读取
+    // 1. 递归式的把每个html文件名带路径, 保存到filesList中, 方便后期进行一个一个的文件进行读取
     if (!enumFile(srcPath, &filesList)) {
         // 获取文档html文件名失败
         std::cerr << "Failed to enum file name!" << std::endl;
@@ -166,7 +166,7 @@ int main() {
     }
 
     // 走到这里 获取所有文档html文件名成功
-    // 2. 按照filesList读取每个文档的内容，并进行去标签解析
+    // 2. 按照filesList读取每个文档的内容, 并进行去标签解析
     // 3. 并获取文档的内容 以 标题 内容 url 构成docInfo结构体, 存储到vector中
     std::vector<docInfo_t> docResults;
     if (!parseDocInfo(filesList, &docResults)) {
@@ -176,7 +176,7 @@ int main() {
     }
 
     // 走到这里 获取所有文档内容 并以 docInfo 结构体形式存储到vector中成功
-    // 4: 把解析完毕的各个文件内容，写入到output , 按照\3作为每个文档的分割符
+    // 4: 把解析完毕的各个文件内容, 写入到output , 按照\3作为每个文档的分割符
     if (!saveDocInfo(docResults, output)) {
         std::cerr << "Failed to save document information!" << std::endl;
         return SAVEINFO_ERROR;
@@ -809,7 +809,7 @@ bool saveDocInfo(const std::vector<docInfo_t>& docResults, const std::string& ou
 
 int main() {
     std::vector<std::string> filesList;
-    // 1. 递归式的把每个html文件名带路径，保存到filesList中，方便后期进行一个一个的文件进行读取
+    // 1. 递归式的把每个html文件名带路径, 保存到filesList中, 方便后期进行一个一个的文件进行读取
     if (!enumFile(srcPath, &filesList)) {
         // 获取文档html文件名失败
         std::cerr << "Failed to enum file name!" << std::endl;
@@ -817,7 +817,7 @@ int main() {
     }
 
     // 走到这里 获取所有文档html文件名成功
-    // 2. 按照filesList读取每个文档的内容，并进行去标签解析
+    // 2. 按照filesList读取每个文档的内容, 并进行去标签解析
     // 3. 并获取文档的内容 以 标题 内容 url 构成docInfo结构体, 存储到vector中
     std::vector<docInfo_t> docResults;
     if (!parseDocInfo(filesList, &docResults)) {
@@ -827,7 +827,7 @@ int main() {
     }
 
     // 走到这里 获取所有文档内容 并以 docInfo 结构体形式存储到vector中成功
-    // 4: 把解析完毕的各个文件内容，写入到output , 按照\3作为每个文档的分割符
+    // 4: 把解析完毕的各个文件内容, 写入到output , 按照\3作为每个文档的分割符
     if (!saveDocInfo(docResults, output)) {
         std::cerr << "Failed to save document information!" << std::endl;
         return SAVEINFO_ERROR;

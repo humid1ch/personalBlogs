@@ -37,7 +37,7 @@ featured: false
 
 4. 第四, shell需要可以 `等待回收` 创建的子进程
 
-5. 第五, 需要实现一些内建命令：比如 `export` 等
+5. 第五, 需要实现一些内建命令: 比如 `export` 等
 
 	这些命令 是不需要创建子进程来执行的
 
@@ -49,11 +49,11 @@ featured: false
 
 我们实现的简易的shell的本质, 是一个死循环
 
-且在接收用户输入的指令之前, 需要先输出一个用户提示符：
+且在接收用户输入的指令之前, 需要先输出一个用户提示符: 
 
 ![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230311195500369.webp)
 
-执行：
+执行: 
 
 ![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/GIF%202023-3-11%2019-56-28.gif)
 
@@ -88,7 +88,7 @@ int main() {
 }
 ```
 
-执行上述代码的结果是：
+执行上述代码的结果是: 
 
 ![myShell_fgets  |huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/myShell_fgets.gif)
 
@@ -100,12 +100,12 @@ shell 中的大多数命令都是通过创建子进来执行的.
 
 可以通过fork()创建子进程, 然后进程替换实现命令的执行
 
-实现fork()子进程替换为命令子进程, 最佳的进程替换的接口是：`exevp()`
+实现fork()子进程替换为命令子进程, 最佳的进程替换的接口是: `exevp()`
 
 1. 首先是因为, 我们接收了命令行输入的程序及选项字符串, 将字符串根据空格分割开 就是一个命令和选项的数组
 2. 带`p`字的接口, 会默认从环境变量PATH的路径下搜索, 不需要在添加程序的路径
 
-那么, 首先就是对接收的命令字符串的分割：
+那么, 首先就是对接收的命令字符串的分割: 
 
 C语言中, 关于字符串的函数中, 有一个strtok()函数是用来分割字符串的, `使用strtok()可以将指定字符串按照传入的分割符分开`
 
@@ -127,7 +127,7 @@ C语言中, 关于字符串的函数中, 有一个strtok()函数是用来分割�
 
 #### 分割字符串
 
-strtok()的使用方法, 如下列代码示意：
+strtok()的使用方法, 如下列代码示意: 
 
 ```c
 // 分割命令行
@@ -141,7 +141,7 @@ command_argV是一个指针数组, 每个元素存储一个字符串. 此指针�
 
 所以应该按照要求存储数组, 即 第0元素存储命令名, 之后每个元素存储一个选项
 
-而我们从命令行接收到正确的命令的字符串的格式应该是：`命令名 选项1 选项2 选项3 ...`
+而我们从命令行接收到正确的命令的字符串的格式应该是: `命令名 选项1 选项2 选项3 ...`
 
 所以 strtok() 传入的分割符应该是 `" "`, 第一次执行 `strtok(command_S, " ")`分割出命令名, 会返回命令名字符串
 
@@ -149,7 +149,7 @@ command_argV是一个指针数组, 每个元素存储一个字符串. 此指针�
 
 command_argV[0] 设置为 命令名之后, 从 command_arg[1] 开始 将每一个选项存入其中
 
-分割存储之后的 command_argV 内容可以展示一下：
+分割存储之后的 command_argV 内容可以展示一下: 
 
 ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230311225342322.webp)
 
@@ -157,7 +157,7 @@ command_argV[0] 设置为 命令名之后, 从 command_arg[1] 开始 将每一�
 
 将接收到的字符串分割存储到字符指针数组中之后, 就可以创建子进程并进程替换了
 
-创建子进程就非常简单了：
+创建子进程就非常简单了: 
 
 ```c
 #include <stdio.h>
@@ -200,7 +200,7 @@ int main() {
 }
 ```
 
-此时的代码, 就可以完成一些命令操作了：
+此时的代码, 就可以完成一些命令操作了: 
 
 ![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230311231019639.webp)
 
@@ -210,7 +210,7 @@ int main() {
 
 在介绍过进程等待之后, 回收子进程的操作就显得格外简单了
 
-> 博主的进程等待相关文章：
+> 博主的进程等待相关文章: 
 
 我们使用waitpid()来等待子进程. fork()获取的子进程pid, 刚好可以指定回收子进程
 
@@ -261,7 +261,7 @@ int main() {
 }
 ```
 
-此时, 再执行代码：
+此时, 再执行代码: 
 
 ![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230311231631386.webp)
 
@@ -269,13 +269,13 @@ int main() {
 
 ### 4. 优化不足
 
-我们的myShell已经可以正常执行大部分的命令了, 但是还存在一些不足：
+我们的myShell已经可以正常执行大部分的命令了, 但是还存在一些不足: 
 
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230311231958249.webp)
 
 导致这些不足的原因是什么？怎么优化这些不足呢？
 
-当我们使用 bash, 查看这些命令时：
+当我们使用 bash, 查看这些命令时: 
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230311232612930.webp)
 
@@ -340,7 +340,7 @@ int main() {
 }
 ```
 
-此时, ll 和 ls 就可以更加完善的执行：
+此时, ll 和 ls 就可以更加完善的执行: 
 
 ![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230311233716429.webp)
 
@@ -350,7 +350,7 @@ shell最基本的功能已经实现了
 
 我们可以通过自己的实现的简易的EasyShell, 来执行大多数的命令
 
-但是 有一些命令是无法执行的：
+但是 有一些命令是无法执行的: 
 
 ![ |huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230313154548153.webp)
 
@@ -358,7 +358,7 @@ shell最基本的功能已经实现了
 
 为什么 cd 和 export 明明都可以执行, 但是却没有作用呢？
 
-因为, cd 和 export 命令实际上都是shell的内建命令, PATH环境变量路径下存在的程序其实也没有实际功能的：
+因为, cd 和 export 命令实际上都是shell的内建命令, PATH环境变量路径下存在的程序其实也没有实际功能的: 
 
 ![ |large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230313162046302.webp)
 
@@ -380,7 +380,7 @@ shell最基本的功能已经实现了
 >
 > 所以 要实现cd的功能, 就需要`内建命令实现修改进程当前运行的路径`
 
-这些命令并不是shell通过创建子进程的方式执行的, 而是shell自己在内部执行的, 此类的命令被称为内建命令：
+这些命令并不是shell通过创建子进程的方式执行的, 而是shell自己在内部执行的, 此类的命令被称为内建命令: 
 
 ```c
 #include <unistd.h>
@@ -478,7 +478,7 @@ int main() {
 
 比起真正的一个完善的shell, 差的还有十万八千里.
 
-我们一般使用的bash, 除了执行命令的功能, 至少还有：`backspace删除`、`历史命令`、`Tab补全`等非常方便的功能, 这些功能都没有在本篇文章中实现, 有兴趣的话可以查找资料实现一下
+我们一般使用的bash, 除了执行命令的功能, 至少还有: `backspace删除`、`历史命令`、`Tab补全`等非常方便的功能, 这些功能都没有在本篇文章中实现, 有兴趣的话可以查找资料实现一下
 
 ```c
 #include <unistd.h>

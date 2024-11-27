@@ -292,7 +292,7 @@ sockaddr 是一个结构体, 这个结构体的作用是什么呢?
 
 > 地址类型, 不同的宏可以 区分协议 以及 区分网络通信还是域间通信
 >
-> **`AF_INET`** 用于 IPv4，**`AF_INET6`** 用于 IPv6
+> **`AF_INET`** 用于 IPv4, **`AF_INET6`** 用于 IPv6
 >
 > 如果是 `域间通信`, 则 此地址类型为 **`AF_UNIX`**
 
@@ -622,7 +622,7 @@ public:
                 continue;
             }
 
-            // 读取成功, 除了读取到对方的数据，你还要读取到对方的网络地址[ip:port]
+            // 读取成功, 除了读取到对方的数据, 你还要读取到对方的网络地址[ip:port]
             string peerIp = inet_ntoa(peer.sin_addr); //拿到了对方的IP
             uint32_t peerPort = ntohs(peer.sin_port); // 拿到了对方的port
 
@@ -1003,7 +1003,7 @@ public:
                 continue;
             }
 
-            // 读取成功, 除了读取到对方的数据，你还要读取到对方的网络地址[ip:port]
+            // 读取成功, 除了读取到对方的数据, 你还要读取到对方的网络地址[ip:port]
             string peerIp = inet_ntoa(peer.sin_addr); //拿到了对方的IP
             uint32_t peerPort = ntohs(peer.sin_port); // 拿到了对方的port
 
@@ -1277,13 +1277,13 @@ clean:
     >
     > 博主 线程与重定向的相关文章:
     >
-    > [[Linux] 线程同步分析：什么是条件变量？生产者消费者模型是什么？POSIX信号量怎么用？阻塞队列和环形队列模拟生产者消费者模型](https://www.humid1ch.cn/posts/Linux-Thread-Synchronization)
+    > [[Linux] 线程同步分析: 什么是条件变量？生产者消费者模型是什么？POSIX信号量怎么用？阻塞队列和环形队列模拟生产者消费者模型](https://www.humid1ch.cn/posts/Linux-Thread-Synchronization)
     >
     > [[Linux] 线程互斥分析: 多线程会有什么问题？什么是互斥锁？C++怎么封装使用互斥锁？](https://www.humid1ch.cn/posts/Linux-Thread-Mutex)
     >
     > [[Linux] 如何理解线程ID？什么是线程局部存储？](https://www.humid1ch.cn/posts/Linux-ThreadID-Analysis)
     >
-    > [[Linux] 多线程控制分析：如何获取线程ID？如何自动回收线程？](https://www.humid1ch.cn/posts/Linux-Thread-Control)
+    > [[Linux] 多线程控制分析: 如何获取线程ID？如何自动回收线程？](https://www.humid1ch.cn/posts/Linux-Thread-Control)
     >
     > [[Linux] 多线程概念相关分析](https://www.humid1ch.cn/posts/Linux-Thread-Conceptual-Analysis)
     >

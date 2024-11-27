@@ -35,7 +35,7 @@ featured: false
 
 最好**`按照此顺序及博主的软件版本进行安装`**, 否则可能会有某种错误, 会非常麻烦
 
-> 这是搭建环境所需的软件包的整合, 不想在Linux中输指令下载的话, 可以先下载再通过Xftp传到Linux中：
+> 这是搭建环境所需的软件包的整合, 不想在Linux中输指令下载的话, 可以先下载再通过Xftp传到Linux中: 
 >
 > [CentOS7.6从零搭建C/C++开发环境所需资源包](https://download.csdn.net/download/dxyt2002/87590116) 
 
@@ -43,7 +43,7 @@ featured: false
 
 # gcc11.2.0 安装
 
-可以先创建一个目录用来存放gcc的文件, 并进入目录：
+可以先创建一个目录用来存放gcc的文件, 并进入目录: 
 
 ```shell
 mkdir -p App/gcc
@@ -61,14 +61,14 @@ cd App/gcc
 yum install zlib zlib-devel
 ```
 
-然后下载 gcc11.2.0的源码, 并解压：
+然后下载 gcc11.2.0的源码, 并解压: 
 
 ```shell
 wget http://ftp.gnu.org/gnu/gcc/gcc-11.2.0/gcc-11.2.0.tar.gz
 tar -xvf gcc-11.2.0.tar.gz
 ```
 
-然后安装 gcc11.2.0的依赖：
+然后安装 gcc11.2.0的依赖: 
 
 ```shell
 cd gcc-11.2.0
@@ -77,7 +77,7 @@ cd gcc-11.2.0
 
 等待依赖安装成功
 
-然后配置编译的配置：
+然后配置编译的配置: 
 
 ```shell
 # 此时
@@ -92,7 +92,7 @@ cd build
 # -prefix 设置安装路径, /usr/local/gcc-11.2.0 就可以, 所有用户都有访问权限
 ```
 
-配置完成之后, 就可以编译了：
+配置完成之后, 就可以编译了: 
 
 ```shell
 # 此时
@@ -105,7 +105,7 @@ make
 # 这个过程非常的漫长, 可能需要4个小时左右, 尽量不要中断, 中断之后可能会出现链接错误
 ```
 
-经过漫长的等待之后, 如果编译成功, 就可以安装了：
+经过漫长的等待之后, 如果编译成功, 就可以安装了: 
 
 ```shell
 make install
@@ -127,7 +127,7 @@ ln -s /usr/local/gcc-11.2.0/bin/gcc /usr/bin/gcc
 ln -s /usr/local/gcc-11.2.0/bin/g++ /usr/bin/g++
 ```
 
-然后就可以验证 gcc 和 g++的版本了：
+然后就可以验证 gcc 和 g++的版本了: 
 
 ```shell
 [root@dxyt build]# gcc -v
@@ -155,13 +155,13 @@ gcc version 11.2.0 (GCC)
 
 如果没有更新动态库, 则在使用新版gcc和g++的时候, 很可能会出错
 
-可以先查看当前动态库的版本：
+可以先查看当前动态库的版本: 
 
 ```shell
 strings /lib/x86_64-linux-gnu/libstdc++.so.6 | grep GLIBCXX
 ```
 
-大概率会输出：
+大概率会输出: 
 
 ```
 GLIBCXX_3.4
@@ -174,7 +174,7 @@ GLIBCXX_3.4.19
 GLIBCXX_DEBUG_MESSAGE_LENGTH
 ```
 
-而 gcc11.2.0 的动态库应该是：
+而 gcc11.2.0 的动态库应该是: 
 
 ```
 GLIBCXX_3.4
@@ -196,7 +196,7 @@ GLIBCXX_DEBUG_MESSAGE_LENGTH
 find /usr/ -name "libstdc++.so*"
 ```
 
-会列出一大堆, 其中 gcc新旧相关的是：
+会列出一大堆, 其中 gcc新旧相关的是: 
 
 ```shell
 /usr/lib64/libstdc++.so.6.0.19
@@ -214,13 +214,13 @@ rm -f /usr/lib64/libstdc++.so.6
 ln -s /usr/lib64/libstdc++.so.6.0.29 /usr/lib64/libstdc++.so.6
 ```
 
-此时再查看动态库：
+此时再查看动态库: 
 
 ```shell
 strings /lib/x86_64-linux-gnu/libstdc++.so.6 | grep GLIBCXX
 ```
 
-会输出：
+会输出: 
 
 ```
 GLIBCXX_3.4
@@ -247,14 +247,14 @@ mv cmake-3.23.2-linux-x86_64 cmake
 
 由于不需要编译安装, 所以现在其实已经安装完成了
 
-只需要创建软连接就可以了：
+只需要创建软连接就可以了: 
 
 ```shell
 rm -f /usr/bin/cmake
 ln -s /usr/local/cmake/bin/cmake /usr/bin/cmake
 ```
 
-然后就可以查看版本了：
+然后就可以查看版本了: 
 
 ```shell
 [root@dxyt local]# cmake --version
@@ -265,7 +265,7 @@ cmake version 3.23.2
 
 # node16.19.1 安装
 
-node16.19.1 和 npm 也不需要编译：
+node16.19.1 和 npm 也不需要编译: 
 
 ```shell
 cd /usr/local
@@ -291,7 +291,7 @@ export PATH=$PATH:/usr/local/node/bin
 source /etc/profile 	# 使更改生效
 ```
 
-此时查看node和npm版本：
+此时查看node和npm版本: 
 
 ```shell
 [root@dxyt local]# node -v
@@ -315,13 +315,13 @@ mkdir App/python3
 cd App/python3
 ```
 
-安装依赖环境：
+安装依赖环境: 
 
 ```shell
 yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel libffi-devel
 ```
 
-下载 python3.8.1 并解压：
+下载 python3.8.1 并解压: 
 
 ```shell
 wget https://www.python.org/ftp/python/3.8.1/Python-3.8.1.tar.xz
@@ -329,13 +329,13 @@ tar -xvf Python-3.8.1.tar.xz
 cd Python-3.8.1
 ```
 
-配置编译环境：
+配置编译环境: 
 
 ```shell
 ./configure --prefix=/usr/local/python3
 ```
 
-然后编译，安装
+然后编译, 安装
 
 ```shell
 make && make install
@@ -360,7 +360,7 @@ ln -s /usr/local/python3/bin/python3 /usr/bin/python3
 ln -s /usr/local/python3/bin/pip3 /usr/bin/pip3
 ```
 
-此时查看python 和 pip3 版本：
+此时查看python 和 pip3 版本: 
 
 ```shell
 [root@dxyt ~]# python
@@ -392,7 +392,7 @@ llvm和clang12.0.0 是为了 使用 Coc.nvim给C/C++语法补全用的
 >
 > 所以 内存+swap空间 至少要4G, 内存不足的话, 可以开辟一定的swap空间辅助(swap空间占用的是硬盘)
 >
-> 开辟swap空间：
+> 开辟swap空间: 
 >
 > ```shell
 > free -m 		   # 查看是否有swap空间, 若存在且足够大, 则不用开辟
@@ -410,13 +410,13 @@ llvm和clang12.0.0 是为了 使用 Coc.nvim给C/C++语法补全用的
 > # 此次开辟的swap空间会在重启或者终端重连时 被释放, 即 此次开辟的swap空间是一次性的
 > ```
 
-> 温馨提示：llvm 和 clang的编译过程**`可能需要10小时左右`**, 且如果意外中断可能会造成连接错误
+> 温馨提示: llvm 和 clang的编译过程**`可能需要10小时左右`**, 且如果意外中断可能会造成连接错误
 >
 > 所以, 可能的话 **`尽量在网络稳定的夜晚进行, 睡前 make, 睡醒完成`**
 >
 > 啊哈哈哈哈哈 
 
-首先, 还是创建存储 llvm和clang 的目录：
+首先, 还是创建存储 llvm和clang 的目录: 
 
 ```shell
 cd ~/App
@@ -424,7 +424,7 @@ mkdir llvm-clang
 cd llvm-clang
 ```
 
-下载相关文件, 并解压, 并更改目录名：
+下载相关文件, 并解压, 并更改目录名: 
 
 ```shell
 wget https://github.com/llvm/llvm-project/releases/download/llvmorg-12.0.0/clang-12.0.0.src.tar.xz
@@ -455,7 +455,7 @@ tar -xvf clang-tools-extra-12.0.0.src.tar.xz
 mv clang-tools-extra-12.0.0.src clang-tools-extra
 ```
 
-文件的准备工作做完了, 然后配置 编译配置：
+文件的准备工作做完了, 然后配置 编译配置: 
 
 ```shell
 # 先添加一个环境变量
@@ -472,7 +472,7 @@ cd build
 cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=/usr/bin/gcc -DCMAKE_CXX_COMPILER=/usr/bin/g++ -DGCC_INSTALL_PREFIX=${CLANG_GCC} -DCMAKE_CXX_LINK_FLAGS="-L${CLANG_GCC}/lib64 -Wl,-rpath,${CLANG_GCC}/lib64" -DCMAKE_INSTALL_PREFIX=${CLANG_GCC}  -DLLVM_ENABLE_ASSERTIONS=On ../llvm-12.0.0
 ```
 
-配置完成之后, 就可以编译、安装了：
+配置完成之后, 就可以编译、安装了: 
 
 ```shell
 # [root@dxyt llvm-clang]# pwd
@@ -486,7 +486,7 @@ make
 
 建议 睡觉前, 在一个网络稳定的环境下 执行.
 
-编译完成之后, 就可以安装了, 安装很快：
+编译完成之后, 就可以安装了, 安装很快: 
 
 ```shell
 make install
@@ -506,7 +506,7 @@ InstalledDir: /usr/local/bin
 
 ## 添加 C与C++ 头文件搜索目录环境变量
 
-安装完clang, 可能会遇到cpp或c文件无法找到头文件的问题, 所以需要添加一个环境变量：
+安装完clang, 可能会遇到cpp或c文件无法找到头文件的问题, 所以需要添加一个环境变量: 
 
 ```shell
 vi /etc/profile
@@ -518,7 +518,7 @@ export CPLUS_INCLUDE_PATH=/usr/local/gcc-11.2.0/include/c++/11.2.0:/usr/local/gc
 
 # neovim0.7.2 安装
 
-neovim0.7.2不需要编译, 所以直接在/usr/local 下载文件：
+neovim0.7.2不需要编译, 所以直接在/usr/local 下载文件: 
 
 ```shell
 cd /usr/local
@@ -533,7 +533,7 @@ mv nvim-linux64 nvim
 ln -s /usr/local/nvim/bin/nvim /usr/bin/nvim
 ```
 
-此时可以查看nvim版本：
+此时可以查看nvim版本: 
 
 ```shell
 [root@dxyt ~]# nvim -v
@@ -544,7 +544,7 @@ LuaJIT 2.1.0-beta3
 
 ## 为neovim 安装python3支持
 
-操作很简单：
+操作很简单: 
 
 ```shell
 pip3 install neovim
@@ -558,7 +558,7 @@ pip2 install neovim
 
 # gdb11.1 安装
 
-gdb11.1 的安装是需要编译的, 所以最好先有个目录存储编译文件：
+gdb11.1 的安装是需要编译的, 所以最好先有个目录存储编译文件: 
 
 ```shell
 cd ~/App
@@ -571,7 +571,7 @@ cd gdb
 # /root/App/gdb
 ```
 
-然后安装依赖软件和库：
+然后安装依赖软件和库: 
 
 ```shell
 yum install gmp gmp-devel
@@ -579,7 +579,7 @@ yum install gmp gmp-devel
 # 博主安装时, libgmp发生了错误, 所以先检查一下gmp 和 相关库是否安装
 ```
 
-准备好之后, 下载gdb11.1 源码并解压：
+准备好之后, 下载gdb11.1 源码并解压: 
 
 ```shell
 wget https://ftp.gnu.org/gnu/gdb/gdb-11.1.tar.gz
@@ -587,7 +587,7 @@ tar -xvf gdb-11.1.tar.gz
 cd gdb-11.1
 ```
 
-然后创建build目录存储相关编译文件, 并配置编译配置：
+然后创建build目录存储相关编译文件, 并配置编译配置: 
 
 ```shell
 mkdir build
@@ -599,7 +599,7 @@ cd build
 ../configure -prefix=/usr/local/gdb11.1
 ```
 
-配置完成之后, 进行编译安装：
+配置完成之后, 进行编译安装: 
 
 ```shell
 # 此时
@@ -619,7 +619,7 @@ make && make install
 ln -s /usr/local/gdb11.1/bin/gdb /usr/bin/gdb
 ```
 
-创建软连接之后, 就可以使用gdb了：
+创建软连接之后, 就可以使用gdb了: 
 
 ```shell
 [root@dxyt ~]# gdb -v
@@ -644,7 +644,7 @@ There is NO WARRANTY, to the extent permitted by law.
 
 安装 vim-plug 非常的简单, 只需要在指定目录下将 git仓库中的一个文件下载下来就好了
 
-但是需要先创建一个目录：
+但是需要先创建一个目录: 
 
 ```shell
 cd
@@ -652,7 +652,7 @@ mkdir -p .config/nvim/autoload
 cd ~/.config/nvim/autoload/
 ```
 
-将远端的文件下载下来：
+将远端的文件下载下来: 
 
 ```shell
 # [Julyy@dxyt autoload]$ pwd
@@ -665,7 +665,7 @@ wget https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 > 下载下来之后, 可以将plug的源换一下
 >
-> 之前还有很多可用的github镜像, 但是现在我只知道一个：
+> 之前还有很多可用的github镜像, 但是现在我只知道一个: 
 >
 > **`hub.nuaa.cf`**
 >
@@ -687,7 +687,7 @@ wget https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 ## 编辑neovim配置文件
 
-首先要创建、打开、编辑配置文件：
+首先要创建、打开、编辑配置文件: 
 
 ```shell
 nvim ~/.config/nvim/init.vim
@@ -695,7 +695,7 @@ nvim ~/.config/nvim/init.vim
 
 然后在文件内修改neovim的配置就可以了
 
-这里我直接附上我自己的配置文件内容：
+这里我直接附上我自己的配置文件内容: 
 
 ```
 call plug#begin('~/.config/nvim/plugged')

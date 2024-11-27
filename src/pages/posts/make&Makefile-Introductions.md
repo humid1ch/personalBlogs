@@ -19,23 +19,23 @@ featured: false
 
 而Linux则不同, 每一个源文件都需要进行手动指令编译生成可执行文件之后才能运行。
 
-以一个简单的 C++ 文件为例：
+以一个简单的 C++ 文件为例: 
 
 ![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230227112324266.webp)
 
-在Linux平台下 需要使用g++指令来进行编译：
+在Linux平台下 需要使用g++指令来进行编译: 
 
 ![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230227112451565.webp)
 
 可以生成可执行文件`helloworld`
 
-> 有关Linux平台下代码的编译的分析, 推荐博主文章：
+> 有关Linux平台下代码的编译的分析, 推荐博主文章: 
 >
 > [[程序员的自我修养\] 理解编译到链接的过程](http://humid1ch.cn/posts/Compile&Link)
 >
 > 本篇文章不多赘述
 
-而除了每次使用gcc/g++指令来编译代码文件的方式之外, 还有另一种方式, 即本篇文章的主要内容：`make 和 makefile`
+而除了每次使用gcc/g++指令来编译代码文件的方式之外, 还有另一种方式, 即本篇文章的主要内容: `make 和 makefile`
 
 ---
 
@@ -45,11 +45,11 @@ featured: false
 
 ## make 是什么？
 
-make其实只是一个指令, 需要在当前目录下存在makefile文件时才可以正确执行, 否则就会出现：
+make其实只是一个指令, 需要在当前目录下存在makefile文件时才可以正确执行, 否则就会出现: 
 
 ![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230227114212877.webp)
 
-当makefile文件存在, 且内容正确的时候, 再执行make则会出现：
+当makefile文件存在, 且内容正确的时候, 再执行make则会出现: 
 
 ![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230227115214759.webp)
 
@@ -61,11 +61,11 @@ make其实只是一个指令, 需要在当前目录下存在makefile文件时才
 
 makefile 是一个文件, 为 make指令提供依靠的文件
 
-以上面为例, 其中makefile文件的内容是：
+以上面为例, 其中makefile文件的内容是: 
 
 ![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230228211500117.webp)
 
-此文件的内容, 其实大致包括两个东西：
+此文件的内容, 其实大致包括两个东西: 
 
 1. 依赖关系
 
@@ -93,11 +93,11 @@ makefile内容写入完毕之后, 只需要在当前目录下执行make指令, �
 
 一般, make存在一个对应的指令叫 `make clean`, 此指令用于`清除make指令执行之后生成的文件`
 
-此指令 只有在makefile文件中表明clean的依赖方法时才能使用, 在上例中即为：
+此指令 只有在makefile文件中表明clean的依赖方法时才能使用, 在上例中即为: 
 
 ![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230228215630769.webp)
 
-执行的结果为：
+执行的结果为: 
 
 ![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230228220043504.webp)
 
@@ -114,17 +114,17 @@ makefile内容写入完毕之后, 只需要在当前目录下执行make指令, �
 >
 > 那么有没有可能, makefile文件的每个依赖关系语句的目标文件, 都可以作为make指令的后缀 与 make结合作为一个指令。此指令的作用是执行依赖关系的依赖方法
 >
-> 测试一下：
+> 测试一下: 
 >
 > ![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230228222513199.webp)
 >
-> 然后先执行 make：
+> 然后先执行 make: 
 >
 > ![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230228222633669.webp)
 >
 > 生成了helloworld可执行文件和helloworld.o文件
 >
-> 再make clean清除：
+> 再make clean清除: 
 >
 > ![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230228222754184.webp)
 >
@@ -136,15 +136,15 @@ makefile内容写入完毕之后, 只需要在当前目录下执行make指令, �
 
 ## .PHONY
 
-在上述例子中, clean前还存在一个语句：`.PHONY:clean`
+在上述例子中, clean前还存在一个语句: `.PHONY:clean`
 
 .PHONY可以看作是makefile文件的关键词, 其后修饰目标文件名, 可表示 `无论此目标文件名是否存在是否为最新, 此目标文件的依赖方法恒可以执行`
 
-依旧以上为例：
+依旧以上为例: 
 
 ![|medium](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230228230610372.webp)
 
-当多次执行make指令时：
+当多次执行make指令时: 
 
 ![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230228230837691.webp)
 
@@ -154,17 +154,17 @@ makefile内容写入完毕之后, 只需要在当前目录下执行make指令, �
 
 所以, 被.PHONY修饰的目标文件名, 即表示 `此目标文件的依赖方法恒可执行, 无论目标文件是否存在、是否最新`
 
-### *扩展：make时, 指令如何判断目标文件是否最新？
+### *扩展: make时, 指令如何判断目标文件是否最新？
 
-在系统中, 存在一个指令叫 stat, 这个指令的作用是显示文件的状态属性：
+在系统中, 存在一个指令叫 stat, 这个指令的作用是显示文件的状态属性: 
 
 ![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230301165423095.webp)
 
-对文件使用 stat指令可以看到, 文件具有三个有关时间的属性：`最近访问时间` `最近更改时间` `最近改动时间`
+对文件使用 stat指令可以看到, 文件具有三个有关时间的属性: `最近访问时间` `最近更改时间` `最近改动时间`
 
 对于可执行程序, 其最近访问时间即为 此程序最后一次运行的时间, 最近更改时间即为 此程序的内容最后一次改变的时间, 而最近改动时间, 则为此程序最后一次更改、变动或移动的时间
 
-而 make 判断目标文件是否最新的依据, 就是 将当前目标文件的最近更改时间与其依赖文件的最近更改时间做对比, 若发现依赖文件的最近更改时间比较新, 则执行make生成新的目标文件：
+而 make 判断目标文件是否最新的依据, 就是 将当前目标文件的最近更改时间与其依赖文件的最近更改时间做对比, 若发现依赖文件的最近更改时间比较新, 则执行make生成新的目标文件: 
 
 ![例1 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230301170213210.webp)
 

@@ -15,9 +15,9 @@ featured: false
 
 在Linux环境下, 我们使用gcc编译链接代码文件时, 可以统分为`静态链接和动态链接`
 
-静态链接：在编译链接时, 将代码所使用到的静态库文件的代码全部加入到可执行文件中, 此时的可执行文件会生成的比较大. 不过, 此时可执行文件再运行时, 就不需要再查找库了. 静态库文件一般以 `.a` 结尾
+静态链接: 在编译链接时, 将代码所使用到的静态库文件的代码全部加入到可执行文件中, 此时的可执行文件会生成的比较大. 不过, 此时可执行文件再运行时, 就不需要再查找库了. 静态库文件一般以 `.a` 结尾
 
-动态链接：不会在编译链接时将动态库文件的代码加入到可执行文件中, 而是在可执行文件运行时, 去查找所需动态库, 并将其加载到相应的进程中.  并且不同进程可以共享这些动态库. 动态库文件一般以 `.so` 结尾
+动态链接: 不会在编译链接时将动态库文件的代码加入到可执行文件中, 而是在可执行文件运行时, 去查找所需动态库, 并将其加载到相应的进程中.  并且不同进程可以共享这些动态库. 动态库文件一般以 `.so` 结尾
 
 ---
 
@@ -31,9 +31,9 @@ featured: false
 
 ## 创建静态库和动态库
 
-我们在使用gcc来编译代码的时候, 不加选项直接生成可执行程序：
+我们在使用gcc来编译代码的时候, 不加选项直接生成可执行程序: 
 
-> 额外使用两个.c文件：
+> 额外使用两个.c文件: 
 >
 > ```c
 > // myMath.h:
@@ -78,7 +78,7 @@ featured: false
 
 ### 介绍静态链接
 
-除了上面可以直接编译链接一步生成可执行文件之外, 还可以通过添加选项将编译链接的过程分离开, 可以使用 `-c` 选项将代码文件先编译成目标文件而先不做链接：
+除了上面可以直接编译链接一步生成可执行文件之外, 还可以通过添加选项将编译链接的过程分离开, 可以使用 `-c` 选项将代码文件先编译成目标文件而先不做链接: 
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230322085615053.webp)
 
@@ -88,7 +88,7 @@ featured: false
 
 答案是肯定的.
 
-我们创建另一个目录, 并只将两个`.o`文件移动过去 而不移动`.c`文件, 并再main函数中使用两个函数：
+我们创建另一个目录, 并只将两个`.o`文件移动过去 而不移动`.c`文件, 并再main函数中使用两个函数: 
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230322093852419.webp)
 
@@ -102,19 +102,19 @@ featured: false
 
 库的生成其实就是一个指令, 可以使用指令将需要做成库的`.o`文件 归档生成一个库
 
-创建静态库的命令是：`ar -rc 库名 .o文件 .o文件 ……`
+创建静态库的命令是: `ar -rc 库名 .o文件 .o文件 ……`
 
-> **ar可以看作是归档的意思：archive, -rc则是 replace 和 creat 覆盖或创建**
+> **ar可以看作是归档的意思: archive, -rc则是 replace 和 creat 覆盖或创建**
 
 其中, **`库名有严格的命名规则, 对于静态库, 必须以lib开头, 以.a为结尾后缀`**, 即 **`libxxxx.a`**
 
 **xxxx的部分, 一般以库内容决定**
 
-那么对于我们实现的两个简单的累加和print时间的函数来说, 我们就可以这样创建静态库：
+那么对于我们实现的两个简单的累加和print时间的函数来说, 我们就可以这样创建静态库: 
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230322111304476.webp)
 
-并且可以通过 `ar -tv` 查看静态库的信息：
+并且可以通过 `ar -tv` 查看静态库的信息: 
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230322114733492.webp)
 
@@ -122,7 +122,7 @@ featured: false
 
 生成了静态库之后, 还并不能只将静态库打包发布出去. 因为静态库内提供的一般只是方法实现的代码, 而没有方法的声明, 也就是还需要头文件
 
-也就是说, 发布静态库其实需要将静态库和头文件整合到一个目录中进行打包, 一般的操作是：
+也就是说, 发布静态库其实需要将静态库和头文件整合到一个目录中进行打包, 一般的操作是: 
 
 ```shell
 mkdir -p lib-static/include
@@ -153,7 +153,7 @@ cp *.h lib-static/include
 
 `gcc -shared -o`, shared表示生成共享库格式
 
-而动态库的命名也有严格的格式：`libxxxx.so`, 以`lib为开头, 以.so后缀结尾`
+而动态库的命名也有严格的格式: `libxxxx.so`, 以`lib为开头, 以.so后缀结尾`
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230322220024492.webp)
 
@@ -198,7 +198,7 @@ cp *.h lib-dynamic/include
 
 ### 静态库的使用
 
-> 当前所在路径：
+> 当前所在路径: 
 >
 > ```shell
 > $ pwd
@@ -207,13 +207,13 @@ cp *.h lib-dynamic/include
 >
 > 当前在静态库打包的路径
 
-在编写c语言时使用静态库：
+在编写c语言时使用静态库: 
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230322221356453.webp)
 
 >  **在包含头文件时, 直接指定了头文件的相对位置**
 
-编译链接时出错. 报错的信息是：main函数中引用了未定义的addToVal和myPrint, 这是为什么？
+编译链接时出错. 报错的信息是: main函数中引用了未定义的addToVal和myPrint, 这是为什么？
 
 我们包含了头文件, 但是在使用后在编译链接时却报错, 这是为什么？
 
@@ -223,9 +223,9 @@ cp *.h lib-dynamic/include
 
 `<>`包含头文件, 编译器会在系统的头文件目录下查询
 
-> Linux系统中, 系统头文件路径一般会在：/usr/include
+> Linux系统中, 系统头文件路径一般会在: /usr/include
 >
-> 用户安装的某些软件的头文件应该会在：/usr/local/include
+> 用户安装的某些软件的头文件应该会在: /usr/local/include
 
 使用库也是同理, 但是由于代码内不会去包含库文件路径, 所以 **`编译器默认会在系统的库文件路径下找需要的库文件`**
 
@@ -235,13 +235,13 @@ cp *.h lib-dynamic/include
 
 1. #### 将我们的库文件添加到系统的库文件路径下
 
-	Linux操作系统的库文件路径一般在：/lib64
+	Linux操作系统的库文件路径一般在: /lib64
 	
-	我们需要将静态库文件添加到此路径下：
+	我们需要将静态库文件添加到此路径下: 
 	
 	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230322223924103.webp)
 	
-	然后再编译链接：
+	然后再编译链接: 
 	
 	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230322223955105.webp)
 	
@@ -257,7 +257,7 @@ cp *.h lib-dynamic/include
 	
 	所以, `除了让gcc可以找到库文件, 还要让gcc认识库文件`
 	
-	这是, 就需要使用 `-l` 选项, 来指定我们需要的库：
+	这是, 就需要使用 `-l` 选项, 来指定我们需要的库: 
 	
 	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230322224353720.webp)
 	
@@ -273,13 +273,13 @@ cp *.h lib-dynamic/include
 	
 	这样的操作其实是, **`污染了系统库`**. 所以我们最好将刚刚添加的库文件删除了.
 	
-	删除之后, 再执行gcc语句：
+	删除之后, 再执行gcc语句: 
 	
 	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230322225401054.webp)
 
 2. #### 指定头文件路径和库文件路径
 
-	我们修改一下test.c的内容：
+	我们修改一下test.c的内容: 
 	
 	```c
 	#include "myPrint.h"
@@ -296,7 +296,7 @@ cp *.h lib-dynamic/include
 	}
 	```
 	
-	再直接进行编译链接：
+	再直接进行编译链接: 
 	
 	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230322230823048.webp)
 	
@@ -304,12 +304,12 @@ cp *.h lib-dynamic/include
 	
 	那么在不污染系统查找路径的前提下, 如何正确的编译链接呢？
 	
-	gcc 有两个选项：
+	gcc 有两个选项: 
 	
 	1. `-I`: 可以用来指定包含的头文件的路径
 	2. `-L`: 可以用来指定所使用库文件的路径
 	
-	那么使用这两个选项：
+	那么使用这两个选项: 
 	
 	`gcc test.c -I ./include -L ./lib -lMyfunc`
 	
@@ -317,17 +317,17 @@ cp *.h lib-dynamic/include
 
 ### 动态库的使用
 
-按照上面使用静态库的经验, 我们可以直接使用`gcc -I -L -l` 来对使用动态库的代码, 进行编译链接：
+按照上面使用静态库的经验, 我们可以直接使用`gcc -I -L -l` 来对使用动态库的代码, 进行编译链接: 
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230322233946223.webp)
 
-执行命令不会报错, 但是当我们运行生成的可执行程序的时候：
+执行命令不会报错, 但是当我们运行生成的可执行程序的时候: 
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230322234149963.webp)
 
 我们会发现, 进程无法找到相对应的动态库.
 
-发生这种找不到库的错误的时候, 可以使用ldd命令来查看程序依赖的库：
+发生这种找不到库的错误的时候, 可以使用ldd命令来查看程序依赖的库: 
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230322234749548.webp)
 
@@ -382,7 +382,7 @@ cp *.h lib-dynamic/include
 
 3. 添加系统配置文件
 
-    除了上面的添加环境变量来让进程可以找到动态库之外, 还有另外一种方法：添加系统配置文件
+    除了上面的添加环境变量来让进程可以找到动态库之外, 还有另外一种方法: 添加系统配置文件
 
     Linux操作系统中 `/etc/ld.so.conf.d` 路径下, 保存的是搜索动态库的配置文件:
 
@@ -404,7 +404,7 @@ cp *.h lib-dynamic/include
 
     添加了配置文件之后, 可执行程序还是不能正常运行.
 
-    因为我们添加的配置文件还没有被加载到系统内存中, 所需需要使用命令：`ldconfig 配置文件`
+    因为我们添加的配置文件还没有被加载到系统内存中, 所需需要使用命令: `ldconfig 配置文件`
 
     ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230323003609394.webp)
 
@@ -436,7 +436,7 @@ cp *.h lib-dynamic/include
 
 首先我们的可执行程序运行之后, 会被加载到内存中变成一个进程
 
-操作系统会为其创建：PCB、进程地址空间、页表
+操作系统会为其创建: PCB、进程地址空间、页表
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230323011553678.webp)
 
@@ -444,7 +444,7 @@ cp *.h lib-dynamic/include
 
 而我们的程序在运行到动态库代码时, 是需要跳转到动态库代码继续执行的
 
-而动态库是一个可执行文件, 它拥有`x执行权限`：
+而动态库是一个可执行文件, 它拥有`x执行权限`: 
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230323011931508.webp)
 

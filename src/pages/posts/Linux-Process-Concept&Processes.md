@@ -2,7 +2,7 @@
 layout: '../../layouts/MarkdownPost.astro'
 title: '[Linux] 系统进程相关概念、系统调用、Linux进程详析、进程查看、fork()初识'
 pubDate: 2023-03-01
-description: '关于什么是进程这个问题, 一般都会用一句简单的话来回答：运行起来的程序就是进程. 这句话不能说是错的, 但也不全对。如果运行起来的程序就是进程, 那么进程和程序又有什么区别呢？'
+description: '关于什么是进程这个问题, 一般都会用一句简单的话来回答: 运行起来的程序就是进程. 这句话不能说是错的, 但也不全对。如果运行起来的程序就是进程, 那么进程和程序又有什么区别呢？'
 author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251759330.webp'
@@ -17,7 +17,7 @@ featured: false
 
 ## 什么是进程？
 
-关于什么是进程这个问题, 一般都会用一句简单的话来回答：`运行起来的程序就是进程`
+关于什么是进程这个问题, 一般都会用一句简单的话来回答: `运行起来的程序就是进程`
 
 这句话不能说是错的, 但也不全对。如果运行起来的程序就是进程, 那么进程和程序又有什么区别呢？
 
@@ -31,7 +31,7 @@ featured: false
 
 而这个包含着进程所有的属性数据的数据结构, 通常被称为 `PCB`
 
-## 进程的属性：PCB
+## 进程的属性: PCB
 
 `PCB 即 Process Control Block, 意为 进程控制块` ~~(并不是PCB板的PCB)~~
 
@@ -43,11 +43,11 @@ Linux系统中的PCB, 叫 `struct task_struct{}`是一个结构体
 
 PCB是一个统称, 不同的操作系统中一般存在不同的具体的PCB, 而Linux系统中的PCB具体是一个结构体——`struct task_struct{}`
 
-此结构体描述了进程的所有属性, 在Linux2.6内核中, 关于此结构体的代码超过300行：
+此结构体描述了进程的所有属性, 在Linux2.6内核中, 关于此结构体的代码超过300行: 
 
 ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230301195324329.webp)
 
-此结构体所包含的进程的属性包括：
+此结构体所包含的进程的属性包括: 
 
 1. 进程标识符
 2. 进程状态
@@ -63,11 +63,11 @@ PCB是一个统称, 不同的操作系统中一般存在不同的具体的PCB, �
 
 ### * 系统调用
 
-在实际介绍Linux中关于进程的操作之前, 需要先介绍一个名词：`系统调用`
+在实际介绍Linux中关于进程的操作之前, 需要先介绍一个名词: `系统调用`
 
 什么是系统调用？
 
-用一个简单的例子来类比一下操作系统：银行
+用一个简单的例子来类比一下操作系统: 银行
 
 仔细思考银行的服务体系其实可以发现, 银行其实是一个封闭的体系。银行为了安全着想, 无论我们去银行办理什么业务, 一定是通过银行指定的业务窗口进行办理, 而不是自己直接动手操作办理。通过服务窗口, 客户可以办理其能办理的任何业务
 
@@ -83,19 +83,19 @@ PCB是一个统称, 不同的操作系统中一般存在不同的具体的PCB, �
 
 ### 1. ps
 
-ps是Linux提供的指令, 使用 man ps的指令可以看到：
+ps是Linux提供的指令, 使用 man ps的指令可以看到: 
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230301203045585.webp)
 
 ps后还可以使用各种选项, 具体可以在系统中查看
 
-当使用ps ajx时：
+当使用ps ajx时: 
 
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230301204202581.webp)
 
 系统会以指定的格式 将当前的进程显示出来
 
-并且, 当我们自己的程序正在运行时, 我们还可以使用ps将其找出来：
+并且, 当我们自己的程序正在运行时, 我们还可以使用ps将其找出来: 
 
 ```cpp
 #include <iostream>
@@ -113,7 +113,7 @@ int main() {
 }
 ```
 
-将上述代码使用g++编译生成名为 AMProcess的可执行程序, 并执行此程序, 然后使用`ps ajx | grep "AMProcess"`搜索进程：
+将上述代码使用g++编译生成名为 AMProcess的可执行程序, 并执行此程序, 然后使用`ps ajx | grep "AMProcess"`搜索进程: 
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230301205425126.webp)
 
@@ -125,7 +125,7 @@ int main() {
 >
 > 在查找进程时, 我们使用了 grep指令来查找与AMProcess相关, 而grep其实也是一个程序, 使用grep 即 将grep运行了此时grep也就加载到内存中成为了一个程序, 此时grep又是用来查找AMProcess相关的, 所以进程中的 grep进程包含一个AMProcess关键词
 >
-> 当 再次基础上 使用 `| grep -v grep` 排除 grep相关进程之后：
+> 当 再次基础上 使用 `| grep -v grep` 排除 grep相关进程之后: 
 >
 > ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230301210423936.webp)
 >
@@ -145,11 +145,11 @@ Linux系统中, 存在一个实时维护进程的路径, 即 /proc路径。此�
 
 #### 当前路径
 
-当我们创建一个进程, 并进入此进程数字目录之后, 可以看到目录下的文件：
+当我们创建一个进程, 并进入此进程数字目录之后, 可以看到目录下的文件: 
 
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230315175119515.webp)
 
-可以看到, /proc目录下的表示一个进程的目录下存在着许多的文件, 其中有两个文件是当前我们可以理解的：
+可以看到, /proc目录下的表示一个进程的目录下存在着许多的文件, 其中有两个文件是当前我们可以理解的: 
 
 1. `exe`, 此文件表示了此进程的可执行文件的所在路径
 
@@ -157,7 +157,7 @@ Linux系统中, 存在一个实时维护进程的路径, 即 /proc路径。此�
 
 	即, `当前路径`其实是指此进程所运行的路径, 而不是可执行程序的路径 
 
-当我不结束此进程的运行, 并将 a.out 文件移动到其他位置时, 再查看proc目录下表示此进程的目录下的cwd和exe文件时：
+当我不结束此进程的运行, 并将 a.out 文件移动到其他位置时, 再查看proc目录下表示此进程的目录下的cwd和exe文件时: 
 
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230315175851785.webp)
 
@@ -175,29 +175,29 @@ Linux系统中, 每一个进程都存在一个唯一的标识符, 此标识符�
 
 上面使用 ps 查看系统进程时, 可以看到每个进程占了1-2行来表示, 前面有数字, 后面有时间等, 但是并不知道具体是什么
 
-如果想要知道的话, 只需要使用 `ps ajx | head` 将头栏显示出来, 就可以知道哪一栏是进程的PID了：
+如果想要知道的话, 只需要使用 `ps ajx | head` 将头栏显示出来, 就可以知道哪一栏是进程的PID了: 
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230301212101997.webp)
 
 所以, 其实使用 `ps ajx` 查看系统进程的时候, 第2列 就表示进程的 PID
 
-所以 我们编写程序的进程 的PID, 也可以以此查看(`ps ajx | head -1 && ps ajx | grep "AMProcess" | grep -v grep`)：
+所以 我们编写程序的进程 的PID, 也可以以此查看(`ps ajx | head -1 && ps ajx | grep "AMProcess" | grep -v grep`): 
 
 ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230301212429393.webp)
 
-可以看到 ./AMProcess进程的 PID是23668, 这个数字也可以在 /proc路径下找到：
+可以看到 ./AMProcess进程的 PID是23668, 这个数字也可以在 /proc路径下找到: 
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230301212614206.webp)
 
-进入 23668 这个路径, 可以看到 此路径即为 维护./AMProcess进程的路径：
+进入 23668 这个路径, 可以看到 此路径即为 维护./AMProcess进程的路径: 
 
 ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230301213003808.webp)
 
-如果, 还是不能确定的话 可以使用 kill指令, 将23668进程kill掉：
+如果, 还是不能确定的话 可以使用 kill指令, 将23668进程kill掉: 
 
 ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230301213412381.webp)
 
-> AMProcess进程被kill掉, 当再次运行AMProcess程序时：
+> AMProcess进程被kill掉, 当再次运行AMProcess程序时: 
 >
 > ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230301213639300.webp)
 >
@@ -211,7 +211,7 @@ Linux系统中, 每一个进程都存在一个唯一的标识符, 此标识符�
 
 除了使用 `ps ajx | head` 指令获取头栏 然后得出PID的方法之外, Linux提供了系统调用可以在程序中得到PID
 
-即 getpid()系统调用：
+即 getpid()系统调用: 
 
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230302081130650.webp)
 
@@ -221,15 +221,15 @@ Linux系统中, 每一个进程都存在一个唯一的标识符, 此标识符�
 > 
 > 如果是`openEuler`相关系统, 还需要安装`man-pages-help`, 即执行 `sudo yum install man-pages-help`
 
-此系统调用可以直接在程序中使用：
+此系统调用可以直接在程序中使用: 
 
 ![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230302081525766.webp)
 
-此时, 编译运行程序：
+此时, 编译运行程序: 
 
 ![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230302081826732.webp)
 
-可以输出此程序的PID, 使用kill指令进行验证：
+可以输出此程序的PID, 使用kill指令进行验证: 
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230302082115261.webp)
 
@@ -241,7 +241,7 @@ PID 是 Process ID, 表示进程的标识符。PPID 又是什么意思呢？
 
 顾名思义, 一个进程的PPID, 其实就是此进程的父进程的PID。
 
-在使用 ps ajx | head 指令查看系统进程时, 第一列数据就是PPID, 第二列数据才是PID：
+在使用 ps ajx | head 指令查看系统进程时, 第一列数据就是PPID, 第二列数据才是PID: 
 
 ![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230302082719959.webp)
 
@@ -251,11 +251,11 @@ PID 是 Process ID, 表示进程的标识符。PPID 又是什么意思呢？
 
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230302082939131.webp)
 
-同样可以在程序中使用：
+同样可以在程序中使用: 
 
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230302083128066.webp)
 
-并打印出来：
+并打印出来: 
 
 ![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230302083206268.webp)
 
@@ -269,7 +269,7 @@ PID 是 Process ID, 表示进程的标识符。PPID 又是什么意思呢？
 
 在这个例子中, ./AMProcess进程的父进程是28528号进程
 
-如果不小心将此进程结束了, 再次运行此程序：
+如果不小心将此进程结束了, 再次运行此程序: 
 
 ![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230302084109375.webp)
 
@@ -305,7 +305,7 @@ PID 是 Process ID, 表示进程的标识符。PPID 又是什么意思呢？
 
 ---
 
-fork()是Linux提供的系统调用：
+fork()是Linux提供的系统调用: 
 
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230302091221322.webp)
 
@@ -315,13 +315,13 @@ fork()是Linux提供的系统调用：
 
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230302091542542.webp)
 
-man手册中, 关于fork()的返回值是这样描述的：
+man手册中, 关于fork()的返回值是这样描述的: 
 
 如果创建成功, 则`返回子进程的PID给父进程, 还要返回 0 给子进程`；如果创建失败, 则返回 -1 给父进程, 没有子进程被创建, 并且设置`errno(用于异常接收)`
 
 ！看手册的意思是, fork()将会返回两个返回值, 可是C语言函数应该是没有办法返回两个返回值的。这是什么情况？
 
-这个问题, 暂时不解释, 先来看看 fork()该如何使用：
+这个问题, 暂时不解释, 先来看看 fork()该如何使用: 
 
 ```cpp
 #include <iostream>
@@ -338,7 +338,7 @@ int main() {
 }
 ```
 
-将代码编译为`CreatCProcess`可执行程序, 并运行：
+将代码编译为`CreatCProcess`可执行程序, 并运行: 
 
 ![|large](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230302092830090.webp)
 
@@ -346,11 +346,11 @@ int main() {
 
 这又是为什么？为什么一个输出语句执行了两次？为什么fork()可以返回两个返回值？为什么一个id变量可以接收两个不同的返回值？
 
-这三个问题, 我们一一来解释：
+这三个问题, 我们一一来解释: 
 
 #### 1. 为什么一个输出语句执行了两次
 
-答案其实就藏在man手册关于fork()的解释中：
+答案其实就藏在man手册关于fork()的解释中: 
 
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230302093719692.webp)
 
@@ -388,7 +388,7 @@ int main() {
 
 在上边我们提到, 子进程所运行的程序代码可以看作是从父进程程序代码中fork()之后的部分复制过来的
 
-那么, 依旧以此例来说明：
+那么, 依旧以此例来说明: 
 
 ```cpp
 #include <iostream>
@@ -405,7 +405,7 @@ int main() {
 }
 ```
 
-当此程序运行起来时, fork()执行完毕, 此时子进程创建完毕 其相关程序代码就应该是：
+当此程序运行起来时, fork()执行完毕, 此时子进程创建完毕 其相关程序代码就应该是: 
 
 ```cpp
 #include <iostream>

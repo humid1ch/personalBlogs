@@ -298,7 +298,7 @@ int main() {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>Boost库 文档搜索</title>
     <style>
-      /* 去掉网页中的所有的默认内外边距，html的盒子模型 */
+      /* 去掉网页中的所有的默认内外边距, html的盒子模型 */
       * {
         background-color: #f5f5f7;
         /* 设置外边距 */
@@ -320,11 +320,11 @@ int main() {
         width: 800px;
         /* 通过设置外边距达到居中对齐的目的 */
         margin: 0px auto;
-        /* 设置外边距的上边距，保持元素和网页的上部距离 */
+        /* 设置外边距的上边距, 保持元素和网页的上部距离 */
         margin-top: 100px;
       }
 
-      /* 复合选择器，选中container 下的 search */
+      /* 复合选择器, 选中container 下的 search */
       .container .search {
         /* 宽度与父标签保持一致 */
         width: auto;
@@ -351,7 +351,7 @@ int main() {
       .container .result .item a {
         margin-left: 10px;
         margin-right: 10px;
-        /* 设置为块级元素，单独站一行 */
+        /* 设置为块级元素, 单独站一行 */
         display: block;
         background-color: #fff;
         /* a标签的下划线去掉 */
@@ -383,7 +383,7 @@ int main() {
       .container .result .item i {
         margin-left: 10px;
         margin-right: 10px;
-        /* 设置为块级元素，单独站一行 */
+        /* 设置为块级元素, 单独站一行 */
         display: block;
         font-size: 12px;
         /* 取消斜体风格 */
@@ -483,9 +483,9 @@ int main() {
         // alert("hello js!");
         // 1. 提取数据, $可以理解成就是JQuery的别称
         let query = $(".container .search-input").val();
-        console.log("query = " + query); //console是浏览器的对话框，可以用来进行查看js数据
+        console.log("query = " + query); //console是浏览器的对话框, 可以用来进行查看js数据
 
-        //2. 发起http请求,ajax: 属于一个和后端进行数据交互的函数，JQuery中的
+        //2. 发起http请求,ajax: 属于一个和后端进行数据交互的函数, JQuery中的
         $.ajax({
           type: "GET",
           url: "/s?word=" + query,
@@ -623,9 +623,9 @@ int main() {
             // alert("hello js!");
             // 1. 提取数据, $可以理解成就是JQuery的别称
             let query = $(".container .search-input").val();
-            console.log("query = " + query); //console是浏览器的对话框，可以用来进行查看js数据
+            console.log("query = " + query); //console是浏览器的对话框, 可以用来进行查看js数据
     
-            //2. 发起http请求,ajax: 属于一个和后端进行数据交互的函数，JQuery中的
+            //2. 发起http请求,ajax: 属于一个和后端进行数据交互的函数, JQuery中的
             $.ajax({
                 type: "GET",
                 url: "/s?word=" + query,
