@@ -9,7 +9,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230414151451674.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230414151451674.webp'
     alt: 'cover'
-tags: ["程序员的自我修养", "编译原理", "约3250字 -- 阅读时间≈9分钟"]
+tags: ["程序员的自我修养", "编译原理", "约3250字 -- 阅读时间≈15分钟"]
 theme: 'light'
 featured: true
 ---

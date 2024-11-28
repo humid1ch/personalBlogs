@@ -8,7 +8,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251757712.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251757712.webp'
     alt: 'cover'
-tags: ["Linux系统", "约3758字 -- 阅读时间≈10分钟"]
+tags: ["Linux系统", "shell", "约3640字 -- 阅读时间≈34分钟"]
 theme: 'light'
 featured: false
 ---
@@ -28,7 +28,7 @@ featured: false
 	为什么？因为shell是可以`循环从命令行接收用户输入的内容`的
 
 2. 其次, shell 需要一个设置一个提示符. 类似这样的东西: 
-    
+   
     ![|small](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230311192332112.webp)
 
 3. 第三, 我们使用shell是需要执行命令的, 且这些命令需要在环境变量PATH下

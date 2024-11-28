@@ -8,7 +8,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408281114640.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408281114640.webp'
     alt: 'cover'
-tags: ["算法", "排序", "C++", "约5841字 -- 阅读时间≈20分钟"]
+tags: ["算法", "排序", "C++", "约5841字 -- 阅读时间≈28分钟"]
 theme: 'light'
 featured: false
 ---
@@ -49,7 +49,7 @@ featured: false
 >         }
 >         cout << endl;
 >     }
->                                                                             
+>                                                                                 
 >     void printVector(const std::vector<int>& nums, int begin, int end) {
 >         for (int i = begin; i <= end; i++) {
 >             cout << nums[i] << " ";

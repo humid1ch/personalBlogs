@@ -8,7 +8,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409155622571.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/image-20230409155622571.webp'
     alt: 'cover'
-tags: ["C语言", "约4515字 -- 阅读时间≈12分钟"]
+tags: ["C语言", "约4144字 -- 阅读时间≈15分钟"]
 theme: 'light'
 featured: false
 ---
@@ -17,7 +17,7 @@ featured: false
 
 ## 1. 结构体概念
 
-​	结构体是一些值的集合, 这些值成为成员变量。结构的每个成员可以是不同类型的变量。结构体属于自定义类型。
+结构体是一些值的集合, 这些值成为成员变量。结构的每个成员可以是不同类型的变量。结构体属于自定义类型。
 
 ### 1.1 结构体声明
 

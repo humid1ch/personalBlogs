@@ -1,14 +1,14 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
-title: '[TCP/IP] 网络层代表协议--IP协议介绍(1): IP协议 数据格式、... 简单介绍'
-pubDate: 2024-9-04
-description: ''
+title: '[TCP/IP] 网络层代表协议--IP协议介绍: IP协议 数据格式、子网划分、NAT和NAPT等 简单介绍'
+pubDate: 2024-09-04
+description: '网络层的 IP协议 可以让主机拥有, 在网络中寻找主机的能力'
 author: '哈米d1ch'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202409092046432.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202409092046432.webp'
     alt: 'cover'
-tags: ["Linux网络", "TCP-IP", "网络层", "协议", "IP", "约5755字 -- 阅读时间≈25分钟"]
+tags: ["Linux网络", "TCP-IP", "网络层", "协议", "IP", "约7967字 -- 阅读时间≈40分钟"]
 theme: 'light'
 featured: false
 ---
@@ -47,7 +47,7 @@ TCP/IP 四层协议模型, 前面的文章, 已经通过介绍具体协议了解
 
 而 网络是由多主机构成的, 数据并不总是能 直接发送到目的主机, 大多数情况 需要在网络中寻找目的主机
 
-网络层 `IP`协议就可以让主机拥有, 在网络中寻找主机的能力
+**网络层 `IP`协议就可以让主机拥有, 在网络中寻找主机的能力**
 
 传输层封装的数据是要交付给网络层的, 网络层要实现的目的实际上也只有一个, 即 **让主机A 拥有能将数据 从主机A发送到主机B的能力**
 
@@ -629,9 +629,24 @@ TCP/IP 四层协议模型, 前面的文章, 已经通过介绍具体协议了解
 
 路由表是什么呢?
 
-路由表是一个存储有网络路径信息的数据结构, 无论是计算机还是路由器, 都有自己的路由表
+路由表是一个存储有 **网络路径信息** 的数据结构, 无论是计算机还是路由器, 都有自己的路由表
+
+路由表中存储了, 节点能够路由的所有网络, 一般包含有这些信息: 
+
+**目标网络`IP`** **子网掩码(Genmask)** **网关(Gateway)** **接口(Interface)** 等
 
 `Linux`中, 可以通过执行`route -n`来查看 已经建立好的路由表:
 
-![|big](C:\Users\humid1ch\AppData\Roaming\Typora\typora-user-images\image-20241128171431369.png)
+![|big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202411281715093.webp)
 
+`Windows`中, 可以通过`route PRINT -4`来查看 已经建立好的路由表:
+
+![|lwide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202411281846951.webp)
+
+路由器中, 也存储有自己的一张路由表
+
+当路由器需要转发数据时, 就通过查询路由表信息选择数据的下一个路由网络
+
+查询的方式也很简单, **数据的目的网络`IP` & 路由表中的子网掩码**, 就能计算出目标网络
+
+对比目标网络是否一致, 就能够实现查询路由表

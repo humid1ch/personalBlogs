@@ -8,7 +8,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202403200105048.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202403200105048.webp'
     alt: 'cover'
-tags: ["Linux网络", "TCP-IP", "传输层", "协议", "TCP", "约6358字 -- 阅读时间≈27分钟"]
+tags: ["Linux网络", "TCP-IP", "传输层", "协议", "TCP", "约6411字 -- 阅读时间≈32分钟"]
 theme: 'light'
 featured: false
 ---

@@ -9,7 +9,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251816728.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251816728.webp'
     alt: 'cover'
-tags: ["数据结构", "红黑树", "约3751字 -- 阅读时间≈16分钟"]
+tags: ["数据结构", "红黑树", "约3714字 -- 阅读时间≈16分钟"]
 theme: 'light'
 featured: false
 ---

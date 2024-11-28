@@ -10,7 +10,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307172256122.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307172256122.webp'
     alt: 'cover'
-tags: ["Linux网络", "服务器", "约4408字 -- 阅读时间≈12分钟"]
+tags: ["Linux网络", "服务器", "约4408字 -- 阅读时间≈20分钟"]
 theme: 'light'
 featured: false
 ---

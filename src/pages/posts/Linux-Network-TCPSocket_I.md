@@ -11,7 +11,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061551105.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061551105.webp'
     alt: 'cover'
-tags: ["Linux网络", "套接字", "TCP", "约10677字 -- 阅读时间≈28分钟"]
+tags: ["Linux网络", "套接字", "TCP", "约10677字 -- 阅读时间≈50分钟"]
 theme: 'light'
 featured: false
 ---

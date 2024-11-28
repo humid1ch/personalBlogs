@@ -8,7 +8,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408280929461.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408280929461.webp'
     alt: 'cover'
-tags: ["QT", "Windows", "GUI", "约3970字 -- 阅读时间≈10分钟"]
+tags: ["QT", "Windows", "GUI", "约3970字 -- 阅读时间≈20分钟"]
 theme: 'light'
 featured: false
 ---

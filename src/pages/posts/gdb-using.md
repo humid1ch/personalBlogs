@@ -8,7 +8,7 @@ cover:
     url: ''
     square: ''
     alt: 'cover'
-tags: ["Linux使用问题", "GDB", "C++", "约1181字 -- 阅读时间≈3分钟"]
+tags: ["Linux使用问题", "GDB", "C++", "约218字 -- 阅读时间≈1分钟"]
 theme: 'light'
 featured: false
 ---

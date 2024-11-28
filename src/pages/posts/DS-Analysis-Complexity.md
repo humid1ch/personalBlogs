@@ -8,7 +8,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/DS_Cover_Com.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/DS_Cover_Com.webp'
     alt: 'cover'
-tags: ["算法", "复杂度", "约3514字 -- 阅读时间≈9分钟"]
+tags: ["算法", "复杂度", "约3353字 -- 阅读时间≈15分钟"]
 theme: 'light'
 featured: false
 ---

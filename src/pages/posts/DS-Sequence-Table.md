@@ -8,7 +8,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/DS_Cover_qesList.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/DS_Cover_qesList.webp'
     alt: 'cover'
-tags: ["数据结构", "顺序表", "约4619字 -- 阅读时间≈12分钟"]
+tags: ["数据结构", "顺序表", "约4412字 -- 阅读时间≈20分钟"]
 theme: 'light'
 featured: false
 ---

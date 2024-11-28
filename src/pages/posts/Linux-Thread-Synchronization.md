@@ -9,7 +9,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251802921.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251802921.webp'
     alt: 'cover'
-tags: ["Linux系统", "多线程", "POSIX信号量", "生产者消费者模型", "约13494字 -- 阅读时间≈35分钟"]
+tags: ["Linux系统", "多线程", "POSIX信号量", "生产者消费者模型", "约13426字 -- 阅读时间≈67分钟"]
 theme: 'light'
 featured: false
 ---

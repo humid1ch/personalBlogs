@@ -8,7 +8,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408091358719.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202408091358719.webp'
     alt: 'cover'
-tags: ["Linux使用问题", "开发", "配置", "nvim", "约2300字 -- 阅读时间≈6分钟"]
+tags: ["Linux使用问题", "开发", "配置", "nvim", "约2760字 -- 阅读时间≈14分钟"]
 theme: 'light'
 featured: false
 ---
