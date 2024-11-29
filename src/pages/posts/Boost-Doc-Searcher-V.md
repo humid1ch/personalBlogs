@@ -19,7 +19,7 @@ featured: false
 2. 文档解析、处理模块`parser`的实现: [🫦[C++项目] Boost文档 站内搜索引擎(2): 文档文本解析模块parser的实现、如何对文档文件去标签、如何获取文档标题...](https://www.humid1ch.cn/posts/Boost-Doc-Searcher-II)
 3. 文档 **正排索引与倒排索引** 建立的接口的实现: [🫦[C++项目] Boost文档 站内搜索引擎(3): 建立文档及其关键字的正排 倒排索引、jieba库的安装与使用...](https://www.humid1ch.cn/posts/Boost-Doc-Searcher-III)
 4. 文档的 **搜索功能** 接口的实现: [🫦[C++项目] Boost文档 站内搜索引擎(4): 实现搜索的相关接口、线程安全的单例index接口、cppjieba分词库的使用...](https://www.humid1ch.cn/posts/Boost-Doc-Searcher-IV)
-5. **`建议先阅读上面四篇文章`**
+5. **建议先阅读上面四篇文章**
 
 后端的主要功能接口完成之后, 就可以结合网络将其设计为服务器 然后部署到网络上了
 

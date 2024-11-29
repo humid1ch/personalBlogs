@@ -7541,6 +7541,8 @@ strong {
   padding: 2px 0 0 0;
   position: relative;
   border-left: none;
+  margin-left: 2px;
+  margin-right: 2px;
 }
 
 em {

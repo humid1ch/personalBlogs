@@ -83,7 +83,7 @@ sudo yum install boost-devel
 
 但是, 这些文档都是`.html`文件, 里边有许多的标签. 标签内的数据都是对搜索无用的无效数据.
 
-所以需要进行 **去标签** 的操作. 还需要注意的是 尽量不要修改原文档文件内容, 所以需要把去除标签之后的文档内容在存储到一个文本文件中.
+所以需要进行**去标签**的操作. 还需要注意的是 尽量不要修改原文档文件内容, 所以需要把去除标签之后的文档内容在存储到一个文本文件中.
 
 先来创建这个文本文件:
 
@@ -103,7 +103,7 @@ touch raw
 
 要理清 此代码的基本结构, 就需要理清 此程序需要实现的功能.
 
-此程序要实现的是 **对所有文档去标签, 然后将去完标签的文档内容 存储到同一个文本文件中**
+此程序要实现的是**对所有文档去标签, 然后将去完标签的文档内容 存储到同一个文本文件中**
 
 不过, 结合上一篇文章中分析过的: 搜索之后, 页面会以多个不同的网页的跳转链接拼接而成. 
 
@@ -310,7 +310,7 @@ bool enumFile(const std::string& srcPath, std::vector<std::string>* filesList) {
 
 然后在迭代的过程中, 由于有目录文件和其他非`html`文件的存在
 
-所以使用`is_regular_file()`来 **判断是否为普通文件类型**, 然后在使用`path`对象的`extension()`接口 **获取扩展名**.
+所以使用`is_regular_file()`来**判断是否为普通文件类型**, 然后在使用`path`对象的`extension()`接口**获取扩展名**.
 
 再根据扩展名判断是否为`html`文件.
 
@@ -318,7 +318,7 @@ bool enumFile(const std::string& srcPath, std::vector<std::string>* filesList) {
 
 ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308021848077.webp)
 
-至此, `enumFile()`接口的功能就结束了, 我们可以在函数内 **输出每次获取的文件名** 来调试看是否正确:
+至此, `enumFile()`接口的功能就结束了, 我们可以在函数内**输出每次获取的文件名**来调试看是否正确:
 
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211621185.gif)
 
@@ -451,7 +451,7 @@ namespace ns_util {
 >
 > 因为, `std::getline()`是通过`'\n'`来判断一行结束的位置的, 并且它会对一些字符过滤或转换. 这用来读取二进制文件是不合理的
 >
-> 因为二进制文件可能没有`'\n'`符, 并且二进制文件读取, 要求 **取原始的字节而不改变**.
+> 因为二进制文件可能没有`'\n'`符, 并且二进制文件读取, 要求**取原始的字节而不改变**.
 >
 > 使用`std::getline()`读取二进制文件会导致意外的行为或读取错误
 
@@ -479,7 +479,7 @@ namespace ns_util {
 
 > `<title></title>`标签对, 就表示浏览器标签页上的标题
 
-了解到 **一个完整的`html`文件中, 有且只能有一个`<title></title>`标签对**
+了解到**一个完整的`html`文件中, 有且只能有一个`<title></title>`标签对**
 
 那么, 我们就可以直接根据`<title></title>`来找到文档的标题:
 
@@ -584,17 +584,17 @@ bool parseContent(const std::string& fileContent, std::string* content) {
 
 并且, `html`文件内容的开头的第一个字符 一定是`<`符号. 
 
-我们可以根据`html`文件 这样的内容格式 来设置 **一个简单的状态机**
+我们可以根据`html`文件 这样的内容格式 来设置**一个简单的状态机**
 
 即, 在遍历`fileContent`过程中 所表示的字符 分为在标签内和在标签外 两个状态. 根据情况切换
 
 如果在标签内, 就不做处理 直接进入下一个循环. 如果在标签内, 就将当前字符 添加到输出型参数`content`之后.
 
-不过, 需要注意的是 **如果存在字符在标签外, 但这个字符是`'\n'` 则考虑将此字符转换为`' '` 然后再添加到参数中**. 这是为了在最后一个操作中添加不同文档信息的分隔符.
+不过, 需要注意的是**如果存在字符在标签外, 但这个字符是`'\n'` 则考虑将此字符转换为`' '` 然后再添加到参数中**. 这是为了在最后一个操作中添加不同文档信息的分隔符.
 
 ### `parseUrl()`接口实现
 
-`paeseUrl()`接口需要实现的功能是 获取 **当前文档 对应的在官网中的`url`**
+`paeseUrl()`接口需要实现的功能是 获取**当前文档 对应的在官网中的`url`**
 
 比如: `BOOST_PROTO_typename_A.html`, 在官网中的地址是 `https://www.boost.org/doc/libs/1_82_0/doc/html/BOOST_PROTO_typename_A.html`
 
@@ -638,7 +638,7 @@ bool parseUrl(const std::string& filePath, std::string* url) {
 
 并在`parseDocInfo()`接口内 执行 `parseTitle(fileContent, &doc._title)` `parseContent(fileContent, &doc._content)` 和 `parseUrl(filePath, &doc._url)` 之后
 
-`docInfo_t doc`变量内, 已经存储了 **该文档的`title` 去标签后的`content` 以及该文档在官网中的`url`**
+`docInfo_t doc`变量内, 已经存储了**该文档的`title` 去标签后的`content` 以及该文档在官网中的`url`**
 
 `parseDocInfo()`的最后一步, 即为 将`doc`变量存储到输出型参数`docResults(一个vector)`中
 
