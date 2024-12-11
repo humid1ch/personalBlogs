@@ -524,6 +524,16 @@ int select(int nfds,
 
     `fd_set`是一个位图结构, 表示文件描述符集
 
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202412101008189.webp)
+    
+    `struct fd_set`存在一个成员变量`__fd_mask fds_bits[__FD_SETSIZE / __NFDBITS]`
+    
+    也就是一个数组, `__fd_mask`实际就是`long int`类型
+    
+    `__FD_SETSIZE`在`Linux`中是`1024`的宏定义
+    
+    而`__NFDBITS`则是`(8 * (int)sizeof(__fd_mask))`
+    
     
 
 ### `poll()`
