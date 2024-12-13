@@ -22,7 +22,6 @@
   font-style: normal;
 }
 
-
 *,
 ::before,
 ::after {
@@ -35,7 +34,7 @@
 html {
   font-family: 'Fira Code Regular', "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -8051,7 +8050,7 @@ hr {
   background-color: #026fdc10;
   transform: translateX(0);
   transition: width 0.3s ease;
-  display: flex; /* 设置为 flexbox 布局 */
+  display: flex; /* 设置为 flex 布局 */
   flex-direction: row; /* 设置为水平方向排列 */
   align-items: center; /* 设置为垂直居中对齐 */
 }
@@ -8059,7 +8058,6 @@ hr {
 .toc li {
   margin-top: 8px;
   margin-bottom: 8px;
-  
 }
 /* 折叠元素的样式 */
 .is-collapsed {
@@ -8122,6 +8120,24 @@ hr {
   .toc {
     padding-right: 0;
   }
+}
+
+/* CSS样式 */
+#backToTopBtn {
+  display: none; /* 初始隐藏 */
+  position: fixed; 
+  bottom: 28px; 
+  right: 48px; 
+  z-index: 99; 
+  border: none; 
+  outline: none; 
+  background-color: #d8e7ffcc; 
+  color: #375b92cc; 
+  cursor: pointer; 
+  padding: 0px 14px 0px 14px; 
+  border-radius: 30px; 
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 10px #1e4bbd88;
 }
 
 .pagebody-header {

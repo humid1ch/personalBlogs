@@ -133,10 +133,10 @@ const coverurl = frontmatter.cover.url;
               </div>
             </div>
           </div>
-          <div class="divUpSidebar"></div>
+
           <nav id="tocc" style="overflow: hidden;" class="toc">
             <div class="toggle-button">
-              <button style="font-weight:600; writing-mode: vertical-rl; padding-top:0.4em" id="toggleButton" class="expand">展开目录</button>
+              <button style="font-weight:600; writing-mode: vertical-rl; " id="toggleButton" class="expand">👈</button>
             </div>
             <ul class="js-toc"></ul> 
           </nav>
@@ -149,11 +149,52 @@ const coverurl = frontmatter.cover.url;
                   >版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）</a
                 >
                 <p class="content">作者： {frontmatter.author} 发表日期：{dateFormated}</p>
+                <!-- 回到顶部按钮 -->
+              <button id="backToTopBtn" title="返回顶部">
+                <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1734070291544" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5097" width="32" height="32" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M4.621 514.463h98.188v327.301h98.188v-327.301h98.188v-65.449h-294.563z" fill="#5978a8" p-id="5098"></path><path d="M528.209 154.51l-163.446 196.347 327.273-0.219z" fill="#5978a8" p-id="5099"></path><path d="M331.907 841.765h327.286v-392.75h-327.286v392.75zM430.095 514.463h130.912v261.823h-130.912v-261.823z" fill="#5978a8" p-id="5100"></path><path d="M691.933 449.015v392.75h98.188v-163.651h229.1v-229.1h-327.286zM921.033 612.652h-130.912v-98.188h130.912v98.188z" fill="#5978a8" p-id="5101"></path></svg>
+              </button>
               </div>
               <div id="gitalk-container"></div>
             </div>
           </div>
         </article>
+        <script>
+          // JavaScript代码
+          // 获取按钮
+          var backToTopBtn = document.getElementById("backToTopBtn");
+  
+          // 当用户向下滚动超过888px时，显示按钮
+          window.onscroll = function() {scrollFunction()};
+  
+          function scrollFunction() {
+              if (document.body.scrollTop > 888 || document.documentElement.scrollTop > 888) {
+                  backToTopBtn.style.display = "block";
+              } else {
+                  backToTopBtn.style.display = "none";
+              }
+          }
+
+          backToTopBtn.addEventListener('click', function() {
+              // document.body.scrollTop = 0;
+              // document.documentElement.scrollTop = 0;
+              var startY = window.scrollY;
+            var duration = 300; // 设置滚动时长为300毫秒
+            var startTime = null;
+
+            function animateScroll(currentTime) {
+                if (startTime === null) startTime = currentTime;
+                var timeElapsed = currentTime - startTime;
+                var progress = Math.min(timeElapsed / duration, 1);
+                window.scrollTo(0, startY * (1 - progress));
+
+                if (timeElapsed < duration) {
+                    requestAnimationFrame(animateScroll);
+                }
+            }
+
+            requestAnimationFrame(animateScroll);
+          });
+      </script>
         <script>
             // 获取要检查的元素
             var elem = document.getElementById("pcMode");
@@ -205,13 +246,15 @@ const coverurl = frontmatter.cover.url;
           });
 
           let toc = document.getElementById('tocc');
-          toc.classList.add('collapsed');
-
-          toc.classList.add('fixed');
-		      toc.style.top = window.innerHeight/2 - 42 + "px";
 
 
           var toggleButton = document.getElementById('toggleButton');
+              
+              toc.classList.add('collapsed');
+
+              toc.classList.add('fixed');
+
+              toc.style.top = window.innerHeight/2 - 42 + "px";
 
           // 点击 TOC 外部区域时收缩 TOC
           document.addEventListener('click', function(event) {
@@ -219,8 +262,8 @@ const coverurl = frontmatter.cover.url;
 
             if (!toc.contains(target)) {
               toc.classList.add('collapsed');
-			        toggleButton.textContent = '展开目录';
-				      toc.style.height = "5em";
+			        toggleButton.textContent = '👈';
+				      toc.style.height = "3.4em";
 				      toc.style.top = window.innerHeight/2 - 42 + "px";
             }
           });
@@ -229,12 +272,12 @@ const coverurl = frontmatter.cover.url;
             toc.classList.toggle('collapsed');
 			      if (toc.classList.contains('collapsed')) {
     			    // 如果有，说明 toc 是收起的，那么 button 的文本应该是展开目录
-    			    toggleButton.textContent = '展开目录';
-				      toc.style.height = "5em";
+    			    toggleButton.textContent = '👈';
+				      toc.style.height = "3.4em";
 				      toc.style.top = window.innerHeight/2 - 42 + "px"; 
   			    } else {
     			    // 如果没有，说明 toc 是展开的，那么 button 的文本应该是收起目录
-    			    toggleButton.textContent = '收起目录';
+    			    toggleButton.textContent = '👉';
 				      toc.style.top = "0px";
 				      toc.style.height = window.innerHeight + "px";
   			    }
@@ -248,13 +291,16 @@ const coverurl = frontmatter.cover.url;
       script.src = "/static/js/initPost.js";
       document.head.appendChild(script);
     </script>
+
     <script>
       document.addEventListener('DOMContentLoaded', (event) => {
     document.querySelectorAll('pre code').forEach((block) => {
         block.classList.add('hljs');
     });
 });
-
     </script>
+
   </body>
 </html>
+
+
