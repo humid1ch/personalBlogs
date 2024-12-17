@@ -96,6 +96,13 @@ table {
   border-spacing: 0
 }
 
+th,
+td,
+td code,
+td strong{
+  font-size: 0.95rem;
+}
+
 main,
 summary,
 details {
@@ -7537,7 +7544,7 @@ strong {
   color: #4870ac;
   font-weight: bold;
   border-radius: 2px;
-  padding: 2px 0 0 0;
+  /* padding: 2px 0 0 0; */
   position: relative;
   border-left: none;
   margin-left: 2px;
