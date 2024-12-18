@@ -8,7 +8,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202412171047999.webp'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202412171047999.webp'
     alt: 'cover'
-tags: ["QT", "控件", "QWidget", "QRC", "约1968字 -- 阅读时间≈7分钟"]
+tags: ["QT", "控件", "QWidget", "QRC", "约6329字 -- 阅读时间≈21分钟"]
 theme: 'light'
 featured: false
 ---
@@ -1037,13 +1037,13 @@ Widget::~Widget() {
 
 ![|small](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202412172013687.webp)
 
-在需要从键盘输入数据时, 需要先点击文本编辑框, 将输入焦点聚焦在文本编辑框上
+在需要从键盘输入数据时, 需要先点击单行文本编辑框, 将输入焦点聚焦在单行文本编辑框上
 
-然后才能将文本输入到聚焦的文本编辑框中:
+然后才能将文本输入到聚焦的单行文本编辑框中:
 
 ![|biger](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202412172020171.webp)
 
-并且, 可以通过点击或`Tab`的方式, 切换所聚焦的文本编辑框:
+并且, 可以通过点击或`Tab`的方式, 切换所聚焦的单行文本编辑框:
 
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202412172024214.gif)
 
@@ -1053,15 +1053,72 @@ Widget::~Widget() {
 
 ```cpp
 enum FocusPolicy {
-    NoFocus = 0, 		// 不接收键盘焦点, 即 无法聚焦
-    TabFocus = 0x1,		// 可以且只能通过Tab键获取焦点
-    ClickFocus = 0x2,	// 可以且只能通过点击获取焦点
+    NoFocus = 0, 								// 不接收键盘焦点, 即 无法聚焦
+    TabFocus = 0x1,								// 可以且只能通过Tab键获取焦点
+    ClickFocus = 0x2,							// 可以且只能通过点击获取焦点
     StrongFocus = TabFocus | ClickFocus | 0x8,	// 可以同时通过Tab或点击获取焦点
-    WheelFocus = StrongFocus | 0x4 	// 还可以通过滚轮滚动获取焦点
+    WheelFocus = StrongFocus | 0x4 				// 还可以通过滚轮滚动获取焦点
 };
 ```
 
+在`QT Designer`创建5个单行文本编辑框, 并分别设置为:
 
+`NoFocus` `TabFocus` `TabFocus` `ClickFocus` `StrongFocus`
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202412180846671.webp)
+
+执行结果为:
+
+![|huger](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202412180850430.gif)
+
+代码实现`QT`相关的接口有:
+
+| 接口                                           | 功能                     |
+| ---------------------------------------------- | ------------------------ |
+| `Qt::FocusPolicy focusPolicy() const;`         | **获取控件当前聚焦方式** |
+| `void setFocusPolicy(Qt::FocusPolicy policy);` | **设置控件的聚焦方式**   |
+
+用代码的方式, 实现与上面相同的效果:
+
+> 可以在`QT Designer`修改各`lineEidt`的`objectName`为:
+>
+> `lineEdit_noFocus` `lineEdit_tabFocus_1` `lineEdit_tabFocus_2` `lineEdit_clickFocus` `lineEdit_strongFocus`
+
+```cpp
+#include "widget.h"
+#include "ui_widget.h"
+
+#include <QDebug>
+
+Widget::Widget(QWidget* parent)
+    : QWidget(parent)
+    , ui(new Ui::Widget) {
+    ui->setupUi(this);
+
+    ui->lineEdit_noFocus->setFocusPolicy(Qt::NoFocus);
+    qDebug() << ui->lineEdit_noFocus->focusPolicy();
+
+    ui->lineEdit_tabFocus_1->setFocusPolicy(Qt::TabFocus);
+    qDebug() << ui->lineEdit_tabFocus_1->focusPolicy();
+
+    ui->lineEdit_tabFocus_2->setFocusPolicy(Qt::TabFocus);
+    qDebug() << ui->lineEdit_tabFocus_2->focusPolicy();
+
+    ui->lineEdit_clickFocus->setFocusPolicy(Qt::ClickFocus);
+    qDebug() << ui->lineEdit_clickFocus->focusPolicy();
+
+    ui->lineEdit_strongFocus->setFocusPolicy(Qt::StrongFocus);
+    qDebug() << ui->lineEdit_strongFocus->focusPolicy();
+}
+
+Widget::~Widget() {
+    delete ui;
+}
+```
+
+运行结果为:
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202412180910614.gif)
 
 ## `styleSheet`
 
@@ -1081,3 +1138,156 @@ enum FocusPolicy {
 
 只需要知道`QT`可以通过类似`CSS`的`QSS`设置控件的风格了
 
+在`QT Designer`中, 可以直接对控件进行`QSS`风格设置:
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202412180917332.webp)
+
+比如: 
+
+```css
+background-color: rgb(255, 255, 127);
+color: rgb(255, 0, 0);
+font-family: "FiraCode Nerd Font";
+font-weight: 800;
+font-size: 16pt;
+```
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202412180924301.webp)
+
+运行, 并输入文本:
+
+![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202412180925491.webp)
+
+如果要通过代码实现, `QT`相关的接口有:
+
+| 接口                                              | 功能                           |
+| ------------------------------------------------- | ------------------------------ |
+| `QString styleSheet() const`                      | **获取控件当前的`styleSheet`** |
+| ` void setStyleSheet(const QString& styleSheet);` | **设置控件的`styleSheet`**     |
+
+获取和设置都以`QString`作为对象
+
+用代码的方式实现上面的效果:
+
+`widget.cc`:
+
+```cpp
+#include "widget.h"
+#include "ui_widget.h"
+
+#include <QDebug>
+
+Widget::Widget(QWidget* parent)
+    : QWidget(parent)
+    , ui(new Ui::Widget) {
+    ui->setupUi(this);
+
+    qDebug() << ui->textEdit->styleSheet();
+    ui->textEdit->setStyleSheet("background-color: rgb(255, 255, 127); color: rgb(255, 0, 0); font-family: 'FiraCode Nerd Font'; font-weight: 800; font-size: 16pt;");
+    qDebug() << ui->textEdit->styleSheet();
+}
+
+Widget::~Widget() {
+    delete ui;
+}
+```
+
+通过`setStyleSheet()`设置控件的`QSS`格式, 只需要以`QString`的形式将键值对传入其中就可以了
+
+运行结果为:
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202412180941599.gif)
+
+### 日间与夜间模式(小玩具程序)
+
+`QT Designer`:
+
+![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202412180953284.webp)
+
+`widget.h`:
+
+```cpp
+#ifndef WIDGET_H
+#define WIDGET_H
+
+#include <QWidget>
+
+QT_BEGIN_NAMESPACE
+namespace Ui {
+    class Widget;
+}
+QT_END_NAMESPACE
+
+class Widget : public QWidget {
+    Q_OBJECT
+
+public:
+    Widget(QWidget* parent = nullptr);
+    ~Widget();
+
+private slots:
+    void on_pushButton_clicked();
+
+private:
+    Ui::Widget* ui;
+    bool isNight;
+};
+#endif // WIDGET_H
+```
+
+`widget.cc`:
+
+```cpp
+#include "widget.h"
+#include "ui_widget.h"
+
+#include <QDebug>
+
+Widget::Widget(QWidget* parent)
+    : QWidget(parent)
+    , ui(new Ui::Widget)
+    , isNight(false) {
+    ui->setupUi(this);
+        
+    ui->textEdit->setStyleSheet("font-family: 'FiraCode Nerd Font'; font-size: 16pt;");
+}
+
+Widget::~Widget() {
+    delete ui;
+}
+
+void Widget::on_pushButton_clicked() {
+    if (isNight) {
+        // 当前为夜间模式, 需要设置为日间模式
+        this->setStyleSheet("background-color: rgb(240, 240, 240); color: black;");
+        ui->textEdit->setStyleSheet("background-color: white; color: black; font-family: 'FiraCode Nerd "
+                                    "Font'; font-size: 16pt;");
+        ui->pushButton->setText("夜间模式");
+
+        isNight = false;
+    }
+    else {
+        // 当前为日间模式, 需要设置为夜间模式
+        this->setStyleSheet("background-color: rgb(36, 39, 58); color: rgb(202, 211, 245);");
+        ui->textEdit->setStyleSheet("background-color: rgb(36, 39, 58); color: rgb(202, 211, 245); font-family: 'FiraCode Nerd "
+                                    "Font'; font-size: 16pt;");
+        ui->pushButton->setText("日间模式");
+
+        isNight = true;
+    }
+}
+```
+
+运行结果:
+
+![|huge](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202412180956034.gif)
+
+---
+
+上面就是`QWidget`最常用的一些属性, `QT`中所有的控件
+
+本篇文章做了一些简单的介绍~~
+
+要了解更多, 可以查看`QT`文档
+
+感谢阅读
