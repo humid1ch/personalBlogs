@@ -8,7 +8,7 @@ cover:
     url: ''
     square: ''
     alt: 'cover'
-tags: ["算法", "回溯"]
+tags: ["回溯"]
 theme: 'light'
 featured: false
 ---

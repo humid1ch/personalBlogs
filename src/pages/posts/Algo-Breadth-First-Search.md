@@ -8,7 +8,7 @@ cover:
     url: ''
     square: ''
     alt: 'cover'
-tags: ["算法", "搜索", "BFS"]
+tags: ["搜索", "BFS"]
 theme: 'light'
 featured: false
 ---

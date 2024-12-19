@@ -8,13 +8,12 @@ cover:
     url: ''
     square: ''
     alt: 'cover'
-tags: ["算法", "递归"]
+tags: ["递归"]
 theme: 'light'
 featured: false
 ---
 
 # 总览递归
-
 
 
 
