@@ -16,13 +16,13 @@ theme: 'light'
 featured: false
 ---
 
-网络的上一篇文章, 我们介绍了网络变成的一些重要的概念, 以及 UDP套接字的编程演示. 还实现了一个简单更简陋的UDP公共聊天室.
+网络的上一篇文章, 介绍了网络编程的一些重要的概念, 以及 UDP套接字的编程演示
+
+还实现了一个简单更简陋的`UDP`公共聊天室
 
 > [[Linux] 网络编程 - 初见UDP套接字编程: 网络编程部分相关概念、TCP、UDP协议基本特点、网络字节序、socket接口使用、简单的UDP网络及聊天室实现...](https://www.humid1ch.cn/posts/Linux-Network-UDPSocket_I)
 
-本篇文章, 我们来介绍一下 TCP套接字编程的接口 及 演示.
-
----
+本篇文章, 介绍一下`TCP`套接字编程的接口 及 演示
 
 # TCP套接字
 
@@ -53,16 +53,22 @@ ssize_t recvfrom(int socket, void* restrict buffer, size_t length, int flags, st
 
 其中已经演示使用了: `socket()`、`bind()`、`sendto()`、`recvfrom()`
 
-并且, 也介绍了UDP和TCP的部分特点. 最主要的就是: 
+并且, 也介绍了`UDP`和`TCP`的部分特点
 
-1. UDP非连接, 面向数据包
-2. TCP连接, 面向字节流
+最主要的就是: 
 
-所以, TCP多了三个用于连接的接口: `connect()`、`listen()`和`accept()` 这三个接口具体怎么使用, 下面实现简单的TCP网络通信时 介绍一下.
+1. `UDP`非连接, 面向数据包
+2. `TCP`连接, 面向字节流
 
-## 简单的TCP网络通信
+所以, `TCP`多了三个用于连接的接口: `connect()`、`listen()`和`accept()`
 
-在介绍过 UDP网络编程之后. TCP网络编程没有很多需要新介绍的内容. 
+这三个接口具体怎么使用, 下面实现简单的`TCP`网络通信时进行介绍
+
+## 简单的`TCP`网络通信
+
+在介绍过`UDP`网络编程之后
+
+`TCP`网络编程没有很多需要新介绍的内容
 
 先定义一个头文件, 用来包含需要使用到的一些头文件、定义一些宏:
 
@@ -71,28 +77,30 @@ ssize_t recvfrom(int socket, void* restrict buffer, size_t length, int flags, st
 ```cpp
 #pragma once
 
-#include <iostream>
-#include <string>
+#include <arpa/inet.h>
+#include <netinet/in.h>
+#include <pthread.h>
+#include <signal.h>
+#include <sys/socket.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <unistd.h>
+
 #include <cstdlib>
 #include <cstring>
-#include <unistd.h>
-#include <signal.h>
-#include <pthread.h>
-#include <sys/wait.h>
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
+#include <iostream>
+#include <string>
+
 #include "logMessage.hpp"
 
-#define SOCKET_ERR  1
-#define BIND_ERR    2
-#define LISTEN_ERR  3
-#define USE_ERR     4
-#define CONNECT_ERR	5
-#define FORK_ERR	6
+#define SOCKET_ERR 1
+#define BIND_ERR 2
+#define LISTEN_ERR 3
+#define USE_ERR 4
+#define CONNECT_ERR 5
+#define FORK_ERR 6
 
-#define BUFFER_SIZE	1024
+#define BUFFER_SIZE 1024
 ```
 
 还有日志打印相关头文件:
@@ -102,13 +110,13 @@ ssize_t recvfrom(int socket, void* restrict buffer, size_t length, int flags, st
 ```cpp
 #pragma once
 
-#include <cstdio>
-#include <ctime>
-#include <cstdarg>
 #include <cassert>
-#include <cstring>
 #include <cerrno>
+#include <cstdarg>
+#include <cstdio>
 #include <cstdlib>
+#include <cstring>
+#include <ctime>
 
 // 宏定义 四个日志等级
 #define DEBUG 0
@@ -116,49 +124,52 @@ ssize_t recvfrom(int socket, void* restrict buffer, size_t length, int flags, st
 #define WARINING 2
 #define FATAL 3
 
-const char* log_level[] = {"DEBUG", "NOTICE", "WARINING", "FATAL"};
+static const char* log_level[] = { "DEBUG", "NOTICE", "WARINING", "FATAL" };
 
-// 实现一个 可以输出: 日志等级、日志时间、用户、以及相关日志内容的 日志消息打印接口
+// 实现一个 可以输出: 日志等级、日志时间、用户、以及相关日志内容的
+// 日志消息打印接口
+// 通过可变参数实现, 传入日志等级, 日志内容格式, 日志内容相关参数
 void logMessage(int level, const char* format, ...) {
-    // 通过可变参数实现, 传入日志等级, 日志内容格式, 日志内容相关参数
 
-    // 确保日志等级正确
-    assert(level >= DEBUG);
-    assert(level <= FATAL);
+	// 确保日志等级正确
+	assert(level >= DEBUG);
+	assert(level <= FATAL);
 
-    // 获取当前用户名
-    char* name = getenv("USER");
+	// 获取当前用户名
+	char* name = getenv("USER");
 
-    // 简单的定义log缓冲区
-    char logInfo[1024];
+	// 简单的定义log缓冲区
+	char logInfo[1024];
 
-    // 定义一个指向可变参数列表的指针
-    va_list ap;
-    // 将 ap 指向可变参数列表中的第一个参数, 即 format 之后的第一个参数
-    va_start(ap, format);
+	// 定义一个指向可变参数列表的指针
+	va_list ap;
+	// 将 ap 指向可变参数列表中的第一个参数, 即 format 之后的第一个参数
+	va_start(ap, format);
 
-    // 此函数 会通过 ap 遍历可变参数列表, 然后根据 format 字符串指定的格式, 将ap当前指向的参数以字符串的形式 写入到logInfo缓冲区中
-    vsnprintf(logInfo, sizeof(logInfo) - 1, format, ap);
+	// 此函数 会通过 ap 遍历可变参数列表, 然后根据 format 字符串指定的格式,
+	// 将ap当前指向的参数以字符串的形式 写入到logInfo缓冲区中
+	vsnprintf(logInfo, sizeof(logInfo) - 1, format, ap);
 
-    // ap 使用完之后, 再将 ap置空
-    va_end(ap); // ap = NULL
+	// ap 使用完之后, 再将 ap置空
+	va_end(ap); // ap = NULL
 
-    // 通过判断日志等级, 来选择是标准输出流还是标准错误流
-    FILE* out = (level == FATAL) ? stderr : stdout;
+	// 通过判断日志等级, 来选择是标准输出流还是标准错误流
+	FILE* out = (level == FATAL) ? stderr : stdout;
 
-    // 获取本地时间
-    time_t tm = time(nullptr);
-    struct tm* localTm = localtime(&tm);
-    char* localTmStr = asctime(localTm);
-    char* nC = strstr(localTmStr, "\n");
-    if(nC) {
-        *nC = '\0';
-    }
-    fprintf( out, "%s | %s | %s | %s\n", 
-            log_level[level],
-            localTmStr,
+	// 获取本地时间
+	time_t tm = time(nullptr);
+	struct tm* localTm = localtime(&tm);
+	char* localTmStr = asctime(localTm);
+	char* nC = strstr(localTmStr, "\n");
+	if (nC) {
+		*nC = '\0';
+	}
+
+	fprintf(out, "%s | %s | %s | %s\n", 
+            log_level[level], 
+            localTmStr, 
             name == nullptr ? "unknow" : name, 
-            logInfo );
+            logInfo);
 }
 ```
 
@@ -173,101 +184,105 @@ void logMessage(int level, const char* format, ...) {
 
 class tcpServer {
 public:
-    tcpServer(uint16_t port, const std::string& ip = "")
-        : _port(port)
-        , _ip(ip) {}
+	tcpServer(uint16_t port, const std::string& ip = "")
+		: _port(port)
+		, _ip(ip) {}
 
-    void init() {
-        // 先创建套接字文件描述符
-        // 不过, 与UDP不同的是 TCP是面向字节流的, 所以套接字数据类型 要使用 流式套接字
-        _listenSock = socket(AF_INET, SOCK_STREAM, 0);
+	void init() {
+		// 先创建套接字文件描述符
+		// 不过, 与UDP不同的是 TCP是面向字节流的, 所以套接字数据类型 要使用
+		// 流式套接字
+		_listenSock = socket(AF_INET, SOCK_STREAM, 0);
 
-        if (_listenSock < 0) {
-            // 套接字文件描述符创建失败
-            logMessage(FATAL, "socket() faild:: %s : %d", strerror(errno), _listenSock);
-            exit(SOCKET_ERR); // 创建套接字失败 以 SOCKET_ERR 退出
-        }
-        logMessage(DEBUG, "socket create success: %d", _listenSock);
+		if (_listenSock < 0) {
+			// 套接字文件描述符创建失败
+			logMessage(FATAL, "socket() faild:: %s : %d", strerror(errno), _listenSock);
+			exit(SOCKET_ERR); // 创建套接字失败 以 SOCKET_ERR 退出
+		}
+		logMessage(DEBUG, "socket create success: %d", _listenSock);
 
-        // 套接字创建成功, 就需要将向 sockaddr_in 里填充网络信息
-        // 并将进程网络信息绑定到主机上
-        struct sockaddr_in local;
-        std::memset(&local, 0, sizeof(local));
+		// 套接字创建成功, 就需要将向 sockaddr_in 里填充网络信息
+		// 并将进程网络信息绑定到主机上
+		struct sockaddr_in local;
+		std::memset(&local, 0, sizeof(local));
 
-        // 填充网络信息
-        local.sin_family = AF_INET;
-        local.sin_port = htons(_port);
-        _ip.empty() ? (local.sin_addr.s_addr = htonl(INADDR_ANY)) : (inet_aton(_ip.c_str(), &local.sin_addr));
+		// 填充网络信息
+		local.sin_family = AF_INET;
+		local.sin_port = htons(_port);
+		_ip.empty() ? (local.sin_addr.s_addr = htonl(INADDR_ANY)) : (inet_aton(_ip.c_str(), &local.sin_addr));
 
-        // 绑定网络信息到主机
-        if (bind(_listenSock, (const struct sockaddr*)&local, sizeof(local)) == -1) {
-            // 绑定失败
-            logMessage(FATAL, "bind() faild:: %s : %d", strerror(errno), _listenSock);
-            exit(BIND_ERR);
-        }
-        logMessage(DEBUG, "socket bind success : %d", _listenSock);
-        // 绑定了网络信息之后, 不同于 UDP, TCP是面向连接的.
-        // 所以 在TCP服务器绑定了进程网络信息到内核中之后, 其他主机就有可能向服务器发送连接请求了
-        // 然后, 所以 在绑定了网络信息之后, 要做的事就是 监听套接字
-        // 监听是否有其他主机发来连接请求, 需要用到接口 listen()
-        if (listen(_listenSock, 5) == -1) {
-            logMessage(FATAL, "listen() faild:: %s : %d", strerror(errno), _listenSock);
-            exit(LISTEN_ERR);
-        }
-        logMessage(DEBUG, "listen success : %d", _listenSock);
-        // 开始监听之后, 别的主机就可以发送连接请求了.
-    }
+		// 绑定网络信息到主机
+		if (bind(_listenSock, (const struct sockaddr*)&local, sizeof(local)) == -1) {
+			// 绑定失败
+			logMessage(FATAL, "bind() faild:: %s : %d", strerror(errno), _listenSock);
+			exit(BIND_ERR);
+		}
+		logMessage(DEBUG, "socket bind success : %d", _listenSock);
 
-    // 服务器初始化完成之后, 就可以启动了
-    void loop() {
-        while (true) {
-            struct sockaddr_in peer;          // 输出型参数 接受所连接主机客户端网络信息
-            socklen_t peerLen = sizeof(peer); // 输入输出型参数
+		// 绑定了网络信息之后, 不同于 UDP, TCP是面向连接的
+		// 所以 在TCP服务器绑定了进程网络信息到内核中之后
+		// 其他主机就有可能向服务器发送连接请求了
+		// 所以 在绑定了网络信息之后 要做的事就是: 监听套接字
+		// 监听是否有其他主机发来连接请求 需要用到接口 listen()
+		if (listen(_listenSock, 5) == -1) {
+			logMessage(FATAL, "listen() faild:: %s : %d", strerror(errno), _listenSock);
+			exit(LISTEN_ERR);
+		}
+		logMessage(DEBUG, "listen success : %d", _listenSock);
+		// 开始监听之后, 别的主机就可以发送连接请求了.
+	}
 
-            // 使用 accept() 接口, 接受来自其他网络客户端的连接
-            // 成功会返回一个文件描述符, 失败则返回-1
-            // 此函数是阻塞式的, 也就是说 在没有连接发送过来之前 进程会处于阻塞状态
-            int serviceSock = accept(_listenSock, (struct sockaddr*)&peer, &peerLen);
-            if (serviceSock == -1) {
-                logMessage(WARINING, "accept() faild:: %s : %d", strerror(errno), serviceSock);
-                continue;
-            }
-            // 走到这里, 就表示连接成功了
-            // 连接成功之后, 就可以获取到连接客户端的网络信息了:
-            uint16_t peerPort = ntohs(peer.sin_port);
-            std::string peerIP = inet_ntoa(peer.sin_addr);
-            logMessage(DEBUG, "accept success: [%s: %d] | %d ", peerIP.c_str(), peerPort, serviceSock);
-        }
-    }
+	// 服务器初始化完成之后, 就可以启动了
+	void loop() {
+		while (true) {
+			struct sockaddr_in peer;		  // 输出型参数 接受所连接主机客户端网络信息
+			socklen_t peerLen = sizeof(peer); // 输入输出型参数
+
+			// 使用 accept() 接口, 接受来自其他网络客户端的连接
+			// 成功会返回一个文件描述符, 失败则返回-1
+			// 此函数是阻塞式的, 也就是说 在没有连接发送过来之前 进程会处于阻塞状态
+			int serviceSock = accept(_listenSock, (struct sockaddr*)&peer, &peerLen);
+			if (serviceSock == -1) {
+				logMessage(WARINING, "accept() faild:: %s : %d", strerror(errno), serviceSock);
+				continue;
+			}
+
+			// 走到这里, 就表示连接成功了
+			// 连接成功之后, 就可以获取到连接客户端的网络信息了:
+			uint16_t peerPort = ntohs(peer.sin_port);
+			std::string peerIP = inet_ntoa(peer.sin_addr);
+			logMessage(DEBUG, "accept success: [%s: %d] | %d ", peerIP.c_str(), peerPort, serviceSock);
+		}
+	}
 
 private:
-    uint16_t _port;  // 端口号
-    int _listenSock; // 服务器套接字文件描述符
-    std::string _ip;
+	uint16_t _port;	 // 端口号
+	int _listenSock; // 服务器套接字文件描述符
+	std::string _ip;
 };
 
 void Usage(std::string proc) {
-    std::cerr << "Usage:: \n\t" << proc << " port ip" << std::endl;
-    std::cerr << "example:: \n\t" << proc << " 8080 127.0.0.1" << std::endl;
+	std::cerr << "Usage:: \n\t" << proc << " port ip" << std::endl;
+	std::cerr << "example:: \n\t" << proc << " 8080 127.0.0.1" << std::endl;
 }
 
 int main(int argc, char* argv[]) {
-    if (argc != 3 && argc != 2) {
-        Usage(argv[0]);
-        exit(USE_ERR);
-    }
-    uint16_t port = atoi(argv[1]);
-    std::string ip;
-    if (argc == 3) {
-        ip = argv[2];
-    }
+	if (argc != 3 && argc != 2) {
+		Usage(argv[0]);
+		exit(USE_ERR);
+	}
+	uint16_t port = atoi(argv[1]);
+	std::string ip;
+	if (argc == 3) {
+		ip = argv[2];
+	}
 
-    tcpServer svr(port, ip);
+	tcpServer svr(port, ip);
 
-    svr.init();
-    svr.loop();
+	svr.init();
+	svr.loop();
 
-    return 0;
+	return 0;
 }
 ```
 
@@ -383,11 +398,11 @@ int main(int argc, char* argv[]) {
 
 ![tcpServer](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211608870.gif)
 
-当我们使用浏览器访问服务器(IP:Port)时, 可以看到服务器`accept()`了连接请求. 但是由于服务器没有实现任何功能, 所以浏览器没有变化.
+当我们使用浏览器访问服务器`(IP:Port)`时, 可以看到服务器`accept()`了连接请求. 但是由于服务器没有实现任何功能, 所以浏览器没有变化.
 
 ### 实现客户端通信
 
-现在服务器并不具备任何的功能, 也不能接收来自客户端的信息.
+现在服务器并不具备任何的功能, 也不能接收来自客户端的信息
 
 #### 服务器功能实现
 
@@ -463,9 +478,9 @@ void low2upService(int sock, const std::string& clientIP, const uint16_t& client
 
 #### 客户端实现
 
-服务器是可以接收消息, 也具有一定的功能了.
+服务器是可以接收消息, 也具有一定的功能了
 
-但是, 客户端还没有实现呢.
+但是, 客户端还没有实现呢
 
 下面是客户端实现的代码:
 
@@ -475,84 +490,87 @@ void low2upService(int sock, const std::string& clientIP, const uint16_t& client
 volatile bool quit = false;
 
 void Usage(std::string proc) {
-    std::cerr << "Usage:: \n\t" << proc << " serverIP serverPort" << std::endl;
-    std::cerr << "example:: \n\t" << proc << " 127.0.0.1 8080" << std::endl;
+	std::cerr << "Usage:: \n\t" << proc << " serverIP serverPort" << std::endl;
+	std::cerr << "example:: \n\t" << proc << " 127.0.0.1 8080" << std::endl;
 }
 
 int main(int argc, char* argv[]) {
-    if (argc != 3) {
-        Usage(argv[0]);
-        exit(USE_ERR);
-    }
-    std::string serverIP = argv[1];
-    uint16_t serverPort = atoi(argv[2]);
+	if (argc != 3) {
+		Usage(argv[0]);
+		exit(USE_ERR);
+	}
+	std::string serverIP = argv[1];
+	uint16_t serverPort = atoi(argv[2]);
 
-    // 先创建套接字文件描述符
-    int sockFd = socket(AF_INET, SOCK_STREAM, 0);
+	// 先创建套接字文件描述符
+	int sockFd = socket(AF_INET, SOCK_STREAM, 0);
 
-    if (sockFd < 0) {
-        // 套接字文件描述符创建失败
-        logMessage(FATAL, "socket() faild:: %s : %d", strerror(errno), sockFd);
-        exit(SOCKET_ERR); // 创建套接字失败 以 SOCKET_ERR 退出
-    }
-    logMessage(DEBUG, "socket create success: %d", sockFd);
+	if (sockFd < 0) {
+		// 套接字文件描述符创建失败
+		logMessage(FATAL, "socket() faild:: %s : %d", strerror(errno), sockFd);
+		exit(SOCKET_ERR); // 创建套接字失败 以 SOCKET_ERR 退出
+	}
+	logMessage(DEBUG, "socket create success: %d", sockFd);
 
-    // 客户端创建套接字之后, 首先需要做什么?
-    // 服务器创建套接字之后, 需要填充绑定网络信息, 客户端也需要, 但是与UDP相同 不需要手动填充 与 bind
-    // 需要listen吗? 不需要, 因为客户端不会被主动连接
-    // 需要accept吗? 不需要
-    // 此时 客户端需要做的是 获取填充服务器信息, 并向服务器请求连接!
+	// 客户端创建套接字之后, 首先需要做什么?
+	// 服务器创建套接字之后, 需要填充绑定网络信息, 客户端也需要,
+	// 但是与UDP相同 不需要手动填充 与 bind
+	// 需要listen吗? 不需要, 因为客户端不会被主动连接
+	// 需要accept吗? 不需要
+	// 此时 客户端需要做的是 获取填充服务器信息, 并向服务器请求连接!
 
-    // 填充服务器基本网络信息
-    struct sockaddr_in server;
-    memset(&server, 0, sizeof(server));
-    server.sin_family = AF_INET;
-    server.sin_port = htons(serverPort);
-    inet_aton(serverIP.c_str(), &server.sin_addr);
+	// 填充服务器基本网络信息
+	struct sockaddr_in server;
+	memset(&server, 0, sizeof(server));
+	server.sin_family = AF_INET;
+	server.sin_port = htons(serverPort);
+	inet_aton(serverIP.c_str(), &server.sin_addr);
 
-    // 发送连接请求
-    if (connect(sockFd, (const struct sockaddr*)&server, sizeof(server)) == -1) {
-        // 连接失败
-        logMessage(FATAL, "Client connect() faild: %d, %s", sockFd, strerror(errno));
-        exit(CONNECT_ERR);
-    }
-    logMessage(DEBUG, "Client connect success.");
+	// 发送连接请求
+	if (connect(sockFd, (const struct sockaddr*)&server, sizeof(server)) == -1) {
+		// 连接失败
+		logMessage(FATAL, "Client connect() faild: %d, %s", sockFd, strerror(errno));
+		exit(CONNECT_ERR);
+	}
+	logMessage(DEBUG, "Client connect success.");
 
-    // 连接成功之后, 就可以向服务器发送信息了
-    std::string message;
-    while (!quit) { // 根据退出状态 识别客户端是否退出
-        message.clear();
-        std::cout << "请输入消息 >> ";
-        std::getline(std::cin, message); // 从命令行获取消息 到 message中
-        if (strcasecmp(message.c_str(), "quit") == 0) {
-            // 我们实现了 输入 quit 这个单词就向服务器请求退出 的功能
-            // 所以, 在输入 quit 这个单词时, 表示 需要退出
-            // 就要将 客户端的退出状态设置为 true, 让客户端不进入下一次循环
-            quit = true;
-        }
+	// 连接成功之后, 就可以向服务器发送信息了
+	std::string message;
+	while (!quit) { // 根据退出状态 识别客户端是否退出
+		message.clear();
+		std::cout << "请输入消息 >> ";
+		std::getline(std::cin, message); // 从命令行获取消息 到 message中
+		if (strcasecmp(message.c_str(), "quit") == 0) {
+			// 我们实现了 输入 quit 这个单词就向服务器请求退出 的功能
+			// 所以, 在输入 quit 这个单词时, 表示 需要退出
+			// 就要将 客户端的退出状态设置为 true, 让客户端不进入下一次循环
+			quit = true;
+		}
 
-        ssize_t sW = write(sockFd, message.c_str(), message.size()); // 向客户端套接字文件描述符写入消息
-        if (sW > 0) {
-            // 写入成功, 就准备接收服务器的回复
-            message.resize(BUFFER_SIZE); // 需要与服务器inbuffer大小一致
-            ssize_t sR = read(sockFd, (char*)message.c_str(), BUFFER_SIZE);
-            if (sR > 0) {
-                message[sR] = '\0';
-            }
-            if (strcasecmp(message.c_str(), "quit")) {
-                std::cout << "Server Echo>>> " << message << std::endl;
-            }
-        }
-        else if (sW <= 0) {
-            logMessage(FATAL, "Client write() faild: %d, %s", sockFd, strerror(errno));
-            break;
-        }
-    }
+		// 向客户端套接字文件描述符写入消息
+		ssize_t sW = write(sockFd, message.c_str(), message.size());
+		if (sW > 0) {
+			// 写入成功, 就准备接收服务器的回复
+			// 需要与服务器inbuffer大小一致
+			message.resize(BUFFER_SIZE);
+			ssize_t sR = read(sockFd, (char*)message.c_str(), BUFFER_SIZE);
+			if (sR > 0) {
+				message[sR] = '\0';
+			}
+			if (strcasecmp(message.c_str(), "quit")) {
+				std::cout << "Server Echo>>> " << message << std::endl;
+			}
+		}
+		else if (sW <= 0) {
+			logMessage(FATAL, "Client write() faild: %d, %s", sockFd, strerror(errno));
+			break;
+		}
+	}
 
-    // 退出循环 客户端退出, 关闭文件描述符
-    close(sockFd);
+	// 退出循环 客户端退出, 关闭文件描述符
+	close(sockFd);
 
-    return 0;
+	return 0;
 }
 ```
 
@@ -623,24 +641,23 @@ TCP客户端前面的实现 与UDP客户端前面的实现 步骤相同:
 多进程服务器也很简单, 只需要改一下`loop()`中 执行`low2upService()`的部分就可以了:
 
 ```cpp
+// 服务器初始化完成之后, 就可以启动了
 void loop() {
-    signal(SIGCHLD, SIG_IGN);       // 忽略子进程推出信号, 子进程退出时就会自动回收
+    signal(SIGCHLD, SIG_IGN); // 忽略子进程推出信号, 子进程退出时就会自动回收
 
     while (true) {
-        struct sockaddr_in peer;
-        socklen_t peerLen = sizeof(peer);
+        struct sockaddr_in peer;		  // 输出型参数 接受所连接主机客户端网络信息
+        socklen_t peerLen = sizeof(peer); // 输入输出型参数
 
         int serviceSock = accept(_listenSock, (struct sockaddr*)&peer, &peerLen);
         if (serviceSock == -1) {
             logMessage(WARINING, "accept() faild:: %s : %d", strerror(errno), serviceSock);
             continue;
         }
+
         uint16_t peerPort = ntohs(peer.sin_port);
         std::string peerIP = inet_ntoa(peer.sin_addr);
         logMessage(DEBUG, "accept success: [%s: %d] | %d ", peerIP.c_str(), peerPort, serviceSock);
-
-        // 连接到客户端之后, 就可以执行功能了
-        // 执行转换功能 小写转大写
 
         // 多进程v1
         pid_t id = fork();
@@ -651,7 +668,8 @@ void loop() {
         else if (id == 0) {
             // 进入子进程
             // 子进程会继承 父进程的文件描述符表, 但是这已经是两个不同的进程了
-            // 所以建议进入子进程之后, 先关闭_listenSock, 防止子进程代码可能对此文件造成影响
+            // 所以建议进入子进程之后, 先关闭_listenSock,
+            // 防止子进程代码可能对此文件造成影响
             close(_listenSock);
             low2upService(serviceSock, peerIP.c_str(), peerPort);
             exit(0);
@@ -663,6 +681,7 @@ void loop() {
         // 父子进程在各子进程中关闭某文件描述符 是不影响对方的
     }
 }
+
 ```
 
 只需要使用`fork()`创建子进程, 然后将`low2upService()`放到子进程里执行就可以了.
@@ -695,31 +714,25 @@ void loop() {
 
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211606633.gif)
 
-可以发现, 已经可以多客户端连接并通信了.
+可以发现, 已经可以多客户端连接并通信了
 
 #### **`v2`**
 
-多进程的版本, 除了上面的. 还有一个版本
+多进程的版本, 除了上面的, 还有一个版本:
 
 ```cpp
-// 服务器初始化完成之后, 就可以启动了
 void loop() {
-    //signal(SIGCHLD, SIG_IGN); // 忽略子进程推出信号, 子进程退出时就会自动回收
+    // signal(SIGCHLD, SIG_IGN); // 忽略子进程推出信号, 子进程退出时就会自动回收
 
     while (true) {
-        struct sockaddr_in peer;          // 输出型参数 接受所连接主机客户端网络信息
+        struct sockaddr_in peer;		  // 输出型参数 接受所连接主机客户端网络信息
         socklen_t peerLen = sizeof(peer); // 输入输出型参数
 
-        // 使用 accept() 接口, 接受来自其他网络客户端的连接
-        // 成功会返回一个文件描述符, 失败则返回-1
-        // 此函数是阻塞式的, 也就是说 在没有连接发送过来之前 进程会处于阻塞状态
         int serviceSock = accept(_listenSock, (struct sockaddr*)&peer, &peerLen);
         if (serviceSock == -1) {
             logMessage(WARINING, "accept() faild:: %s : %d", strerror(errno), serviceSock);
             continue;
         }
-        // 走到这里, 就表示连接成功了
-        // 连接成功之后, 就可以获取到连接客户端的网络信息了:
         uint16_t peerPort = ntohs(peer.sin_port);
         std::string peerIP = inet_ntoa(peer.sin_addr);
         logMessage(DEBUG, "accept success: [%s: %d] | %d ", peerIP.c_str(), peerPort, serviceSock);
@@ -727,7 +740,6 @@ void loop() {
         // 连接到客户端之后, 就可以执行功能了
         // 执行转换功能 小写转大写
 
-        // 多进程v2
         pid_t id = fork();
         if (id == -1) {
             logMessage(FATAL, "Server fork() faild: %s", strerror(errno));
@@ -740,7 +752,8 @@ void loop() {
             if (fork() > 0) {
                 exit(0);
             }
-            // 这部分是再次创建的子进程 执行的, 也就是孙子进程, 因为父进程在创建出孙子进程时就推出了
+            // 这部分是再次创建的子进程 执行的, 也就是孙子进程,
+            // 因为父进程在创建出孙子进程时就推出了
             low2upService(serviceSock, peerIP.c_str(), peerPort);
             exit(0);
         }
@@ -758,188 +771,169 @@ void loop() {
 }
 ```
 
-这个版本不在忽略子进程的退出信号. 而是利用了进程的一个特性.
+这个版本不在忽略子进程的退出信号. 而是利用了进程的一个特性
 
-**如果子进程还没有退出, 但是其父进程退出了, 那么此子进程就成了孤儿进程, 会被操作系统领养. 退出时会自动被操作系统回收**
+**如果子进程还没有退出, 但是其父进程退出了, 那么此子进程就成了孤儿进程, 会被操作系统领养**
 
-即, 主父进程创建子进程之后, 子进程又创建了孙子进程. 然后子进程退出, 让孙子进程与客户端通信. 主父进程直接回收退出的子进程. 也不会发生一直阻塞等待的情况.
+**退出时会自动被操作系统回收**
+
+即, 主父进程创建子进程之后, 子进程又创建了孙子进程
+
+然后子进程退出, 让孙子进程与客户端通信
+
+主父进程直接回收退出的子进程, 也不会发生一直阻塞等待的情况
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202308211606793.gif)
 
 ### 多线程服务器
 
-多进程版本实现, 消耗的资源很大, 所以还有多线程的版本.
+多进程版本实现, 消耗的资源很大, 所以可以实现多线程的版本
 
 ```cpp
 #include "util.hpp"
 
-class tcpServer; 	// threadData结构体要用, 所以先声明
+class tcpServer; // threadData结构体要用, 所以先声明
 
 struct threadData {
-    threadData(uint16_t clientPort, std::string clientIP, int sock, tcpServer* ts)
-        : _clientPort(clientPort)
-        , _clientIP(clientIP)
-        , _sock(sock)
-        , _this(ts) {}
+	threadData(uint16_t clientPort, std::string clientIP, int sock, tcpServer* ts)
+		: _clientPort(clientPort)
+		, _clientIP(clientIP)
+		, _sock(sock)
+		, _this(ts) {}
 
-    uint16_t _clientPort;
-    std::string _clientIP;
-    int _sock;
-    tcpServer* _this;
+	uint16_t _clientPort;
+	std::string _clientIP;
+	int _sock;
+	tcpServer* _this;
 };
 
 class tcpServer {
 public:
-    tcpServer(uint16_t port, const std::string& ip = "")
-        : _port(port)
-        , _ip(ip)
-        , _listenSock(-1) {}
+	tcpServer(uint16_t port, const std::string& ip = "")
+		: _port(port)
+		, _ip(ip)
+		, _listenSock(-1) {}
 
-    static void* threadRoutine(void* args) {
-        // 线程分离
-        pthread_detach(pthread_self());
-        
-        threadData* tD = static_cast<threadData*>(args);
-        tD->_this->low2upService(tD->_sock, tD->_clientIP, tD->_clientPort);
-        
-        // 线程执行任务结束后, 需要delete掉 tD
-        // 不能在主线程 delete 因为, 线程还没有使用
-        delete tD;
+	static void* threadRoutine(void* args) {
+		// 线程分离
+		pthread_detach(pthread_self());
 
-        return nullptr;
-    }
+		threadData* tD = static_cast<threadData*>(args);
+		tD->_this->low2upService(tD->_sock, tD->_clientIP, tD->_clientPort);
 
-    void init() {
-        // 先创建套接字文件描述符
-        // 不过, 与UDP不同的是 TCP是面向字节流的, 所以套接字数据类型 要使用 流式套接字
-        _listenSock = socket(AF_INET, SOCK_STREAM, 0);
+		// 线程执行任务结束后, 需要delete掉 tD
+		delete tD;
 
-        if (_listenSock < 0) {
-            // 套接字文件描述符创建失败
-            logMessage(FATAL, "socket() faild:: %s : %d", strerror(errno), _listenSock);
-            exit(SOCKET_ERR); // 创建套接字失败 以 SOCKET_ERR 退出
-        }
-        logMessage(DEBUG, "socket create success: %d", _listenSock);
+		return nullptr;
+	}
 
-        // 套接字创建成功, 就需要将向 sockaddr_in 里填充网络信息
-        // 并将进程网络信息绑定到主机上
-        struct sockaddr_in local;
-        std::memset(&local, 0, sizeof(local));
+	void init() {
+		_listenSock = socket(AF_INET, SOCK_STREAM, 0);
 
-        // 填充网络信息
-        local.sin_family = AF_INET;
-        local.sin_port = htons(_port);
-        _ip.empty() ? (local.sin_addr.s_addr = htonl(INADDR_ANY)) : (inet_aton(_ip.c_str(), &local.sin_addr));
+		if (_listenSock < 0) {
+			// 套接字文件描述符创建失败
+			logMessage(FATAL, "socket() faild:: %s : %d", strerror(errno), _listenSock);
+			exit(SOCKET_ERR); // 创建套接字失败 以 SOCKET_ERR 退出
+		}
+		logMessage(DEBUG, "socket create success: %d", _listenSock);
 
-        // 绑定网络信息到主机
-        if (bind(_listenSock, (const struct sockaddr*)&local, sizeof(local)) == -1) {
-            // 绑定失败
-            logMessage(FATAL, "bind() faild:: %s : %d", strerror(errno), _listenSock);
-            exit(BIND_ERR);
-        }
-        logMessage(DEBUG, "socket bind success : %d", _listenSock);
-        // 绑定了网络信息之后, 不同于 UDP, TCP是面向连接的.
-        // 所以 在TCP服务器绑定了进程网络信息到内核中之后, 其他主机就有可能向服务器发送连接请求了
-        // 然后, 所以 在绑定了网络信息之后, 要做的事就是 监听套接字
-        // 监听是否有其他主机发来连接请求, 需要用到接口 listen()
-        if (listen(_listenSock, 5) == -1) {
-            logMessage(FATAL, "listen() faild:: %s : %d", strerror(errno), _listenSock);
-            exit(LISTEN_ERR);
-        }
-        logMessage(DEBUG, "listen success : %d", _listenSock);
-        // 开始监听之后, 别的主机就可以发送连接请求了.
-    }
+		struct sockaddr_in local;
+		std::memset(&local, 0, sizeof(local));
 
-    // 服务器初始化完成之后, 就可以启动了
-    void loop() {
-        //signal(SIGCHLD, SIG_IGN); // 忽略子进程推出信号, 子进程退出时就会自动回收
+		// 填充网络信息
+		local.sin_family = AF_INET;
+		local.sin_port = htons(_port);
+		_ip.empty() ? (local.sin_addr.s_addr = htonl(INADDR_ANY)) : (inet_aton(_ip.c_str(), &local.sin_addr));
 
-        while (true) {
-            struct sockaddr_in peer;          // 输出型参数 接受所连接主机客户端网络信息
-            socklen_t peerLen = sizeof(peer); // 输入输出型参数
+		// 绑定网络信息到主机
+		if (bind(_listenSock, (const struct sockaddr*)&local, sizeof(local)) == -1) {
+			// 绑定失败
+			logMessage(FATAL, "bind() faild:: %s : %d", strerror(errno), _listenSock);
+			exit(BIND_ERR);
+		}
+		logMessage(DEBUG, "socket bind success : %d", _listenSock);
 
-            // 使用 accept() 接口, 接受来自其他网络客户端的连接
-            // 成功会返回一个文件描述符, 失败则返回-1
-            // 此函数是阻塞式的, 也就是说 在没有连接发送过来之前 进程会处于阻塞状态
-            int serviceSock = accept(_listenSock, (struct sockaddr*)&peer, &peerLen);
-            if (serviceSock == -1) {
-                logMessage(WARINING, "accept() faild:: %s : %d", strerror(errno), serviceSock);
-                continue;
-            }
-            // 走到这里, 就表示连接成功了
-            // 连接成功之后, 就可以获取到连接客户端的网络信息了:
-            uint16_t peerPort = ntohs(peer.sin_port);
-            std::string peerIP = inet_ntoa(peer.sin_addr);
-            logMessage(DEBUG, "accept success: [%s: %d] | %d ", peerIP.c_str(), peerPort, serviceSock);
+		if (listen(_listenSock, 5) == -1) {
+			logMessage(FATAL, "listen() faild:: %s : %d", strerror(errno), _listenSock);
+			exit(LISTEN_ERR);
+		}
+		logMessage(DEBUG, "listen success : %d", _listenSock);
+		// 开始监听之后, 别的主机就可以发送连接请求了.
+	}
 
-            // 连接到客户端之后, 就可以执行功能了
-            // 执行转换功能 小写转大写
-            // 多线程版本
-            // 让多线程执行low2upService(), 是需要传参的, 所以需要定义一个结构体, 存储可能使用到的参数
-            threadData* tD = new threadData(peerPort, peerIP, serviceSock, this);
-            pthread_t tid;
-            pthread_create(&tid, nullptr, threadRoutine, (void*)tD);
-        }
-    }
+	// 服务器初始化完成之后, 就可以启动了
+	void loop() {
+		while (true) {
+			struct sockaddr_in peer;		  // 输出型参数 接受所连接主机客户端网络信息
+			socklen_t peerLen = sizeof(peer); // 输入输出型参数
 
-    void low2upService(int sock, const std::string& clientIP, const uint16_t& clientPort) {
-        assert(sock > 0);
-        assert(!clientIP.empty());
+			int serviceSock = accept(_listenSock, (struct sockaddr*)&peer, &peerLen);
+			if (serviceSock == -1) {
+				logMessage(WARINING, "accept() faild:: %s : %d", strerror(errno), serviceSock);
+				continue;
+			}
+			uint16_t peerPort = ntohs(peer.sin_port);
+			std::string peerIP = inet_ntoa(peer.sin_addr);
+			logMessage(DEBUG, "accept success: [%s: %d] | %d ", peerIP.c_str(), peerPort, serviceSock);
 
-        // 一个用于存储来自客户端信息的数组
-        char inbuffer[BUFFER_SIZE];
-        while (true) {
-            // TCP获取来自客户端的信息的操作就是 read
-            // 从 服务器与客户端连接 的文件描述符中 读取来自客户端的信息
-            // 可看作 通过文件描述符 从文件读取内容
-            ssize_t s = read(sock, inbuffer, sizeof(inbuffer) - 1);
-            if (s > 0) {
-                // 大于零 就是读取到数据了
-                inbuffer[s] = '\0';
-                // 我们实现一个操作, 如果 客户端传输过来的信息是 quit 这个单词, 就表示客户端请求退出
-                // 就可以退出 服务循环了
-                if (strcasecmp(inbuffer, "quit") == 0) { // strcasecmp 忽略大小写比较
-                    logMessage(DEBUG, "Client requests to quit: [%s: %d]", clientIP.c_str(), clientPort);
-                    break;
-                }
-                // 走到这里 就可以进行小写转大写了
-                logMessage(DEBUG, "low2up before: [%s: %d] >> %s", clientIP.c_str(), clientPort, inbuffer);
-                for (int i = 0; i < s; i++) {
-                    if (isalpha(inbuffer[i]) && islower(inbuffer[i]))
-                        inbuffer[i] = toupper(inbuffer[i]);
-                }
-                logMessage(DEBUG, "low2up after: [%s: %d] >> %s", clientIP.c_str(), clientPort, inbuffer);
+			// 连接到客户端之后, 就可以执行功能了
+			// 执行转换功能 小写转大写
 
-                // 上面做的都是对获取到的信息 进行转换
-                // 最后需要做的就是 将转换后的信息 再重新回应给客户端
-                // 而 回应给客户端 则是用 write, 可看做 通过文件描述符像文件写入内容
-                write(sock, inbuffer, strlen(inbuffer));
-            }
-            else if (s == 0) {
-                // s == 0, 表示什么?
-                // 在管道通信中 read() 是阻塞式读取的. 此时 返回值为0, 表示管道的写入端关闭
-                // 而 TCP类似, TCP中 read() 通常也是阻塞时读取的, 此时返回0, 表示客户端关闭
-                // 所以此时, 该退出了
-                logMessage(DEBUG, "Client has quited: [%s: %d]", clientIP.c_str(), clientPort);
-                break;
-            }
-            else {
-                // 到这里 本次 read() 出错
-                logMessage(DEBUG, "Client [%s: %d] read:: %s", clientIP.c_str(), clientPort, strerror(errno));
-                break;
-            }
-        }
-        // 走到这里 循环已经退出了, 表示 client 也已经退出了
-        // 所以 此时需要关闭文件描述符, 因为一个主机上的文件描述符数量是一定的, 达到上限之后 就无法再创建
-        // 已经无用但没有被归还的文件描述符, 文件描述符泄漏
-        close(sock);
-        logMessage(DEBUG, "Service close %d sockFd", sock);
-    }
+			// 多线程版本
+			// 让多线程执行low2upService(), 是需要传参的, 所以需要定义一个结构体,
+			// 存储可能使用到的参数
+			threadData* tD = new threadData(peerPort, peerIP, serviceSock, this);
+			pthread_t tid;
+			pthread_create(&tid, nullptr, threadRoutine, (void*)tD);
+		}
+	}
+
+	void low2upService(int sock, const std::string& clientIP, const uint16_t& clientPort) {
+		assert(sock > 0);
+		assert(!clientIP.empty());
+
+		// 一个用于存储来自客户端信息的数组
+		char inbuffer[BUFFER_SIZE];
+		while (true) {
+			ssize_t s = read(sock, inbuffer, sizeof(inbuffer) - 1);
+			if (s > 0) {
+				// 大于零 就是读取到数据了
+				inbuffer[s] = '\0';
+				if (strcasecmp(inbuffer, "quit") == 0) { // strcasecmp 忽略大小写比较
+					logMessage(DEBUG, "Client requests to quit: [%s: %d]", clientIP.c_str(), clientPort);
+					break;
+				}
+				// 走到这里 就可以进行小写转大写了
+				logMessage(DEBUG, "low2up before: [%s: %d] >> %s", clientIP.c_str(), clientPort, inbuffer);
+				for (int i = 0; i < s; i++) {
+					if (isalpha(inbuffer[i]) && islower(inbuffer[i]))
+						inbuffer[i] = toupper(inbuffer[i]);
+				}
+				logMessage(DEBUG, "low2up after: [%s: %d] >> %s", clientIP.c_str(), clientPort, inbuffer);
+
+				write(sock, inbuffer, strlen(inbuffer));
+			}
+			else if (s == 0) {
+				logMessage(DEBUG, "Client has quited: [%s: %d]", clientIP.c_str(), clientPort);
+				break;
+			}
+			else {
+				logMessage(DEBUG, "Client [%s: %d] read:: %s", clientIP.c_str(), clientPort, strerror(errno));
+				break;
+			}
+		}
+		// 走到这里 循环已经退出了, 表示 client 也已经退出了
+		// 所以 此时需要关闭文件描述符, 因为一个主机上的文件描述符数量是一定的,
+		// 达到上限之后 就无法再创建 已经无用但没有被归还的文件描述符,
+		// 文件描述符泄漏
+		close(sock);
+		logMessage(DEBUG, "Service close %d sockFd", sock);
+	}
 
 private:
-    uint16_t _port; // 端口号
-    std::string _ip;
-    int _listenSock; // 服务器套接字文件描述符
+	uint16_t _port; // 端口号
+	std::string _ip;
+	int _listenSock; // 服务器套接字文件描述符
 };
 ```
 
@@ -981,15 +975,17 @@ private:
 
 ### 线程池服务器
 
-> 这里的例子使用线程池不太合理.
+> 这里的例子使用线程池不太合理
 >
-> 因为, 这里的任务是死循环的. 所以, 线程池会被占满. 只是试验一下.
+> 因为, 这里的任务是死循环的
+>
+> 所以, 线程池会被占满, 只是试验一下
 
 > 博主在之前的文章中实现过简单的线程池, 阅读下面内容之前, 建议阅读这篇文章:
 >
 > [[Linux] 最基础简单的线程池及其单例模式的实现](https://www.humid1ch.cn/posts/Linux-ThreadPool)
 
-上面的多线程服务器功能实现的是, 每连接一个客户端创建一个线程. 这样效率太低了.
+上面的多线程服务器功能实现的是, 每连接一个客户端创建一个线程, 这样效率太低了
 
 线程池可以实现, 预先创建多个线程, 然后等到有客户端连接时 将此客户端需要的服务 分配给空闲线程, 从而提升服务客户端的效率
 
@@ -1267,153 +1263,152 @@ private:
 **`tcpServer.cc`:**
 
 ```cpp
-#include "util.hpp"
-#include "threadPool.hpp"
 #include "task.hpp"
+#include "threadPool.hpp"
+#include "util.hpp"
 
 class tcpServer {
 public:
-    tcpServer(uint16_t port, const std::string& ip = "")
-        : _port(port)
-        , _ip(ip)
-        , _listenSock(-1) {}
+	tcpServer(uint16_t port, const std::string& ip = "")
+		: _port(port)
+		, _ip(ip)
+		, _listenSock(-1) {}
 
-    void init() {
-        _listenSock = socket(AF_INET, SOCK_STREAM, 0);
+	void init() {
+		_listenSock = socket(AF_INET, SOCK_STREAM, 0);
 
-        if (_listenSock < 0) {
-            // 套接字文件描述符创建失败
-            logMessage(FATAL, "socket() faild:: %s : %d", strerror(errno), _listenSock);
-            exit(SOCKET_ERR); // 创建套接字失败 以 SOCKET_ERR 退出
-        }
-        logMessage(DEBUG, "socket create success: %d", _listenSock);
+		if (_listenSock < 0) {
+			logMessage(FATAL, "socket() faild:: %s : %d", strerror(errno), _listenSock);
+			exit(SOCKET_ERR);
+		}
+		logMessage(DEBUG, "socket create success: %d", _listenSock);
 
-        // 套接字创建成功, 就需要将向 sockaddr_in 里填充网络信息
-        // 并将进程网络信息绑定到主机上
-        struct sockaddr_in local;
-        std::memset(&local, 0, sizeof(local));
+		struct sockaddr_in local;
+		std::memset(&local, 0, sizeof(local));
 
-        // 填充网络信息
-        local.sin_family = AF_INET;
-        local.sin_port = htons(_port);
-        _ip.empty() ? (local.sin_addr.s_addr = htonl(INADDR_ANY)) : (inet_aton(_ip.c_str(), &local.sin_addr));
+		// 填充网络信息
+		local.sin_family = AF_INET;
+		local.sin_port = htons(_port);
+		_ip.empty() ? (local.sin_addr.s_addr = htonl(INADDR_ANY)) : (inet_aton(_ip.c_str(), &local.sin_addr));
 
-        // 绑定网络信息到主机
-        if (bind(_listenSock, (const struct sockaddr*)&local, sizeof(local)) == -1) {
-            // 绑定失败
-            logMessage(FATAL, "bind() faild:: %s : %d", strerror(errno), _listenSock);
-            exit(BIND_ERR);
-        }
-        logMessage(DEBUG, "socket bind success : %d", _listenSock);
-        if (listen(_listenSock, 5) == -1) {
-            logMessage(FATAL, "listen() faild:: %s : %d", strerror(errno), _listenSock);
-            exit(LISTEN_ERR);
-        }
-        logMessage(DEBUG, "listen success : %d", _listenSock);
-        // 开始监听之后, 别的主机就可以发送连接请求了.
+		// 绑定网络信息到主机
+		if (bind(_listenSock, (const struct sockaddr*)&local, sizeof(local)) == -1) {
+			logMessage(FATAL, "bind() faild:: %s : %d", strerror(errno), _listenSock);
+			exit(BIND_ERR);
+		}
+		logMessage(DEBUG, "socket bind success : %d", _listenSock);
 
-        // 线程池版本
-        // 服务器初始化时, 要加载线程池
-        _tP = threadPool<Task>::getInstance();
-    }
+		if (listen(_listenSock, 5) == -1) {
+			logMessage(FATAL, "listen() faild:: %s : %d", strerror(errno), _listenSock);
+			exit(LISTEN_ERR);
+		}
+		logMessage(DEBUG, "listen success : %d", _listenSock);
+		// 开始监听之后, 别的主机就可以发送连接请求了.
 
-    // 服务器初始化完成之后, 就可以启动了
-    void loop() {
-        // 线程池版本, 在服务器启动时, 也开启线程池
-        _tP->start();
-        logMessage(DEBUG, "threadPool start success, thread num: %d", _tP->getThreadNum());
-        
-        while (true) {
-            struct sockaddr_in peer;          // 输出型参数 接受所连接主机客户端网络信息
-            socklen_t peerLen = sizeof(peer); // 输入输出型参数
+		// 线程池版本
+		// 服务器初始化时, 要加载线程池
+		_tP = threadPool<Task>::getInstance();
+	}
 
-            // 使用 accept() 接口, 接受来自其他网络客户端的连接
-            int serviceSock = accept(_listenSock, (struct sockaddr*)&peer, &peerLen);
-            if (serviceSock == -1) {
-                logMessage(WARINING, "accept() faild:: %s : %d", strerror(errno), serviceSock);
-                continue;
-            }
-            // 走到这里, 就表示连接成功了
-            uint16_t peerPort = ntohs(peer.sin_port);
-            std::string peerIP = inet_ntoa(peer.sin_addr);
-            logMessage(DEBUG, "accept success: [%s: %d] | %d ", peerIP.c_str(), peerPort, serviceSock);
+	// 服务器初始化完成之后, 就可以启动了
+	void loop() {
+		// 线程池版本, 在服务器启动时, 也开启线程池
+		_tP->start();
+		logMessage(DEBUG, "threadPool start success, thread num: %d", _tP->getThreadNum());
 
-            // 连接到客户端之后, 就可以执行功能了
-            // 线程池版本
-            // v1
-            Task t(serviceSock, peerIP, peerPort, std::bind(&tcpServer::low2upService, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
-            _tP->pushTask(t);
-        }
-    }
+		while (true) {
+			struct sockaddr_in peer;		  // 输出型参数 接受所连接主机客户端网络信息
+			socklen_t peerLen = sizeof(peer); // 输入输出型参数
 
-    void low2upService(int sock, const std::string& clientIP, const uint16_t& clientPort) {
-        assert(sock > 0);
-        assert(!clientIP.empty());
+			// 使用 accept() 接口, 接受来自其他网络客户端的连接
+			int serviceSock = accept(_listenSock, (struct sockaddr*)&peer, &peerLen);
+			if (serviceSock == -1) {
+				logMessage(WARINING, "accept() faild:: %s : %d", strerror(errno), serviceSock);
+				continue;
+			}
+			// 走到这里, 就表示连接成功了
+			uint16_t peerPort = ntohs(peer.sin_port);
+			std::string peerIP = inet_ntoa(peer.sin_addr);
+			logMessage(DEBUG, "accept success: [%s: %d] | %d ", peerIP.c_str(), peerPort, serviceSock);
 
-        char inbuffer[BUFFER_SIZE];
-        while (true) {
-            ssize_t s = read(sock, inbuffer, sizeof(inbuffer) - 1);
-            if (s > 0) {
-                // 大于零 就是读取到数据了
-                inbuffer[s] = '\0';
-                if (strcasecmp(inbuffer, "quit") == 0) { // strcasecmp 忽略大小写比较
-                    logMessage(DEBUG, "Client requests to quit: [%s: %d]", clientIP.c_str(), clientPort);
-                    break;
-                }
-                // 走到这里 就可以进行小写转大写了
-                logMessage(DEBUG, "low2up before: [%s: %d] >> %s", clientIP.c_str(), clientPort, inbuffer);
-                for (int i = 0; i < s; i++) {
-                    if (isalpha(inbuffer[i]) && islower(inbuffer[i]))
-                        inbuffer[i] = toupper(inbuffer[i]);
-                }
-                logMessage(DEBUG, "low2up after: [%s: %d] >> %s", clientIP.c_str(), clientPort, inbuffer);
+			// 连接到客户端之后, 就可以执行功能了
+			// 线程池版本
+			// v1
+			Task t(serviceSock, peerIP, peerPort,
+				   std::bind(&tcpServer::low2upService, this, std::placeholders::_1, std::placeholders::_2,
+							 std::placeholders::_3));
+			_tP->pushTask(t);
+		}
+	}
 
-                write(sock, inbuffer, strlen(inbuffer));
-            }
-            else if (s == 0) {
-                logMessage(DEBUG, "Client has quited: [%s: %d]", clientIP.c_str(), clientPort);
-                break;
-            }
-            else {
-                // 到这里 本次 read() 出错
-                logMessage(DEBUG, "Client [%s: %d] read:: %s", clientIP.c_str(), clientPort, strerror(errno));
-                break;
-            }
-        }
-        // 走到这里 循环已经退出了, 表示 client 也已经退出了
-        close(sock);
-        logMessage(DEBUG, "Service close %d sockFd", sock);
-    }
+	void low2upService(int sock, const std::string& clientIP, const uint16_t& clientPort) {
+		assert(sock > 0);
+		assert(!clientIP.empty());
+
+		char inbuffer[BUFFER_SIZE];
+		while (true) {
+			ssize_t s = read(sock, inbuffer, sizeof(inbuffer) - 1);
+			if (s > 0) {
+				// 大于零 就是读取到数据了
+				inbuffer[s] = '\0';
+				if (strcasecmp(inbuffer, "quit") == 0) { // strcasecmp 忽略大小写比较
+					logMessage(DEBUG, "Client requests to quit: [%s: %d]", clientIP.c_str(), clientPort);
+					break;
+				}
+				// 走到这里 就可以进行小写转大写了
+				logMessage(DEBUG, "low2up before: [%s: %d] >> %s", clientIP.c_str(), clientPort, inbuffer);
+				for (int i = 0; i < s; i++) {
+					if (isalpha(inbuffer[i]) && islower(inbuffer[i]))
+						inbuffer[i] = toupper(inbuffer[i]);
+				}
+				logMessage(DEBUG, "low2up after: [%s: %d] >> %s", clientIP.c_str(), clientPort, inbuffer);
+
+				write(sock, inbuffer, strlen(inbuffer));
+			}
+			else if (s == 0) {
+				logMessage(DEBUG, "Client has quited: [%s: %d]", clientIP.c_str(), clientPort);
+				break;
+			}
+			else {
+				// 到这里 本次 read() 出错
+				logMessage(DEBUG, "Client [%s: %d] read:: %s", clientIP.c_str(), clientPort, strerror(errno));
+				break;
+			}
+		}
+		// 走到这里 循环已经退出了, 表示 client 也已经退出了
+		close(sock);
+		logMessage(DEBUG, "Service close %d sockFd", sock);
+	}
 
 private:
-    uint16_t _port; // 端口号
-    std::string _ip;
-    int _listenSock; // 服务器套接字文件描述符
-    threadPool<Task>* _tP;
+	uint16_t _port; // 端口号
+	std::string _ip;
+	int _listenSock; // 服务器套接字文件描述符
+	threadPool<Task>* _tP;
 };
 
 void Usage(std::string proc) {
-    std::cerr << "Usage:: \n\t" << proc << " port ip" << std::endl;
-    std::cerr << "example:: \n\t" << proc << " 8080 127.0.0.1" << std::endl;
+	std::cerr << "Usage:: \n\t" << proc << " port ip" << std::endl;
+	std::cerr << "example:: \n\t" << proc << " 8080 127.0.0.1" << std::endl;
 }
 
 int main(int argc, char* argv[]) {
-    if (argc != 3 && argc != 2) {
-        Usage(argv[0]);
-        exit(USE_ERR);
-    }
-    uint16_t port = atoi(argv[1]);
-    std::string ip;
-    if (argc == 3) {
-        ip = argv[2];
-    }
+	if (argc != 3 && argc != 2) {
+		Usage(argv[0]);
+		exit(USE_ERR);
+	}
+	uint16_t port = atoi(argv[1]);
+	std::string ip;
+	if (argc == 3) {
+		ip = argv[2];
+	}
 
-    tcpServer svr(port, ip);
+	tcpServer svr(port, ip);
 
-    svr.init();
-    svr.loop();
+	svr.init();
+	svr.loop();
 
-    return 0;
+	return 0;
 }
 ```
 

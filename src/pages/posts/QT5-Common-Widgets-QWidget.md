@@ -5,8 +5,8 @@ pubDate: 2024-12-16
 description: 'QT是一种GUI开发框架, 它内置有许多各种各样的控件, 接下来就对常用控件做一些介绍'
 author: '哈米d1ch'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202412171047999.webp'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202412171047999.webp'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202412241544080.webp'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202412241544080.webp'
     alt: 'cover'
 tags: ["QT", "控件", "QWidget", "QRC", "约6329字 -- 阅读时间≈21分钟"]
 theme: 'light'
@@ -1041,7 +1041,7 @@ Widget::~Widget() {
 
 然后才能将文本输入到聚焦的单行文本编辑框中:
 
-![|biger](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202412172020171.webp)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202412172020171.webp)
 
 并且, 可以通过点击或`Tab`的方式, 切换所聚焦的单行文本编辑框:
 
